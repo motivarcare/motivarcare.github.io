@@ -13,7 +13,7 @@
 
 ---
 
-## 🎨 Dirección Visual del Informe (Estilo Opción 7)
+## 🎨 Dirección Visual del Informe
 * **Base:** Papel Salvia Sereno (`#E8ECE6`) con retícula técnica de ingeniería médica.
 * **Tinta principal:** Bosque profundo / Carbón vegetal (`#112017`).
 * **Color de acento:** Terracota Óxido (`#C2593F`).
