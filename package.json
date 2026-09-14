@@ -1,0 +1,15 @@
+{
+  "name": "motivarcare.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Informe de Auditoría UX para MotivarCare — Septiembre 2026",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

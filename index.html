@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditoría UX & Confianza Digital — MotivarCare</title>
+  
+  <!-- Estilos base y fuentes editoriales -->
+  <link rel="stylesheet" href="./src/css/style.css" />
+
+  <!-- Tailwind CSS CDN para previsualización inmediata y estilos utilitarios -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            salvia: {
+              base: '#E8ECE6',
+              light: '#EFF3ED',
+              card: '#DEE5DA',
+              border: '#CBD5C7',
+              muted: '#7F9185'
+            },
+            forest: {
+              ink: '#112017',
+              dark: '#0B150F',
+              muted: '#273B2F'
+            },
+            terracotta: {
+              DEFAULT: '#C2593F',
+              hover: '#AB4C34',
+              light: '#F8EAE6'
+            }
+          },
+          fontFamily: {
+            hero: ['"Instrument Serif"', 'serif'],
+            reading: ['"Newsreader"', 'serif'],
+            ui: ['"Plus Jakarta Sans"', 'sans-serif'],
+            code: ['"Space Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-salvia-base text-forest-ink min-h-screen blueprint-grid-sage antialiased font-reading selection:bg-terracotta selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- BARRA SUPERIOR DE METADATOS Y ACCIONES PERICIALES                         -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#E8ECE6]/90 backdrop-blur border-b border-salvia-border px-4 md:px-8 py-3.5 no-print">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded border border-forest-ink flex items-center justify-center font-ui font-bold text-xs bg-[#DCE4D9] text-forest-ink">
+          MC
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-hero text-2xl tracking-wide font-normal leading-none">MotivarCare</span>
+            <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#DCE4D9] text-forest-ink font-bold border border-salvia-border">
+              Informe UX Oficial
+            </span>
+          </div>
+          <span class="font-ui text-[10px] uppercase tracking-widest text-[#576D60] font-semibold block">
+            Auditoría de Usabilidad & Salud Mental · Septiembre 2026
+          </span>
+        </div>
+      </div>
+
+      <!-- Acciones de cabecera -->
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="px-3.5 py-1.5 rounded-lg border border-salvia-border bg-white/70 hover:bg-white text-forest-ink font-ui text-xs font-bold transition-all shadow-sm flex items-center gap-1.5">
+          <span>🖨️</span> Exportar Dictamen (PDF)
+        </button>
+        <a href="#areas" class="px-3.5 py-1.5 rounded-lg bg-forest-ink hover:bg-forest-dark text-salvia-base font-ui text-xs font-bold transition-all shadow-sm">
+          Explorar 3 Áreas
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- CONTENEDOR PRINCIPAL DEL REPORTE                                          -->
+  <!-- ========================================================================= -->
+  <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-16">
+
+    <!-- HERO SECTION: TITULAR MONUMENTAL & DICTAMEN EJECUTIVO (Opción 7) -->
+    <section class="space-y-8">
+      <!-- Pestañas de navegación tipo archivador -->
+      <div class="border-b border-salvia-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-salvia-muted/40 text-[11px] font-ui uppercase tracking-widest text-forest-muted font-bold bg-[#DEE5DA]">
+          <span class="w-2 h-2 rounded-full bg-terracotta"></span>
+          Estudio Pericial de Usabilidad en Telepsicología
+        </div>
+
+        <nav class="flex items-center gap-1 overflow-x-auto no-print">
+          <button onclick="filterByArea('all')" data-area="all" class="nav-area-btn px-4 py-2 rounded-t-lg bg-forest-ink text-salvia-base font-ui text-xs font-bold">
+            Panorama General
+          </button>
+          <button onclick="filterByArea('landing')" data-area="landing" class="nav-area-btn px-4 py-2 rounded-t-lg text-[#3C5245] hover:text-forest-ink font-ui text-xs font-semibold">
+            1. Landing Page
+          </button>
+          <button onclick="filterByArea('patient')" data-area="patient" class="nav-area-btn px-4 py-2 rounded-t-lg text-[#3C5245] hover:text-forest-ink font-ui text-xs font-semibold">
+            2. App Paciente
+          </button>
+          <button onclick="filterByArea('professional')" data-area="professional" class="nav-area-btn px-4 py-2 rounded-t-lg text-[#3C5245] hover:text-forest-ink font-ui text-xs font-semibold">
+            3. Portal Profesional
+          </button>
+        </nav>
+      </div>
+
+      <!-- Título de Escala Monumental con acento Terracota -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-8 space-y-6">
+          <h1 class="font-hero text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] leading-[0.88] text-forest-dark font-normal tracking-tight">
+            La fragilidad del 
+            <span class="italic text-terracotta font-normal underline decoration-terracotta/40 underline-offset-8">primer contacto</span> 
+            en terapia virtual.
+          </h1>
+
+          <!-- Dictamen para la Junta Directiva (100% Serif en Newsreader) -->
+          <div class="p-6 md:p-8 bg-salvia-card/90 border-l-4 border-terracotta rounded-r-2xl space-y-3 shadow-sm">
+            <div class="flex items-center justify-between border-b border-salvia-border pb-2">
+              <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold">
+                // Dictamen para el Directorio & Stakeholders
+              </span>
+              <span class="font-code text-[11px] text-[#5A6F62]">REF. AUDITORÍA: MC-2026</span>
+            </div>
+            <p class="font-reading text-lg md:text-xl text-[#1E3025] leading-relaxed">
+              El usuario que busca atención psicológica en línea experimenta una carga cognitiva y emocional única: su motivación inicial es alta, pero su tolerancia a la incertidumbre es mínima. Si el portal no disipa en menos de 10 segundos las dudas sobre la <em>matrícula médica</em>, las <em>tarifas reales</em> y la <em>confidencialidad de la sesión</em>, el abandono preventivo supera el <strong>38%</strong> del tráfico.
+            </p>
+            <p class="font-reading text-sm text-[#2D4536] leading-relaxed">
+              Esta auditoría examina los 3 entornos críticos del ecosistema de MotivarCare bajo <strong>10 Heurísticas de Usabilidad de Nielsen</strong> adaptadas a salud mental, definiendo un plan de optimización de alto retorno sobre la inversión (ROI).
+            </p>
+          </div>
+        </div>
+
+        <!-- Scorecard Lateral de Salud UX & Telemetría Ejecutiva -->
+        <div class="lg:col-span-4 bg-[#DFE6DB] border border-salvia-border rounded-2xl p-6 md:p-7 space-y-6 shadow-sm">
+          <div class="border-b border-salvia-border pb-4 flex items-center justify-between">
+            <div>
+              <span class="font-ui text-[10px] uppercase tracking-widest text-[#576B5F] font-bold block">Health Score UX Global</span>
+              <span class="font-hero text-5xl text-forest-dark font-normal">
+                <span id="metric-global-score">62</span><span class="text-xl text-[#576B5F]">/100</span>
+              </span>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-terracotta/15 text-terracotta font-ui text-[10px] uppercase tracking-wider font-bold border border-terracotta/30">
+              Acción Requerida
+            </span>
+          </div>
+
+          <!-- Métricas de calibración -->
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>Total Hallazgos</span>
+                <span id="metric-total-findings" class="text-forest-dark font-code">6</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>Vulnerabilidades Críticas</span>
+                <span id="metric-critical-count" class="text-terracotta font-code font-bold">2</span>
+              </div>
+              <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
+                <div class="bg-terracotta h-full w-[65%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>Fricciones Mayores</span>
+                <span id="metric-major-count" class="text-amber-700 font-code font-bold">3</span>
+              </div>
+              <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
+                <div class="bg-amber-600 h-full w-[45%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-white/70 rounded-xl border border-salvia-border text-xs space-y-1">
+            <span class="font-ui text-[10px] uppercase tracking-wider text-forest-dark font-bold block">
+              💡 Diagnóstico de Negocio
+            </span>
+            <p class="font-reading text-[#2A3E32] leading-snug">
+              El <strong>70%</strong> de los hallazgos pueden subsanarse en un solo sprint de frontend sin modificar la infraestructura clínica existente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN 1: LAS 3 ÁREAS A EVALUAR                                          -->
+    <!-- ========================================================================= -->
+    <section id="areas" class="space-y-6 pt-6 border-t border-salvia-border">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+        <div>
+          <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold block">Alcance del Estudio</span>
+          <h2 class="font-hero text-3xl sm:text-4xl text-forest-dark font-normal">
+            Las 3 Áreas Auditadas
+          </h2>
+        </div>
+        <p class="font-reading text-sm text-[#4E6255] max-w-md">
+          Haz clic en cualquier área para filtrar los hallazgos específicos y ver el diagnóstico técnico individual.
+        </p>
+      </div>
+
+      <!-- Cuadrícula interactiva de las 3 áreas -->
+      <div id="areas-grid-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN 2: METODOLOGÍA HEURÍSTICA DE NIELSEN ADAPTADA                    -->
+    <!-- ========================================================================= -->
+    <section class="p-6 md:p-8 rounded-2xl bg-[#E0E7DC] border border-salvia-border space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-salvia-border pb-3">
+        <div>
+          <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold block">Marco de Evaluación</span>
+          <h3 class="font-hero text-2xl text-forest-dark font-normal">10 Heurísticas de Nielsen adaptadas a Telepsicología</h3>
+        </div>
+        <span class="font-ui text-xs text-[#526659] bg-white/70 px-3 py-1 rounded-full border border-salvia-border">
+          Estándar de Oro de Usabilidad
+        </span>
+      </div>
+      <p class="font-reading text-base text-[#24392D] leading-relaxed max-w-4xl">
+        Las 10 heurísticas clásicas de Jakob Nielsen han sido contextualizadas para evaluar la <strong>ética, la confidencialidad médica, la reducción de ansiedad sensorial y la transparencia transaccional</strong> en plataformas de salud mental online.
+      </p>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN 3: EXPLORADOR DE HALLAZGOS PERICIALES INTERACTIVO                 -->
+    <!-- ========================================================================= -->
+    <section id="hallazgos" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-salvia-border pb-4">
+        <div>
+          <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold block">Catálogo Pericial</span>
+          <h2 class="font-hero text-3xl sm:text-4xl text-forest-dark font-normal">
+            Hallazgos & Recomendaciones
+          </h2>
+        </div>
+
+        <!-- Filtros y buscador interactivos -->
+        <div class="flex flex-wrap items-center gap-3 no-print">
+          <!-- Buscador -->
+          <div class="relative">
+            <input type="text" id="search-input" placeholder="Buscar por palabra o heurística..." 
+                   class="pl-8 pr-3 py-1.5 rounded-lg border border-salvia-border bg-white text-forest-ink font-ui text-xs placeholder:text-[#7A8F82] focus:outline-none focus:ring-2 focus:ring-terracotta/40 w-56 md:w-64" />
+            <span class="absolute left-2.5 top-2 text-xs text-[#7A8F82]">🔍</span>
+          </div>
+
+          <!-- Filtro por severidad -->
+          <select id="severity-filter" class="px-3 py-1.5 rounded-lg border border-salvia-border bg-white text-forest-ink font-ui text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-terracotta/40">
+            <option value="all">Todas las severidades</option>
+            <option value="critical">Solo Críticos</option>
+            <option value="major">Solo Mayores</option>
+            <option value="minor">Solo Menores</option>
+          </select>
+
+          <!-- Contador -->
+          <span id="visible-findings-count" class="font-ui text-xs text-[#55695D] font-bold">
+            6 hallazgo(s)
+          </span>
+        </div>
+      </div>
+
+      <!-- Contenedor dinámico de hallazgos -->
+      <div id="findings-container" class="space-y-6">
+        <!-- Renderizado dinámico desde app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE PÁGINA PERICIAL                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="mt-24 border-t border-salvia-border bg-[#DFE5DC] py-10 px-4 md:px-8 text-center text-xs font-ui text-[#526659]">
+    <div class="max-w-7xl mx-auto space-y-2">
+      <p class="font-bold text-forest-dark">
+        MotivarCare UX Audit · Desarrollado con metodología heurística adaptada a Telepsicología
+      </p>
+      <p class="font-reading text-sm italic text-[#44584C]">
+        Documento técnico para uso interno y toma de decisiones estratégicas. Septiembre 2026.
+      </p>
+      <div class="pt-4 font-code text-[11px] text-[#718578]">
+        Repositorio oficial: <a href="https://github.com/motivarcare/motivarcare.github.io" class="underline hover:text-terracotta">motivarcare.github.io</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica modular de la aplicación -->
+  <script type="module" src="./src/js/app.js"></script>
+</body>
+</html>
