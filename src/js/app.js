@@ -10,9 +10,9 @@ let currentArea = 'all';
 let currentSeverity = 'all';
 let currentSearch = '';
 
-// IDs de casos expandidos manualmente en la tabla de hallazgos (por defecto
-// todos los casos arrancan colapsados).
-const expandedCasoIds = new Set();
+// IDs de casos expandidos en la tabla de hallazgos (por defecto todos los
+// casos arrancan expandidos; toggleCaso agrega/quita ids de este set).
+const expandedCasoIds = new Set(casos.map(caso => caso.id));
 
 document.addEventListener('DOMContentLoaded', () => {
   renderHeroContent('all');
@@ -60,22 +60,43 @@ function renderHeuristicsTable() {
   `).join('');
 }
 
+// Ancho de barra proporcional a "count" sobre el total de hallazgos (0 si no
+// hay hallazgos todavía, para no dividir por cero).
+function barWidth(count, total) {
+  return total > 0 ? `${Math.round((count / total) * 100)}%` : '0%';
+}
+
 function renderHeaderMetrics() {
-  const scoreEl = document.getElementById('metric-global-score');
-  if (scoreEl) scoreEl.textContent = auditMetadata.healthScoreGlobal;
+  const total = allFindings.length;
+  const mayorCount = allFindings.filter(f => f.severidad === 'Mayor').length;
+  const menorCount = allFindings.filter(f => f.severidad === 'Menor').length;
+  const recomendacionCount = allFindings.filter(f => f.severidad === 'Recomendación').length;
+
+  // Cifra destacada del scorecard: hallazgos Mayores sobre el total de
+  // hallazgos relevados (no un "score" de salud, que no forma parte de la
+  // metodología real de este informe).
+  const scoreMayorEl = document.getElementById('metric-score-mayor');
+  if (scoreMayorEl) scoreMayorEl.textContent = mayorCount;
+  const scoreTotalEl = document.getElementById('metric-score-total');
+  if (scoreTotalEl) scoreTotalEl.textContent = total;
 
   const totalEl = document.getElementById('metric-total-findings');
-  if (totalEl) totalEl.textContent = allFindings.length;
+  if (totalEl) totalEl.textContent = total;
 
-  // "metric-critical-count" muestra Hallazgos Mayores (severidad más alta
-  // de la metodología real, que no incluye una categoría "Crítico").
-  const mayorCount = allFindings.filter(f => f.severidad === 'Mayor').length;
-  const criticalEl = document.getElementById('metric-critical-count');
-  if (criticalEl) criticalEl.textContent = mayorCount;
+  const mayorEl = document.getElementById('metric-mayor-count');
+  if (mayorEl) mayorEl.textContent = mayorCount;
+  const mayorBarEl = document.getElementById('metric-mayor-bar');
+  if (mayorBarEl) mayorBarEl.style.width = barWidth(mayorCount, total);
 
-  const menorCount = allFindings.filter(f => f.severidad === 'Menor').length;
-  const majorEl = document.getElementById('metric-major-count');
-  if (majorEl) majorEl.textContent = menorCount;
+  const menorEl = document.getElementById('metric-menor-count');
+  if (menorEl) menorEl.textContent = menorCount;
+  const menorBarEl = document.getElementById('metric-menor-bar');
+  if (menorBarEl) menorBarEl.style.width = barWidth(menorCount, total);
+
+  const recomendacionEl = document.getElementById('metric-recomendacion-count');
+  if (recomendacionEl) recomendacionEl.textContent = recomendacionCount;
+  const recomendacionBarEl = document.getElementById('metric-recomendacion-bar');
+  if (recomendacionBarEl) recomendacionBarEl.style.width = barWidth(recomendacionCount, total);
 }
 
 function renderAreasCards() {
@@ -195,22 +216,19 @@ function renderFindings() {
     const headerRow = `
       <tr class="bg-[#DEE5DA] border-t-2 border-b border-salvia-border">
         <td colspan="5" class="px-3 py-2">
-          <div class="flex flex-wrap items-center gap-2">
+          <div class="flex items-center gap-2">
             <button onclick="toggleCaso(${caso.id}, event)" aria-expanded="${isExpanded}" aria-label="${isExpanded ? 'Colapsar' : 'Expandir'} hallazgos del caso ${caso.numero}"
                     class="w-6 h-6 flex items-center justify-center rounded border border-[#BAC5B7] bg-white text-[#3C5245] hover:text-terracotta hover:border-terracotta transition-all shrink-0">
               <span class="inline-block text-xs transition-transform duration-150 ${isExpanded ? 'rotate-90' : ''}">▸</span>
             </button>
-            <a href="./caso.html?id=${caso.id}" class="flex flex-wrap items-center gap-2 group flex-1 min-w-0">
-              <span class="font-code font-bold text-xs text-[#112017] px-2 py-0.5 rounded bg-white border border-[#BAC5B7] whitespace-nowrap">
+            <a href="./caso.html?id=${caso.id}" class="flex items-center gap-2 group flex-1 min-w-0">
+              <span class="font-code font-bold text-xs text-[#112017] px-2 py-0.5 rounded bg-white border border-[#BAC5B7] whitespace-nowrap shrink-0">
                 CASO ${caso.numero}
               </span>
-              <span class="font-ui text-sm font-bold text-forest-dark group-hover:text-terracotta transition-colors">
+              <span class="font-ui text-sm font-bold text-forest-dark group-hover:text-terracotta transition-colors truncate min-w-0">
                 ${caso.titulo}
               </span>
-              <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-bold border ${caso.estado === 'Completado' ? 'bg-emerald-700 text-white border-emerald-700' : 'bg-white text-[#3C5245] border-[#CBD5C7]'}">
-                ${caso.estado}
-              </span>
-              <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-bold bg-white text-[#526659] border border-[#CBD5C7] whitespace-nowrap">
+              <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-bold bg-white text-[#526659] border border-[#CBD5C7] whitespace-nowrap shrink-0">
                 ${hallazgosFiltrados.length} hallazgo${hallazgosFiltrados.length === 1 ? '' : 's'}
               </span>
             </a>
@@ -309,4 +327,23 @@ window.resetFilters = function() {
   if (sevFilter) sevFilter.value = 'all';
 
   filterByArea('all');
+};
+
+// Colapsa/expande la tabla de las 10 Heurísticas de Nielsen (colapsada por
+// defecto); el encabezado, título y descripción de la sección siempre
+// quedan visibles.
+window.toggleHeuristicsTable = function() {
+  const wrapper = document.getElementById('heuristics-table-wrapper');
+  const icon = document.getElementById('heuristics-toggle-icon');
+  const btn = document.getElementById('heuristics-toggle');
+  if (!wrapper) return;
+
+  const willExpand = wrapper.hidden;
+  wrapper.hidden = !willExpand;
+
+  if (icon) icon.classList.toggle('rotate-90', willExpand);
+  if (btn) {
+    btn.setAttribute('aria-expanded', String(willExpand));
+    btn.setAttribute('aria-label', willExpand ? 'Colapsar tabla de heurísticas' : 'Expandir tabla de heurísticas');
+  }
 };

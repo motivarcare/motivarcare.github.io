@@ -56,7 +56,7 @@
           <div class="flex items-center gap-2">
             <span class="font-hero text-2xl tracking-wide font-normal leading-none">MotivarCare</span>
             <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#DCE4D9] text-forest-ink font-bold border border-salvia-border">
-              Informe UX - En progreso
+              Informe UX - <span class="text-terracotta">En progreso</span>
             </span>
           </div>
           <span class="font-ui text-[10px] uppercase tracking-widest text-[#576D60] font-semibold block py-1">
@@ -132,9 +132,9 @@
         <div class="lg:col-span-4 bg-[#DFE6DB] border border-salvia-border rounded-2xl p-6 md:p-7 space-y-6 shadow-sm">
           <div class="border-b border-salvia-border pb-4 flex items-center justify-between">
             <div>
-              <span class="font-ui text-[10px] uppercase tracking-widest text-[#576B5F] font-bold block">Health Score UX Global</span>
+              <span class="font-ui text-[10px] uppercase tracking-widest text-[#576B5F] font-bold block">Resumen Ejecutivo</span>
               <span class="font-hero text-5xl text-forest-dark font-normal">
-                <span id="metric-global-score">62</span><span class="text-xl text-[#576B5F]">/100</span>
+                <span id="metric-score-mayor">0</span><span class="text-xl text-[#576B5F]">/<span id="metric-score-total">0</span></span>
               </span>
             </div>
             <span class="px-3 py-1 rounded-full bg-terracotta/15 text-terracotta font-ui text-[10px] uppercase tracking-wider font-bold border border-terracotta/30">
@@ -147,37 +147,47 @@
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
                 <span>Total Hallazgos</span>
-                <span id="metric-total-findings" class="text-forest-dark font-code">6</span>
+                <span id="metric-total-findings" class="text-forest-dark font-code">0</span>
               </div>
             </div>
 
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
                 <span>Hallazgos Mayores</span>
-                <span id="metric-critical-count" class="text-terracotta font-code font-bold">2</span>
+                <span id="metric-mayor-count" class="text-amber-700 font-code font-bold">0</span>
               </div>
               <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
-                <div class="bg-terracotta h-full w-[65%]"></div>
+                <div id="metric-mayor-bar" class="bg-amber-600 h-full" style="width: 0%"></div>
               </div>
             </div>
 
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
                 <span>Hallazgos Menores</span>
-                <span id="metric-major-count" class="text-amber-700 font-code font-bold">3</span>
+                <span id="metric-menor-count" class="text-[#405648] font-code font-bold">0</span>
               </div>
               <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
-                <div class="bg-amber-600 h-full w-[45%]"></div>
+                <div id="metric-menor-bar" class="bg-[#405648] h-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>Recomendaciones</span>
+                <span id="metric-recomendacion-count" class="text-emerald-700 font-code font-bold">0</span>
+              </div>
+              <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
+                <div id="metric-recomendacion-bar" class="bg-emerald-700 h-full" style="width: 0%"></div>
               </div>
             </div>
           </div>
 
           <div class="p-4 bg-white/70 rounded-xl border border-salvia-border text-xs space-y-1">
             <span class="font-ui text-[10px] uppercase tracking-wider text-forest-dark font-bold block">
-              💡 Diagnóstico de Negocio
+              📋 Alcance de la evaluación
             </span>
             <p class="font-reading text-[#2A3E32] leading-snug">
-              El <strong>70%</strong> de los hallazgos pueden subsanarse en un solo sprint de frontend sin modificar la infraestructura clínica existente.
+              La auditoría evaluó criterios de <strong>usabilidad</strong> y <strong>accesibilidad</strong>, relevando cada pantalla tanto en <strong>escritorio</strong> como en <strong>tablet</strong> y <strong>móvil</strong>.
             </p>
           </div>
         </div>
@@ -215,16 +225,22 @@
           <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold block py-1.5">Marco de Evaluación</span>
           <h3 class="font-hero text-2xl text-forest-dark font-normal">10 Heurísticas de Nielsen adaptadas a Telepsicología</h3>
         </div>
-        <span class="font-ui text-xs text-[#526659] bg-white/70 px-3 py-1 rounded-full border border-salvia-border">
-          Estándar de Oro de Usabilidad
-        </span>
+        <div class="flex items-center gap-2">
+          <span class="font-ui text-xs text-[#526659] bg-white/70 px-3 py-1 rounded-full border border-salvia-border">
+            Estándar de Oro de Usabilidad
+          </span>
+          <button id="heuristics-toggle" onclick="toggleHeuristicsTable()" aria-expanded="false" aria-controls="heuristics-table-wrapper" aria-label="Expandir tabla de heurísticas"
+                  class="w-7 h-7 flex items-center justify-center rounded border border-salvia-border bg-white/70 text-forest-ink hover:text-terracotta hover:border-terracotta transition-all shrink-0">
+            <span id="heuristics-toggle-icon" class="inline-block text-xs transition-transform duration-150">▸</span>
+          </button>
+        </div>
       </div>
       <p class="font-reading text-base text-[#24392D] leading-relaxed max-w-4xl">
         Las 10 heurísticas clásicas de Jakob Nielsen han sido contextualizadas para evaluar la <strong>ética, la confidencialidad médica, la reducción de ansiedad sensorial y la transparencia transaccional</strong> en plataformas de salud mental online.
       </p>
 
-      <!-- Tabla de las 10 Heurísticas adaptadas -->
-      <div class="overflow-x-auto pt-2">
+      <!-- Tabla de las 10 Heurísticas adaptadas (colapsada por defecto) -->
+      <div id="heuristics-table-wrapper" class="overflow-x-auto pt-2" hidden>
         <table class="w-full text-left border-collapse min-w-[640px]">
           <thead>
             <tr class="border-b border-salvia-border">

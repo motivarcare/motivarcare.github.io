@@ -9,7 +9,6 @@ export const auditMetadata = {
   client: "MotivarCare",
   date: "Septiembre 2026",
   version: "1.0",
-  healthScoreGlobal: 62,
   methodology: "10 Heurísticas de Nielsen adaptadas a Telepsicología y Salud Mental",
   executiveSummary: "Estudio pericial enfocado en detectar y resolver las fugas de conversión y barreras emocionales que afectan al paciente en la toma de decisión para iniciar terapia virtual, así como en optimizar la fluidez operativa del profesional de la salud mental."
 };
@@ -88,7 +87,7 @@ export const auditAreas = [
     description: "Flujo integral del usuario desde el triaje o búsqueda de terapeuta, selección de horario, pasarela de pago, hasta la sala de espera virtual y la realización de la videoconsulta.",
     score: 59,
     status: "Revisión Prioritaria",
-    findingsCount: { mayor: 3, menor: 1, recomendacion: 3 }
+    findingsCount: { mayor: 9, menor: 9, recomendacion: 11 }
   },
   {
     id: "professional",
@@ -572,6 +571,547 @@ export const casos = [
         evidencia: [
           { src: "capturas/caso-02/16-menu-cuenta-mobile-idioma-cortado.jpg", caption: "Menú de cuenta completo, con el valor cortado" },
           { src: "capturas/caso-02/17-menu-cuenta-mobile-idioma-cortado-zoom.png", caption: "Zoom sobre la fila (capturado en Chrome real)" }
+        ],
+        verificaciones: []
+      }
+    ]
+  },
+  {
+    id: 3,
+    numero: "03",
+    slug: "caso-03-home-paciente",
+    areaId: "patient",
+    areaName: "Experiencia del Paciente",
+    titulo: "Exploración de la Home Page del Paciente — secciones, navegación, paneles desplegables e identidad visual, en escritorio, tablet y móvil",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Recorrido exhaustivo de la Home de <code>app.motivarcare.com</code> bajo el perfil de <strong>paciente</strong>, sin llegar a reservar ninguna sesión ni turno. El objetivo fue relevar cada sección visible de la Home, la navegación principal, y cualquier panel, menú o modal que se despliegue desde ella (incluyendo el panel de cuenta/administración); validar la consistencia de las decisiones gráficas y de identidad de producto a lo largo de toda la página; hacer scroll hasta el final para relevar la totalidad de las funcionalidades ofrecidas; y distinguir las secciones de uso cotidiano de los paneles de administración de cuenta. Se evaluó usabilidad, accesibilidad y consistencia visual en todo momento. Se usó Chrome vía plugin (Claude in Chrome), a pedido del Evaluador UX. Se inició sesión con la cuenta de prueba original del Caso 02 (<code>gaston.f.martino@gmail.com</code>), ingresada manualmente por el Evaluador UX por política de manejo de credenciales. Se hicieron tres pasadas: escritorio (ventana de 1440×900) y tablet (viewport de 768×1024), ambas con Chrome vía plugin y la misma sesión de login ya persistida; y móvil (viewport de 375×812), con el navegador integrado de Claude, donde la sesión ya estaba iniciada con una cuenta de prueba distinta (<code>gaston.f.martino+mobile1@gmail.com</code>, un alias de la misma casilla). En las pasadas de tablet y móvil, a pedido del Evaluador UX, no se repitieron las validaciones de color/identidad visual, iconografía ni accesibilidad por teclado. El navegador integrado no ofrece una forma de guardar capturas de pantalla en disco (a diferencia del plugin de Chrome), por lo que la evidencia de la pasada de móvil se apoya principalmente en inspección de DOM y observación en vivo, salvo que se indique lo contrario. Se sumó además una sexta pasada, a pedido del Evaluador UX, para validar específicamente el diseño y la jerarquía visual de los botones de la Home, exclusivamente en escritorio, incluyendo una comparación directa entre el botón “Cuenta” del header y el CTA principal “Reservar sesión” (ver Hallazgos 21 y 22).",
+    pasosRealizados: [
+      "Se abrió <code>app.motivarcare.com</code> en Chrome (1440×900). El Evaluador UX inició sesión manualmente con la cuenta de prueba <code>gaston.f.martino@gmail.com</code> (Claude no ingresa contraseñas por política, aun cuando el Evaluador UX las provee explícitamente — se le pidió que lo hiciera él mismo en la ventana ya abierta).",
+      "Tras el login, la app mostró la pantalla de “Psicólogos sugeridos para vos” (matching post-registro). Se usó “Más tarde” para saltearla y llegar a la Home real, indicado así por el Evaluador UX.",
+      "Se relevó la Home por completo: carrusel principal (hero), accesos rápidos, y las 4 secciones extendidas que siguen debajo (Sesiones, Diario emocional, Ejercicios, Música), haciendo scroll hasta el pie de página.",
+      "Se abrió el menú “Cuenta” (desplegable superior derecho) y se recorrieron todas sus secciones: Cuenta (Datos personales, Actividad de sesiones), Preferencias (Idioma y moneda, Notificaciones), Ayuda (Preguntas frecuentes, Manual de usuario, Contactar soporte), Legal (Términos y condiciones, Política de privacidad, Líneas de apoyo), Teléfonos útiles, y las opciones inferiores (alternar a “Inicio clásica” / cerrar sesión).",
+      "Se entró a cada uno de esos destinos para confirmar que cargan correctamente y que su contenido corresponde a lo que promete la etiqueta del menú.",
+      "Se abrió el panel de notificaciones (campana superior derecha) y se relevó su contenido.",
+      "Se probó el menú lateral de navegación (ícono-solo, se expande al pasar el mouse) y se confirmó que cada ícono lleva a Inicio, Sesiones, Chat, Diario, Ejercicios y Música.",
+      "Se descubrió, dentro del menú “Cuenta”, una opción “Inicio clásica” que alterna a una versión completamente distinta de la Home (diseño, layout, y estructura de menú diferentes a la Home por defecto). Se recorrió esa segunda Home también hasta el final, y se verificó el camino de vuelta (“Inicio ML”, en la misma posición del menú de esa versión).",
+      "Se recorrieron las páginas de destino de cada tarjeta de acceso rápido de la Home (Sesiones, Diario/Ejercicios/Música), sin completar ninguna reserva ni compra. Se abrió el modal “Elegí tu terapia” (accedido desde “Comprar sesiones”) solo para confirmar su contenido, sin adquirir ningún paquete.",
+      "Se completó el “Tour con Maca” (tour guiado, 9 pasos) accesible desde la esquina inferior izquierda, para relevar su contenido y su comportamiento.",
+      "Se probaron los controles manuales del carrusel principal (flechas y puntos) y se observó su comportamiento de auto-avance.",
+      "En una segunda pasada, a pedido del Evaluador UX, se profundizó específicamente en tres aspectos de identidad visual: (a) el esquema de colores azul/verde de la Home comparado con el de la landing pública (<code>www.motivarcare.com</code>); (b) los íconos del carrusel hero (fondo blanco translúcido); (c) la consistencia entre la iconografía de los 6 accesos rápidos y la de las 4 secciones extendidas equivalentes.",
+      "Para el punto (a), se inspeccionaron directamente las hojas de estilo (<code>document.styleSheets</code>) de ambas superficies vía consola, extrayendo los valores exactos de las variables CSS de color (<code>:root</code>) y las reglas de fondo de cada variante del hero, en vez de estimar colores a partir de capturas de pantalla — esto evita errores por la reproducción de color de los JPG y por el auto-avance del carrusel.",
+      "Para asignar con certeza cada slide del carrusel a su variante de color (el carrusel avanza solo cada pocos segundos, lo que generó lecturas contradictorias en un primer intento), se leyeron los 3 slides directamente del DOM en simultáneo (los 3 están siempre presentes en el track del carrusel) en lugar de fiarse del slide visible en un momento dado.",
+      "Para el punto (b), se aisló el SVG de cada ícono del hero vía JavaScript y se los inspeccionó ampliados (zoom) uno por uno, navegando manualmente a cada slide.",
+      "Para el punto (c), se recorrió nuevamente la Home completa comparando, sección por sección, el ícono de cada tarjeta de acceso rápido contra el ícono del banner y de las sub-tarjetas de su sección extendida correspondiente (Sesiones, Diario emocional, Ejercicios, Música).",
+      "En una tercera pasada, a pedido del Evaluador UX, se hizo un control de accesibilidad de la Home navegando exclusivamente con teclado (tecla Tab / Mayús+Tab para moverse entre elementos, Enter/Espacio para activarlos, Escape para cerrar paneles), incluyendo el menú de navegación lateral izquierdo. Se recargó la página antes de empezar para asegurar que el foco partiera del principio del documento (sin ningún clic de mouse previo, que puede alterar el punto de partida del orden de tabulación).",
+      "Se recorrió el orden de tabulación completo de la Home de punta a punta: menú lateral (Inicio, Sesiones, Chat, Diario, Ejercicios, Música, Tour con Maca, ícono de cuenta), logo, campana de notificaciones, botón “Cuenta”, el carrusel hero (flechas y puntos), “Conectá Google Calendar”, “Reservar sesión”, las 6 tarjetas de acceso rápido, las 4 secciones extendidas con sus sub-tarjetas, y el pie de página, verificando en cada parada (vía inspección del elemento con foco por consola y capturas) si el indicador de foco es visible y si el elemento corresponde a lo esperado.",
+      "Se abrieron con teclado (Enter) el panel de notificaciones, el menú “Cuenta” y el modal “Elegí tu terapia” (este último desde la tarjeta “Comprar sesiones”, sin llegar a elegir ningún profesional ni completar ninguna compra), y en cada caso se probó si Tab permite navegar su contenido interno y si Escape los cierra.",
+      "Se comparó el estado de foco por teclado del menú lateral contra su estado al pasar el mouse (hover), para verificar si ambas interacciones exponen la misma información a la persona usuaria.",
+      "En una cuarta pasada, a pedido del Evaluador UX, se repitió la exploración completa de la Home (mismo alcance que los pasos 1 a 11) en viewport <strong>tablet (768×1024)</strong>, usando una pestaña nueva de Chrome; la sesión de login previa se mantuvo activa y no fue necesario volver a autenticarse. Por instrucción explícita del Evaluador UX, en esta pasada se omitieron el control de accesibilidad por teclado (Hallazgos 13 a 16, sin sentido en un dispositivo táctil) y las validaciones de color/identidad visual e iconografía (Hallazgos 10 a 12): se asume que esos 7 hallazgos se repiten sin cambios en tablet y en móvil, y no fueron re-verificados en esta pasada ni en la de móvil que quede pendiente.",
+      "Se confirmó que, a este ancho, el menú lateral de escritorio desaparece por completo y es reemplazado por una barra de navegación inferior fija (Inicio, Sesiones, Chat, Diario, Más) y, en el header, un ícono de hamburguesa (☰) junto a la campana de notificaciones. Se verificó que la hamburguesa abre el mismo panel “Cuenta” que en escritorio (con su mismo contenido completo), y que el ítem “Más” de la barra inferior abre un panel distinto y mucho más acotado, “Explorar” (Ejercicios / Música relajante / Mi cuenta), con solo una intersección parcial con “Cuenta”.",
+      "Se re-verificaron uno por uno, en tablet, los Hallazgos 1, 2, 3, 4, 5, 6, 8 y 9 de la pasada de escritorio (ver el campo “Viewport” actualizado en cada uno). Para el Hallazgo 5 (“Abrir diario” rotulado “Ir al inicio”), dado que esa tarjeta queda parcialmente recortada al final de la fila de accesos rápidos, se confirmó el texto de su enlace interno vía inspección de DOM en lugar de una captura de pantalla. Para el Hallazgo 6 (carrusel sin control de pausa), se buscó en el DOM cualquier botón o control con texto o <code>aria-label</code> relacionado a pausa/reproducción y no se encontró ninguno, igual que en escritorio.",
+      "Se buscó el “Tour con Maca” en los dos menús de navegación disponibles en tablet (“Cuenta” vía hamburguesa, y “Explorar” vía “Más”) y no apareció en ninguno de los dos. Se confirmó vía inspección de DOM que el botón del tour (clase <code>portal-sidebar-tour</code>) sigue presente en el HTML pero no se renderiza en absoluto en este viewport (<code>offsetParent: null</code>, <code>getBoundingClientRect()</code> con todos sus valores en cero) — no es solo una omisión visual del menú, sino un elemento completamente inalcanzable.",
+      "Se navegó por las 5 secciones de la barra inferior (Inicio, Sesiones, Chat, Diario, Más) y por “Inicio clásica” (alcanzable desde el panel “Cuenta”) para relevar diferencias estructurales respecto de escritorio en la fila de accesos rápidos y en las secciones extendidas.",
+      "Se observaron, en varias oportunidades (recargas y scrolls sucesivos sobre el carrusel hero, y al navegar a “Más” → “Mi cuenta”), dos comportamientos puntuales que en un primer momento se consideraron como posibles hallazgos: un glitch de renderizado intermitente del carrusel hero (slides sin texto, o texto de dos slides superpuesto) y un destello de pantalla en blanco de ~2 segundos al entrar a “Mis datos” desde “Mi cuenta”. En una verificación posterior, el Evaluador UX no pudo reproducir ninguno de los dos comportamientos, y se determinó que probablemente se trató de un artefacto de la herramienta de automatización del navegador (Claude in Chrome) y no de un problema real del producto. Por ese motivo, ninguno de los dos quedó documentado como hallazgo en este caso.",
+      "En una quinta pasada, a pedido del Evaluador UX, se repitió la exploración en viewport <strong>móvil (375×812)</strong>, con el mismo alcance que la pasada de tablet, pero usando el navegador integrado de Claude (Claude Browser) en lugar del plugin de Chrome. La sesión ya estaba iniciada (con la cuenta <code>gaston.f.martino+mobile1@gmail.com</code>, ver punto 6) y no fue necesario autenticarse. Como en tablet, no se repitieron las validaciones de color/identidad visual, iconografía ni accesibilidad por teclado (Hallazgos 10 a 16).",
+      "Se confirmó que la navegación de móvil es idéntica a la de tablet: misma barra inferior fija (Inicio, Sesiones, Chat, Diario, Más), mismo ícono de hamburguesa junto a la campana, mismo panel “Cuenta” completo al abrir la hamburguesa, y mismo panel “Explorar” (Ejercicios / Música relajante / Mi cuenta) al tocar “Más”.",
+      "Se re-verificaron uno por uno, en móvil, los Hallazgos 1 a 6, 8, 9, 17, 18 y 19 de las pasadas anteriores. Para los Hallazgos 2 y 4 (URLs de destino de “Actividad de sesiones” y “Líneas de apoyo”), a diferencia de la pasada de tablet, en esta pasada sí se navegó efectivamente a cada destino (<code>/profile?tab=subscription</code> y <code>/docs/crisis.html</code>) y se leyó su contenido con la herramienta de extracción de texto de la página, confirmando título y contenido exactos. Para el Hallazgo 5 (“Abrir diario”/“Ir al inicio”) y el Hallazgo 6 (carrusel sin control de pausa), se repitieron las mismas inspecciones de DOM que en tablet, con el mismo resultado. Para el Hallazgo 17 (Tour con Maca), se repitió la inspección de DOM del botón (clase <code>portal-sidebar-tour</code>) y dio el mismo resultado (<code>offsetParent: null</code>, rect en cero). Para el Hallazgo 18 (7 tarjetas de acceso rápido), se leyeron los títulos de las tarjetas directamente del DOM y coinciden exactamente con los de tablet.",
+      "Se hizo scroll completo de la Home de punta a punta (incluyendo la sección “Música” y el pie de página) sin encontrar contenido nuevo respecto de lo ya relevado en tablet; dos tramos de la página aparecieron en blanco por un instante durante el scroll (la sección “Música” y el pie de página), pero en ambos casos el contenido apareció correctamente 1 a 2 segundos después sin necesidad de recargar — se interpretó como una demora normal de carga de imágenes/iframes y no como un glitch, a diferencia de lo reportado (y luego descartado) en la pasada de tablet.",
+      "Se abrió “Inicio clásica” desde el panel “Cuenta” para repetir la comparación del Hallazgo 1 en móvil. A diferencia de escritorio y tablet, la página resultó mucho más corta: no aparece el saludo “Hola, GASTON” (ausente incluso del HTML, no solo oculto) ni los bloques de estado “Sesiones reservadas / Sesiones disponibles / Profesional activo” que sí están presentes en tablet. Se investigó el motivo del recorte inspeccionando el DOM en la zona donde debería estar el panel de planes de precios (Basic/Pro/Plus): el panel completo (<code>section.sessions-package-options-panel</code>) está presente en el HTML pero colapsado a tamaño cero (<code>getBoundingClientRect()</code> con todos los valores en cero), dejando un hueco en blanco en la página en lugar de los planes — ver Hallazgo 20.",
+      "En una sexta pasada, a pedido del Evaluador UX, se relevó específicamente el diseño y la jerarquía visual de los <strong>botones</strong> de la Home, exclusivamente en escritorio (1440×900, “Inicio ML”), asumiendo el mismo comportamiento para tablet y móvil salvo que se indique lo contrario. El pedido puntual del Evaluador UX fue entender qué decisiones visuales distinguen a un CTA, y señaló como sospechoso que el botón “Cuenta” del header pareciera compartir estilo con los botones de acción. Se usó Chrome (plugin), en una pestaña nueva; la sesión ya estaba iniciada.",
+      "Al cargar la Home se interpuso un modal no visto en pasadas anteriores, “Elegí un profesional” (“Para ver precios de paquetes y comprar sesiones necesitás tener un profesional asignado”), con dos botones: “Ir a elegir profesional” (primario, relleno violeta) y “Más tarde” (secundario, blanco con borde). Se usó “Más tarde” para llegar a la Home; ese par de botones se usó luego como referencia de cómo se ve un par primario/secundario bien diferenciado en este mismo producto (ver Hallazgo 22).",
+      "Se relevó la Home completa (hero, barra “Sin sesiones disponibles”, accesos rápidos, secciones extendidas “Sesiones” y “Diario emocional”) identificando cada elemento clicable y agrupándolo por apariencia visual (color de fondo, relleno vs. contorno vs. texto plano, radio de borde, peso de fuente).",
+      "Para no depender de una lectura aproximada por color de pantalla, se extrajeron por consola los estilos computados (<code>getComputedStyle</code>) de todos los <code>button</code>, <code>a</code> y <code>[role=\"button\"]</code> visibles de la página, deduplicados por firma visual (color de fondo, color de texto, borde, radio, peso de fuente, padding y sombra), para tener los valores exactos de cada variante de botón realmente en uso.",
+      "Se comparó puntualmente el botón “Cuenta” del header contra el botón “Reservar sesión” de la barra superior (el CTA principal de la Home) mediante una captura ampliada (zoom) de esa zona de la pantalla, y contra los valores exactos obtenidos en el paso 35.",
+      "Se buscaron, en toda la Home, las demás apariciones de las mismas etiquetas de botón (“Reservar sesión”, “Reservar sesión de prueba”) para ver si mantienen el mismo estilo entre sí."
+    ],
+    feedbackPositivo: [
+      "La sección “Ejercicios” está muy bien resuelta: agrupa las prácticas en “Rutinas guiadas” temáticas (Calma rápida, Reset de ansiedad aguda con etiqueta “SOS”, Rutina pre-sueño, etc.), con duración y cantidad de ejercicios visibles de entrada, y un tono de acompañamiento apropiado (“Si alguno te genera molestia, suspendelo y comentalo en próxima sesión”).",
+      "Los estados vacíos están redactados de forma clara y consistente en toda la Home y sus sub-páginas (“Todavía no tenés sesiones reservadas”, “Todavía no tienes paquetes comprados”, “Todavía no tienes historial de sesiones”, Chat deshabilitado con explicación de cuándo se habilita).",
+      "El panel de notificaciones agrupa los avisos por categoría (Calendario, Diario, Ejercicio) con iconografía diferenciada y es fácil de escanear.",
+      "El “Tour con Maca” tiene una redacción cálida y clara, se puede saltear en cualquier momento, hace scroll automáticamente hasta cada sección que explica, y se completaron los 9 pasos sin errores de navegación (más allá del Hallazgo 7, puntual).",
+      "El pie de página (Soporte / Ayuda / Legal / Teléfonos útiles) se repite de forma consistente en la Home y en todas las sub-páginas visitadas (Mis datos, Mi suscripción, Ajustes, Sesiones, Música), reforzando que la ayuda y los recursos de emergencia están siempre a un scroll de distancia — se confirmó que esto también se cumple en tablet y en móvil.",
+      "Los precios y la información de los paquetes (MotivarCare Basic/Pro/Plus) coinciden exactamente entre la Home clásica y el modal “Elegí tu terapia” de la Home nueva — buena señal de que, más allá del Hallazgo 1, los datos de negocio subyacentes sí están sincronizados entre ambas versiones.",
+      "El menú lateral (ícono-solo que se expande al pasar el mouse) es prolijo y no consume espacio cuando no se necesita.",
+      "El orden de tabulación general de la Home es lógico y sigue una secuencia predecible de arriba hacia abajo y de izquierda a derecha (menú lateral → header → hero → accesos rápidos → secciones extendidas → pie de página), sin saltos erráticos entre zonas alejadas de la pantalla (más allá de los tres paneles superpuestos del Hallazgo 13). Todos los elementos interactivos relevados durante el control de teclado mostraron algún indicador de foco visible, y la página hace scroll automáticamente para mantener a la vista el elemento enfocado, incluso dentro de las secciones extendidas."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "Dos versiones de la Home coexisten, con diseño y navegación totalmente distintos, y un selector con etiquetas internas poco claras",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Mayor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Dentro del menú “Cuenta” existe una opción llamada <strong>“Inicio clásica”</strong> que reemplaza toda la Home por defecto (identificada internamente en su propio selector como <strong>“Inicio ML”</strong>) por una segunda versión de la Home con una identidad visual, layout, y hasta arquitectura de información <strong>completamente distintos</strong>: cambia el logo/branding superior (“Portal Paciente” en vez de “MotivarCare”), el menú lateral usa otras etiquetas (“Diario emocional”, “Música relajante” en vez de “Diario”, “Música”), el acceso a la cuenta pasa de un botón “Cuenta” a un ícono de hamburguesa (☰), aparece un saludo “Hola, GASTON” que no existe en la Home nueva, y la página expone directamente los 3 planes de precios (MotivarCare Basic/Pro/Plus) en el cuerpo de la Home, algo que en la versión nueva solo aparece dentro de un modal (“Elegí tu terapia”). Ambas versiones están activas y son alcanzables por cualquier paciente, no es un remanente inaccesible. El selector para volver muestra el texto <strong>“Inicio ML”</strong>, una sigla de desarrollo que no tiene ningún significado para un/a paciente y rompe con el tono empático del resto del producto. Tener dos experiencias de producto completamente distintas y alternables constituye una inconsistencia mayor de identidad visual y de producto, además de duplicar el esfuerzo de mantenimiento y multiplicar la superficie de bugs (todos los demás hallazgos de este caso, salvo que se indique lo contrario, se relevaron sobre “Inicio ML”, la que ve un/a paciente por defecto).",
+        recomendacion: "Definir cuál de las dos es la versión vigente del producto y discontinuar la otra (o, si ambas deben coexistir por una migración en curso, ocultar el selector al público y quitarlo del menú de cuenta). Si se mantiene el selector, renombrarlo con lenguaje orientado a la persona usuaria (ej. “Probar el diseño anterior” / “Volver al diseño nuevo”) en vez de la sigla interna “ML”.",
+        evidencia: [
+          { src: "capturas/caso-03/01-home-ml-vista-general.jpg", caption: "Home por defecto (“Inicio ML”)" },
+          { src: "capturas/caso-03/08-inicio-clasica-vista-completa.jpg", caption: "Home alternativa completa (“Inicio clásica”)" },
+          { src: "capturas/caso-03/09-inicio-ml-toggle-label.png", caption: "Etiqueta “Inicio ML” del selector, vista desde la Home clásica" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se replica sin cambios: la duplicación de Home y el selector “Inicio ML” / “Inicio clásica” se reproducen tal cual a este ancho, con el mismo texto interno “Inicio ML” en el toggle.",
+            evidencia: [
+              { src: "capturas/caso-03/26-tablet-inicio-clasica.jpg", caption: "“Inicio clásica” en tablet, mismo selector" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "variante",
+            textoHtml: "La duplicación y el selector también se reproducen, pero “Inicio clásica” en este viewport difiere además de la versión de tablet: falta el saludo “Hola, GASTON” y los bloques de estado (“Sesiones reservadas / Sesiones disponibles / Profesional activo”), y el panel de planes de precios colapsa a tamaño cero — ver Hallazgo 20.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "El ítem de menú “Actividad de sesiones” abre la pantalla “Mi suscripción”, no un historial de actividad",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Dentro del menú “Cuenta” → sección “CUENTA”, el ítem <strong>“Actividad de sesiones”</strong> no abre ningún registro de actividad: navega a <code>/profile?tab=subscription</code>, una pantalla titulada <strong>“Mi suscripción”</strong> que muestra el paquete activo y las sesiones disponibles (paquete/créditos), no un historial o bitácora de acciones. El historial real de sesiones vive en otro lugar del producto (la sección “Sesiones” de la Home, en “Historial de sesiones”), por lo que esta etiqueta es además redundante y confunde sobre dónde encontrar cada cosa.",
+        recomendacion: "Renombrar el ítem del menú a “Mi suscripción” (o “Mi plan”), coherente con el título real de la pantalla, o bien redirigir efectivamente a un historial de actividad si esa es la intención original del ítem.",
+        evidencia: [
+          { src: "capturas/caso-03/02-drawer-cuenta-actividad-sesiones-idioma.jpg", caption: "Menú con el ítem “Actividad de sesiones”" },
+          { src: "capturas/caso-03/03-actividad-sesiones-abre-mi-suscripcion.jpg", caption: "Pantalla resultante, “Mi suscripción”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: mismo ítem dentro del panel “Cuenta” accedido por la hamburguesa, misma URL de destino <code>/profile?tab=subscription</code>.",
+            evidencia: [
+              { src: "capturas/caso-03/30-tablet-menu-cuenta-superior-sin-tour.jpg", caption: "Panel “Cuenta” en tablet, con el ítem “Actividad de sesiones”" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se navegó efectivamente a <code>/profile?tab=subscription</code> y se confirmó el mismo título “Mi suscripción” y el mismo contenido (“Sin paquete activo”, “0 / 0”) vía extracción de texto.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 3,
+        titulo: "Faltan tildes en varios textos de la interfaz, de forma recurrente en distintos módulos",
+        heuristicaId: "H02",
+        heuristicaNombre: "H2 — Coincidencia con el mundo real",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Se detectaron múltiples strings de la interfaz sin tildes, en al menos tres módulos distintos y no relacionados entre sí, lo que sugiere un problema sistémico (posiblemente en el pipeline de generación de contenido) y no errores aislados: (a) en “Idioma y moneda” (tanto en el resumen del menú “Cuenta” como en el modal de selección), el idioma aparece como <strong>“Espanol”</strong> en vez de “Español”, y <strong>“Portugues”</strong> en vez de “Português”; (b) en la página de recursos de crisis (“Líneas de apoyo”, ver Hallazgo 4), <strong>“Linea 988 (US)”</strong> en vez de “Línea”; (c) en la pantalla de Chat, el texto de ayuda dice *“Cuando tengas un profesional asignado, <strong>podras</strong> escribirle desde <strong>aqui</strong>”* (faltan las tildes de “podrás” y “aquí”), y el placeholder del campo deshabilitado dice *“Chat deshabilitado hasta <strong>asignacion</strong>”* (falta la tilde de “asignación”). Para un producto redactado enteramente en castellano y con foco en Latinoamérica, estos errores de ortografía recurrentes afectan la percepción de calidad y profesionalismo, algo particularmente sensible en un producto de salud.",
+        recomendacion: "Revisar el pipeline de generación/carga de textos en castellano para confirmar que preserva correctamente los caracteres acentuados, y hacer una pasada de corrección ortográfica sobre el resto de la interfaz (no se descarta que aparezcan más casos fuera de lo relevado en este caso).",
+        evidencia: [
+          { src: "capturas/caso-03/04-tildes-idioma-moneda-modal.png", caption: "“Espanol” / “Portugues”, sin tilde" },
+          { src: "capturas/caso-03/05-lineas-apoyo-pagina-sin-estilo.jpg", caption: "“Linea 988”, sin tilde" },
+          { src: "capturas/caso-03/06-tildes-chat-podras-aqui-asignacion.jpg", caption: "“podras” / “aqui” / “asignacion”, sin tilde" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se re-verificó únicamente el caso (a): el panel “Cuenta” muestra también “Espanol · \\$” en la fila “Idioma y moneda”, igual que en escritorio. Los casos (b) y (c) no se repitieron en esta pasada — se asumen idénticos.",
+            evidencia: [
+              { src: "capturas/caso-03/30-tablet-menu-cuenta-superior-sin-tour.jpg", caption: "“Espanol · $” en el panel “Cuenta” de tablet" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se re-verificó también únicamente el caso (a): el mismo panel “Cuenta” muestra “Espanol” sin tilde. Los casos (b) y (c) no se repitieron en esta pasada — se asumen idénticos.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 4,
+        titulo: "La página de “Líneas de apoyo” (recursos de crisis) no tiene ningún estilo de marca y prioriza un número de EE. UU. antes que el de Argentina",
+        heuristicaId: "H10",
+        heuristicaNombre: "H10 — Confidencialidad médica y soporte",
+        severidad: "Mayor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "“Líneas de apoyo” (dentro de “Cuenta” → “LEGAL”) abre, en una pestaña nueva, <code>app.motivarcare.com/docs/crisis.html</code> — una página HTML estática <strong>completamente sin estilo</strong>: sin logo, sin la paleta ni la tipografía del producto, texto negro plano sobre fondo blanco, contenido mínimo (un título, 3 viñetas y una línea de texto). Es, con diferencia, la pantalla con peor terminación visual de todo el recorrido, justo en el punto de contacto más sensible del producto — la persona que llega ahí puede estar en una situación de angustia o crisis. Además, el primer ítem de la lista es <strong>“Linea 988 (US): 988lifeline.org”</strong>, una línea de EE. UU., listada antes que “Argentina: 135 (desde CABA) / (011) 5275-1135”, pese a que el resto del producto (precios en pesos argentinos, números de teléfono locales en el resto del menú de cuenta) está claramente orientado a Argentina. No queda claro por qué el recurso de otro país aparece primero.",
+        recomendacion: "Integrar esta pantalla a la identidad visual del resto del producto (o, como mínimo, incluirla dentro de la SPA en vez de como archivo estático suelto) y reordenar la lista para que el recurso local (Argentina) aparezca primero, dejando el de EE. UU. como referencia adicional. Dado lo sensible del contenido, vale la pena sumar también una frase de contención breve antes de la lista de números.",
+        evidencia: [
+          { src: "capturas/caso-03/05-lineas-apoyo-pagina-sin-estilo.jpg", caption: "Página “Líneas de apoyo”, sin ningún estilo de marca" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "El ítem “Líneas de apoyo” está presente en el mismo lugar del panel “Cuenta” y abre la misma página estática <code>docs/crisis.html</code>, con el mismo orden de números (EE. UU. antes que Argentina).",
+            evidencia: [
+              { src: "capturas/caso-03/30-tablet-menu-cuenta-superior-sin-tour.jpg", caption: "Panel “Cuenta” en tablet, con el ítem “Líneas de apoyo”" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se navegó efectivamente a <code>docs/crisis.html</code> y se confirmó, vía extracción de texto, el mismo contenido exacto (“Linea 988 (US)” primero, Argentina segundo, Emergencias 911).",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 5,
+        titulo: "El acceso “Abrir diario” de la sección “Diario emocional” está rotulado como “Ir al inicio”",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "En la sección extendida “Diario emocional” de la Home, de las 3 tarjetas de acceso rápido (“Nueva entrada”, “Ver registros”, “Abrir diario”), la tercera tiene como título “Abrir diario” pero su enlace interior dice <strong>“Ir al inicio”</strong> — un texto que no corresponde a la acción (no lleva a la Home, sino al diario) y que además reutiliza, de forma confusa, una frase que en el resto del producto sí significa “volver a la Home”.",
+        recomendacion: "Cambiar el texto del enlace por algo consistente con las otras dos tarjetas de la misma sección, por ejemplo “Abrir” o “Ir al diario”.",
+        evidencia: [
+          { src: "capturas/caso-03/07-abrir-diario-link-ir-al-inicio.png", caption: "Tarjeta “Abrir diario” con el enlace interno “Ir al inicio”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce, confirmado vía inspección de DOM (el botón de esa tarjeta contiene el texto “Abrir diarioIr al inicio›”, es decir título “Abrir diario” + enlace interno “Ir al inicio”). Sin captura archivada porque la tarjeta queda parcialmente recortada al final de la fila de accesos rápidos en este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se repitió la misma inspección de DOM con idéntico resultado, y además se vio visualmente la fila “Abrir diario ›” al hacer scroll por la sección “Tu diario”.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 6,
+        titulo: "El carrusel principal (hero) avanza solo, sin control visible de pausa",
+        heuristicaId: "H08",
+        heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
+        severidad: "Recomendación",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "El carrusel de 3 banners en la parte superior de la Home avanza automáticamente cada pocos segundos. Tiene flechas de navegación manual y puntos indicadores (ambos funcionan correctamente), pero no se encontró ningún control para pausar el avance automático. En un producto de salud mental, donde reducir estímulos y dar control a la persona usuaria es parte explícita de la propuesta de valor, un carrusel que avanza sin pedir permiso — y sin forma de detenerlo — va a contramano de ese objetivo, además de ser una recomendación estándar de accesibilidad (contenido que se auto-actualiza debería poder pausarse).",
+        recomendacion: "Agregar un control de pausa/play visible, o directamente detener el auto-avance y dejar la navegación en manos de la persona usuaria (flechas/puntos).",
+        evidencia: [],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se confirmó vía inspección de DOM que no existe ningún botón o control con texto o <code>aria-label</code> relacionado a pausa/reproducción en toda la página.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Misma inspección de DOM, mismo resultado: ningún control de pausa/reproducción en la página.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 7,
+        titulo: "En el paso 2/9 del “Tour con Maca”, el recuadro de resaltado aparece antes que el texto explicativo",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Recomendación",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Al avanzar del paso 1 al paso 2 del tour guiado (“Un tour con Maca”), se observó una demora de aproximadamente 1 segundo en la que el recuadro de resaltado (spotlight) sobre el menú lateral ya apareció en pantalla, pero el texto explicativo (“Menú a la izquierda...”) todavía no se renderizó. Durante ese instante la pantalla muestra un elemento destacado sin ninguna explicación de qué es o por qué está resaltado. El resto de los pasos (3 a 9) cargaron el texto de forma inmediata, por lo que parece un glitch puntual de ese paso en particular y no un problema generalizado del tour.",
+        recomendacion: "Revisar la lógica de carga del paso 2 para que el resaltado y su texto aparezcan siempre en simultáneo, como ocurre en el resto de los pasos.",
+        evidencia: [],
+        verificaciones: []
+      },
+      {
+        numero: 8,
+        titulo: "La sección “Música” incorpora videos de YouTube, con la marca de YouTube visible dentro del reproductor",
+        heuristicaId: "H08",
+        heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
+        severidad: "Recomendación",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Al entrar a “Música” (tanto desde la tarjeta de acceso rápido como desde la sección extendida), el contenido se reproduce embebido directamente desde YouTube (ej. el video “1 A.M Study Session [lofi hip hop]” del canal “Lofi Girl”), con el botón de play rojo característico de YouTube y el nombre del canal visibles dentro del reproductor. Es la única pantalla de todo el recorrido donde aparece una marca de un tercero de forma tan prominente, lo que rompe con la estética cuidada y propia del resto del producto. No se evaluó en este caso si esto tiene además alguna implicancia de privacidad (carga de un iframe de un tercero dentro de un producto de salud), lo cual podría ser materia de un chequeo técnico aparte.",
+        recomendacion: "Evaluar un reproductor propio (o al menos uno sin la marca de YouTube tan visible) para mantener la coherencia visual, y confirmar con el equipo técnico si la carga de contenido de YouTube tiene alguna implicancia de privacidad a documentar.",
+        evidencia: [],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se archivó captura mostrando el mismo video “1 A.M Study Session [lofi hip hop]” de “Lofi Girl” con el botón de play rojo de YouTube visible.",
+            evidencia: [
+              { src: "capturas/caso-03/33-tablet-musica-youtube-branding.jpg", caption: "Marca de YouTube visible en el reproductor de “Música” (tablet)" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "variante",
+            textoHtml: "Se reprodujo el mismo video, con el mismo botón de play rojo y, además, un texto explícito “Mirar en YouTube” debajo del reproductor que no se había notado en las pasadas anteriores.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 9,
+        titulo: "Los 6 accesos rápidos del tope de la Home duplican, casi punto por punto, las 4 secciones extendidas que siguen más abajo en la misma página",
+        heuristicaId: "H08",
+        heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
+        severidad: "Recomendación",
+        clasificacion: "Otros",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "La Home presenta primero una fila de 6 tarjetas de acceso rápido (Tu profesional, Comprar sesiones, Próximas sesiones, Diario, Ejercicios, Música) y, inmediatamente debajo, 4 secciones extendidas (Sesiones, Diario emocional, Ejercicios, Música) que llevan a los mismos destinos con mayor desarrollo visual. Para una cuenta sin actividad (como la usada en este caso), esto se traduce en una Home larga que repite la misma información y los mismos accesos dos veces antes de llegar al pie de página, lo que aumenta el scroll necesario y la carga cognitiva sin sumar información nueva.",
+        recomendacion: "Evaluar si conviene fusionar ambos niveles en uno solo (por ejemplo, quedándose con las secciones extendidas, que ya incluyen accesos directos propios) o diferenciar más claramente su propósito — por ejemplo, reservando la fila superior para accesos realmente frecuentes y bajando el resto del contenido educativo/de descubrimiento a un solo bloque por sección.",
+        evidencia: [],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "variante",
+            textoHtml: "El patrón se reproduce también en tablet, con la misma fila de 7 tarjetas (ver Hallazgo 18 para el detalle de las diferencias estructurales propias de este viewport).",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "variante",
+            textoHtml: "El patrón se reproduce también en móvil, con la misma fila de 7 tarjetas que en tablet (ver Hallazgo 18).",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 10,
+        titulo: "La paleta de azules/violetas y verdes de la Home no coincide con la de la landing pública",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Mayor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Se confirmó, mediante inspección directa de las hojas de estilo de cada superficie (no de una lectura visual de capturas), que la Home (<code>app.motivarcare.com</code>) y la landing pública (<code>www.motivarcare.com</code>) usan dos paletas de marca distintas, pese a compartir la sospecha inicial del Evaluador UX de que debían coincidir. En la Home, el color de marca principal (variable <code>--brand</code>, usado en el hero, los CTA y los acentos) es un <strong>violeta/púrpura <code>#5F44EB</code></strong>, y el verde que aparece como color secundario (variante <code>--access</code> del hero, y el <code>--ok-text</code>/<code>--ok-bg</code> de estados “ok”) es un <strong>verde oscuro/bosque, <code>#15803D</code></strong> (y <code>#166534</code> en los estados de éxito). En la landing, en cambio, el color de marca principal (variables <code>--plv2-blue</code> y <code>--plv2-hero-accent</code>, usadas en los links destacados del título, el botón “Ingresar” y el logo) es un <strong>azul brillante, <code>#2563EB</code>/<code>#2F62C4</code></strong>, y el verde (<code>--plv2-teal</code> y <code>--plv2-hero-green-dark</code>) es un <strong>verde azulado/teal, <code>#45B8AD</code>/<code>#2E8B57</code></strong>, notoriamente más claro y “frío” que el verde bosque de la Home. La landing sí define una variable <code>--plv2-violet: #6B5CB3</code> cercana al violeta de la Home, pero se usa únicamente como acento fantasma a muy baja opacidad (6-7%, <code>--plv2-violet-ghost</code> / <code>--plv2-violet-mist</code>), nunca como color protagonista. En resumen: lo que en la landing es el color dominante (azul brillante) pasa a ser un acento casi invisible en la Home (violeta como color dominante en cambio), y el verde de ambas superficies pertenece a familias tonales distintas (bosque vs. teal). Esto confirma la sospecha del Evaluador UX: alguien que llega desde la landing y entra al portal puede percibir el cambio de paleta como una pérdida de continuidad de marca.",
+        recomendacion: "Unificar ambas superficies bajo un mismo set de tokens de color de marca (o, si la decisión de producto es que el portal use una paleta “cálida” deliberadamente distinta de la landing pública orientada a marketing, documentar esa decisión explícitamente para que no se interprete como una inconsistencia no intencional). Como mínimo, acercar el verde de ambas superficies a la misma familia tonal.",
+        evidencia: [
+          { src: "capturas/caso-03/17-landing-paleta-azul-verde.jpg", caption: "Hero de la landing: título en azul/verde teal, botón “Ingresar” y CTA en degradé azul→teal" },
+          { src: "capturas/caso-03/10-hero-slide-care-purpura.jpg", caption: "Slide del hero de la Home en violeta #5F44EB" },
+          { src: "capturas/caso-03/11-hero-slide-access-verde.jpg", caption: "Slide del hero de la Home en verde bosque #15803D" },
+          { src: "capturas/caso-03/12-hero-slide-match-purpura.jpg", caption: "Tercer slide del hero de la Home, también en violeta" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 11,
+        titulo: "El ícono del slide “Especialistas en tu necesidad” (matching) es ambiguo y no se lee como “buscar especialista”",
+        heuristicaId: "H06",
+        heuristicaNombre: "H6 — Reconocimiento antes que recuerdo",
+        severidad: "Menor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "De los 3 íconos cuadrados de esquinas redondeadas y fondo blanco translúcido que acompañan a cada slide del hero, dos se leen de forma inmediata y literal sin necesidad del texto que los acompaña: un <strong>corazón</strong> para “Hacer terapia es cuidarte” (kicker “Habla con expertos”) y el número <strong>“24”</strong> para “Tu proceso, 24 horas” (kicker “Siempre disponible”). El tercero, en el slide “Especialistas en tu necesidad” (kicker “Matching inteligente”), es un glyph abstracto: dos trazos curvos tipo gancho que se cruzan, con pequeñas marcas a modo de “eslabón” entre ellos. Aislado de su texto, este ícono es fácilmente confundible con símbolos ya establecidos para otras acciones — “sincronizar/actualizar”, “intercambiar” o “deshacer/rehacer” — y no comunica por sí mismo la idea de “matching entre paciente y especialista”, que es lo que efectivamente representa (según pudo inferirse del código: dos trazos que se buscan y conectan). Al ser el único de los tres íconos del hero que no es autoexplicativo, rompe el patrón de literalidad que establecen sus dos vecinos y fue, con razón, el que generó la duda original del Evaluador UX.",
+        recomendacion: "Reemplazar el glyph por uno más literal para la idea de “matching con un especialista” — por ejemplo dos siluetas de personas unidas por un check o una línea, una pieza de rompecabezas combinándose, o una lupa sobre un perfil — manteniendo el mismo estilo de trazo (línea fina, sin relleno) que ya usan los otros dos íconos del hero.",
+        evidencia: [
+          { src: "capturas/caso-03/13-hero-icono-matching-zoom.png", caption: "Ícono ampliado del slide “Matching inteligente”" },
+          { src: "capturas/caso-03/12-hero-slide-match-purpura.jpg", caption: "Contexto completo del slide" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 12,
+        titulo: "La iconografía de los 6 accesos rápidos no se reutiliza en las secciones extendidas equivalentes, y una de ellas mezcla íconos de línea con emojis",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Comparando cada una de las 6 tarjetas de acceso rápido del tope de la Home contra el banner y las sub-tarjetas de su sección extendida equivalente (ver también Hallazgo 9, sobre la duplicación de contenido entre ambos niveles), ningún par reutiliza exactamente el mismo ícono: <strong>Comprar sesiones</strong> (tarjeta: signo “+”) no se corresponde con ningún ícono de la sección “Sesiones” (banner: calendario con un check/reloj; sub-tarjeta “Paquetes comprados”: un cubo/paquete 3D — ninguno retoma el “+”). <strong>Próximas sesiones</strong> (tarjeta: calendario simple) tampoco coincide de forma exacta con el calendario-con-check del banner de “Sesiones”, aunque sí se acerca a la sub-tarjeta “Calendario”. <strong>Diario</strong> (tarjeta: documento/bloc) se acerca al banner de “Diario emocional” (documento con lápiz) y a la sub-tarjeta “Nueva entrada” (documento), pero las otras dos sub-tarjetas de esa misma sección usan íconos sin relación entre sí: “Ver registros” reutiliza el mismo ícono de reloj que “Historial de sesiones” (de la sección “Sesiones”), y “Abrir diario” usa una línea de pulso/actividad que no se relaciona visualmente con ningún otro ícono de “diario” en la página. <strong>Ejercicios</strong> es el par más consistente (la tarjeta y el banner comparten la misma figura humana estirándose, el banner solo agrega un pequeño destello), pero las 3 tarjetas de “Prácticas destacadas” que siguen debajo usan <strong>emojis</strong> (🤸 Respiración 4-7-8, 🌳 Anclaje sensorial, 😌 Suspiro fisiológico) en lugar de íconos SVG de línea — el único punto de toda la Home donde aparece un sistema de iconografía distinto (emoji) al resto del producto (SVG de línea). <strong>Música</strong>, por último, usa una nota musical en la tarjeta pero unos auriculares en el banner de la sección — dos íconos distintos para el mismo concepto.",
+        recomendacion: "Definir un único ícono SVG de línea por concepto (Sesiones/Calendario, Compras/Paquetes, Diario, Ejercicios, Música) y reutilizarlo consistentemente en la tarjeta superior, el banner de la sección extendida y sus sub-tarjetas. Reemplazar los emojis de “Prácticas destacadas” por íconos del mismo sistema de línea para no introducir un lenguaje visual ajeno al resto del producto.",
+        evidencia: [
+          { src: "capturas/caso-03/14-seccion-sesiones-iconos.jpg", caption: "Iconografía de la sección “Sesiones”" },
+          { src: "capturas/caso-03/15-seccion-ejercicios-diario-iconos.jpg", caption: "Iconografía de “Ejercicios” y “Diario emocional”" },
+          { src: "capturas/caso-03/16-seccion-musica-iconos.jpg", caption: "Iconografía de “Música”" },
+          { src: "capturas/caso-03/01-home-ml-vista-general.jpg", caption: "Fila de accesos rápidos, para comparar contra las secciones extendidas" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 13,
+        titulo: "Los paneles superpuestos (notificaciones, menú “Cuenta” y el modal “Elegí tu terapia”) no atrapan el foco de teclado: al tabular, el foco escapa al contenido de fondo mientras el panel sigue visualmente abierto",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Se probaron con teclado los tres paneles superpuestos de la Home que se abren desde el header o desde una tarjeta: el panel de <strong>notificaciones</strong>, el menú desplegable <strong>“Cuenta”</strong> y el modal <strong>“Elegí tu terapia”</strong> (abierto desde “Comprar sesiones”). Los tres se abren correctamente con Enter sobre su disparador. Pero en los tres casos, al presionar Tab una vez con el panel abierto, <strong>el foco no se mueve a ningún elemento interno del panel — salta directo a un elemento del contenido de fondo</strong>, que además queda visualmente tapado u oscurecido por el overlay: desde notificaciones, el foco pasa al botón “Cuenta” (detrás del overlay atenuado); desde el menú “Cuenta”, el foco pasa a la flecha “Banner anterior” del carrusel hero (también detrás del overlay); y desde el modal “Elegí tu terapia” — el caso más grave, porque el modal cubre la pantalla por completo — el foco pasa a la tarjeta “Próximas sesiones”, que en ese momento es <strong>totalmente invisible</strong> para quien está navegando, tapada por el modal. En ningún caso el contenido interactivo propio del panel (los ítems de notificación y su ícono de ajustes, los ~12 links del menú “Cuenta” — incluyendo “Líneas de apoyo” —, o los 4 botones “Elegir profesional” del modal) es alcanzable por teclado. Solo la tecla Escape permite cerrar los tres paneles de forma confiable; sin ella, una persona que navegue exclusivamente con teclado no tiene forma de interactuar con nada de lo que ofrecen estos tres paneles, ni de saber dónde quedó ubicado el foco mientras el panel sigue abierto en pantalla. Al repetirse el mismo patrón en tres componentes distintos y visualmente muy distintos entre sí, no parece un error puntual sino una falla sistémica en el manejo de foco de los overlays de todo el producto.",
+        recomendacion: "Implementar un focus trap estándar en los tres componentes (y revisar si hay más overlays en el resto del producto con el mismo problema): al abrir, mover el foco al primer elemento interactivo del panel (o al panel mismo); mientras esté abierto, que Tab y Mayús+Tab solo recorran los elementos internos del panel, ciclando del último al primero; y al cerrar (por Escape o por su botón de cierre), devolver el foco al elemento que lo abrió. Es un patrón bien documentado (WAI-ARIA Authoring Practices, patrón “Dialog (Modal)”) y aplicable por igual a los tres casos relevados.",
+        evidencia: [
+          { src: "capturas/caso-03/21-teclado-notificaciones-foco-escapa.jpg", caption: "Panel de notificaciones abierto, foco visible en “Cuenta” detrás del overlay" },
+          { src: "capturas/caso-03/22-teclado-menu-cuenta-foco-escapa.jpg", caption: "Menú “Cuenta” abierto, foco visible en la flecha del hero detrás del overlay" },
+          { src: "capturas/caso-03/23-teclado-modal-elegir-terapia-foco-escapa.jpg", caption: "Modal “Elegí tu terapia” abierto, foco en una tarjeta completamente tapada e invisible" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 14,
+        titulo: "El menú de navegación lateral no muestra la etiqueta de texto de cada ítem cuando se navega por teclado, solo al pasar el mouse",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "El menú lateral izquierdo se muestra siempre colapsado, mostrando solo el ícono de cada sección (Inicio, Sesiones, Chat, Diario, Ejercicios, Música), y se expande para mostrar también el texto (por ejemplo “Inicio”) únicamente cuando se pasa el mouse por encima. Al navegar con teclado (Tab), cada ítem sí recibe un indicador de foco visible (un realce sutil alrededor del ícono), pero el menú <strong>no se expande</strong> — el texto de la etiqueta nunca aparece. Una persona vidente que navegue con teclado (por ejemplo, por una dificultad motriz que le impide usar el mouse con precisión, un caso de uso habitual de la navegación por teclado) ve únicamente un ícono resaltado y debe reconocerlo sin ayuda de texto, mientras que una persona que use mouse sí recibe esa ayuda. El nombre accesible del link (el texto “Inicio”, “Sesiones”, etc.) sí está presente en el HTML y sería leído por un lector de pantalla, por lo que el impacto es específico a personas videntes que dependen del teclado.",
+        recomendacion: "Expandir el menú (o al menos mostrar la etiqueta en un tooltip) también en el evento <code>:focus-visible</code> de cada link, no solo en <code>:hover</code>, para que la navegación por teclado y por mouse ofrezcan la misma información.",
+        evidencia: [
+          { src: "capturas/caso-03/18-teclado-sidebar-foco-sin-etiqueta.jpg", caption: "Foco por teclado en el menú, sin etiqueta visible" },
+          { src: "capturas/caso-03/19-teclado-sidebar-zoom-sin-etiqueta.png", caption: "Zoom sobre el mismo estado" },
+          { src: "capturas/caso-03/20-sidebar-hover-con-etiqueta.png", caption: "El mismo menú, expandido con la etiqueta “Inicio” visible al pasar el mouse" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 15,
+        titulo: "Los puntos del carrusel usan <code>role=\"tab\"</code> pero no implementan la navegación por flechas propia de ese patrón",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Los 3 puntos indicadores del carrusel hero tienen <code>role=\"tab\"</code> dentro de un contenedor <code>role=\"tablist\"</code>. El patrón estándar de accesibilidad para un tablist (WAI-ARIA Authoring Practices) espera que solo uno de los “tabs” esté en el orden de tabulación a la vez, y que las flechas izquierda/derecha del teclado muevan la selección entre ellos. En la implementación actual, en cambio, <strong>los 3 puntos reciben foco por Tab de forma independiente</strong> (como si fueran 3 botones sueltos), y las flechas del teclado no tienen ningún efecto sobre ellos estando enfocados. Esto no impide usarlos — cada uno se activa con Enter o Espacio — pero se aparta del patrón que una persona habituada a otros tablists (por ejemplo, los de cualquier sistema operativo) esperaría encontrar.",
+        recomendacion: "Si se mantiene <code>role=\"tab\"</code>/<code>role=\"tablist\"</code>, implementar el patrón completo (un solo punto en el orden de tabulación por vez, navegación entre ellos con las flechas). Si no se planea implementarlo por completo, considerar quitar esos roles ARIA y dejarlos como botones simples, para no prometer un comportamiento que la interfaz no cumple.",
+        evidencia: [],
+        verificaciones: []
+      },
+      {
+        numero: 16,
+        titulo: "No hay un enlace para saltear el menú lateral y el header e ir directo al contenido principal",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
+        severidad: "Recomendación",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Al recargar la Home y presionar Tab por primera vez, el foco entra directamente al menú lateral (6 ítems) y continúa por el header (logo, notificaciones, Cuenta) antes de llegar al contenido principal de la página — un total de 9 paradas de Tab antes de alcanzar el carrusel hero. No existe un enlace “Saltar al contenido” (skip link), un recurso estándar y de bajo costo de implementación que le ahorraría ese recorrido repetitivo a cualquier persona que navegue con teclado, especialmente porque el menú lateral y el header se repiten idénticos en cada página del producto.",
+        recomendacion: "Agregar un enlace “Saltar al contenido principal” visualmente oculto que se muestra al recibir foco (primer elemento del documento, antes del menú lateral), apuntando al contenedor del contenido principal de cada página.",
+        evidencia: [],
+        verificaciones: []
+      },
+      {
+        numero: 17,
+        titulo: "En tablet y en móvil, el botón del “Tour con Maca” no es alcanzable en ningún menú, pero el tour igual se dispara automáticamente sin que la persona usuaria pueda controlarlo",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
+        severidad: "Recomendación",
+        clasificacion: "Responsive",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "En escritorio, el “Tour con Maca” (tour guiado de onboarding, 9 pasos, ver Hallazgo 7 y el feedback positivo del punto 10) se accede desde un botón fijo en la esquina inferior izquierda del menú lateral. En tablet, ese menú lateral desaparece (reemplazado por la barra de navegación inferior y el menú “Cuenta”/“Explorar” del header), y el tour no fue reubicado en ningún otro lugar: no está en el panel “Cuenta” (abierto desde la hamburguesa) ni en el panel “Explorar” (abierto desde “Más”), los dos únicos menús de navegación disponibles a este ancho. Se confirmó vía inspección de DOM que el botón del tour (clase <code>portal-sidebar-tour</code>) <strong>sigue presente en el HTML de la página</strong>, pero no se renderiza en absoluto (<code>offsetParent: null</code>, <code>getBoundingClientRect()</code> con <code>x</code>, <code>y</code>, <code>width</code> y <code>height</code> en cero) — no es una decisión de diseño que lo excluya limpiamente de este layout, sino un elemento que quedó huérfano al adaptarlo: existe en el código pero ninguna persona usuaria de tablet puede llegar a él manualmente. En una verificación posterior realizada por el Evaluador UX (por fuera de esta pasada, sin evidencia archivada por Claude), se encontró que el tour igual se dispara automáticamente en tablet y en móvil pese a que su botón de disparo manual no es alcanzable: la persona usuaria sí llega a verlo, sin necesidad de encontrar un acceso en ningún menú. Esto reduce el impacto original del hallazgo — no se trata de un recurso de onboarding completamente perdido, como se había reportado inicialmente — pero introduce un problema distinto: al no existir un control visible, la persona usuaria no puede decidir cuándo verlo ni volver a abrirlo más adelante si lo necesita, y el tour puede dispararse en un momento en el que ya no es útil o incluso resulta intrusivo.",
+        recomendacion: "Independientemente de que el tour se dispare solo, agregar un acceso visible al “Tour con Maca” en alguno de los dos menús de tablet/móvil (idealmente en “Explorar”, que ya agrupa contenido de descubrimiento) para que la persona usuaria pueda volver a abrirlo cuando quiera, y evaluar si conviene condicionar el disparo automático (por ejemplo, solo la primera vez que se visita la Home, o con un mecanismo explícito de “no volver a mostrar”) para que no quede fuera del control de la persona usuaria.",
+        evidencia: [
+          { src: "capturas/caso-03/30-tablet-menu-cuenta-superior-sin-tour.jpg", caption: "Panel “Cuenta” completo, sin ninguna opción de tour" },
+          { src: "capturas/caso-03/31-tablet-menu-cuenta-inferior-sin-tour.jpg", caption: "Resto del panel “Cuenta”, tampoco tiene el tour" },
+          { src: "capturas/caso-03/32-tablet-menu-explorar-mas-sin-tour.jpg", caption: "Panel “Explorar”, con sus 3 únicas opciones, sin el tour" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se repitió la misma inspección visual de ambos menús (“Cuenta” y “Explorar”) y la misma inspección de DOM del botón del tour, con idéntico resultado (<code>offsetParent: null</code>, rect en cero).",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 18,
+        titulo: "En tablet y en móvil, la fila de accesos rápidos crece a 7 tarjetas y aparecen dos bloques nuevos sin equivalente en escritorio, acentuando la duplicación de contenido del Hallazgo 9",
+        heuristicaId: "H08",
+        heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
+        severidad: "Menor",
+        clasificacion: "Responsive",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "La Home de tablet no es una simple reducción de la de escritorio: reorganiza el contenido y agrega piezas nuevas. La fila de accesos rápidos pasa de 6 a <strong>7 tarjetas</strong>, sumando “Reservar sesión” (con su propio ícono y CTA “Reservar ahora”) como primera tarjeta, algo que en escritorio no tiene una tarjeta propia en ese nivel. Debajo de esa fila aparece un banner “<strong>Tus próximas sesiones</strong>” (con la sesión de prueba pendiente y su CTA “Reservar sesión de prueba”) que no existe en esa posición en escritorio. Y dentro de la sección extendida “Diario emocional”, en el lugar donde escritorio muestra la tarjeta “Nueva entrada”, tablet muestra en cambio un widget “<strong>¿Cómo te sentís hoy?</strong>” (chequeo de ánimo) sin equivalente directo en la versión de escritorio relevada en este caso. El resultado es una Home de tablet más larga que la de escritorio, no más corta, y que profundiza el problema ya señalado en el Hallazgo 9 (contenido y accesos duplicados entre la fila superior y las secciones extendidas): a los 4 pares de accesos duplicados de escritorio se suma ahora un quinto (“Reservar sesión” arriba vs. el banner “Tus próximas sesiones” y el propio “Reservar sesión de prueba” dentro de él).",
+        recomendacion: "Al definir el rediseño responsive de esta pantalla, revisar si “Reservar sesión” y el banner “Tus próximas sesiones” deberían reemplazar (no sumarse a) alguna de las tarjetas o secciones ya existentes, y confirmar con el equipo de producto si el widget “¿Cómo te sentís hoy?” es una funcionalidad nueva pensada solo para tablet/móvil o si también debería estar disponible en escritorio.",
+        evidencia: [
+          { src: "capturas/caso-03/24-tablet-home-vista-inicial.jpg", caption: "Fila de 7 tarjetas en tablet" },
+          { src: "capturas/caso-03/25-tablet-estructura-completa-7-tarjetas.jpg", caption: "Banner “Tus próximas sesiones” en tablet" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se confirmaron los mismos 7 títulos de tarjeta (“Reservar sesión”, “Tu profesional”, “Comprar sesiones”, “Próximas sesiones”, “Diario”, “Ejercicios”, “Música”) vía inspección de DOM, y se vio visualmente tanto el banner “Tus próximas sesiones” como el widget “¿Cómo te sentís hoy?”.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 19,
+        titulo: "La sección de música se llama “Música” en un lugar y “Música relajante” en otro, dentro de la misma versión de la Home",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Otros",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Dentro de “Inicio ML”, la sección y el ícono del menú lateral de escritorio identifican a este contenido como “<strong>Música</strong>” (mismo nombre que la tarjeta de acceso rápido y el banner de la sección extendida, ver también Hallazgo 12). En tablet y en móvil, el mismo destino se lista en el panel “Explorar” (abierto desde “Más”) como “<strong>Música relajante</strong>” — un nombre más largo y distinto, pese a llevar exactamente al mismo lugar (<code>/bienestar/musica</code>, titulado en la propia página “🎧 Música para relajar”). No es un error grave, pero es una tercera variante de nombre para el mismo concepto dentro de una sola versión del producto, lo que dificulta reconocer que se trata de la misma sección al pasar de un viewport a otro.",
+        recomendacion: "Unificar el nombre de esta sección en un solo texto (por ejemplo “Música” a secas, ya usado en la tarjeta de acceso rápido) y reutilizarlo en todos los puntos de entrada, independientemente del viewport.",
+        evidencia: [
+          { src: "capturas/caso-03/01-home-ml-vista-general.jpg", caption: "Etiqueta “Música” en el menú lateral de escritorio" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "variante",
+            textoHtml: "El mismo destino se lista como “Música relajante” en el panel “Explorar”, en vez de “Música” — mismo lugar (<code>/bienestar/musica</code>), nombre distinto.",
+            evidencia: [
+              { src: "capturas/caso-03/32-tablet-menu-explorar-mas-sin-tour.jpg", caption: "“Música relajante” en el panel “Explorar” de tablet" }
+            ]
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "variante",
+            textoHtml: "Se confirmó visualmente la misma etiqueta “Música relajante” en el panel “Explorar”.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 20,
+        titulo: "En “Inicio clásica”, a 375px el panel de planes de precios colapsa a tamaño cero y desaparece de la página, dejando un hueco en blanco",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Responsive",
+        viewport: "Móvil (375×812)",
+        descripcionHtml: "En escritorio y en tablet, “Inicio clásica” (la Home alternativa del Hallazgo 1) expone directamente en el cuerpo de la página los 3 planes de precios (MotivarCare Basic/Pro/Plus) y, en tablet, además una serie de bloques de estado (“Sesiones reservadas”, “Sesiones disponibles”, “Profesional activo”). En móvil, ninguno de esos bloques de estado llega siquiera a estar en el HTML (no es un problema de este hallazgo, son simplemente reemplazados por un bloque más corto, “Próximas Sesiones: Sin turnos agendados”), pero el panel de planes de precios sí está en el HTML — y no se renderiza: se confirmó vía inspección de DOM que el contenedor completo del panel (<code>section.content-card.sessions-package-options-panel.dashboard-package-options-panel</code>, que incluye los 3 <code>article.deal-card</code> de cada plan con su título “MotivarCare Basic”/“...Plus”) tiene un <code>getBoundingClientRect()</code> con <code>x</code>, <code>y</code>, <code>width</code> y <code>height</code> en cero, igual que el patrón ya visto en el Hallazgo 17 con el “Tour con Maca”: el contenido existe pero es completamente inalcanzable e invisible. A diferencia del Tour, acá el efecto visual es además directamente perceptible sin abrir consola: en la página se ve un hueco en blanco de varios cientos de píxeles entre la tarjeta “Próximas Sesiones” y el pie de página, exactamente donde deberían estar los 3 planes. En esta versión de la Home (“Inicio clásica”), los planes de precios en el cuerpo de la página son la única vía visible de compra (a diferencia de “Inicio ML”, que los ofrece a través del modal “Elegí tu terapia”), por lo que en móvil “Inicio clásica” queda, en la práctica, sin forma de comprar un plan.",
+        recomendacion: "Revisar las reglas de layout responsive de ese panel específicamente por debajo del breakpoint de tablet (probablemente una regla de grid/flex que no contempla anchos menores a ~768px) para que los planes vuelvan a ser visibles en móvil, o bien rediseñar deliberadamente esa sección para pantallas chicas (por ejemplo, en una lista vertical o un carrusel) en lugar de dejarla colapsada. Confirmar si el mismo colapso ocurre también en tablet en algún punto intermedio del rango 375–768px.",
+        evidencia: [],
+        verificaciones: []
+      },
+      {
+        numero: 21,
+        titulo: "El botón “Cuenta” del header usa el mismo estilo visual que el CTA principal “Reservar sesión”, sin nada que los distinga como acciones de jerarquía distinta",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Mayor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "El botón “Cuenta ▾” del header (arriba a la derecha, abre el menú con “Mi perfil”, “Mi suscripción”, “Ajustes”, “Cerrar sesión”) se extrajo vía <code>getComputedStyle()</code> y se comparó con el botón CTA “Reservar sesión” del hero de la Home. Los valores son prácticamente idénticos: mismo color de fondo violeta de marca <code>rgb(95, 68, 235)</code> / <code>#5F44EB</code> (el mismo <code>--brand</code> ya identificado en el Hallazgo 10), mismo <code>border-radius</code> de 10px, mismo tratamiento de sombra (<code>box-shadow</code>) y texto en blanco. Las únicas diferencias encontradas —un borde adicional muy sutil en “Cuenta” y un <code>font-weight</code> de 700 contra 750 en el CTA— son demasiado pequeñas para funcionar como señal de jerarquía visual a simple vista. El resultado es que un botón de navegación/utilidad (abrir un menú de cuenta) y la acción de conversión principal de la página (reservar una sesión) son visualmente intercambiables: nada en el color, la forma o el tamaño indica cuál de los dos es “la” acción que la página quiere que el usuario tome. Esto confirma la observación original del Evaluador UX. Se validó únicamente en escritorio, a pedido explícito del Evaluador UX; se asume el mismo comportamiento en tablet y móvil por tratarse de un componente de header que no cambia de layout entre viewports, pero no fue verificado de forma independiente en esos dos anchos.",
+        recomendacion: "Reservar el color de marca sólido (<code>#5F44EB</code>) y el tratamiento de sombra exclusivamente para el/los CTA de conversión (Reservar sesión, Comprar paquete, etc.), y darle a “Cuenta” un estilo claramente distinto y de menor peso visual — por ejemplo botón secundario/ghost (borde o fondo neutro, sin sombra), o un patrón de avatar/ícono de usuario en lugar de un botón de texto sólido, que es el patrón más habitual para este tipo de menú en otras aplicaciones.",
+        evidencia: [
+          { src: "capturas/caso-03/34-boton-cuenta-vs-cta-reservar-zoom.png", caption: "Comparación directa (zoom): botón “Cuenta” vs. CTA “Reservar sesión”" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 22,
+        titulo: "No existe un sistema consistente de jerarquía de botones en la Home: la misma acción (“Reservar sesión”) aparece en al menos tres colores distintos, y las tarjetas con enlaces internos alternan entre subrayado y sin subrayar sin un criterio aparente",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (1440×900)",
+        descripcionHtml: "Al catalogar todos los botones y enlaces visualmente distintos de la Home (deduplicados por firma de estilo vía <code>getComputedStyle()</code>: color de fondo, color de texto, borde, <code>border-radius</code>, <code>font-weight</code>, <code>padding</code>, <code>box-shadow</code>), se encontraron al menos tres colores distintos usados para la misma etiqueta o intención de acción “reservar”: el violeta de marca <code>#5F44EB</code> (<code>border-radius</code> 10px, ya visto en el Hallazgo 21), un azul <code>rgb(29, 78, 216)</code> / <code>#1D4ED8</code> (<code>border-radius</code> 8px) en una variante de “Reservar sesión” dentro del panel de “Sesiones”, y un tercer color, un navy casi negro <code>rgb(30, 27, 75)</code> / <code>#1E1B4B</code> (<code>border-radius</code> 12px), en el botón “Reservar sesión de prueba” que aparece junto al anterior en el mismo bloque. Ninguno de los tres colores corresponde a la paleta de marca documentada en el Hallazgo 10 (violeta + verde), salvo el primero. Además, más allá de los botones “sólidos”, buena parte de las tarjetas clicables de la Home (accesos rápidos, tarjetas de “Ejercicios”, tarjetas del pie de las secciones extendidas) usan enlaces de texto internos que alternan entre subrayado y sin subrayar de tarjeta a tarjeta, sin que el subrayado parezca correlacionar con si el elemento es o no interactivo. En conjunto, esto indica que no hay un sistema de botones (tipo “primario / secundario / terciario”) aplicado de forma consistente: cada sección parece haber definido su propio color y forma para una acción del mismo tipo. Como en el Hallazgo 21, esta validación se hizo únicamente en escritorio, a pedido explícito del Evaluador UX.",
+        recomendacion: "Definir un sistema formal de botones (por ejemplo primario = violeta de marca sólido, secundario = borde o fondo neutro, terciario = enlace de texto con subrayado consistente) y aplicarlo de forma uniforme a toda acción de “reservar”/“comprar” en la Home, retirando las variantes azul y navy que no pertenecen a la paleta de marca. De forma independiente, definir una regla única sobre cuándo un enlace de texto lleva subrayado (por ejemplo, siempre en estado hover/foco, nunca en reposo, o viceversa) y aplicarla de forma pareja en todas las tarjetas.",
+        evidencia: [
+          { src: "capturas/caso-03/35-botones-reservar-sesion-tres-colores.jpg", caption: "Banner de “Sesiones”: botón azul “Reservar sesión” junto al navy “Reservar sesión de prueba”" },
+          { src: "capturas/caso-03/36-tarjetas-enlaces-subrayados-diario.jpg", caption: "Banner “Diario emocional”: enlaces subrayados vs. tarjetas inferiores sin ese tratamiento" }
         ],
         verificaciones: []
       }

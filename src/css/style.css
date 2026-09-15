@@ -47,6 +47,23 @@ body {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
 }
 
+/* Tamaño y orientación de página sugeridos al abrir el diálogo de impresión
+   desde "Exportar Dictamen (PDF)" (window.print()). Los navegadores basados
+   en Chromium usan estos valores como default de "Diseño" (Horizontal) y
+   "Tamaño del papel" (Legal) en el diálogo; la persona puede cambiarlos igual
+   desde ahí. */
+@page {
+  size: legal landscape;
+}
+
+/* Fuerza la impresión de colores y fondos en el PDF exportado (equivalente
+   visual a tener tildado "Gráficos de fondo"), sin depender de esa casilla
+   del diálogo del navegador, que no puede tildarse por defecto desde CSS. */
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 /* Estilos de impresión para stakeholders (Exportar a PDF) */
 @media print {
   body {
