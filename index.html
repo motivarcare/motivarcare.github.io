@@ -153,6 +153,16 @@
 
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>Hallazgos Críticos</span>
+                <span id="metric-critica-count" class="text-terracotta font-code font-bold">0</span>
+              </div>
+              <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
+                <div id="metric-critica-bar" class="bg-terracotta h-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
                 <span>Hallazgos Mayores</span>
                 <span id="metric-mayor-count" class="text-amber-700 font-code font-bold">0</span>
               </div>
@@ -178,6 +188,16 @@
               </div>
               <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
                 <div id="metric-recomendacion-bar" class="bg-emerald-700 h-full" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
+                <span>A revisar</span>
+                <span id="metric-arevisar-count" class="text-salvia-muted font-code font-bold">0</span>
+              </div>
+              <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
+                <div id="metric-arevisar-bar" class="bg-salvia-muted h-full" style="width: 0%"></div>
               </div>
             </div>
           </div>
@@ -280,9 +300,11 @@
           <!-- Filtro por severidad -->
           <select id="severity-filter" class="px-3 py-1.5 rounded-lg border border-salvia-border bg-white text-forest-ink font-ui text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-terracotta/40">
             <option value="all">Todas las severidades</option>
+            <option value="Crítica">Solo Críticas</option>
             <option value="Mayor">Solo Mayores</option>
             <option value="Menor">Solo Menores</option>
             <option value="Recomendación">Solo Recomendaciones</option>
+            <option value="A revisar">Solo A revisar</option>
           </select>
 
           <!-- Contador -->

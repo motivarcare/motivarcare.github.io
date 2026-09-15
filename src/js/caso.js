@@ -1,9 +1,11 @@
 import { casos, auditAreas } from './audit-data.js';
 
 const SEVERITY_STYLES = {
+  'Crítica': { bg: 'bg-terracotta', text: 'text-white' },
   'Mayor': { bg: 'bg-amber-600', text: 'text-white' },
   'Menor': { bg: 'bg-[#405648]', text: 'text-white' },
-  'Recomendación': { bg: 'bg-emerald-700', text: 'text-white' }
+  'Recomendación': { bg: 'bg-emerald-700', text: 'text-white' },
+  'A revisar': { bg: 'bg-salvia-muted', text: 'text-white' }
 };
 
 const VERIFICATION_STYLES = {

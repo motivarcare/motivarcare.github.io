@@ -68,20 +68,27 @@ function barWidth(count, total) {
 
 function renderHeaderMetrics() {
   const total = allFindings.length;
+  const criticaCount = allFindings.filter(f => f.severidad === 'Crítica').length;
   const mayorCount = allFindings.filter(f => f.severidad === 'Mayor').length;
   const menorCount = allFindings.filter(f => f.severidad === 'Menor').length;
   const recomendacionCount = allFindings.filter(f => f.severidad === 'Recomendación').length;
+  const revisarCount = allFindings.filter(f => f.severidad === 'A revisar').length;
 
-  // Cifra destacada del scorecard: hallazgos Mayores sobre el total de
-  // hallazgos relevados (no un "score" de salud, que no forma parte de la
-  // metodología real de este informe).
+  // Cifra destacada del scorecard: hallazgos Críticos + Mayores sobre el
+  // total de hallazgos relevados (no un "score" de salud, que no forma
+  // parte de la metodología real de este informe).
   const scoreMayorEl = document.getElementById('metric-score-mayor');
-  if (scoreMayorEl) scoreMayorEl.textContent = mayorCount;
+  if (scoreMayorEl) scoreMayorEl.textContent = criticaCount + mayorCount;
   const scoreTotalEl = document.getElementById('metric-score-total');
   if (scoreTotalEl) scoreTotalEl.textContent = total;
 
   const totalEl = document.getElementById('metric-total-findings');
   if (totalEl) totalEl.textContent = total;
+
+  const criticaEl = document.getElementById('metric-critica-count');
+  if (criticaEl) criticaEl.textContent = criticaCount;
+  const criticaBarEl = document.getElementById('metric-critica-bar');
+  if (criticaBarEl) criticaBarEl.style.width = barWidth(criticaCount, total);
 
   const mayorEl = document.getElementById('metric-mayor-count');
   if (mayorEl) mayorEl.textContent = mayorCount;
@@ -97,6 +104,11 @@ function renderHeaderMetrics() {
   if (recomendacionEl) recomendacionEl.textContent = recomendacionCount;
   const recomendacionBarEl = document.getElementById('metric-recomendacion-bar');
   if (recomendacionBarEl) recomendacionBarEl.style.width = barWidth(recomendacionCount, total);
+
+  const revisarEl = document.getElementById('metric-arevisar-count');
+  if (revisarEl) revisarEl.textContent = revisarCount;
+  const revisarBarEl = document.getElementById('metric-arevisar-bar');
+  if (revisarBarEl) revisarBarEl.style.width = barWidth(revisarCount, total);
 }
 
 function renderAreasCards() {
@@ -133,7 +145,7 @@ function renderAreasCards() {
           </p>
         </div>
         <div class="pt-3 border-t border-[#BAC5B7] flex items-center justify-between font-ui text-xs text-[#526659]">
-          <span>Hallazgos: <strong>${area.findingsCount.mayor + area.findingsCount.menor + area.findingsCount.recomendacion}</strong></span>
+          <span>Hallazgos: <strong>${area.findingsCount.critica + area.findingsCount.mayor + area.findingsCount.menor + area.findingsCount.recomendacion + area.findingsCount.aRevisar}</strong></span>
           <span class="text-[#C2593F] font-bold">${area.findingsCount.mayor} Mayores</span>
         </div>
       </div>
@@ -142,9 +154,11 @@ function renderAreasCards() {
 }
 
 const SEVERITY_BADGES = {
+  'Crítica': { bg: 'bg-terracotta', textCol: 'text-white' },
   'Mayor': { bg: 'bg-amber-600', textCol: 'text-white' },
   'Menor': { bg: 'bg-[#405648]', textCol: 'text-white' },
-  'Recomendación': { bg: 'bg-emerald-700', textCol: 'text-white' }
+  'Recomendación': { bg: 'bg-emerald-700', textCol: 'text-white' },
+  'A revisar': { bg: 'bg-salvia-muted', textCol: 'text-white' }
 };
 
 // Nombre corto de un viewport ("Escritorio (1440×900)" -> "Escritorio"),

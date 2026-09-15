@@ -77,7 +77,7 @@ export const auditAreas = [
     description: "Primer pliegue de contacto con el paciente potencial. Evalúa la claridad de la propuesta de valor, la credibilidad médica inicial, la transparencia de costos y el llamado a la acción (CTA) para iniciar terapia.",
     score: 68,
     status: "Revisión Prioritaria",
-    findingsCount: { mayor: 1, menor: 4, recomendacion: 1 }
+    findingsCount: { critica: 0, mayor: 1, menor: 3, recomendacion: 2, aRevisar: 0 }
   },
   {
     id: "patient",
@@ -87,7 +87,7 @@ export const auditAreas = [
     description: "Flujo integral del usuario desde el triaje o búsqueda de terapeuta, selección de horario, pasarela de pago, hasta la sala de espera virtual y la realización de la videoconsulta.",
     score: 59,
     status: "Revisión Prioritaria",
-    findingsCount: { mayor: 9, menor: 9, recomendacion: 11 }
+    findingsCount: { critica: 1, mayor: 8, menor: 12, recomendacion: 8, aRevisar: 1 }
   },
   {
     id: "professional",
@@ -97,7 +97,7 @@ export const auditAreas = [
     description: "Entorno de gestión para los psicólogos: validación de matrícula/colegiatura, configuración de horarios y zonas horarias, historial de pacientes y sala de consulta clínica.",
     score: 64,
     status: "Pendiente de auditoría",
-    findingsCount: { mayor: 0, menor: 0, recomendacion: 0 }
+    findingsCount: { critica: 0, mayor: 0, menor: 0, recomendacion: 0, aRevisar: 0 }
   }
 ];
 
@@ -160,8 +160,9 @@ export const nielsenHeuristics = [
  * repositorio de trabajo). Cada caso agrupa uno o más "hallazgos", cada
  * hallazgo con su propia severidad, heurística, clasificación y viewport.
  *
- * Severidades reales usadas en todo el proyecto: "Mayor", "Menor",
- * "Recomendación" (no existe una categoría "Crítico" en la metodología).
+ * Severidades reales usadas en todo el proyecto: "Crítica", "Mayor", "Menor",
+ * "Recomendación", "A revisar" (de mayor a menor prioridad; "A revisar" es
+ * para hallazgos que probablemente no impliquen ninguna acción).
  */
 export const casos = [
   {
@@ -306,7 +307,7 @@ export const casos = [
         titulo: "En tablet, la grilla de tarjetas destacadas deja un ítem huérfano con un hueco vacío al lado",
         heuristicaId: "H04",
         heuristicaNombre: "H4 — Consistencia y estándares",
-        severidad: "Menor",
+        severidad: "Recomendación",
         clasificacion: "Responsive",
         viewport: "Tablet (768×1024)",
         descripcionHtml: "La sección de tarjetas destacadas debajo del hero (“Desde cualquier lugar”, “Conexión en minutos”, “Inteligencia artificial a la medida”, “Miles de psicólogos en Latinoamérica”, “Acompañamiento que hace bien”) tiene 5 tarjetas. En escritorio se acomodan en una grilla de varias columnas sin problema, pero en tablet la grilla pasa a 2 columnas: las primeras 4 tarjetas completan 2 filas parejas, y la quinta (“Acompañamiento que hace bien”) queda sola en una tercera fila, con un espacio vacío grande a su derecha. No se detectó este mismo quiebre en la grilla de 2×2 de “Cuatro pasos para empezar” (esa sección tiene 4 ítems, número par, por lo que no genera huérfano) — es un problema puntual de esta sección por tener una cantidad impar de tarjetas.",
@@ -393,7 +394,7 @@ export const casos = [
         titulo: "Un link de verificación ya usado puede terminar mostrando el dashboard de una cuenta distinta, sin ninguna advertencia",
         heuristicaId: "H01",
         heuristicaNombre: "H1 — Visibilidad del estado del sistema",
-        severidad: "Mayor",
+        severidad: "Crítica",
         clasificacion: "Usabilidad",
         viewport: "Escritorio (1440×900)",
         descripcionHtml: "Al hacer clic en “Ir al inicio” desde la pantalla de error de un link de verificación ya usado, la app no mostró el login ni un mensaje sobre la cuenta nueva — mostró directamente el dashboard ya autenticado de <strong>otra cuenta</strong>, que ya tenía una sesión activa guardada en ese navegador. No hubo ningún indicio visual de que se trataba de una cuenta distinta a la recién creada; recién se detectó al abrir “Mis datos” y ver un nombre y email diferentes a los ingresados en el sign-up.<p class=\"mt-2\"><strong>Causa confirmada mediante test controlado:</strong> el Evaluador UX planteó como hipótesis que el origen era tener varias pestañas de Chrome abiertas y haber cerrado sesión (logout) en solo una de ellas. Claude reprodujo el escenario de forma controlada: se abrieron dos pestañas (A y B), se inició sesión con la cuenta de prueba en la pestaña A, y se confirmó que la pestaña B también mostraba la sesión activa. Luego se cerró sesión únicamente en la pestaña A, lo que la devolvió correctamente al login. Al navegar y recargar (F5) la pestaña B a continuación, <strong>la pestaña B siguió completamente autenticada</strong>, sin pedir login ni mostrar ningún aviso.</p><p class=\"mt-2\">Esto confirma la hipótesis: el logout no invalida la sesión del lado del servidor de forma global — solo limpia el estado de la pestaña/contexto donde se ejecutó la acción. Cualquier otra pestaña del mismo navegador que ya tuviera una sesión iniciada permanece autenticada indefinidamente después de un logout. Este es, muy probablemente, el mecanismo exacto que produjo el incidente original.</p><p class=\"mt-2\">Más allá de la causa puntual, el problema de UX original sigue siendo real: la app nunca comunica en qué cuenta está parado el usuario, ni distingue entre “no autenticado”, “autenticado con la cuenta nueva” y “autenticado con otra cuenta preexistente”.</p>",
@@ -485,7 +486,7 @@ export const casos = [
         titulo: "Marca de agua de un banco de imágenes visible en la foto de fondo del login",
         heuristicaId: "H08",
         heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
-        severidad: "Recomendación",
+        severidad: "Menor",
         clasificacion: "Identidad visual",
         viewport: "Escritorio (1440×900)",
         descripcionHtml: "La pantalla de login (panel izquierdo) usa una fotografía de stock (living/escritorio con vista al mar) que conserva una marca de agua semitransparente, “@sunt_mrr”, superpuesta sobre el cielo en la esquina superior derecha de la imagen — visible aunque tenue, al tratarse de texto claro sobre un fondo también claro. Da la impresión de una licencia de imagen mal gestionada (foto de preview o sin comprar/exportar en su versión final) y resta profesionalismo a la primera pantalla que ve cualquier usuario, paciente o profesional, antes de loguearse.",
@@ -623,7 +624,9 @@ export const casos = [
       "Se relevó la Home completa (hero, barra “Sin sesiones disponibles”, accesos rápidos, secciones extendidas “Sesiones” y “Diario emocional”) identificando cada elemento clicable y agrupándolo por apariencia visual (color de fondo, relleno vs. contorno vs. texto plano, radio de borde, peso de fuente).",
       "Para no depender de una lectura aproximada por color de pantalla, se extrajeron por consola los estilos computados (<code>getComputedStyle</code>) de todos los <code>button</code>, <code>a</code> y <code>[role=\"button\"]</code> visibles de la página, deduplicados por firma visual (color de fondo, color de texto, borde, radio, peso de fuente, padding y sombra), para tener los valores exactos de cada variante de botón realmente en uso.",
       "Se comparó puntualmente el botón “Cuenta” del header contra el botón “Reservar sesión” de la barra superior (el CTA principal de la Home) mediante una captura ampliada (zoom) de esa zona de la pantalla, y contra los valores exactos obtenidos en el paso 35.",
-      "Se buscaron, en toda la Home, las demás apariciones de las mismas etiquetas de botón (“Reservar sesión”, “Reservar sesión de prueba”) para ver si mantienen el mismo estilo entre sí."
+      "Se buscaron, en toda la Home, las demás apariciones de las mismas etiquetas de botón (“Reservar sesión”, “Reservar sesión de prueba”) para ver si mantienen el mismo estilo entre sí.",
+      "En una séptima pasada, a pedido del Evaluador UX, se revisó puntualmente el Hallazgo 7 (originalmente una demora de renderizado en el paso 2/9 del “Tour con Maca”, que el Evaluador UX no lograba reproducir) con Chrome (plugin), sesión ya iniciada. Se completaron los 9 pasos del tour uno por uno, tomando una captura de cada paso para comparar el pie de cada tarjeta (botones y márgenes laterales) entre sí y contra los botones reales del resto del producto. No se logró reproducir la demora original — los 9 pasos cargaron de forma inmediata. En su lugar se confirmaron y documentaron dos inconsistencias de diseño reales: los botones “Atrás”/“Dale” no siguen el sistema de diseño del resto del producto, y el margen lateral de la tarjeta del tour varía sin ningún patrón entre los 9 pasos (amplio en el paso 1, moderado en el paso 2, y prácticamente perdido del paso 3 en adelante). Se reemplazó el contenido del Hallazgo 7 original por este hallazgo nuevo, conservando su numeración para no alterar la del resto de los casos.",
+      "En una octava pasada, a pedido del Evaluador UX, se revisó la tarjeta “Tu profesional” de los accesos rápidos de la Home, con Chrome (plugin), sesión ya iniciada. Se probó el flujo completo del botón “Reservar sesión de prueba”: se eligió un profesional y un horario disponible (sin completar ningún pago), llegando a una pantalla de confirmación que muestra el precio de lista completo a pagar antes de continuar al medio de pago. Se comparó además la ilustración y el estilo de botón de esta tarjeta contra las otras 5 tarjetas de la misma fila. Se confirmaron los cuatro puntos señalados por el Evaluador UX (wording técnico, tamaño/posición del botón, ilustración inconsistente, y expectativa de gratuidad contradicha por el precio de lista mostrado antes de pagar) y se documentaron como el Hallazgo 23, agrupando todos esos puntos salvo la variante de color del botón, ya cubierta por el Hallazgo 22."
     ],
     feedbackPositivo: [
       "La sección “Ejercicios” está muy bien resuelta: agrupa las prácticas en “Rutinas guiadas” temáticas (Calma rápida, Reset de ansiedad aguda con etiqueta “SOS”, Rutina pre-sueño, etc.), con duración y cantidad de ejercicios visibles de entrada, y un tono de acompañamiento apropiado (“Si alguno te genera molestia, suspendelo y comentalo en próxima sesión”).",
@@ -817,15 +820,21 @@ export const casos = [
       },
       {
         numero: 7,
-        titulo: "En el paso 2/9 del “Tour con Maca”, el recuadro de resaltado aparece antes que el texto explicativo",
-        heuristicaId: "H01",
-        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
-        severidad: "Recomendación",
-        clasificacion: "Usabilidad",
-        viewport: "Escritorio (1440×900)",
-        descripcionHtml: "Al avanzar del paso 1 al paso 2 del tour guiado (“Un tour con Maca”), se observó una demora de aproximadamente 1 segundo en la que el recuadro de resaltado (spotlight) sobre el menú lateral ya apareció en pantalla, pero el texto explicativo (“Menú a la izquierda...”) todavía no se renderizó. Durante ese instante la pantalla muestra un elemento destacado sin ninguna explicación de qué es o por qué está resaltado. El resto de los pasos (3 a 9) cargaron el texto de forma inmediata, por lo que parece un glitch puntual de ese paso en particular y no un problema generalizado del tour.",
-        recomendacion: "Revisar la lógica de carga del paso 2 para que el resaltado y su texto aparezcan siempre en simultáneo, como ocurre en el resto de los pasos.",
-        evidencia: [],
+        titulo: "Los botones y los márgenes laterales del pie de cada pantalla del “Tour con Maca” no son consistentes entre sí ni con el resto del producto",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Identidad visual",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Se revisaron paso a paso las 9 pantallas del tour guiado (“Un tour con Maca”) para intentar reproducir el hallazgo originalmente documentado en este punto (una demora de aprox. 1 segundo entre el resaltado y el texto explicativo del paso 2/9). No se logró reproducir esa demora en esta revisión — los 9 pasos cargaron título, texto y controles de forma inmediata y simultánea — por lo que probablemente haya sido un artefacto puntual de la herramienta de prueba usada en el momento original, y no un problema real del producto. En su lugar, se detectaron dos inconsistencias de diseño distintas en el pie de las tarjetas del tour, verificadas en Chrome real.<p class=\"mt-2\"><strong>Botones fuera del sistema de diseño:</strong> los botones “Atrás” y “Dale” no siguen ninguna de las decisiones visuales del resto del producto. Son rectángulos chicos, con esquinas apenas redondeadas, relleno gris claro (“Atrás”) o gris oscuro (“Dale”) y tipografía chica — mientras que el resto de los llamados a la acción de la plataforma (“Reservar sesión”, “Ver ejercicios”, “Abrir diario”, etc.) usan un estilo consistente entre sí: esquinas bien redondeadas, relleno de color de marca (azul/violeta) y tipografía en negrita más grande.</p><p class=\"mt-2\"><strong>Márgenes laterales inconsistentes:</strong> el padding izquierdo/derecho de la tarjeta del tour varía sin ningún patrón aparente entre los 9 pasos. El paso 1/9 (pantalla de bienvenida) tiene un margen amplio y prolijo. El paso 2/9 (“Menú a la izquierda”) ya se ve visiblemente más angosto. Y del paso 3/9 en adelante (Barra superior, Tu saldo y reservar, Atajos de Inicio, Bloque Sesiones, Diario emocional, Ejercicios y Música) el margen lateral prácticamente desaparece: el título y el ícono de cerrar (×) quedan pegados al borde/esquina de la tarjeta, sin el aire que sí tienen los pasos 1 y 2.</p>",
+        recomendacion: "Unificar el componente de tarjeta del tour guiado para que use un padding lateral consistente en los 9 pasos (tomando como referencia el paso 1, que es el que mejor resuelve el espaciado), y reemplazar los botones “Atrás”/“Dale” por el mismo componente de botón (color, tipografía y radio de esquina) que ya usa el resto de la plataforma.",
+        evidencia: [
+          { src: "capturas/caso-03/37-tour-maca-paso1-margenes-amplios.png", caption: "Paso 1/9 (“Un tour con Maca”): margen lateral amplio y prolijo" },
+          { src: "capturas/caso-03/38-tour-maca-paso2-margenes-moderados.png", caption: "Paso 2/9 (“Menú a la izquierda”): margen ya visiblemente más angosto" },
+          { src: "capturas/caso-03/39-tour-maca-paso3-margenes-perdidos.png", caption: "Paso 3/9 (“Barra superior”): el margen lateral prácticamente desaparece" },
+          { src: "capturas/caso-03/40-tour-maca-paso6-margenes-perdidos.png", caption: "Paso 6/9 (“Bloque Sesiones”): mismo problema de margen perdido" },
+          { src: "capturas/caso-03/41-tour-maca-botones-atras-dale-vs-real.png", caption: "Comparación: botones “Atrás”/“Dale” del tour vs. el botón “Reservar sesión” del resto del producto" }
+        ],
         verificaciones: []
       },
       {
@@ -833,7 +842,7 @@ export const casos = [
         titulo: "La sección “Música” incorpora videos de YouTube, con la marca de YouTube visible dentro del reproductor",
         heuristicaId: "H08",
         heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
-        severidad: "Recomendación",
+        severidad: "A revisar",
         clasificacion: "Identidad visual",
         viewport: "Escritorio (1440×900)",
         descripcionHtml: "Al entrar a “Música” (tanto desde la tarjeta de acceso rápido como desde la sección extendida), el contenido se reproduce embebido directamente desde YouTube (ej. el video “1 A.M Study Session [lofi hip hop]” del canal “Lofi Girl”), con el botón de play rojo característico de YouTube y el nombre del canal visibles dentro del reproductor. Es la única pantalla de todo el recorrido donde aparece una marca de un tercero de forma tan prominente, lo que rompe con la estética cuidada y propia del resto del producto. No se evaluó en este caso si esto tiene además alguna implicancia de privacidad (carga de un iframe de un tercero dentro de un producto de salud), lo cual podría ser materia de un chequeo técnico aparte.",
@@ -1112,6 +1121,22 @@ export const casos = [
         evidencia: [
           { src: "capturas/caso-03/35-botones-reservar-sesion-tres-colores.jpg", caption: "Banner de “Sesiones”: botón azul “Reservar sesión” junto al navy “Reservar sesión de prueba”" },
           { src: "capturas/caso-03/36-tarjetas-enlaces-subrayados-diario.jpg", caption: "Banner “Diario emocional”: enlaces subrayados vs. tarjetas inferiores sin ese tratamiento" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 23,
+        titulo: "La tarjeta “Tu profesional” da la impresión de una sesión de prueba gratuita, pero deriva a un pago de precio completo; además usa una ilustración y un botón que no siguen el lenguaje visual del resto de la Home",
+        heuristicaId: "H02",
+        heuristicaNombre: "H2 — Coincidencia con el mundo real",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "En la Home, la primera de las 6 tarjetas de accesos rápidos (“Tu profesional”) invita a “Reservar sesión de prueba”. En español, “sesión de prueba” — sobre todo sin ninguna aclaración de costo al lado — genera una expectativa fuerte de gratuidad o bajo riesgo (como el “período de prueba” de una suscripción). Al seguir el flujo completo (elegir un profesional y un horario) se llega a una pantalla que dice “SESIÓN DE PRUEBA — Confirmá tu turno antes de pagar”, con “TOTAL A PAGAR AHORA: 1 sesión · precio de lista” — en el caso probado, ARS 64.000, el precio de lista completo del profesional, sin descuento ni período gratuito de ningún tipo. Para un producto de salud mental, donde la propia auditoría ya señala la sensibilidad del momento en que alguien busca ayuda por primera vez, que la primera interacción con el sistema de pagos contradiga la expectativa que genera su propio wording es un problema real de confianza, no solo estético.<p class=\"mt-2\">El texto de la tarjeta contribuye a esa confusión: “Se define al reservar tu sesión de prueba o una sesión con créditos” usa lenguaje de sistema (“se define”) en vez de lenguaje centrado en la persona, y en ningún momento aclara que esa “sesión de prueba” tiene costo.</p><p class=\"mt-2\">Además, se detectaron dos problemas visuales menores en la misma tarjeta: el botón “Reservar sesión de prueba” ocupa aproximadamente la mitad del ancho de la tarjeta y está corrido hacia la izquierda, en vez de centrado o de ancho completo como sería esperable en el CTA principal de una tarjeta; y la ilustración usada (dos personas sentadas conversando, estilo semi-3D) no se repite en ninguna de las otras 5 tarjetas de la misma fila (Comprar sesiones, Próximas sesiones, Diario, Ejercicios, Música), que usan todas el mismo lenguaje de ícono simple dentro de un círculo de color — una ruptura del lenguaje visual del resto de la Home. (La existencia de una tercera variante de color para este mismo botón, distinta de las mencionadas acá, ya está documentada en el Hallazgo 22.)</p>",
+        recomendacion: "Replantear el copy de esta tarjeta para que quede explícito desde el primer contacto que la “sesión de prueba” tiene costo (por ejemplo, mostrando el rango de precio o la palabra “paga” junto al título), y evaluar si el nombre “sesión de prueba” es el más adecuado dado lo que realmente ofrece, o si conviene renombrarla (ej. “primera sesión”) para no generar una expectativa de gratuidad. De forma independiente, alinear el botón de esta tarjeta al mismo ancho/alineación que usan las demás, y reemplazar la ilustración por un ícono del mismo sistema que el resto de las tarjetas de accesos rápidos.",
+        evidencia: [
+          { src: "capturas/caso-03/42-tu-profesional-tarjeta.png", caption: "Tarjeta “Tu profesional”: ilustración distinta al resto y botón angosto corrido a la izquierda" },
+          { src: "capturas/caso-03/43-tu-profesional-pago-confirmacion.png", caption: "Pantalla tras elegir profesional y horario: “Sesión de prueba” con precio de lista completo a pagar" }
         ],
         verificaciones: []
       }
