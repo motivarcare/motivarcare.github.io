@@ -1,30 +1,81 @@
-import { auditMetadata, auditAreas, nielsenHeuristics, auditFindings } from './audit-data.js';
+import { auditMetadata, heroContent, auditAreas, nielsenHeuristics, casos } from './audit-data.js';
+
+// Lista plana de todos los hallazgos de todos los casos, cada uno con una
+// referencia a su caso de origen — útil para métricas y para la tabla.
+const allFindings = casos.flatMap(caso =>
+  caso.hallazgos.map(h => ({ ...h, casoId: caso.id, casoNumero: caso.numero, casoTitulo: caso.titulo, casoEstado: caso.estado, areaId: caso.areaId }))
+);
 
 let currentArea = 'all';
 let currentSeverity = 'all';
 let currentSearch = '';
 
+// IDs de casos expandidos manualmente en la tabla de hallazgos (por defecto
+// todos los casos arrancan colapsados).
+const expandedCasoIds = new Set();
+
 document.addEventListener('DOMContentLoaded', () => {
+  renderHeroContent('all');
   renderHeaderMetrics();
   renderAreasCards();
+  renderHeuristicsTable();
   renderFindings();
   setupEventListeners();
 });
+
+function renderHeroContent(areaId) {
+  const content = heroContent[areaId] || heroContent.all;
+
+  const titleEl = document.getElementById('hero-title');
+  if (titleEl) {
+    // Sin espacio antes de una coma o punto en el sufijo (ej. ", de la duda...")
+    const suffixSeparator = /^[,.]/.test(content.titleSuffix) ? '' : ' ';
+    titleEl.innerHTML = `${content.titlePrefix} <span class="italic text-terracotta font-normal underline decoration-terracotta/40 underline-offset-8">${content.titleAccent}</span>${suffixSeparator}${content.titleSuffix}`;
+  }
+
+  const labelEl = document.getElementById('hero-summary-label');
+  if (labelEl) labelEl.textContent = content.summaryLabel;
+
+  const paragraphsEl = document.getElementById('hero-paragraphs');
+  if (paragraphsEl) {
+    paragraphsEl.innerHTML = content.paragraphs.map((p, i) => {
+      const cls = i === 0
+        ? 'font-reading text-lg md:text-xl text-[#1E3025] leading-relaxed'
+        : 'font-reading text-sm text-[#2D4536] leading-relaxed';
+      return `<p class="${cls}">${p}</p>`;
+    }).join('');
+  }
+}
+
+function renderHeuristicsTable() {
+  const body = document.getElementById('heuristics-table-body');
+  if (!body) return;
+
+  body.innerHTML = nielsenHeuristics.map(h => `
+    <tr class="border-b border-[#D4DCD0] align-top hover:bg-white/50 transition-colors">
+      <td class="py-3 pr-4 font-code text-xs font-bold text-terracotta whitespace-nowrap">${h.id}</td>
+      <td class="py-3 pr-4 font-ui text-sm font-bold text-forest-dark">${h.name}</td>
+      <td class="py-3 font-reading text-sm text-[#2A3E32] leading-snug">${h.adaptedContext}</td>
+    </tr>
+  `).join('');
+}
 
 function renderHeaderMetrics() {
   const scoreEl = document.getElementById('metric-global-score');
   if (scoreEl) scoreEl.textContent = auditMetadata.healthScoreGlobal;
 
   const totalEl = document.getElementById('metric-total-findings');
-  if (totalEl) totalEl.textContent = auditFindings.length;
+  if (totalEl) totalEl.textContent = allFindings.length;
 
-  const criticalCount = auditFindings.filter(f => f.severity === 'critical').length;
+  // "metric-critical-count" muestra Hallazgos Mayores (severidad más alta
+  // de la metodología real, que no incluye una categoría "Crítico").
+  const mayorCount = allFindings.filter(f => f.severidad === 'Mayor').length;
   const criticalEl = document.getElementById('metric-critical-count');
-  if (criticalEl) criticalEl.textContent = criticalCount;
+  if (criticalEl) criticalEl.textContent = mayorCount;
 
-  const majorCount = auditFindings.filter(f => f.severity === 'major').length;
+  const menorCount = allFindings.filter(f => f.severidad === 'Menor').length;
   const majorEl = document.getElementById('metric-major-count');
-  if (majorEl) majorEl.textContent = majorCount;
+  if (majorEl) majorEl.textContent = menorCount;
 }
 
 function renderAreasCards() {
@@ -61,120 +112,153 @@ function renderAreasCards() {
           </p>
         </div>
         <div class="pt-3 border-t border-[#BAC5B7] flex items-center justify-between font-ui text-xs text-[#526659]">
-          <span>Hallazgos: <strong>${area.findingsCount.critical + area.findingsCount.major + area.findingsCount.minor}</strong></span>
-          <span class="text-[#C2593F] font-bold">${area.findingsCount.critical} Críticos</span>
+          <span>Hallazgos: <strong>${area.findingsCount.mayor + area.findingsCount.menor + area.findingsCount.recomendacion}</strong></span>
+          <span class="text-[#C2593F] font-bold">${area.findingsCount.mayor} Mayores</span>
         </div>
       </div>
     `;
   }).join('');
+}
+
+const SEVERITY_BADGES = {
+  'Mayor': { bg: 'bg-amber-600', textCol: 'text-white' },
+  'Menor': { bg: 'bg-[#405648]', textCol: 'text-white' },
+  'Recomendación': { bg: 'bg-emerald-700', textCol: 'text-white' }
+};
+
+// Nombre corto de un viewport ("Escritorio (1440×900)" -> "Escritorio"),
+// para no repetir la resolución en columnas/etiquetas compactas.
+function shortViewportLabel(viewport) {
+  return viewport.split(' (')[0];
+}
+
+// Todos los viewports en los que un hallazgo aplica: el viewport donde se
+// detectó originalmente, más cualquier viewport de sus "verificaciones"
+// cuyo resultado no sea "no-aplica" (es decir, donde se confirmó que se
+// replica o aparece como variante).
+function getApplicableViewports(h) {
+  const verified = (h.verificaciones || [])
+    .filter(v => v.resultado !== 'no-aplica')
+    .map(v => v.viewport);
+  return [h.viewport, ...verified];
 }
 
 function renderFindings() {
   const container = document.getElementById('findings-container');
   if (!container) return;
 
-  const filtered = auditFindings.filter(finding => {
-    const matchArea = currentArea === 'all' || finding.areaId === currentArea;
-    const matchSeverity = currentSeverity === 'all' || finding.severity === currentSeverity;
-    const matchSearch = !currentSearch || 
-      finding.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
-      finding.description.toLowerCase().includes(currentSearch.toLowerCase()) ||
-      finding.heuristicName.toLowerCase().includes(currentSearch.toLowerCase());
-    return matchArea && matchSeverity && matchSearch;
-  });
+  // Filtra los casos por área (pestaña activa), y dentro de cada caso
+  // filtra sus hallazgos por severidad y por búsqueda de texto.
+  const visibleCasos = casos
+    .filter(caso => currentArea === 'all' || caso.areaId === currentArea)
+    .map(caso => {
+      const hallazgosFiltrados = caso.hallazgos.filter(h => {
+        const matchSeverity = currentSeverity === 'all' || h.severidad === currentSeverity;
+        const search = currentSearch.toLowerCase();
+        const matchSearch = !search ||
+          h.titulo.toLowerCase().includes(search) ||
+          h.descripcionHtml.toLowerCase().includes(search) ||
+          h.heuristicaNombre.toLowerCase().includes(search) ||
+          h.clasificacion.toLowerCase().includes(search);
+        return matchSeverity && matchSearch;
+      });
+      return { caso, hallazgosFiltrados };
+    })
+    .filter(({ hallazgosFiltrados }) => hallazgosFiltrados.length > 0);
 
+  const totalVisible = visibleCasos.reduce((acc, { hallazgosFiltrados }) => acc + hallazgosFiltrados.length, 0);
   const countEl = document.getElementById('visible-findings-count');
-  if (countEl) countEl.textContent = `${filtered.length} hallazgo(s) encontrado(s)`;
+  if (countEl) countEl.textContent = `${totalVisible} hallazgo(s) encontrado(s)`;
 
-  if (filtered.length === 0) {
+  if (totalVisible === 0) {
     container.innerHTML = `
-      <div class="p-12 text-center border border-dashed border-[#BAC5B7] rounded-xl bg-[#DFE5DC]">
-        <p class="font-reading text-lg text-[#55695D] italic">No se encontraron hallazgos con los filtros seleccionados.</p>
-        <button onclick="resetFilters()" class="mt-3 px-4 py-1.5 rounded-lg bg-[#112017] text-[#E8ECE6] font-ui text-xs font-bold">
-          Restablecer Filtros
-        </button>
-      </div>
+      <tr>
+        <td colspan="5" class="p-12 text-center">
+          <p class="font-reading text-lg text-[#55695D] italic">No se encontraron hallazgos con los filtros seleccionados.</p>
+          <button onclick="resetFilters()" class="mt-3 px-4 py-1.5 rounded-lg bg-[#112017] text-[#E8ECE6] font-ui text-xs font-bold">
+            Restablecer Filtros
+          </button>
+        </td>
+      </tr>
     `;
     return;
   }
 
-  container.innerHTML = filtered.map(finding => {
-    const severityBadges = {
-      critical: { text: 'Crítico', bg: 'bg-[#C2593F]', textCol: 'text-white' },
-      major: { text: 'Mayor', bg: 'bg-amber-600', textCol: 'text-white' },
-      minor: { text: 'Menor', bg: 'bg-[#405648]', textCol: 'text-white' },
-      opportunity: { text: 'Oportunidad', bg: 'bg-emerald-700', textCol: 'text-white' }
-    };
-    const sev = severityBadges[finding.severity] || severityBadges.minor;
+  container.innerHTML = visibleCasos.map(({ caso, hallazgosFiltrados }) => {
+    // Un filtro de severidad o búsqueda activo expande automáticamente el
+    // caso para que los resultados filtrados queden visibles; si no hay
+    // filtros activos, se respeta el estado de expansión manual (colapsado
+    // por defecto).
+    const filtersActive = currentSeverity !== 'all' || currentSearch !== '';
+    const isExpanded = filtersActive || expandedCasoIds.has(caso.id);
 
-    return `
-      <article class="p-6 md:p-8 rounded-xl border border-[#CBD5C7] bg-[#F1F5EF] hover:border-[#112017] transition-all card-finding shadow-sm space-y-4">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-[#D4DCD0] pb-3">
-          <div class="flex items-center gap-2">
-            <span class="font-code font-bold text-xs text-[#112017] px-2 py-0.5 rounded bg-[#DEE5DA] border border-[#BAC5B7]">
-              ${finding.id}
-            </span>
-            <span class="font-ui text-[11px] uppercase tracking-wider font-bold text-[#55695D]">
-              ${finding.areaName}
-            </span>
+    const headerRow = `
+      <tr class="bg-[#DEE5DA] border-t-2 border-b border-salvia-border">
+        <td colspan="5" class="px-3 py-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="toggleCaso(${caso.id}, event)" aria-expanded="${isExpanded}" aria-label="${isExpanded ? 'Colapsar' : 'Expandir'} hallazgos del caso ${caso.numero}"
+                    class="w-6 h-6 flex items-center justify-center rounded border border-[#BAC5B7] bg-white text-[#3C5245] hover:text-terracotta hover:border-terracotta transition-all shrink-0">
+              <span class="inline-block text-xs transition-transform duration-150 ${isExpanded ? 'rotate-90' : ''}">▸</span>
+            </button>
+            <a href="./caso.html?id=${caso.id}" class="flex flex-wrap items-center gap-2 group flex-1 min-w-0">
+              <span class="font-code font-bold text-xs text-[#112017] px-2 py-0.5 rounded bg-white border border-[#BAC5B7] whitespace-nowrap">
+                CASO ${caso.numero}
+              </span>
+              <span class="font-ui text-sm font-bold text-forest-dark group-hover:text-terracotta transition-colors">
+                ${caso.titulo}
+              </span>
+              <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-bold border ${caso.estado === 'Completado' ? 'bg-emerald-700 text-white border-emerald-700' : 'bg-white text-[#3C5245] border-[#CBD5C7]'}">
+                ${caso.estado}
+              </span>
+              <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full font-bold bg-white text-[#526659] border border-[#CBD5C7] whitespace-nowrap">
+                ${hallazgosFiltrados.length} hallazgo${hallazgosFiltrados.length === 1 ? '' : 's'}
+              </span>
+            </a>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="font-ui text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-bold ${sev.bg} ${sev.textCol}">
-              Severidad: ${sev.text}
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <span class="font-ui text-[10px] uppercase tracking-widest text-[#C2593F] font-bold block mb-1">
-            ${finding.heuristicName}
-          </span>
-          <h3 class="font-hero text-2xl sm:text-3xl text-[#112017] leading-tight font-normal">
-            ${finding.title}
-          </h3>
-        </div>
-
-        <p class="font-reading text-base text-[#24392D] leading-relaxed">
-          ${finding.description}
-        </p>
-
-        <!-- Bloque de impacto para el negocio y el usuario (Enfoque Stakeholders) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          <div class="p-3.5 rounded-lg bg-[#E4EBE0] border border-[#CBD5C7] text-xs space-y-1">
-            <strong class="font-ui text-[10px] uppercase tracking-wider text-[#112017] font-bold block">
-              // Impacto en Negocio & Conversión
-            </strong>
-            <p class="font-reading text-[#2A3E32] leading-snug">
-              ${finding.businessImpact}
-            </p>
-          </div>
-          <div class="p-3.5 rounded-lg bg-[#E4EBE0] border border-[#CBD5C7] text-xs space-y-1">
-            <strong class="font-ui text-[10px] uppercase tracking-wider text-[#C2593F] font-bold block">
-              // Impacto Emocional en el Paciente
-            </strong>
-            <p class="font-reading text-[#2A3E32] leading-snug">
-              ${finding.emotionalImpact}
-            </p>
-          </div>
-        </div>
-
-        <!-- Recomendación accionable -->
-        <div class="p-4 rounded-lg bg-[#DEE6DA] border-l-4 border-[#112017] space-y-1">
-          <span class="font-ui text-[10px] uppercase tracking-widest font-bold text-[#112017] block">
-            Recomendación de Diseño & Solución
-          </span>
-          <p class="font-reading text-sm text-[#1A2C21] leading-relaxed">
-            ${finding.recommendation}
-          </p>
-          <div class="flex items-center gap-4 pt-2 font-ui text-xs text-[#526659]">
-            <span>Esfuerzo estimado: <strong class="text-[#112017]">${finding.effort}</strong></span>
-            <span>Retorno de inversión: <strong class="text-[#C2593F]">${finding.roi}</strong></span>
-          </div>
-        </div>
-      </article>
+        </td>
+      </tr>
     `;
+
+    if (!isExpanded) return headerRow;
+
+    const hallazgoRows = hallazgosFiltrados.map(h => {
+      const sev = SEVERITY_BADGES[h.severidad] || SEVERITY_BADGES['Menor'];
+      return `
+        <tr class="border-b border-[#D4DCD0] hover:bg-white/60 transition-colors cursor-pointer" onclick="window.location.href='./caso.html?id=${caso.id}#hallazgo-${h.numero}'">
+          <td class="px-3 py-3">
+            <span class="font-ui text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-bold ${sev.bg} ${sev.textCol}">
+              ${h.severidad}
+            </span>
+          </td>
+          <td class="px-3 py-3 font-ui text-sm text-forest-dark font-semibold">
+            ${h.titulo}
+          </td>
+          <td class="px-3 py-3 font-ui text-xs text-[#526659]">
+            ${h.heuristicaNombre}
+          </td>
+          <td class="px-3 py-3 font-ui text-xs text-[#526659]">
+            ${h.clasificacion}
+          </td>
+          <td class="px-3 py-3 font-ui text-xs text-[#526659]">
+            ${getApplicableViewports(h).map(shortViewportLabel).join(', ')}
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    return headerRow + hallazgoRows;
   }).join('');
 }
+
+window.toggleCaso = function(casoId, event) {
+  if (event) event.preventDefault();
+  if (expandedCasoIds.has(casoId)) {
+    expandedCasoIds.delete(casoId);
+  } else {
+    expandedCasoIds.add(casoId);
+  }
+  renderFindings();
+};
 
 function setupEventListeners() {
   // Búsqueda en tiempo real
@@ -199,7 +283,7 @@ function setupEventListeners() {
 // Funciones globales accesibles desde onclick
 window.filterByArea = function(areaId) {
   currentArea = areaId;
-  
+
   // Actualizar botones de navegación
   const buttons = document.querySelectorAll('.nav-area-btn');
   buttons.forEach(btn => {
@@ -210,6 +294,7 @@ window.filterByArea = function(areaId) {
     }
   });
 
+  renderHeroContent(areaId);
   renderAreasCards();
   renderFindings();
 };

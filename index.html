@@ -88,7 +88,7 @@
       <div class="border-b border-salvia-border pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-salvia-muted/40 text-[11px] font-ui uppercase tracking-widest text-forest-muted font-bold bg-[#DEE5DA]">
           <span class="w-2 h-2 rounded-full bg-terracotta"></span>
-          Evaluación UX para MotivarCare
+          Evaluación Profesional
         </div>
 
         <nav class="flex items-center gap-1 overflow-x-auto no-print">
@@ -107,29 +107,24 @@
         </nav>
       </div>
 
-      <!-- Título de Escala Monumental con acento Terracota -->
+      <!-- Título de Escala Monumental con acento Terracota (contenido dinámico según pestaña activa) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div class="lg:col-span-8 space-y-6">
-          <h1 class="font-hero text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] leading-[0.88] text-forest-dark font-normal tracking-tight">
-            La fragilidad del 
-            <span class="italic text-terracotta font-normal underline decoration-terracotta/40 underline-offset-8">primer contacto</span> 
-            en terapia virtual.
+          <h1 id="hero-title" class="font-hero text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] leading-[0.88] text-forest-dark font-normal tracking-tight">
+            <!-- Renderizado dinámico desde app.js -->
           </h1>
 
           <!-- Dictamen para la Junta Directiva (100% Serif en Newsreader) -->
           <div class="p-6 md:p-8 bg-salvia-card/90 border-l-4 border-terracotta rounded-r-2xl space-y-3 shadow-sm">
             <div class="flex items-center justify-between border-b border-salvia-border pb-2">
-              <span class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold">
+              <span id="hero-summary-label" class="font-ui text-[10px] uppercase tracking-widest text-terracotta font-bold">
                 // Resumen del trabajo
               </span>
               <span class="font-code text-[11px] text-[#5A6F62]">REF. AUDITORÍA UX -2026</span>
             </div>
-            <p class="font-reading text-lg md:text-xl text-[#1E3025] leading-relaxed">
-              El usuario que busca atención psicológica en línea experimenta una carga cognitiva y emocional única: su motivación inicial es alta, pero su tolerancia a la incertidumbre es mínima. Si el portal no disipa en menos de 10 segundos las dudas sobre la <em>matrícula médica</em>, las <em>tarifas reales</em> y la <em>confidencialidad de la sesión</em>, el abandono preventivo supera el <strong>38%</strong> del tráfico.
-            </p>
-            <p class="font-reading text-sm text-[#2D4536] leading-relaxed">
-              Esta auditoría examina los 3 entornos críticos del ecosistema de MotivarCare bajo <strong>10 Heurísticas de Usabilidad de Nielsen</strong> adaptadas a salud mental, definiendo un plan de optimización de alto retorno sobre la inversión (ROI).
-            </p>
+            <div id="hero-paragraphs" class="space-y-3">
+              <!-- Renderizado dinámico desde app.js -->
+            </div>
           </div>
         </div>
 
@@ -158,7 +153,7 @@
 
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
-                <span>Vulnerabilidades Críticas</span>
+                <span>Hallazgos Mayores</span>
                 <span id="metric-critical-count" class="text-terracotta font-code font-bold">2</span>
               </div>
               <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
@@ -168,7 +163,7 @@
 
             <div>
               <div class="flex justify-between font-ui text-[11px] uppercase font-bold text-forest-muted mb-1">
-                <span>Fricciones Mayores</span>
+                <span>Hallazgos Menores</span>
                 <span id="metric-major-count" class="text-amber-700 font-code font-bold">3</span>
               </div>
               <div class="w-full bg-[#CCD6C8] h-2 rounded-full overflow-hidden">
@@ -227,6 +222,22 @@
       <p class="font-reading text-base text-[#24392D] leading-relaxed max-w-4xl">
         Las 10 heurísticas clásicas de Jakob Nielsen han sido contextualizadas para evaluar la <strong>ética, la confidencialidad médica, la reducción de ansiedad sensorial y la transparencia transaccional</strong> en plataformas de salud mental online.
       </p>
+
+      <!-- Tabla de las 10 Heurísticas adaptadas -->
+      <div class="overflow-x-auto pt-2">
+        <table class="w-full text-left border-collapse min-w-[640px]">
+          <thead>
+            <tr class="border-b border-salvia-border">
+              <th class="py-2 pr-4 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-16">ID</th>
+              <th class="py-2 pr-4 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-64 sm:w-72">Heurística</th>
+              <th class="py-2 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold">Contexto adaptado a telepsicología</th>
+            </tr>
+          </thead>
+          <tbody id="heuristics-table-body">
+            <!-- Renderizado dinámico desde app.js -->
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ========================================================================= -->
@@ -253,9 +264,9 @@
           <!-- Filtro por severidad -->
           <select id="severity-filter" class="px-3 py-1.5 rounded-lg border border-salvia-border bg-white text-forest-ink font-ui text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-terracotta/40">
             <option value="all">Todas las severidades</option>
-            <option value="critical">Solo Críticos</option>
-            <option value="major">Solo Mayores</option>
-            <option value="minor">Solo Menores</option>
+            <option value="Mayor">Solo Mayores</option>
+            <option value="Menor">Solo Menores</option>
+            <option value="Recomendación">Solo Recomendaciones</option>
           </select>
 
           <!-- Contador -->
@@ -265,9 +276,22 @@
         </div>
       </div>
 
-      <!-- Contenedor dinámico de hallazgos -->
-      <div id="findings-container" class="space-y-6">
-        <!-- Renderizado dinámico desde app.js -->
+      <!-- Tabla dinámica de hallazgos, agrupada por caso -->
+      <div class="overflow-x-auto rounded-xl border border-salvia-border bg-[#F1F5EF] shadow-sm">
+        <table class="w-full text-left border-collapse min-w-[720px]">
+          <thead>
+            <tr class="border-b border-salvia-border bg-[#E4EBE0]">
+              <th class="py-2.5 px-3 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-28">Severidad</th>
+              <th class="py-2.5 px-3 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold">Título</th>
+              <th class="py-2.5 px-3 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-48">Heurística</th>
+              <th class="py-2.5 px-3 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-36">Clasificación</th>
+              <th class="py-2.5 px-3 font-ui text-[10px] uppercase tracking-widest text-forest-muted font-bold w-32">Viewport</th>
+            </tr>
+          </thead>
+          <tbody id="findings-container">
+            <!-- Renderizado dinámico desde app.js -->
+          </tbody>
+        </table>
       </div>
     </section>
 

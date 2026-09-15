@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Detalle de Caso — Auditoría UX MotivarCare</title>
+
+  <!-- Estilos base y fuentes editoriales -->
+  <link rel="stylesheet" href="./src/css/style.css" />
+
+  <!-- Tailwind CSS CDN para previsualización inmediata y estilos utilitarios -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            salvia: {
+              base: '#E8ECE6',
+              light: '#EFF3ED',
+              card: '#DEE5DA',
+              border: '#CBD5C7',
+              muted: '#7F9185'
+            },
+            forest: {
+              ink: '#112017',
+              dark: '#0B150F',
+              muted: '#273B2F'
+            },
+            terracotta: {
+              DEFAULT: '#C2593F',
+              hover: '#AB4C34',
+              light: '#F8EAE6'
+            }
+          },
+          fontFamily: {
+            hero: ['"Instrument Serif"', 'serif'],
+            reading: ['"Newsreader"', 'serif'],
+            ui: ['"Plus Jakarta Sans"', 'sans-serif'],
+            code: ['"Space Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-salvia-base text-forest-ink min-h-screen blueprint-grid-sage antialiased font-reading selection:bg-terracotta selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- BARRA SUPERIOR                                                            -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#E8ECE6]/90 backdrop-blur border-b border-salvia-border px-4 md:px-8 py-3.5 no-print">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-hero text-2xl tracking-wide font-normal leading-none">MotivarCare</span>
+            <span class="font-ui text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#DCE4D9] text-forest-ink font-bold border border-salvia-border">
+              Informe UX - En progreso
+            </span>
+          </div>
+          <span class="font-ui text-[10px] uppercase tracking-widest text-[#576D60] font-semibold block py-1">
+            Auditoría de Usabilidad · Septiembre 2026
+          </span>
+        </div>
+      </div>
+
+      <a href="./index.html#hallazgos" class="px-3.5 py-1.5 rounded-lg border border-salvia-border bg-white/70 hover:bg-white text-forest-ink font-ui text-xs font-bold transition-all shadow-sm flex items-center gap-1.5">
+        <span>←</span> Volver al informe
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- CONTENEDOR PRINCIPAL DEL DETALLE DE CASO                                 -->
+  <!-- ========================================================================= -->
+  <main class="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-12 space-y-10">
+
+    <div id="caso-not-found" class="hidden p-8 rounded-xl border border-dashed border-[#BAC5B7] bg-[#DFE5DC] text-center">
+      <p class="font-reading text-lg text-[#55695D] italic">No se encontró el caso solicitado.</p>
+      <a href="./index.html#hallazgos" class="mt-3 inline-block px-4 py-1.5 rounded-lg bg-forest-ink text-salvia-base font-ui text-xs font-bold">
+        Volver al informe
+      </a>
+    </div>
+
+    <div id="caso-content" class="space-y-10">
+      <!-- Encabezado del caso -->
+      <section class="space-y-4 border-b border-salvia-border pb-6">
+        <div id="caso-badges" class="flex flex-wrap items-center gap-2"></div>
+        <h1 id="caso-titulo" class="font-hero text-3xl sm:text-5xl text-forest-dark font-normal leading-tight"></h1>
+        <div id="caso-descripcion" class="font-reading text-base md:text-lg text-[#24392D] leading-relaxed max-w-3xl"></div>
+      </section>
+
+      <!-- Pasos realizados -->
+      <section class="space-y-4">
+        <h2 class="font-hero text-2xl text-forest-dark font-normal border-b border-salvia-border pb-2">
+          Pasos realizados
+        </h2>
+        <ol id="caso-pasos" class="list-decimal pl-5 space-y-2 font-reading text-sm text-[#2A3E32] leading-relaxed max-w-3xl"></ol>
+      </section>
+
+      <!-- Hallazgos -->
+      <section class="space-y-4">
+        <h2 class="font-hero text-2xl text-forest-dark font-normal border-b border-salvia-border pb-2">
+          Hallazgos
+        </h2>
+        <div id="caso-hallazgos" class="space-y-6"></div>
+      </section>
+
+      <!-- Feedback positivo -->
+      <section class="space-y-4">
+        <h2 class="font-hero text-2xl text-forest-dark font-normal border-b border-salvia-border pb-2">
+          Feedback positivo
+        </h2>
+        <ul id="caso-feedback" class="list-disc pl-5 space-y-2 font-reading text-sm text-[#2A3E32] leading-relaxed max-w-3xl"></ul>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PIE DE PÁGINA                                                             -->
+  <!-- ========================================================================= -->
+  <footer class="mt-24 border-t border-salvia-border bg-[#DFE5DC] py-10 px-4 md:px-8 text-center text-xs font-ui text-[#526659]">
+    <div class="max-w-5xl mx-auto space-y-2">
+      <p class="font-bold text-forest-dark">
+        MotivarCare UX Audit · Desarrollado con metodología heurística adaptada a Telepsicología
+      </p>
+      <p class="font-reading text-sm italic text-[#44584C]">
+        Documento técnico para uso interno y toma de decisiones estratégicas. Septiembre 2026.
+      </p>
+      <div class="pt-4 font-code text-[11px] text-[#718578]">
+        Repositorio oficial: <a href="https://github.com/motivarcare/motivarcare.github.io" class="underline hover:text-terracotta">motivarcare.github.io</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica modular de la aplicación -->
+  <script type="module" src="./src/js/caso.js"></script>
+</body>
+</html>
