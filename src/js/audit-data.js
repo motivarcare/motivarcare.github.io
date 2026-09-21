@@ -87,7 +87,7 @@ export const auditAreas = [
     description: "Flujo integral del usuario desde el triaje o búsqueda de terapeuta, selección de horario, pasarela de pago, hasta la sala de espera virtual y la realización de la videoconsulta.",
     score: 59,
     status: "Revisión Prioritaria",
-    findingsCount: { critica: 1, mayor: 8, menor: 12, recomendacion: 8, aRevisar: 1 }
+    findingsCount: { critica: 5, mayor: 10, menor: 23, recomendacion: 10, aRevisar: 1 }
   },
   {
     id: "professional",
@@ -1139,6 +1139,621 @@ export const casos = [
           { src: "capturas/caso-03/43-tu-profesional-pago-confirmacion.png", caption: "Pantalla tras elegir profesional y horario: “Sesión de prueba” con precio de lista completo a pagar" }
         ],
         verificaciones: []
+      }
+    ]
+  },
+  {
+    id: 4,
+    numero: "04",
+    slug: "caso-04-reserva-paquete-sesiones",
+    areaId: "patient",
+    areaName: "Experiencia del Paciente",
+    titulo: "Reserva de un paquete de sesiones desde la Home del Paciente y agendamiento del turno",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Se relevaron, en la Home de <code>app.motivarcare.com</code> bajo el perfil de <strong>paciente</strong>, todos los puntos de entrada a reservar o comprar sesiones, y luego se completó un flujo real de principio a fin: elegir un paquete, pagarlo, y agendar un turno usando las sesiones acreditadas. Se usó Chrome real (plugin Claude in Chrome), a pedido del Evaluador UX, con la sesión ya iniciada. A diferencia de casos anteriores, en este caso se llegó a completar una compra real (en el ambiente de prueba/sandbox de la pasarela de pago), con los datos de la tarjeta ingresados manualmente por el Evaluador UX y su autorización explícita para confirmar el pago, precisamente para poder verificar cómo queda reflejada la compra y la reserva resultante en la cuenta del paciente.",
+    pasosRealizados: [
+      "Se abrió <code>app.motivarcare.com</code> en Chrome (sesión ya iniciada) y se relevaron todos los botones de la Home relacionados con reservar o comprar sesiones: el CTA “Reservar sesión” del hero, “Reservar sesión de prueba” de la tarjeta “Tu profesional”, “Comprar sesiones”, el botón “Reservar sesión” del banner “Sesiones”, y “Reservar sesión de prueba” de la tarjeta “Sesión de prueba pendiente” dentro de ese mismo banner.",
+      "Se comparó el estilo visual de estos cinco botones. Se confirmó que la inconsistencia de tres colores distintos para la misma acción “Reservar” (violeta de marca, azul <code>#1D4ED8</code> y navy <code>#1E1B4B</code>) ya está documentada en el <strong>Hallazgo 22 del Caso 3</strong>, así que no se generó un hallazgo nuevo por esto en este caso.",
+      "Se abrió el modal “Elegí tu terapia” desde la tarjeta “Comprar sesiones” y se relevaron los tres paquetes ofrecidos (MotivarCare Basic, Pro, Plus) y la opción “Comprar sesiones individuales”.",
+      "Se eligió el paquete <strong>MotivarCare Basic</strong> (4 sesiones, ARS 61.000/sesión, “Total del paquete ARS 243.500” con 5% OFF) y se presionó “Adquirir este paquete”, lo que redirigió a una pasarela de pago externa (dLocal Go), que se identificaba a sí misma como un ambiente de prueba (“Estás en un ambiente de prueba”, banner propio de la pasarela).",
+      "En la pantalla de pago se detectó que el monto a pagar (<strong>ARS 608.500,00</strong>) no coincidía con el total mostrado en la selección del paquete (<strong>ARS 243.500</strong>) — ver Hallazgo 1. Se volvió atrás sin ingresar ningún dato, se reprodujo la discrepancia abriendo el mismo paquete por segunda vez (mismo monto exacto, ARS 608.500,00), y se consultó al Evaluador UX antes de seguir.",
+      "A pedido explícito del Evaluador UX, éste ingresó manualmente los datos de una tarjeta de prueba en la pasarela (Claude no completó ningún campo de pago). El único campo que quedó sin completar fue “Tipo de documento” (bloqueaba el envío por validación); al no tratarse de un dato financiero ni de una credencial, se seleccionó la opción “DNI” para poder continuar, y recién entonces, con autorización explícita del Evaluador UX, se presionó “Confirmar pago”.",
+      "El pago se completó (“Su pago por ARS 608.500,00 fue completado”, ambiente de prueba de dLocal Go) y la app mostró “¡Compra confirmada! Acreditamos MotivarCare Basic (4 sesiones) en tu cuenta” — confirmando que el paquete acreditado fue el correcto (Basic, 4 sesiones) pese al monto cobrado incorrecto.",
+      "Se verificó en “Sesiones → Paquetes comprados” que el registro quedó persistido con el mismo monto incorrecto (MotivarCare Basic, 4 sesiones, ARS 608.500), confirmando que no es un glitch transitorio de la pantalla de checkout sino un dato que queda grabado así en la cuenta del paciente.",
+      "Se observó que, ya con el paquete comprado, la tarjeta “Tu profesional” de la Home mostraba un profesional asignado (“Giuliano Simeone”) sin que en ningún momento del flujo de compra se haya pedido elegirlo. Esto contradice el texto “Se define al reservar tu sesión de prueba o una sesión con créditos” ya señalado como confuso en el <strong>Hallazgo 23 del Caso 3</strong>; se suma esta comprobación práctica como refuerzo de ese hallazgo existente, sin modificarlo.",
+      "Se abrió la ficha del profesional asignado (Giuliano Simeone, Psicólogo, 82% compatibilidad, 8 años de experiencia, ★5.0) y se detectó que el texto de “Sobre el profesional” y el de “Enfoque” repiten la misma oración (“Psicologo de la UBA, con mas de 10 años de experiencia”) entre 6 y 8 veces seguidas, sin tildes, y que el bloque “Enfoque” queda además contaminado con ese mismo texto repetido en lugar de mostrar solo su propio contenido — ver Hallazgo 2.",
+      "Se probó el flujo de “Reservar sesión” con las sesiones ya acreditadas: el profesional viene fijo (no se puede elegir otro desde ese modal), se eligió un día y horario de la disponibilidad ofrecida, y se confirmó la reserva.",
+      "Al confirmar esa primera reserva se observó, transitoriamente, que “Próximas Reservas” mostraba dos filas idénticas (mismo profesional, mismo día y horario) y que el contador de “sesiones disponibles” había descontado 2 créditos en lugar de 1; al recargar la página el estado se autocorrigió solo (quedó 1 sola reserva y un descuento de 1 crédito). Se repitió la prueba reservando un segundo turno (viernes 25/09, 09:00) y esta vez no se reprodujo el comportamiento. Dado que no fue reproducible de forma consistente — en línea con el criterio ya aplicado en el Caso 3 para glitches intermitentes similares, que se decidió no documentar como hallazgo — se acordó con el Evaluador UX no generar un hallazgo formal por esto y dejarlo asentado acá como observación, por si se repite en una revisión futura.",
+      "Se abrió el detalle de una de las reservas confirmadas (“Ver detalle”) y se verificó que muestra correctamente la fecha, la hora, el huso horario (America/Buenos_Aires), un acceso directo a Google Meet, la opción de copiar el enlace, y las políticas de reprogramación/cancelación (“Conectate 5 min antes · reprogramar con 24 h · cancelar tarde pierde el crédito”).",
+      "A pedido del Evaluador UX, se revisó la casilla de correo de la cuenta de prueba (<code>gaston.f.martino@gmail.com</code>) para confirmar la llegada de los mails de confirmación del pago y de las sesiones reservadas. Se encontraron, todos recibidos correctamente: un mail de <strong>dLocalGo</strong> (<code>no-reply@dlocalgo.com</code>) confirmando el pago acreditado, con el mismo monto (ARS 608.500,00) y la referencia de pago; dos mails de <strong>MotivarCare</strong> (<code>no-reply@motivarcare.com</code>), uno por cada sesión reservada, con el título “Tu sesión quedó confirmada”, el profesional, la fecha y hora, y accesos directos a la videollamada (“Unirme a la videollamada”) y para escribirle al profesional; y, además, dos invitaciones de <strong>Google Calendar</strong> enviadas por la cuenta del profesional (<code>motivarcare.test.pro@gmail.com</code>, “Test Professional”), una por cada sesión, con el formato estándar de invitación de Calendar (Yes/No/Maybe) y el enlace de Google Meet.",
+      "A pedido del Evaluador UX, se sumó una sugerencia de producto (Hallazgo 3) que no requiere verificación en pantalla ni evidencia fotográfica, por tratarse de una funcionalidad que hoy no existe: un mecanismo de seguimiento por mail para las personas que crean su cuenta pero no llegan a reservar ninguna sesión.",
+      "A pedido del Evaluador UX, se revisó el panel de notificaciones de la app (ícono de campana, arriba a la derecha) para verificar su correspondencia con las acciones realizadas y los mails recibidos durante este caso. El panel mostraba una notificación de “Profesional asignado” — correcta y esperable, ya que llegó luego de la asignación automática del profesional al comprar el paquete (ver paso 9) — pero ninguna notificación sobre el pago realizado ni sobre las dos sesiones reservadas, pese a que en Ajustes → Notificaciones las categorías “Pago”, “Sesión pronto” y “Próxima sesión” estaban habilitadas — ver Hallazgo 4.",
+      "A pedido del Evaluador UX, se probó el flujo de compra de sesiones individuales (“Comprar sesiones individuales”, dentro del mismo modal “Elegí tu terapia”). Se relevó el precio de catálogo (ARS 64.000 por sesión) para 1, 2 y 3 sesiones, y la cantidad personalizable (“Otra cantidad”, probada con 5 sesiones), confirmando en todos los casos que el cálculo del total en el modal es correcto (precio por sesión × cantidad).",
+      "Se avanzó hasta la pasarela de pago (dLocal Go, mismo ambiente de prueba) para 1, 2 y 3 sesiones, sin completar el pago en ningún caso. A diferencia del Hallazgo 1 (paquetes), el monto mostrado en el checkout coincidió exactamente con el precio de catálogo en los tres casos (ARS 64.000, ARS 128.000 y ARS 192.000 respectivamente) — ver Feedback positivo.",
+      "Durante esta prueba se detectaron dos problemas menores adicionales: (a) el modal “Sesiones fuera de paquete” muestra el precio con el formato “$ 64.000 ARS” en su estado inicial, pero cambia al formato “ARS 64.000” (sin el símbolo “$”) apenas se interactúa con alguna de las pestañas de cantidad, incluso volviendo a la misma opción — ver Hallazgo 5; (b) en la pasarela de pago, la descripción del pedido pluraliza mal “sesión”, mostrando “2 sesiónes” y “3 sesiónes” (con tilde) en lugar de “sesiones” — ver Hallazgo 6.",
+      "A pedido del Evaluador UX, se descartó probar los paquetes Pro y Plus (ver Pendientes) y se pasó directamente a validar este caso en viewport tablet (768×1024), con alcance acotado a una revisión visual/responsive de botones y modales, sin completar compras ni reservas nuevas.",
+      "Se redimensionó el navegador a 768×1024 y se revisó la Home del paciente. El layout se reorganiza correctamente en una grilla de tarjetas con navegación inferior (Inicio/Sesiones/Chat/Diario/Más), pero se detectaron dos problemas: la tarjeta “Reservar sesión” (nueva en este viewport, no existe como tarjeta propia en escritorio) queda con el mismo fondo azul destacado que “Comprar sesiones” — ver Hallazgo 7 —, y no hay ninguna barra de encabezado fija con el logo de MotivarCare, a diferencia de escritorio — ver Hallazgo 8.",
+      "Se abrió el modal “Elegí tu terapia” en tablet: el contenido de los tres paquetes se reorganiza en tarjetas apiladas verticalmente, legibles y con scroll correcto, pero el modal se muestra a pantalla completa (sin bordes redondeados ni superposición oscura visible) y los tres botones “Adquirir este paquete” se ven con relleno sólido, a diferencia de escritorio donde solo el de Basic tiene ese tratamiento — ver Hallazgos 9 y 10.",
+      "Se abrió el modal “Sesiones fuera de paquete” desde el botón “Comprar sesiones individuales”. El contenido y el cálculo de precios se ven correctamente (mismo comportamiento que en escritorio, incluyendo el mismo problema de formato de moneda del Hallazgo 5), pero este modal se presenta como un diálogo centrado con márgenes y esquinas redondeadas, un patrón distinto al del modal anterior dentro del mismo flujo — ver Hallazgo 10.",
+      "A pedido del Evaluador UX, se repitió la misma revisión visual/responsive (sin compras ni reservas) en viewport móvil (375×812).",
+      "En la Home, se confirmó el mismo problema de la tarjeta “Reservar sesión” compitiendo visualmente con “Comprar sesiones” (Hallazgo 7) y la ausencia de una barra de encabezado con el logo de MotivarCare (Hallazgo 8) ya observados en tablet.",
+      "En el modal “Elegí tu terapia” se confirmó el mismo patrón a pantalla completa sin bordes, y los tres botones “Adquirir este paquete” con relleno sólido (Hallazgo 9), igual que en tablet. También se confirmó que el modal “Sesiones fuera de paquete” reproduce el mismo problema de formato de moneda del Hallazgo 5 (“$ 64.000 ARS” inicial → “ARS 64.000” tras interactuar).",
+      "A diferencia de tablet, en móvil el modal “Sesiones fuera de paquete” no se presenta como un diálogo centrado con márgenes holgados, sino casi a pantalla completa, con márgenes mínimos — una variante del mismo problema de inconsistencia de estilos entre los dos modales del flujo de compra (Hallazgo 10), que en ningún caso llega a coincidir con el estilo a pantalla completa sin bordes de “Elegí tu terapia”.",
+      "A pedido del Evaluador UX, se avanzó con la compra y la reserva “reales” (pago efectivamente completado, en el ambiente de prueba/sandbox) en viewport móvil (375×812), repitiendo el mismo paquete ya probado en escritorio (“MotivarCare Basic”) sobre la misma cuenta de prueba, que ya tenía ese paquete activo desde el paso 4.",
+      "Se abrió el modal “Elegí tu terapia” y se seleccionó nuevamente el paquete “MotivarCare Basic”. Se observó que el precio de catálogo había cambiado levemente respecto del mostrado horas antes, en la misma sesión de trabajo, durante la revisión visual de este paquete en móvil (paso 26): de “Ahorrás ARS 12.500 / Total ARS 243.500” a “Ahorrás ARS 13.000 / Total ARS 243.000”. Se confirmó el nuevo valor recargando la página y volviendo a abrir el modal, con el mismo resultado las dos veces.",
+      "Se presionó “Adquirir este paquete”, redirigiendo nuevamente a dLocal Go. A diferencia de la compra original (paso 5, Hallazgo 1), esta vez el monto mostrado en el checkout (“Monto a pagar: ARS 243.000,00”) coincidió exactamente con el precio de catálogo recién observado (paso 29) — el desfasaje del Hallazgo 1 no se reprodujo en este intento. Se señaló esto explícitamente al Evaluador UX antes de continuar, aclarando que se documentaría sin sacar conclusiones apresuradas sobre la causa (ver verificación agregada al Hallazgo 1). Se confirmó además que la descripción del pedido mostraba “MotivarCare · MotivarCare Basic” (sin conteo de sesiones), por lo que el problema de pluralización del Hallazgo 6 —específico del checkout de sesiones individuales, donde sí se muestra “N sesiones”— no aplica a este flujo de compra de paquetes.",
+      "A pedido explícito del Evaluador UX, éste volvió a ingresar manualmente los datos de una tarjeta de prueba (los mismos que en el paso 6) y, recién con su autorización explícita (“si”, en respuesta directa a la pregunta de si se debía confirmar el pago), se presionó “Confirmar pago”.",
+      "El pago se completó (“Su pago por ARS 243.000,00 fue completado”, referencia T-155350-i1lb2m39-sn2770s20517f4-ur1ck8mr43oc) y, tras el redireccionamiento automático, la app volvió a mostrar la pantalla “¡Compra confirmada! Acreditamos MotivarCare Basic (4 sesiones) en tu cuenta”.",
+      "Se verificó que el contador de “sesiones disponibles” pasó correctamente de 2 (créditos restantes de la compra original, luego de las dos reservas ya hechas en escritorio) a 6, reflejando la suma de las 4 sesiones nuevas.",
+      "Se verificó en “Sesiones → Paquetes comprados” que ambas compras del paquete Basic quedan listadas por separado: la nueva, con el monto correcto (ARS 243.000, coincidente con el catálogo), y la original (paso 8, Hallazgo 1), que sigue persistida con el monto incorrecto (ARS 607.000 — a su vez levemente distinto de los ARS 608.500 originales, otra muestra de que el precio de catálogo del paquete fue variando con el correr de las pruebas).",
+      "Al explorar la pantalla “Sesiones” en busca del control para reservar con los créditos nuevos, se detectó que el botón “Comprar” (una de dos pestañas junto a “Reservar”, bajo “Próximas Reservas”) no muestra ningún selector de paquete: lleva directamente a la pasarela de pago con un paquete ya preseleccionado (“MotivarCare Pro”, ARS 460.000) — ver Hallazgo 11. Se salió de esa pantalla sin ingresar ningún dato ni confirmar nada, verificando el comportamiento dos veces.",
+      "Se usó en cambio el botón “Reservar” (la otra pestaña, junto a “Comprar”) bajo “Próximas Reservas”, que sí abrió correctamente el modal “Reservar sesión”, con el profesional fijo (Giuliano Simeone) y el contador mostrando las 6 sesiones disponibles.",
+      "Se eligió un día y horario (miércoles 23/09, 09:00) del listado de disponibilidad y se confirmó la reserva.",
+      "La reserva se agregó correctamente al listado de “Próximas Reservas” (como la primera, antes de las dos ya existentes) y el contador de sesiones disponibles descontó 1 crédito correctamente, pasando de 6 a 5.",
+      "Se abrió el detalle de esta nueva reserva (“Ver detalle”) y se confirmó que se ve igual de completo y correcto que en escritorio (paso 13): fecha, hora, huso horario, acceso a Google Meet, enlace copiable y las políticas de reprogramación/cancelación, todo legible y bien distribuido en el ancho de móvil."
+    ],
+    feedbackPositivo: [
+      "La pantalla de confirmación de pago de la pasarela y la de “¡Compra confirmada!” de la app son claras, tranquilizadoras y confirman sin ambigüedad qué se acreditó.",
+      "El detalle de cada sesión reservada (“Ver detalle”) centraliza todo lo necesario en una sola pantalla: fecha, hora, huso horario, acceso directo a Google Meet, enlace copiable, y las políticas de reprogramación/cancelación explicadas en una frase simple.",
+      "El modal “Elegí tu terapia” compara con claridad el ahorro y el precio por sesión de los tres paquetes (Basic/Pro/Plus), con el plan recomendado destacado visualmente (“MÁS ELEGIDO”).",
+      "Los mails de confirmación llegaron todos correctamente y con la información esperada: el de dLocalGo confirmando el pago acreditado, el de MotivarCare confirmando cada sesión reservada (con acceso directo a la videollamada), y el de la cuenta del profesional con la invitación estándar de Google Calendar para cada sesión — un buen resguardo adicional para la persona paciente, más allá de lo que queda guardado dentro de la app.",
+      "El flujo de compra de sesiones individuales calcula el monto correctamente en todos los pasos: el precio de catálogo (ARS 64.000 por sesión) coincide exactamente con el monto mostrado en la pasarela de pago para 1, 2 y 3 sesiones, a diferencia de lo detectado con los paquetes en el Hallazgo 1 — lo que indica que ese problema es específico del flujo de paquetes y no un problema general del checkout.",
+      "El contenido de los modales de compra (paquetes y sesiones individuales) se reorganiza correctamente en tablet: las tarjetas se apilan de forma legible, con scroll funcional y sin recortes de texto ni superposición de elementos.",
+      "Ese mismo buen comportamiento de reflow se confirmó también en móvil: el contenido de ambos modales se mantiene legible, sin textos cortados ni botones superpuestos, pese al ancho mucho más acotado (375px).",
+      "El flujo de reserva de sesión con créditos ya acreditados se probó también de punta a punta en móvil (pasos 36-39): el modal “Reservar sesión”, la selección de horario y el detalle de la reserva confirmada se ven y funcionan igual de bien que en escritorio, sin ningún recorte ni problema de layout pese al ancho reducido.",
+      "El contador de “sesiones disponibles” y el registro de “Paquetes comprados” reflejaron correctamente, en todos los escenarios probados en este caso (primera compra, segunda compra, reservas sucesivas), la suma y resta de créditos correspondiente a cada acción."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "El monto cobrado en el checkout no coincide con el precio del paquete mostrado en su selección (2,5× más alto), y el dato incorrecto queda persistido en la cuenta del paciente",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Crítica",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Al elegir el paquete “MotivarCare Basic” en el modal “Elegí tu terapia”, la tarjeta muestra con claridad: 4 sesiones, ARS 61.000 por sesión, “Total del paquete ARS 243.500” (con 5% OFF sobre un precio de lista de ARS 256.500). Al confirmar “Adquirir este paquete”, la app redirige a una pasarela de pago externa (dLocal Go) que muestra un monto completamente distinto: “Monto a pagar: ARS 608.500,00” — casi 2,5 veces el precio anunciado. Se reprodujo la discrepancia abriendo el mismo paquete por segunda vez, con resultado idéntico (ARS 608.500,00 otra vez). Con autorización explícita del Evaluador UX, se completó el pago (usando una tarjeta de prueba que él mismo ingresó) para confirmar qué ocurre después: la app acreditó correctamente el paquete contratado (“Acreditamos MotivarCare Basic (4 sesiones) en tu cuenta”), es decir que no se cobró de más por confundir el paquete con otro — el paquete es el correcto, pero el monto asociado a él está mal. Ese monto incorrecto (ARS 608.500) queda además persistido como el precio “oficial” de esa compra en “Sesiones → Paquetes comprados”, visible para el paciente en cualquier momento futuro. Para un producto de salud digital, donde la claridad y la confianza en torno al dinero son especialmente sensibles (más aún al tratarse de una compra real, no de una simulación visual), un desfasaje de esta magnitud entre lo que se promete y lo que efectivamente se cobra es un problema de máxima prioridad.<p class=\"mt-2\">Nota aparte: la pasarela de pago se identificó a sí misma como un ambiente de prueba/“sandbox” (“Estás en un ambiente de prueba”) — algo que vale la pena confirmar si es lo esperado para este entorno o si debería apuntar a producción.</p>",
+        recomendacion: "Auditar el cálculo del monto entre el paso de selección del paquete (donde el precio se muestra correctamente) y la creación de la orden de pago que se envía a la pasarela — es ahí donde debe estar introduciéndose el error. Agregar una validación de integridad (por ejemplo, que el backend rechace o alerte si el monto a cobrar no coincide con el precio de catálogo vigente del paquete elegido) antes de permitir que cualquier compra real llegue a la pasarela de pago.",
+        evidencia: [
+          { src: "capturas/caso-04/01-paquete-basic-precio-catalogo.png", caption: "Tarjeta del paquete “MotivarCare Basic”: Total del paquete ARS 243.500" },
+          { src: "capturas/caso-04/02-checkout-monto-a-pagar.png", caption: "Pasarela de pago: Monto a pagar ARS 608.500,00" },
+          { src: "capturas/caso-04/03-pago-confirmado-basic-4-sesiones.jpg", caption: "Confirmación de pago y compra: “Acreditamos MotivarCare Basic (4 sesiones)”" },
+          { src: "capturas/caso-04/04-paquetes-comprados-monto.png", caption: "Registro persistido en la cuenta: MotivarCare Basic, 4 sesiones, ARS 608.500" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "no-aplica",
+            textoHtml: "En un segundo intento de compra del mismo paquete, esta vez en móvil y sobre una cuenta que ya tenía el paquete Basic activo, el desfasaje <strong>no se reprodujo</strong>: el checkout mostró “ARS 243.000,00”, coincidente con el precio de catálogo vigente en ese momento. El registro de esta nueva compra quedó persistido en “Paquetes comprados” con ese mismo monto correcto, mientras que el de la compra original sigue con el monto incorrecto. No se puede afirmar todavía si la no reproducción se debe al viewport, a tratarse de una segunda compra sobre una cuenta que ya tiene el paquete, a que el problema ya se haya corregido parcialmente, o a otro factor — se señala este resultado sin sacar conclusiones apresuradas, como pista a seguir en una próxima validación.",
+            evidencia: [
+              { src: "capturas/caso-04/22-movil-paquete-basic-precio-catalogo-243000.jpg", caption: "Paquete Basic en móvil: Total del paquete ARS 243.000 (precio de catálogo levemente distinto al de compras anteriores del mismo día)" },
+              { src: "capturas/caso-04/23-movil-checkout-dlocalgo-monto-243000-coincide-catalogo.jpg", caption: "Checkout dLocal Go en móvil: Monto a pagar ARS 243.000,00, coincide exactamente con el catálogo" },
+              { src: "capturas/caso-04/25-movil-paquetes-comprados-243000-vs-607000.png", caption: "Paquetes comprados: la nueva compra quedó persistida en ARS 243.000, mientras la original sigue en ARS 607.000" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "La ficha del profesional asignado muestra su biografía con la misma oración repetida varias veces, sin tildes, y esa repetición contamina también la sección “Enfoque”",
+        heuristicaId: "H06",
+        heuristicaNombre: "H6 — Reconocimiento antes que recuerdo",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Tras comprar el paquete, la tarjeta “Tu profesional” de la Home ya tenía asignado un profesional (Giuliano Simeone, Psicólogo, verificado, ★5.0, 82% compatibilidad, 8 años de experiencia). Al abrir su ficha completa, el bloque “Sobre el profesional” repite la misma oración (“Psicologo de la UBA, con mas de 10 años de experiencia”) entre 6 y 8 veces seguidas, sin ningún otro contenido real sobre el profesional, y sin tildes (“Psicologo”, “mas”). El bloque “Enfoque”, que sí arranca con un contenido propio y correcto (“Psicodinámica o psicoanalítica; Sistémica o familiar”), queda inmediatamente después contaminado con el mismo texto repetido del bloque anterior, en lugar de limitarse a su propio contenido. La falta de tildes en sí ya está documentada, como patrón sistémico en otros textos del producto, en el <strong>Hallazgo 3 del Caso 3</strong> — lo nuevo acá es la repetición/rotura del contenido, que sugiere un problema en el template o en la carga de datos de la ficha del profesional. Para un producto de salud mental, donde la ficha del profesional es la principal herramienta con la que el paciente evalúa a quién le va a confiar su proceso terapéutico, mostrar un texto tan visiblemente roto y sin sentido debilita la percepción de calidad y profesionalismo del profesional (y del producto).",
+        recomendacion: "Revisar el template o la fuente de datos que arma la ficha del profesional para confirmar por qué el texto de “Sobre el profesional” se repite en bucle y por qué el bloque “Enfoque” hereda ese mismo contenido en lugar del suyo propio. Hacer una pasada por las fichas de otros profesionales de la plataforma para confirmar si el problema es puntual de este perfil o generalizado.",
+        evidencia: [
+          { src: "capturas/caso-04/05-profesional-bio-texto-repetido.png", caption: "Ficha de Giuliano Simeone: “Sobre el profesional” y “Enfoque” con el mismo texto repetido" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 3,
+        titulo: "No existe un mecanismo de seguimiento para las personas que crean su cuenta pero no llegan a reservar ninguna sesión",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
+        severidad: "Recomendación",
+        clasificacion: "Otros",
+        viewport: "No aplica (sugerencia funcional, no ligada a una pantalla o viewport específico)",
+        descripcionHtml: "A lo largo de todos los casos relevados hasta ahora no se observó ningún mecanismo de reenganche para pacientes que se registran en la plataforma pero no llegan a completar una reserva (ni de sesión de prueba ni de paquete). Para un producto de salud mental, donde crear la cuenta ya implica un paso emocionalmente significativo (reconocer que se está buscando ayuda), perder a esa persona en silencio en el tramo entre el registro y la primera sesión es una oportunidad de conversión y de cuidado desaprovechada: quien no avanza puede estar experimentando fricción con el producto (por ejemplo, no saber cómo elegir profesional), dudas sobre el costo, o simplemente haber postergado la decisión, y en cualquiera de esos casos un gesto de seguimiento humano y a tiempo puede ser la diferencia entre que la persona vuelva o abandone del todo.",
+        recomendacion: "Implementar un seguimiento automático (por ejemplo, disparado a las 24-48 horas de la creación de la cuenta sin actividad de reserva) que envíe un mail cálido y no invasivo preguntando si la persona necesita ayuda para dar el siguiente paso, idealmente ofreciendo de forma proactiva un profesional sugerido (aprovechando el mismo mecanismo de matching/compatibilidad ya usado en otras partes del producto) para facilitar una primera sesión. Cuidar especialmente el tono (evitar que se perciba como un mail de venta insistente) y dar una forma simple de no seguir recibiendo estos recordatorios.",
+        evidencia: [],
+        verificaciones: []
+      },
+      {
+        numero: 4,
+        titulo: "El panel de notificaciones no avisa del pago realizado ni de las sesiones reservadas, pese a tener esas categorías habilitadas en Ajustes",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Recomendación",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "El panel de notificaciones de la app (ícono de campana, arriba a la derecha) mostró correctamente una notificación de “Profesional asignado”, correspondiente a la asignación automática del profesional al confirmarse la compra del paquete (ver paso 9 y el Hallazgo 23 del Caso 3) — esa notificación sí corresponde a un evento real y llegó en el momento esperado. Sin embargo, no se generó ninguna notificación dentro de la app para el pago realizado (Hallazgo 1) ni para ninguna de las dos sesiones reservadas, a pesar de que en Ajustes → Notificaciones (<code>/profile?tab=settings#notificaciones</code>) las categorías “Pago”, “Sesión pronto” y “Próxima sesión” están explícitamente habilitadas. Esto contrasta con el canal de email, que sí funcionó correctamente para estos mismos eventos (ver Feedback positivo de este caso): el paciente terminó enterándose del pago y de sus sesiones por mail, pero no encontró ningún rastro de esos eventos dentro del propio panel de notificaciones de la plataforma, pese a haber configurado explícitamente que quería recibirlos ahí.",
+        recomendacion: "Revisar el disparo de notificaciones in-app para los eventos de “Pago”, “Sesión pronto” y “Próxima sesión” (dado que ya existen como categorías configurables en Ajustes, es probable que el problema esté solo en que nada las está disparando todavía, no en su diseño). Priorizar al menos la de pago, dada la sensibilidad del dinero en un producto de salud, y las de sesión, que son las que más valor aportan como recordatorio dentro del flujo diario de uso de la app.",
+        evidencia: [
+          { src: "capturas/caso-04/09-panel-notificaciones-sin-pago-ni-sesion.jpg", caption: "Panel de notificaciones: solo “Profesional asignado”, sin pago ni sesiones" },
+          { src: "capturas/caso-04/10-ajustes-notificaciones-pago-sesion-habilitadas.jpg", caption: "Ajustes → Notificaciones: “Pago”, “Sesión pronto” y “Próxima sesión” habilitadas" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 5,
+        titulo: "El modal de compra de sesiones individuales muestra el precio con dos formatos de moneda distintos según se haya interactuado o no con las pestañas de cantidad",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Al abrir el modal “Sesiones fuera de paquete” (accesible desde “Comprar sesiones” → “Comprar sesiones individuales”), su estado inicial —con “1 sesión” preseleccionada, sin haber tocado nada— muestra el precio con el formato “$ 64.000 ARS” (signo peso más el código de moneda). En cuanto se hace clic en cualquiera de las pestañas de cantidad (“2 sesiones”, “3 sesiones”, o incluso al volver a hacer clic sobre “1 sesión” ya seleccionada), el formato cambia a “ARS 64.000” (código de moneda al principio, sin el signo “$”) y ya no vuelve al formato original durante esa apertura del modal. El monto en sí es correcto en ambos casos — solo cambia su presentación visual —, pero tener dos estilos de formato de moneda coexistiendo en la misma pantalla, dependiendo de un detalle de interacción que la persona usuaria no percibe como relevante, es una inconsistencia menor que puede sumar fricción/desconfianza en una pantalla que ya de por sí tiene que transmitir claridad sobre dinero.",
+        recomendacion: "Unificar el formato de moneda usado en este modal (definir uno solo, por ejemplo “ARS 64.000” o “$ 64.000 ARS”, y aplicarlo siempre, incluyendo el render inicial antes de cualquier interacción). Revisar si el mismo patrón de doble formato aparece en otras pantallas de precios de la plataforma (paquetes, checkout, etc.).",
+        evidencia: [
+          { src: "capturas/caso-04/11-modal-sesiones-individuales-formato-dolar-inicial.jpg", caption: "Estado inicial del modal: “$ 64.000 ARS”" },
+          { src: "capturas/caso-04/12-modal-sesiones-individuales-formato-ars-sin-simbolo.png", caption: "Tras interactuar con las pestañas: “ARS 64.000”, sin “$”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: mismo formato inicial “$ 64.000 ARS” y mismo cambio a “ARS 64.000” (sin “$”) tras interactuar con las pestañas de cantidad.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica a escritorio y tablet: mismo formato inicial “$ 64.000 ARS” y mismo cambio a “ARS 64.000” tras interactuar con las pestañas de cantidad.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 6,
+        titulo: "La pasarela de pago pluraliza mal “sesión” en la descripción del pedido al comprar sesiones individuales (“sesiónes” con tilde, en vez de “sesiones”)",
+        heuristicaId: "H02",
+        heuristicaNombre: "H2 — Coincidencia con el mundo real",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "En la pantalla de método de pago de dLocal Go, la descripción del pedido (“MotivarCare · N sesión/sesiones”) usa correctamente el singular “1 sesión” cuando se compra una sola sesión, pero al comprar 2 o 3 sesiones muestra “2 sesiónes” y “3 sesiónes” — con una tilde que no corresponde, ya que el plural correcto de “sesión” es “sesiones”, sin acento. Se reprodujo de forma consistente en ambos casos probados (2 y 3 sesiones), lo que sugiere que la pluralización simplemente concatena el sufijo “es” a la forma singular acentuada (“sesión” + “es”) en lugar de usar la forma plural correcta. El monto cobrado no se ve afectado — es un error puramente de texto —, pero se suma al patrón ya señalado en el Hallazgo 3 del Caso 3 sobre problemas de acentuación en distintos módulos del producto.",
+        recomendacion: "Corregir la lógica de pluralización de esta etiqueta (usar directamente la forma plural correcta “sesiones” en lugar de construirla a partir del singular) en el servicio que arma la descripción del pedido enviado a la pasarela de pago.",
+        evidencia: [
+          { src: "capturas/caso-04/13-checkout-dlocalgo-dos-sesiones-tilde-sesiones.jpg", caption: "Pasarela de pago: “MotivarCare · 2 sesiónes”, monto ARS 128.000,00 correcto" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 7,
+        titulo: "En tablet, las tarjetas “Reservar sesión” y “Comprar sesiones” comparten el mismo tratamiento visual destacado, generando dos llamados a la acción principales compitiendo entre sí",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "En la Home, en viewport tablet, el botón “Reservar sesión” que en escritorio vive dentro del banner horizontal (“N sesiones disponibles”) se reorganiza como una tarjeta propia dentro de la grilla de accesos rápidos, junto a “Tu profesional”, “Comprar sesiones”, “Próximas sesiones”, etc. El problema es que esta nueva tarjeta “Reservar sesión” (con su botón “Reservar ahora”) queda con exactamente el mismo fondo azul sólido que la tarjeta “Comprar sesiones” — en escritorio, ese tratamiento destacado (fondo azul) es exclusivo de “Comprar sesiones”, mientras el resto de las tarjetas usa fondo blanco con un ícono de color. En tablet, entonces, dos acciones con propósitos bien distintos — reservar un turno usando créditos que la persona ya tiene, versus comprar créditos nuevos — terminan compitiendo por la misma jerarquía visual de “acción principal”, lo que puede generar dudas sobre cuál tocar en quien llega con la sesión de prueba pendiente o con créditos ya disponibles.",
+        recomendacion: "Definir cuál de las dos acciones (reservar o comprar) es la más relevante por contexto (por ejemplo: destacar “Reservar sesión” cuando hay créditos disponibles sin agendar, y “Comprar sesiones” cuando no quedan créditos) y usar el fondo azul destacado solo para esa, dejando la otra con el tratamiento neutro (fondo blanco) que usan el resto de las tarjetas.",
+        evidencia: [
+          { src: "capturas/caso-04/14-tablet-home-reservar-comprar-mismo-azul-sin-logo.jpg", caption: "Home en tablet: tarjetas “Reservar sesión” y “Comprar sesiones” con el mismo fondo azul" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: la tarjeta “Reservar sesión” y la tarjeta “Comprar sesiones” comparten el mismo fondo azul destacado también en móvil.",
+            evidencia: [
+              { src: "capturas/caso-04/18-movil-home-reservar-comprar-mismo-azul-sin-logo.jpg", caption: "Home en móvil: tarjetas “Reservar sesión” y “Comprar sesiones” con el mismo fondo azul" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 8,
+        titulo: "En tablet no hay una barra de encabezado persistente con el logo de MotivarCare — la marca solo aparece dentro del copy del hero y de los modales",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Identidad visual",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "En escritorio, todas las pantallas del portal del paciente muestran una barra de encabezado blanca fija con el isotipo + wordmark “MotivarCare” a la izquierda, visible en todo momento. En tablet (768×1024) esa barra desaparece: lo único fijo arriba de la pantalla son los íconos de notificaciones (campana) y menú (hamburguesa), sin ningún logo ni wordmark visible — ni en la Home ni en la pantalla “Sesiones”. La marca vuelve a aparecer, pero solo como texto pequeño (“MOTIVARCARE”) dentro del encabezado de los modales de compra (ver Hallazgos 9 y 10), y no de forma persistente en la navegación. Para un producto de salud mental donde generar confianza y sensación de estar en un espacio reconocible es importante, perder el ancla visual de marca en la superficie táctil que más se usa (tablet) es una regresión respecto de escritorio.",
+        recomendacion: "Sumar el isotipo de MotivarCare (aunque sea en su versión compacta, sin el wordmark completo) a la barra superior fija de la versión tablet/móvil, junto a los íconos de notificaciones y menú.",
+        evidencia: [
+          { src: "capturas/caso-04/14-tablet-home-reservar-comprar-mismo-azul-sin-logo.jpg", caption: "Home en tablet: barra superior sin logo ni wordmark, solo campana y menú" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: tampoco hay barra de encabezado fija con el logo de MotivarCare en móvil, solo los íconos de notificaciones y menú.",
+            evidencia: [
+              { src: "capturas/caso-04/18-movil-home-reservar-comprar-mismo-azul-sin-logo.jpg", caption: "Home en móvil: barra superior sin logo ni wordmark, solo campana y menú" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 9,
+        titulo: "En tablet, los tres paquetes del modal “Elegí tu terapia” muestran su botón “Adquirir este paquete” con relleno sólido, mientras que en escritorio solo el paquete Basic tiene ese tratamiento",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Responsive",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "En escritorio, dentro del modal “Elegí tu terapia”, el botón “Adquirir este paquete” del paquete MotivarCare Basic se muestra con relleno sólido (fondo violeta, texto blanco), mientras que los de Pro y Plus se muestran como botones outline (fondo blanco, borde y texto violeta) — pese a que es el paquete Pro el que lleva la etiqueta “MÁS ELEGIDO”. En tablet (768×1024), en cambio, los tres paquetes muestran su botón con relleno sólido, cada uno en un tono de violeta distinto (Basic más oscuro, Plus más claro). El monto y el contenido de cada tarjeta son correctos en ambos casos — es solo el tratamiento visual del botón el que cambia entre viewports —, pero esta inconsistencia hace que la jerarquía visual entre los tres paquetes (cuál se ve más “elegible” a simple vista) termine siendo distinta según el dispositivo desde el que se mire.",
+        recomendacion: "Unificar el criterio de qué paquete(s) reciben el botón con relleno sólido (por ejemplo, reservarlo para el paquete con la etiqueta “MÁS ELEGIDO”) y aplicar el mismo criterio en escritorio y en tablet/móvil.",
+        evidencia: [
+          { src: "capturas/caso-04/15-tablet-modal-elegi-tu-terapia-fullbleed-basic-solido.jpg", caption: "Paquete Basic con botón sólido" },
+          { src: "capturas/caso-04/16-tablet-modal-elegi-tu-terapia-pro-plus-solidos.jpg", caption: "Paquetes Pro y Plus, también con botón sólido" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: los tres botones “Adquirir este paquete” también se muestran con relleno sólido en móvil.",
+            evidencia: [
+              { src: "capturas/caso-04/19-movil-modal-elegi-tu-terapia-fullbleed-basic-solido.jpg", caption: "Paquete Basic con botón sólido, en móvil" },
+              { src: "capturas/caso-04/20-movil-modal-elegi-tu-terapia-pro-plus-solidos.jpg", caption: "Paquetes Pro y Plus, también con botón sólido, en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 10,
+        titulo: "En tablet, los dos modales del flujo de compra (paquetes y sesiones individuales) usan patrones de presentación distintos: uno a pantalla completa sin bordes y otro como diálogo centrado con márgenes",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Responsive",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "En viewport tablet (768×1024), el modal “Elegí tu terapia” (paquetes) se presenta a pantalla completa, ocupando todo el ancho y alto disponibles, sin bordes redondeados ni superposición oscura visible alrededor. El modal “Sesiones fuera de paquete” (sesiones individuales), al que se llega tocando un botón dentro de ese mismo primer modal, en cambio se presenta como un diálogo centrado, más chico que la pantalla, con esquinas redondeadas y una superposición oscura visible en los márgenes — el patrón de modal más habitual en escritorio. Al ser dos pasos consecutivos del mismo flujo de compra, alternar entre estos dos estilos de superposición dentro de la misma interacción se siente inconsistente y puede desorientar levemente a quien no espera ese cambio de comportamiento.",
+        recomendacion: "Unificar el patrón de modal usado en tablet para todo el flujo de compra — por ejemplo, adoptar el estilo de pantalla completa (más apropiado para touch) tanto para “Elegí tu terapia” como para “Sesiones fuera de paquete”, o el estilo de diálogo centrado para ambos.",
+        evidencia: [
+          { src: "capturas/caso-04/15-tablet-modal-elegi-tu-terapia-fullbleed-basic-solido.jpg", caption: "Modal “Elegí tu terapia”: pantalla completa, sin bordes ni superposición" },
+          { src: "capturas/caso-04/17-tablet-modal-sesiones-individuales-centrado.jpg", caption: "Modal “Sesiones fuera de paquete”: diálogo centrado con márgenes y esquinas redondeadas" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (375×812)",
+            resultado: "variante",
+            textoHtml: "La inconsistencia entre los dos modales persiste, pero con una forma distinta a la de tablet: “Elegí tu terapia” se mantiene a pantalla completa sin bordes, mientras que “Sesiones fuera de paquete” pasa a mostrarse casi a pantalla completa con márgenes mínimos, en lugar del diálogo centrado con márgenes holgados que se ve en tablet.",
+            evidencia: [
+              { src: "capturas/caso-04/21-movil-modal-sesiones-individuales.jpg", caption: "Modal “Sesiones fuera de paquete” en móvil: casi a pantalla completa, con márgenes mínimos" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 11,
+        titulo: "El botón “Comprar” en la pantalla de Sesiones lleva directo a la pasarela de pago con un paquete ya preseleccionado (el más caro), sin mostrar ningún selector de paquete",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Mayor",
+        clasificacion: "Usabilidad",
+        viewport: "Móvil (375×812)",
+        descripcionHtml: "En la pantalla “Sesiones” (accesible desde la navegación inferior), bajo el título “Próximas Reservas”, hay dos botones tipo pestaña: “Reservar” y “Comprar”. El botón “Reservar” funciona como se espera: abre el modal “Reservar sesión” para usar créditos ya disponibles. El botón “Comprar”, en cambio, no muestra ningún selector de paquete ni pasa por el modal “Elegí tu terapia” (el mismo al que se llega desde la tarjeta “Comprar sesiones” de la Home) — lleva directamente a la pasarela de pago externa (dLocal Go) con un paquete ya elegido de antemano: “MotivarCare Pro”, el más caro de los tres (ARS 460.000, prácticamente el doble del paquete Basic). No hay ningún texto, aviso ni pantalla intermedia dentro de la app que indique qué paquete se está por comprar antes de llegar al checkout; la única forma de enterarse es leyendo la etiqueta “MotivarCare · MotivarCare Pro” ya dentro de la pantalla de pago externa. Se verificó dos veces, con el mismo resultado ambas veces, y en ningún caso se completó ni se ingresó dato de pago alguno. Para un producto de salud que además involucra dinero real, un botón ambiguamente etiquetado “Comprar” que aterriza sin aviso en el checkout del paquete más caro es un riesgo concreto de que alguien inicie —o, si no presta atención al monto ya dentro de la pasarela, incluso complete— una compra que no quería hacer.",
+        recomendacion: "Hacer que el botón “Comprar” de esta pantalla abra el mismo selector de paquetes (“Elegí tu terapia”) que usa la tarjeta “Comprar sesiones” de la Home, en lugar de saltar directo a un paquete fijo. Si el comportamiento actual es intencional (por ejemplo, como atajo hacia un paquete “recomendado”), mostrar como mínimo una pantalla de confirmación dentro de la app, con el nombre y el precio del paquete, antes de redirigir a la pasarela de pago externa.",
+        evidencia: [
+          { src: "capturas/caso-04/28-movil-boton-comprar-checkout-directo-pro-460000.jpg", caption: "Checkout de dLocal Go tras tocar “Comprar”: MotivarCare Pro, ARS 460.000,00, sin haber elegido ningún paquete" }
+        ],
+        verificaciones: []
+      }
+    ]
+  },
+  {
+    id: 5,
+    numero: "05",
+    slug: "caso-05-diario-emocional",
+    areaId: "patient",
+    areaName: "Experiencia del Paciente",
+    titulo: "Diario emocional — acceso desde la Home y la navegación principal, registro de entradas privadas y compartidas, y revisión del historial",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Se evaluó, en <code>app.motivarcare.com</code> bajo el perfil de <strong>paciente</strong>, la funcionalidad de “Diario emocional”: sus dos puntos de entrada (la tarjeta “Diario” de la Home y el acceso equivalente de la navegación principal), el registro de una entrada privada y de una entrada para compartir con el profesional, y la revisión del historial y las estadísticas resultantes en “Mis registros” — incluyendo el gráfico “Evolución emocional”, el timeline de entradas, los “Insights de la semana” y la “Vista previa del informe” que se arma de cara a la próxima sesión. Se usó Chrome real (plugin Claude in Chrome), con la sesión ya iniciada, en tres pasadas: escritorio (ventana ~1568×765), tablet (768×1024) y móvil (500×805, el ancho efectivamente alcanzado tras una limitación técnica del redimensionado automático de esta sesión). No se probó el botón “Enviar al psicólogo/a”, por tratarse de una acción irreversible que notifica al profesional y requiere autorización explícita previa. A pedido del Evaluador UX, se da por cerrado el caso en este punto, con algunos puntos puntuales que exceden el alcance de viewport quedando como pendientes para un caso aparte.",
+    pasosRealizados: [
+      "Se abrió la Home de app.motivarcare.com (paciente) en escritorio y se confirmaron los dos puntos de acceso al Diario: la tarjeta “Diario” de los accesos rápidos, y el ícono equivalente del panel de navegación lateral — ambos llevan a <code>/diario</code>, con idéntico contenido.",
+      "Se relevó la estructura completa del formulario “Nueva entrada”: selección de estado de ánimo, pregunta guiada abierta, chips de “¿Qué sentiste?”, campo de texto libre, selector de “¿Qué necesitás ahora?” y, al final, el control “¿Quién puede ver esta entrada?” (“Solo yo” / “Para mi psicólogo/a”).",
+      "Se observó que ese control de privacidad viene preseleccionado en “Para mi psicólogo/a” sin que la persona haya tocado nada — ver Hallazgo 1.",
+      "Se registraron, en escritorio, una entrada de prueba marcada explícitamente como privada (“Solo yo”) y otra dejada en el valor por defecto (compartida), para poder verificar después que ambas se tratan de forma distinta en las estadísticas y en la “Vista previa del informe”.",
+      "Se revisó el gráfico “Evolución emocional” de “Mis registros” en dos escenarios sucesivos (una entrada “Bien” esa semana, y luego esa misma entrada más una “Mal”): en ambos casos el punto se dibujó a una altura que no coincidía con el valor real ni con el propio atributo <code>title</code> del punto, confirmado por script (<code>getBoundingClientRect()</code>) — ver Hallazgo 2.",
+      "Se revisaron el Timeline de entradas, los “Insights de la semana” y la “Vista previa del informe”: los tres reflejaron con exactitud los datos reales, y el informe de cara a la sesión incluyó únicamente la entrada marcada como compartida — ver Feedback positivo.",
+      "Se repitió toda la batería anterior en tablet (768×1024): se confirmaron los dos puntos de acceso (tarjeta de Home y, en este viewport, el ícono “Diario” de la barra de navegación inferior en lugar del panel lateral), se reprodujo el Hallazgo 1, y se registró una tercera entrada de prueba. El gráfico “Evolución emocional”, esta vez con tres entradas en la semana, sí dibujó el punto a la altura correcta — evidencia de que el desvío del Hallazgo 2 no es constante, sino dependiente del valor puntual del promedio.",
+      "Se repitió la batería en móvil (500×805, tras una limitación técnica de la sesión para llegar a un ancho menor por redimensionado automático): se confirmaron ambos accesos, se reprodujo nuevamente el Hallazgo 1, y se registró una cuarta entrada de prueba. Se notó además, sin llegar a abrir un hallazgo nuevo, que la fila de chips de estado de ánimo no entra completa en el ancho disponible y tiene una señal de scroll horizontal muy sutil.",
+      "El gráfico “Evolución emocional” en móvil, con las cuatro entradas acumuladas, mostró la instancia más marcada del Hallazgo 2: el punto se dibujó dos filas por debajo de donde correspondía (a la altura de “Mal” en vez de “Bien”), en el sentido que subestima el ánimo real.",
+      "El Evaluador UX reportó, ya fuera de la batería original, dos controles de “Volver” apilados y con flechas de aspecto distinto al entrar a “Mis registros” desde “Ver registros”, sólo en tablet y en móvil. Se verificó con Chrome real: se confirmó por inspección de código que son dos componentes superpuestos por error (un botón genérico y el enlace propio de la pantalla, con tipografías distintas), que el duplicado sólo aparece al llegar por navegación interna (no al cargar la URL de forma directa), y que en escritorio el botón genérico está oculto por CSS — ver Hallazgo 3.",
+      "No se presionó en ningún viewport el botón “Enviar al psicólogo/a”, por tratarse de una acción irreversible que notifica al profesional y excede el alcance de esta pasada.",
+      "A pedido del Evaluador UX, se da por cerrado el caso en este punto, quedando pendientes algunos puntos puntuales que no están ligados a un viewport en particular (ver detalle en la bitácora del caso)."
+    ],
+    feedbackPositivo: [
+      "Los dos puntos de acceso al Diario —la tarjeta de la Home y el ícono de la navegación principal (panel lateral en escritorio, barra inferior en tablet/móvil)— llevan al mismo lugar y se comportan de forma idéntica en los tres viewports.",
+      "El formulario de “Nueva entrada” está bien estructurado en pasos claros y guiados, con lenguaje cálido y no clínico, y contadores de caracteres visibles en los campos de texto libre.",
+      "La lógica de privacidad funciona correctamente a nivel de datos, más allá del valor por defecto del Hallazgo 1: el contador “Compartidas con psicólogo” y la “Vista previa del informe” reflejaron con exactitud solo las entradas marcadas para compartir, sin filtrar en ningún momento contenido de las entradas privadas, incluso con cuatro entradas acumuladas y varios viewports de por medio.",
+      "“Insights de la semana” generó en todo momento un resumen textual preciso y coherente con los datos reales registrados durante la prueba.",
+      "Todo el flujo probado (acceso, formulario de nueva entrada, “Mis registros” con sus estadísticas/timeline/insights, y “Vista previa del informe”) reflowa correctamente a una sola columna tanto en tablet como en móvil, sin textos cortados ni elementos superpuestos, salvo el detalle menor de descubribilidad de la fila de chips de mood en móvil."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "La opción de privacidad de una nueva entrada del diario viene preseleccionada en “Para mi psicólogo/a” (compartida), en vez de “Solo yo” (privada)",
+        heuristicaId: "H10",
+        heuristicaNombre: "H10 — Confidencialidad médica y soporte",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Al abrir el formulario de “Nueva entrada” del Diario emocional, el control “¿Quién puede ver esta entrada?” —al final del formulario, justo antes de “Guardar entrada”— ya viene con “Para mi psicólogo/a” resaltado y seleccionado antes de que la persona toque nada, y no con “Solo yo”. El mecanismo en sí funciona correctamente una vez que la persona elige una opción (ver Feedback positivo), pero que la opción compartida sea la que viene activada de entrada es contraintuitivo para un diario personal dentro de un producto de salud mental: la expectativa razonable de quien escribe en “su” diario es que lo escrito quede privado salvo que decida explícitamente compartirlo, no al revés. Esto es particularmente sensible porque el propio formulario invita a volcar contenido íntimo y potencialmente vulnerable (sentimientos como “Ansiedad” o “Soledad”, “qué pensamiento te quedó dando vueltas”, “qué necesitás ahora”), y alguien que escribe rápido o en un momento de angustia, sin detenerse a leer el pie del formulario, puede terminar compartiendo con su psicólogo/a un pensamiento que hubiera preferido guardar solo para sí.",
+        recomendacion: "Invertir el valor por defecto de este control a “Solo yo”, dejando que compartir una entrada con el profesional sea siempre una decisión activa y consciente. Si existe una razón de producto para mantener “compartida” como default, considerar al menos reforzar visualmente ese default la primera vez que se usa el diario, en vez de dejarlo solo como el estado visualmente resaltado de un botón al final del formulario.",
+        evidencia: [
+          { src: "capturas/caso-05/03-nueva-entrada-privacidad-default-psicologo.jpg", caption: "Formulario de “Nueva entrada”, sin interacción previa con el control: “Para mi psicólogo/a” ya aparece seleccionado" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: “Para mi psicólogo/a” vuelve a aparecer preseleccionado sin interacción previa.",
+            evidencia: [
+              { src: "capturas/caso-05/10-tablet-nueva-entrada-privacidad-default-psicologo.jpg", caption: "Mismo default en tablet" }
+            ]
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se reproduce por tercera vez, con el mismo comportamiento exacto.",
+            evidencia: [
+              { src: "capturas/caso-05/16-movil-nueva-entrada-privacidad-default-psicologo.jpg", caption: "Mismo default en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "El punto de datos del gráfico “Evolución emocional” no se dibuja a la altura correspondiente al estado de ánimo real (ni al promedio ya calculado correctamente)",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "En “Mis registros” (<code>/diario/registros</code>), el gráfico “Evolución emocional” ubica en el eje vertical, de arriba a abajo, las filas “Muy bien”, “Bien”, “Regular”, “Mal” y “Muy mal”, y dibuja un punto por semana a la altura correspondiente al ánimo promedio de las entradas de esa semana. Esa altura no coincide de forma confiable con el valor real: con una sola entrada “Bien” esa semana, el punto se dibujó a la altura de “Regular” (un escalón peor de lo real); tras agregar una entrada “Mal” esa misma semana —promedio matemático “Regular”—, el punto se dibujó a la altura de “Bien” (un escalón mejor de lo que corresponde). Se verificó con precisión midiendo por script las coordenadas verticales exactas de las etiquetas del eje y del punto: en el segundo escenario, el punto quedó en Y=451px, prácticamente pegado a “Bien” (Y=455px) y lejos de “Regular” (Y=506px). El propio elemento del punto tiene un atributo <code>title=\"Regular\"</code> — el cálculo del promedio semanal es correcto, pero la fórmula que lo traduce a una posición vertical está mal, y el desvío no es sistemático en una sola dirección. Para una app de salud mental, donde este gráfico es la herramienta pensada para visualizar de un vistazo la tendencia del ánimo, un punto que no refleja el valor real puede llevar a una lectura errónea de la evolución emocional de la persona.",
+        recomendacion: "Revisar la función que traduce el valor de ánimo (o el promedio semanal ya calculado, que es correcto) a la coordenada vertical del punto en el gráfico. Agregar un test automatizado que verifique, para cada una de las cinco categorías de ánimo, que el punto se dibuja alineado con su fila correspondiente del eje, dado que el desvío detectado no fue consistente en una sola dirección.",
+        evidencia: [
+          { src: "capturas/caso-05/05-evolucion-emocional-bien-renderiza-como-regular.png", caption: "Una sola entrada “Bien” esa semana: el punto se dibuja a la altura de “Regular”" },
+          { src: "capturas/caso-05/06-evolucion-emocional-promedio-bien-mal-tooltip-regular-punto-en-bien.png", caption: "Dos entradas, “Bien” + “Mal”, promedio correcto “Regular” según el title del punto: el punto se dibuja a la altura de “Bien”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "variante",
+            textoHtml: "Con una tercera entrada sumada a las dos anteriores (Bien + Mal + Bien esa semana), el punto se dibujó esta vez a la altura de “Regular”, coincidiendo con el <code>title=\"Regular\"</code> del propio punto — a diferencia de los dos escenarios de escritorio, acá no se reprodujo el desvío. Refuerza que el problema depende del valor puntual del promedio semanal, y no es un desplazamiento constante en una sola dirección.",
+            evidencia: [
+              { src: "capturas/caso-05/11-tablet-evolucion-emocional-3-entradas-punto-regular.png", caption: "Tres entradas esa semana: el punto se dibuja correctamente a la altura de “Regular”" }
+            ]
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "variante",
+            textoHtml: "La instancia más marcada hasta ahora: con cuatro entradas esa semana (Bien + Mal + Bien + Bien), el <code>title</code> del punto decía “Bien”, pero el punto se dibujó a la altura de “Mal” — un desvío de dos filas, en el sentido que muestra la semana peor de lo que fue. Confirmado por script: punto en Y=439px, prácticamente idéntico a la fila “Mal” (Y=440px) y lejos de “Bien” (Y=340px).",
+            evidencia: [
+              { src: "capturas/caso-05/18-movil-evolucion-emocional-4-entradas-punto-en-mal.jpg", caption: "Cuatro entradas esa semana (título “Bien”): el punto se dibuja a la altura de “Mal”, dos filas por debajo de lo correcto" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 3,
+        titulo: "En “Mis registros” aparecen dos controles de “Volver” apilados y con estilos distintos, al llegar por navegación interna (solo en tablet y móvil)",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Responsive",
+        viewport: "Tablet (768×1024)",
+        descripcionHtml: "Hallazgo reportado inicialmente por el Evaluador UX y verificado por el equipo de auditoría con Chrome real. Al entrar a “Mis registros” (<code>/diario/registros</code>) haciendo clic en “Ver registros” desde la landing <code>/diario</code> —es decir, navegando dentro de la app, sin recargar la página—, en tablet y en móvil aparecen dos controles de “volver” apilados uno debajo del otro, arriba a la izquierda: primero un botón genérico que dice “← Volver”, y debajo un enlace que dice “← Volver a Diario”. Ambos llevan al mismo destino (<code>/diario</code>), pero se ven visiblemente distintos entre sí, incluida la forma de la flecha. La inspección del código confirmó que son dos componentes distintos superpuestos por error: uno es un botón “de volver” genérico y reutilizable (clase <code>in-app-back in-app-back--main</code>), probablemente pensado para pantallas sin su propio control de regreso; el otro es el enlace “Volver a Diario” propio de esta pantalla (clase <code>diary-back-link</code>). El botón genérico usa la tipografía Arial, mientras que el enlace propio usa Inter (la tipografía del resto del sitio) — de ahí la sensación de “dos flechas distintas”, aunque el carácter “←” es el mismo en ambos casos. El defecto no impide navegar ni causa pérdida de datos, pero es una inconsistencia visual y de redundancia funcional que puede confundir.",
+        recomendacion: "Revisar por qué el botón genérico “de volver” se está renderizando junto con el enlace propio de “Mis registros” cuando se llega por navegación interna en tablet y móvil, y ocultarlo o eliminarlo en esa pantalla para que quede un solo control de regreso, consistente con lo que ya ocurre en escritorio. Dado que el componente genérico parece compartido por varias pantallas del portal, vale la pena revisar si otras pantallas a las que se llega por navegación interna en tablet/móvil tienen el mismo problema.",
+        evidencia: [
+          { src: "capturas/caso-05/20-tablet-doble-control-volver-registros.png", caption: "Tablet: los controles “← Volver” y “← Volver a Diario” apilados" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: mismas dos clases superpuestas, mismo destino (/diario). La pantalla carga con un scroll inicial de unos 70px que deja el primer control apenas fuera del viewport hasta subir el scroll del todo; una vez arriba, ambos se ven apilados igual que en tablet.",
+            evidencia: [
+              { src: "capturas/caso-05/21-movil-doble-control-volver-registros.png", caption: "Móvil: mismo apilado, tras subir el scroll al tope de la pantalla" }
+            ]
+          },
+          {
+            viewport: "Escritorio (~1424×749)",
+            resultado: "no-aplica",
+            textoHtml: "No se reproduce. El botón genérico (misma clase <code>in-app-back in-app-back--main</code>) está presente en el código pero oculto por una regla de CSS (<code>display: none</code>). En escritorio se ve un único control “← Volver” (sin el modificador --main), que forma parte de una barra superior general presente en otras pantallas del portal, y que no genera duplicado con el enlace propio de “Mis registros”.",
+            evidencia: []
+          }
+        ]
+      }
+    ]
+  }
+,
+  {
+    id: 6,
+    numero: "06",
+    slug: "caso-06-mi-cuenta-datos-personales",
+    areaId: "patient",
+    areaName: "Experiencia del Paciente",
+    titulo: "“Mi Cuenta” — administración de la foto de perfil, nombre completo, email, teléfono, contacto de emergencia y zona horaria",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Se evaluó, en <code>app.motivarcare.com</code> bajo el perfil de <strong>paciente</strong>, la pantalla “Mis datos” (<code>/profile?tab=data</code>), accesible desde el menú “Cuenta” → “Datos personales”. Es la pantalla donde el paciente administra su foto de perfil, nombre completo, email, teléfono, contacto de emergencia y zona horaria, todos agrupados bajo un único botón “Guardar perfil”. Se usó Chrome real (plugin Claude in Chrome), con la sesión ya iniciada, en tres pasadas sucesivas a pedido del Evaluador UX: escritorio (ventana ~1568×765), tablet (768×1024) y móvil (500×805). Además de la revisión visual e interactiva habitual, se usó inspección de red (<code>read_network_requests</code>) y de DOM/JavaScript para verificar con precisión qué campos efectivamente persisten sus cambios y cuáles no, dado que varias fallas de esta pantalla no son visibles a simple vista.",
+    pasosRealizados: [
+      "Se abrió “Mis datos” (<code>/profile?tab=data</code>) desde el menú “Cuenta”, y se relevó la estructura completa de la pantalla: “Foto de perfil”, “Nombre completo”, “Email”, “Teléfono”, “Contacto de emergencia”, “Zona horaria” y un único botón “Guardar perfil” al pie.",
+      "Se inspeccionó por script el estado de cada campo: “Nombre completo” y “Email” tienen el atributo <code>disabled</code>; “Teléfono”, “Contacto de emergencia” y “Zona horaria” son editables — ver Hallazgo 1.",
+      "Se probó la subida de foto de perfil con tres archivos: uno de ~7,4 MB (rechazado por peso), un archivo de texto disfrazado de imagen (rechazado por tipo) y una imagen válida de ~3 KB (aceptada, con actualización inmediata del avatar). Se confirmó que el cambio de foto —a diferencia del resto de los campos— persiste de inmediato, sin necesidad de “Guardar perfil”, incluyendo el botón “Quitar foto”.",
+      "Se completaron “Teléfono” y “Contacto de emergencia” con datos de prueba y se presionó “Guardar perfil”: el botón guarda y redirige a la Home sin ninguna confirmación visible. Al volver a “Mis datos”, ambos campos aparecían vacíos otra vez.",
+      "Se repitió la prueba inspeccionando el tráfico de red (<code>read_network_requests</code>) en el momento exacto de guardar: solo se dispara un <code>PATCH</code> a <code>/api/profiles/me/timezone</code> y otro a <code>/api/profiles/me/notification-preferences</code> — nunca una petición con los valores de “Teléfono” ni “Contacto de emergencia”. Se confirmó el mismo resultado en una pestaña nueva y completamente limpia — ver Hallazgo 2.",
+      "Se probó “Zona horaria”: un campo de texto libre que expone el identificador técnico crudo (por ejemplo <code>America/Buenos_Aires</code>) en vez de un nombre legible. Se reemplazó por un valor inválido (<code>Zona/Que/No/Existe</code>) y se guardó: el <code>PATCH</code> respondió <code>200 OK</code> sin ningún error visible, y al recargar el valor había quedado silenciosamente en “UTC” — ver Hallazgo 3.",
+      "Se notó que, sin ninguna interacción, la pantalla dispara de forma continua peticiones <code>GET</code> repetidas a varios endpoints del backend (<code>/api/profiles/me</code>, <code>/api/bookings/mine</code>, <code>/api/auth/me</code>, entre otros). Se midió con precisión: 49 peticiones en 5 segundos de inactividad sobre “Mis datos”, y 84 peticiones en 3 segundos sobre la Home (del orden de 10 peticiones por segundo, sostenidas). En una pestaña nueva y limpia, con una navegación similar, el problema no se reprodujo en el tiempo probado — ver Hallazgo 4.",
+      "A raíz de que el Evaluador UX reportó haber podido guardar “Teléfono” y “Contacto de emergencia” sin problemas al probarlo por su cuenta, se repitió la verificación de los Hallazgos 2 y 3. Se extrajo el token de sesión del <code>localStorage</code> y se hizo un <code>fetch</code> manual a <code>GET /api/profiles/me</code>: la respuesta del servidor no incluye ningún campo de teléfono ni de contacto de emergencia. Se confirmó que los valores vistos en pantalla viven exclusivamente en el <code>localStorage</code> (clave <code>therapy_patient_portal_v3</code>), no en el servidor.",
+      "Se repitió el guardado con valores nuevos y distintos, observando la red en el momento exacto de presionar “Guardar perfil”: no se disparó ningún <code>PATCH</code> con esos valores, pero al recargar los campos mostraban igual los valores nuevos — confirmando que provienen únicamente del <code>localStorage</code>, actualizado del lado del cliente. Se repitió también la prueba de zona horaria con un nuevo valor inválido, con idéntico resultado.",
+      "El Evaluador UX señaló que existen dos formas distintas de llegar a “Mis datos”: un ícono de persona al pie del panel de navegación izquierdo, y la opción “Datos personales” del menú “Cuenta” (esquina superior derecha). Se verificaron ambos caminos: llevan exactamente a la misma URL y pantalla, pero el ícono de persona muestra el nombre completo y el email de la cuenta en vez de un rótulo del tipo “Mi cuenta” — ver Hallazgo 5.",
+      "Se repitió la evaluación completa en viewport de tablet (768×1024, Chrome real redimensionado antes de navegar a la aplicación). Se reprodujeron de forma idéntica los Hallazgos 1, 2 y 3 (incluida la verificación contra el backend en cada caso), y la variante táctil del Hallazgo 5 (“Más” de la barra inferior → “Explorar” → “Mi cuenta”, vs. menú hamburguesa → “Datos personales”).",
+      "En tablet, el Hallazgo 4 se reprodujo de forma mucho más inmediata y agresiva: 60 peticiones en 5 segundos de inactividad sobre la Home (~12 peticiones por segundo), en prácticamente cada pestaña nueva abierta. Se documentó además un síntoma nuevo y más severo: mientras el patrón está activo, el foco no llega a establecerse en los campos de texto, el tipeo no se refleja en absoluto y la propia herramienta de captura de pantalla llegó a agotar su tiempo de espera (30 segundos) — la pantalla queda inutilizable para cualquier persona, no solo degradada. Por este motivo se elevó la severidad de Mayor a Crítica.",
+      "Para poder completar de todos modos las pruebas de los Hallazgos 2 y 3, y restaurar los valores de la cuenta de prueba, mientras el Hallazgo 4 estaba activo, se recurrió a fijar el valor de los campos por script (disparando los eventos que React necesita para detectarlo) en lugar de tipear carácter por carácter — algo que una persona usuaria real no tiene forma de hacer.",
+      "Se repitió la evaluación completa en viewport de móvil (500×805). La navegación resultó prácticamente idéntica a la de tablet, y se reprodujeron de forma idéntica los Hallazgos 1, 2, 3 y 5 (con la misma variante táctil de navegación ya documentada en tablet).",
+      "En móvil se confirmó nuevamente la naturaleza inconsistente del Hallazgo 4: hubo tramos de varios segundos sin ninguna petición de fondo, y otros tramos —en particular, inmediatamente después de presionar “Guardar perfil”— en los que el patrón se disparaba de inmediato y bloqueaba la interacción con la pantalla, igual que lo documentado en tablet.",
+      "Se notó nuevamente, igual que en tablet y fuera del alcance específico de este caso, contenido de la Home cortado en los bordes izquierdo y derecho en viewport de móvil. Con esta tercera pasada se completa la cobertura de los tres viewports principales (escritorio, tablet y móvil) para el alcance definido de este caso."
+    ],
+    feedbackPositivo: [
+      "La subida de foto de perfil tiene validaciones robustas y mensajes claros y en buen tono: rechaza archivos de más de 4 MB y archivos que no son imágenes, indicando en cada caso exactamente qué hacer para solucionarlo.",
+      "El cambio de foto de perfil (subir una nueva o quitarla con “Quitar foto”) se guarda de inmediato y se confirmó que persiste correctamente tras una recarga completa de la página.",
+      "El campo “Zona horaria”, cuando se le asigna un valor válido, sí se guarda y persiste correctamente — el problema señalado en el Hallazgo 3 es la falta de validación, no el guardado en sí."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "“Nombre completo” y “Email” están deshabilitados sin ninguna indicación visual",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Los campos “Nombre completo” y “Email” de “Mis datos” no se pueden editar: tienen el atributo <code>disabled</code> y no aceptan ninguna entrada de teclado. El problema es que, visualmente, son indistinguibles de los campos que sí son editables en la misma pantalla (“Teléfono”, “Contacto de emergencia”, “Zona horaria”): mismo fondo blanco, mismo borde gris claro, mismo color y peso de texto. No hay ningún ícono de candado, texto de ayuda, tooltip al pasar el mouse, ni ningún otro indicio de que estos dos campos estén bloqueados y por qué. La única diferencia detectable es el cursor del mouse al pasar por encima (flecha normal en vez del cursor de texto), una señal demasiado sutil para que la note la mayoría de las personas. Una persona que quiera corregir un error de tipeo en su nombre (la cuenta de prueba está en mayúsculas sostenidas: “GASTON FER MARTINO”) o actualizar su email, intentará hacer clic y escribir sin obtener ningún resultado ni ninguna explicación de por qué no puede.",
+        recomendacion: "Dar una señal visual clara de que estos campos no son editables desde acá: fondo gris claro, cursor <code>not-allowed</code>, y sobre todo un texto breve o tooltip que explique qué hacer si la persona necesita corregir su nombre o cambiar su email (por ejemplo, un flujo de cambio de email con verificación aparte, o indicar cómo contactar a soporte).",
+        evidencia: [
+          { src: "capturas/caso-06/02-nombre-email-sin-indicacion-deshabilitado.png", caption: "“Nombre completo” y “Email”, con la misma apariencia que los campos editables de abajo (escritorio)" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: ambos campos siguen con <code>disabled: true</code>, sin ninguna diferencia visual respecto de “Teléfono” y “Contacto de emergencia”.",
+            evidencia: [
+              { src: "capturas/caso-06/09-mis-datos-vista-general-tablet.jpg", caption: "Vista general de “Mis datos” en tablet, sin indicación visual de los campos deshabilitados" }
+            ]
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se reproduce por tercera vez, con el mismo comportamiento exacto.",
+            evidencia: [
+              { src: "capturas/caso-06/13-mis-datos-vista-general-movil.jpg", caption: "Vista general de “Mis datos” en móvil, mismo problema" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "“Teléfono” y “Contacto de emergencia” nunca se guardan, pese a poder completarse con normalidad",
+        heuristicaId: "H10",
+        heuristicaNombre: "H10 — Confidencialidad médica y soporte",
+        severidad: "Crítica",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Los campos “Teléfono” y “Contacto de emergencia” se completan con normalidad: aceptan texto, no muestran ningún error, y el botón “Guardar perfil” se comporta como si la operación fuera exitosa (guarda y redirige a la Home sin ningún mensaje de error). Sin embargo, al volver a “Mis datos”, ambos campos aparecen vacíos otra vez. Se confirmó la causa exacta inspeccionando el tráfico de red en el momento de presionar “Guardar perfil”: la única petición que se dispara es un <code>PATCH</code> a <code>/api/profiles/me/timezone</code> (y, de forma llamativa, otro a <code>/api/profiles/me/notification-preferences</code>, sin relación visible con esta pantalla) — nunca se envía ninguna petición al backend con el valor de “Teléfono” ni de “Contacto de emergencia”. Se verificó el mismo resultado dos veces, incluyendo una vez en una pestaña completamente nueva.<br><br><strong>Nota importante — por qué puede parecer que “sí se guarda”:</strong> al reabrir “Mis datos” en el mismo navegador donde ya se completaron estos campos antes, ambos aparecen con datos, lo que da la sensación de que el guardado funciona. Consultando directamente el backend (<code>GET /api/profiles/me</code> con el token de sesión, sin pasar por la interfaz) se comprobó que la respuesta del servidor <strong>no contiene ningún campo de teléfono ni de contacto de emergencia</strong>. Los valores que se ven en pantalla viven únicamente en el <code>localStorage</code> del navegador (una copia local en la máquina de quien probó el formulario), no en el servidor — se perderían al entrar desde otro dispositivo u otro navegador, y el profesional o el equipo de soporte nunca podrían verlos.<br><br>El caso de “Contacto de emergencia” es particularmente grave en un producto de salud mental: es el dato que se supone debe estar disponible para una situación de crisis, y el paciente que lo completa —convencido de que ya quedó guardado— en realidad no tiene ningún contacto de emergencia registrado en el servidor, accesible para quien lo necesite en un momento crítico.",
+        recomendacion: "Conectar ambos campos al guardado real (que el <code>PATCH</code> de “Guardar perfil” incluya también teléfono y contacto de emergencia, o que existan endpoints propios para cada uno). Mientras tanto, dado que es un dato de seguridad, considerar además una confirmación explícita en pantalla de qué campos se guardaron y cuáles no, en vez de una redirección silenciosa a la Home.",
+        evidencia: [
+          { src: "capturas/caso-06/05-telefono-contacto-emergencia-completados.jpg", caption: "Ambos campos completados, antes de presionar “Guardar perfil”" },
+          { src: "capturas/caso-06/06-telefono-contacto-emergencia-no-retiene-texto.jpg", caption: "Tras recargar la pantalla, ambos campos vuelven a estar vacíos" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: se completaron ambos campos con valores nuevos y se guardó; no se disparó ningún <code>PATCH</code> con esos valores, y se confirmó contra el backend (<code>GET /api/profiles/me</code>) que el servidor no tiene ningún campo de teléfono ni de contacto de emergencia. No se adjuntan capturas nuevas por tratarse de los mismos campos ya documentados en escritorio.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se reproduce por tercera vez, con el mismo resultado exacto: solo se dispararon los <code>PATCH</code> ya conocidos (<code>/timezone</code> y <code>/notification-preferences</code>), y el backend confirmó que no existe ningún campo de teléfono ni de contacto de emergencia en la cuenta.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 3,
+        titulo: "“Zona horaria” es un campo de texto libre sin validar, y ante un valor inválido cae silenciosamente en “UTC”",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Crítica",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "El campo “Zona horaria” muestra y permite editar directamente el identificador técnico de la zona horaria (por ejemplo, <code>America/Buenos_Aires</code>), tal como lo usaría una API, en vez de un selector con nombres legibles (“Argentina (GMT-3)”) o al menos un campo con autocompletado que solo acepte zonas válidas. Al escribir un valor que no es una zona horaria real (<code>Zona/Que/No/Existe</code>) y presionar “Guardar perfil”, la petición al backend respondió <code>200 OK</code>, sin ningún mensaje de error ni advertencia. Al recargar la pantalla, el valor había sido reemplazado silenciosamente por “UTC” —una zona horaria válida, pero que no es la del paciente (con 3 horas de diferencia respecto de Argentina)— sin que en ningún momento se informe que lo escrito no era válido. Para una plataforma donde la zona horaria determina cómo se muestran los horarios de sesiones con el profesional, un cambio accidental o un error de tipeo en este campo de texto libre —sin ningún tipo de validación, ni cliente ni con aviso del servidor— puede hacer que el paciente vea sus próximas sesiones a una hora distinta de la real, con el consiguiente riesgo de llegar tarde o faltar a una sesión.",
+        recomendacion: "Reemplazar el campo de texto libre por un selector de zona horaria con nombres legibles (o, como mínimo, un campo con autocompletado que solo permita elegir entre zonas IANA válidas). Del lado del backend, ante un valor inválido, devolver un error explícito en vez de aplicar un fallback silencioso a “UTC”, y mostrar ese error de forma clara en la pantalla.",
+        evidencia: [
+          { src: "capturas/caso-06/03-zona-horaria-valor-invalido-antes-guardar.png", caption: "Campo con el valor inválido “Zona/Que/No/Existe”, justo antes de guardar" },
+          { src: "capturas/caso-06/04-zona-horaria-fallback-silencioso-utc.png", caption: "Tras guardar y recargar: el valor quedó en “UTC”, sin ningún aviso (escritorio)" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "replica",
+            textoHtml: "Se reproduce de forma idéntica: se reemplazó el valor por otro inválido (<code>Zona/Tablet/Invalida</code>) y se guardó; el fallback silencioso a “UTC” se confirmó nuevamente contra el backend.",
+            evidencia: [
+              { src: "capturas/caso-06/10-zona-horaria-valor-invalido-tablet.jpg", caption: "Mismo valor inválido escrito en el campo, viewport de tablet" }
+            ]
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se reproduce por tercera vez: con el Hallazgo 4 activo en el momento de la prueba, el campo no aceptaba tipeo directo, por lo que el valor inválido (<code>Zona/Movil/Invalida</code>) se fijó por script; el fallback a “UTC” se confirmó igualmente contra el backend. No se adjunta captura del campo con el valor inválido en este viewport, por la misma razón.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 4,
+        titulo: "Peticiones repetidas e indefinidas al backend en toda la app autenticada, que en tablet llegan a inutilizar el formulario por completo",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Crítica",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "Este hallazgo no es específico de las pantallas de “Mi Cuenta”: se detectó mientras se probaba esta pantalla, pero se confirmó que también ocurre en la Home, por lo que corresponde a la app autenticada en general y no a este caso puntual. Con la pantalla completamente quieta, sin ninguna interacción, se disparan de forma continua e indefinida peticiones <code>GET</code> repetidas a <code>/api/profiles/me</code>, <code>/api/bookings/mine</code>, <code>/api/auth/me</code>, <code>/api/profiles/me/matching</code> y <code>/api/profiles/me/pending-professional-review</code>. Se midió con precisión: 49 peticiones en 5 segundos de inactividad total sobre “Mis datos”, y 84 peticiones en 3 segundos sobre la Home (del orden de 10 peticiones por segundo, sostenidas en el tiempo, sin que la persona haga nada). La reproducción en esta pasada no fue consistente: una pestaña nueva a veces no mostraba el problema en el tiempo probado (hasta 25 segundos de espera), lo que sugería que dependía de acumular una sesión de navegación más larga.",
+        recomendacion: "Investigar con herramientas de profiling del lado del desarrollo (React DevTools Profiler, panel Network del navegador con una sesión larga) el origen de estas peticiones repetidas — es muy probable que se trate de un <code>useEffect</code> (u otro mecanismo de polling/suscripción) sin una función de limpieza (<code>cleanup</code>) correcta. Dado que en tablet el problema se reprodujo de inmediato y llegó a bloquear la interacción con formularios, se recomienda tratarlo con prioridad alta: más allá del impacto en infraestructura y costos por el volumen de peticiones, existe el riesgo concreto de que un paciente no pueda completar una acción importante en la app (por ejemplo, cargar un contacto de emergencia) simplemente porque la pantalla dejó de responder, sin ningún mensaje de error que lo explique.",
+        evidencia: [],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "variante",
+            textoHtml: "El problema se reprodujo de forma mucho más inmediata y agresiva que en escritorio: en prácticamente cada pestaña nueva abierta, sin necesidad de ninguna navegación previa, apareció en pocos segundos (60 peticiones en 5 segundos de inactividad sobre la Home — ~12 peticiones por segundo). Se documentó además un síntoma nuevo y más severo que el de escritorio: mientras el patrón está activo, la pantalla deja de responder a interacciones básicas. Se confirmó por script que, tras hacer clic sobre un campo de texto, el foco no llega a establecerse (<code>document.activeElement</code> seguía apuntando a <code>&lt;body&gt;</code>); el texto tecleado no se refleja en ningún campo; y en más de una ocasión la herramienta de captura de pantalla agotó su tiempo de espera (30 segundos) intentando fotografiar la página, señal de que el renderizado del navegador está sobrecargado. Fue necesario recurrir a técnicas de scripting (fijar valores directamente y disparar los eventos que React necesita para detectarlos) para poder completar las pruebas y restaurar la cuenta de prueba — algo que una persona usuaria real no tiene forma de hacer. En la práctica, mientras el problema está activo, el formulario de “Mis datos” queda completamente inutilizable, no solo con una experiencia degradada. Por este motivo se elevó la severidad de Mayor a Crítica respecto de la primera documentación en escritorio.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se confirmó, una vez más, la naturaleza inconsistente del problema: dentro de una misma sesión de prueba hubo tramos de varios segundos sin ninguna petición de fondo, y otros tramos —en particular, inmediatamente después de presionar “Guardar perfil”— en los que el patrón se disparaba de inmediato, bloqueando la interacción de la misma manera que en tablet. Esto refuerza la hipótesis de que ciertas acciones puntuales (como guardar el perfil) están relacionadas con el disparo del problema, más que el simple paso del tiempo en la sesión.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 5,
+        titulo: "Existen dos accesos distintos y con rótulos inconsistentes hacia la misma pantalla de “Mis datos”",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×765)",
+        descripcionHtml: "La pantalla “Mis datos” (<code>/profile?tab=data</code>) es alcanzable desde dos lugares completamente distintos de la interfaz: (1) un ícono de persona ubicado al pie del panel de navegación izquierdo, sin ningún texto visible junto a él salvo que se pase el mouse por encima, y (2) la opción “Datos personales”, agrupada bajo el encabezado “CUENTA” dentro del menú desplegable “Cuenta” de la esquina superior derecha (que también incluye “Actividad de sesiones”, “Idioma y moneda”, “Notificaciones”, etc.). Ambos caminos llevan exactamente a la misma URL y a la misma pantalla. El problema no es que exista más de un acceso en sí —eso puede ser válido como atajo— sino que los dos están rotulados de forma inconsistente entre sí: el ícono del panel izquierdo, al pasar el mouse, muestra el nombre completo y el email de la persona (“GASTON FER MARTI...”, “gaston.f.martino+test@...”) como si fuera un acceso genérico “a tu cuenta”, mientras que el menú “Cuenta” ofrece una opción puntual y explícita llamada “Datos personales”. Una persona que use el panel izquierdo no tiene forma de anticipar, antes de hacer clic, que va a llegar exactamente al mismo lugar que “Datos personales” en el otro menú — lo que puede generar más clics de los necesarios o la sensación de que falta contenido en un menú que en realidad está duplicado en el otro.",
+        recomendacion: "Unificar el criterio de acceso a “Mis datos”: si se mantienen los dos caminos, usar el mismo rótulo o ícono reconocible en ambos (por ejemplo, “Mi cuenta” o “Datos personales” en los dos lugares), en vez de que uno se identifique con el nombre/email de la persona y el otro con un texto de menú explícito. Alternativamente, evaluar si el ícono de persona del panel izquierdo debería llevar a una vista distinta (un resumen de cuenta con accesos a “Datos personales”, “Actividad de sesiones”, etc.) en vez de ir directo a “Mis datos”, para que ambos accesos cumplan roles claramente diferenciados.",
+        evidencia: [
+          { src: "capturas/caso-06/07-acceso-panel-izquierdo-icono-persona.jpg", caption: "Escritorio: panel izquierdo expandido al pasar el mouse; el ícono de persona muestra el nombre y el email de la cuenta" },
+          { src: "capturas/caso-06/08-acceso-menu-cuenta-datos-personales.jpg", caption: "Escritorio: menú “Cuenta”, con la opción “Datos personales” agrupada bajo “CUENTA”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet (768×1024)",
+            resultado: "variante",
+            textoHtml: "En tablet la navegación es distinta (no hay panel lateral ni botón “Cuenta”), pero el mismo patrón de fondo se repite con una variante propia: el botón “Más” de la barra de navegación inferior abre una hoja “Explorar” que agrupa, bajo “Bienestar y tu cuenta”, los accesos a “Ejercicios”, “Música relajante” y “Mi cuenta” —este último lleva directamente a “Mis datos”—; por separado, el ícono de menú hamburguesa abre el mismo panel de cuenta que en escritorio, con “Datos personales”. De nuevo, dos caminos distintos con dos rótulos distintos (“Mi cuenta” agrupado con bienestar, vs. “Datos personales” agrupado con cuenta) llevan al mismo destino.",
+            evidencia: [
+              { src: "capturas/caso-06/11-acceso-explorar-mi-cuenta-tablet.jpg", caption: "Tablet: hoja “Explorar” abierta desde “Más”, con “Mi cuenta” agrupado junto a “Ejercicios” y “Música relajante”" },
+              { src: "capturas/caso-06/12-acceso-menu-datos-personales-tablet.jpg", caption: "Tablet: menú abierto desde el ícono hamburguesa, con “Datos personales” agrupado bajo “CUENTA”" }
+            ]
+          },
+          {
+            viewport: "Móvil (500×805)",
+            resultado: "replica",
+            textoHtml: "Se verificó exactamente el mismo patrón que en tablet, con la misma navegación (“Más” → “Explorar” → “Mi cuenta”, y menú hamburguesa → “Datos personales”), confirmando que la inconsistencia no es un problema puntual de un solo viewport sino algo estructural de cómo está organizada la navegación de cuenta en toda la app.",
+            evidencia: [
+              { src: "capturas/caso-06/14-acceso-explorar-mi-cuenta-movil.jpg", caption: "Móvil: misma hoja “Explorar” con “Mi cuenta”" },
+              { src: "capturas/caso-06/15-acceso-menu-datos-personales-movil.jpg", caption: "Móvil: mismo menú con “Datos personales”" }
+            ]
+          }
+        ]
       }
     ]
   }
