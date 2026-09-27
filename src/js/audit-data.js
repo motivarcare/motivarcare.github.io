@@ -96,8 +96,8 @@ export const auditAreas = [
     badge: "Operación & Eficiencia",
     description: "Entorno de gestión para los psicólogos: validación de matrícula/colegiatura, configuración de horarios y zonas horarias, historial de pacientes y sala de consulta clínica.",
     score: 64,
-    status: "Pendiente de auditoría",
-    findingsCount: { critica: 0, mayor: 0, menor: 0, recomendacion: 0, aRevisar: 0 }
+    status: "Revisión Prioritaria",
+    findingsCount: { critica: 0, mayor: 6, menor: 6, recomendacion: 5, aRevisar: 5 }
   }
 ];
 
@@ -978,7 +978,7 @@ export const casos = [
         verificaciones: []
       },
       {
-        numero: 15,
+        numero: 14,
         titulo: "Los puntos del carrusel usan <code>role=\"tab\"</code> pero no implementan la navegación por flechas propia de ese patrón",
         heuristicaId: "H04",
         heuristicaNombre: "H4 — Consistencia y estándares",
@@ -991,7 +991,7 @@ export const casos = [
         verificaciones: []
       },
       {
-        numero: 16,
+        numero: 15,
         titulo: "No hay un enlace para saltear el menú lateral y el header e ir directo al contenido principal",
         heuristicaId: "H07",
         heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
@@ -1004,7 +1004,7 @@ export const casos = [
         verificaciones: []
       },
       {
-        numero: 17,
+        numero: 16,
         titulo: "En tablet y en móvil, el botón del “Tour con Maca” no es alcanzable en ningún menú, pero el tour igual se dispara automáticamente sin que la persona usuaria pueda controlarlo",
         heuristicaId: "H07",
         heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
@@ -1755,6 +1755,723 @@ export const casos = [
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    id: 7,
+    numero: "07",
+    slug: "caso-07-login-signup-profesional",
+    areaId: "professional",
+    areaName: "Portal del Profesional",
+    titulo: "Pantallas de login y alta profesional (sign up) — desde el ingreso hasta el envío del perfil a revisión",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Se evaluó, en <code>pro.motivarcare.com</code>, el flujo completo de ingreso y alta de un profesional nuevo: la pantalla de login (incluida “Olvidé mi contraseña”) y el wizard de alta (“Onboarding profesional”), que consta de 8 pasos — “Correo y contraseña”, “Revisá tu correo”, “Identidad profesional”, “Perfil público”, “Servicios y precios”, “Multimedia”, “Formación” y “Recibir pagos” — hasta el envío final del perfil a revisión manual del equipo de MotivarCare. Se usó Chrome real (plugin Claude in Chrome) para la pasada de escritorio. Por pedido explícito del Evaluador UX, cada vez que el flujo requería crear la cuenta o completar un campo de contraseña, el propio Evaluador UX lo completó directamente en el navegador; lo mismo para los campos sensibles de datos bancarios del Paso 8 (“Recibir pagos”), que se le pidió completar con datos ficticios. El caso incluye dos pasadas completas de punta a punta, con dos cuentas de prueba distintas (<code>gaston.f.martino+pro1@gmail.com</code> y <code>gaston.f.martino+pro2@gmail.com</code>), ya que la primera pasada no dejó evidencia fotográfica propia de varios hallazgos (se verificaron solo por inspección directa de DOM/JavaScript) y se repitió el recorrido completo para poder capturar pantalla de cada uno. Además de la revisión visual e interactiva habitual, se usó inspección de DOM/JavaScript (<code>javascript_tool</code>) y de red/consola (<code>read_network_requests</code>, <code>read_console_messages</code>) para confirmar con precisión varios hallazgos que no son evidentes a simple vista. Posteriormente, el Evaluador UX repitió por su cuenta, de forma manual (sin esta herramienta de automatización), una pasada equivalente en viewport de tablet y de móvil, confirmando que los mismos hallazgos se reproducen en ambos.",
+    pasosRealizados: [
+      "Primera pasada (cuenta <code>...+pro1@gmail.com</code>): se abrió la pantalla de login de <code>pro.motivarcare.com</code> y se probaron varios escenarios de error: envío del formulario vacío, email con formato inválido, contraseña demasiado corta y credenciales incorrectas. En los cuatro casos la pantalla respondió con el mismo mensaje genérico combinado, sin distinguir cuál de los dos campos era el problema — ver Hallazgo 1.",
+      "Se probó el enlace “¿Olvidaste tu contraseña?” (<code>/forgot-password</code>). Al hacer clic en “Volver” no se observó respuesta y se lo reportó como posible hallazgo. El Evaluador UX aclaró que se trataba de una ventana modal de la propia herramienta de prueba que había quedado bloqueando la app por encima, y que él mismo la cerró. Se repitió la prueba en una pestaña nueva y limpia: el botón funcionó con normalidad. Se retractó el hallazgo — queda registrado acá únicamente como constancia del proceso de verificación.",
+      "Se inició el alta (“Onboarding profesional”). En el Paso 1 (“Correo y contraseña”) se probó a propósito completar los dos campos de contraseña con valores que no coinciden entre sí: el botón “Continuar” quedó deshabilitado, sin ningún mensaje indicando el problema — ver Hallazgo 2. Luego, a pedido del Evaluador UX, fue él quien escribió la contraseña real directamente en el navegador.",
+      "Tras confirmar el email (enlace de verificación provisto por el Evaluador UX), el wizard avanzó al Paso 3 (“Identidad profesional”). Al intentar seleccionar el título profesional con clics directos sobre las opciones del desplegable nativo, la selección no se registraba (problema ya conocido de esta herramienta de prueba con <code>&lt;select&gt;</code> nativos, no de la app). Se cambió a fijar el valor por referencia de elemento (<code>form_input</code>), método que funcionó de forma confiable en adelante.",
+      "Inspeccionando por script la lista completa de opciones del desplegable “Título profesional”, se encontró que la opción visible “Nutricionista” tiene, en el HTML subyacente, <code>value=\"Sociólogo\"</code> — ver Hallazgo 3.",
+      "Se completaron los Pasos 4 y 5 (“Perfil público”, “Servicios y precios”) con datos de prueba sin incidentes relevantes, salvo un reacomodo de layout al escribir el precio (aparece una línea de “Equivalente orientativo” que empuja los campos de descuento hacia abajo) — no constituye un hallazgo en sí.",
+      "En el Paso 6 (“Multimedia”) se confirmó por script que el botón “Siguiente paso” permanecía deshabilitado (<code>button.disabled === true</code>) sin ningún mensaje visible. Se generó un video de prueba corto (~3 segundos, con <code>ffmpeg</code>) y se lo subió: <code>button.disabled</code> pasó a <code>false</code> de inmediato, confirmando que el video es obligatorio sin comunicarlo — ver Hallazgo 4.",
+      "Se completó el Paso 7 (“Formación”) con un diploma de prueba (Universidad de Buenos Aires, Licenciatura en Psicología, 2015–2020), con su archivo adjunto correctamente confirmado en pantalla (“Adjunto listo”).",
+      "En el Paso 8 (“Recibir pagos”), se inspeccionaron por script los campos “Nombre (como en el DNI)” y “Apellido (como en el DNI)”, pre-completados a partir del nombre de la cuenta: sus valores reales eran únicamente “G” y “M” — ver Hallazgo 5. Se avisó al Evaluador UX antes de que completara el resto del paso.",
+      "Se le pidió al Evaluador UX que completara los campos sensibles restantes (tipo de documento, CUIT/CUIL, banco, CBU/CVU o alias) con datos ficticios. Corrigió además manualmente los campos de Nombre/Apellido truncados.",
+      "Al presionar “Continuar al alta”, apareció el modal de éxito (“Onboarding finalizado”), pero la consola registró en simultáneo <code>finishWebOnboarding: diploma document read failed Error: DIPLOMA_DOCUMENT_MISSING</code>. Al presionar “Acceder a mi cuenta”, la app devolvió al Paso 7 con un error pidiendo volver a subir el diploma, pese a que ya se había cargado y confirmado.",
+      "Se intentó volver a adjuntar el diploma mediante la herramienta de automatización: la carga no quedó reflejada en la interfaz ni disparó ninguna petición de red, pese a que un listener por script confirmó que el evento <code>change</code> sí se disparó con un archivo adjunto. Un segundo intento de “Continuar al alta” dio el mismo resultado, y el mensaje de error del diploma quedó además visible en el Paso 8, sin relación con diplomas.",
+      "Se le pidió al Evaluador UX que subiera él mismo el diploma directamente en el navegador. Esa carga manual sí mostró la confirmación esperada (“Adjunto listo”). Pese a eso, un tercer “Continuar al alta” volvió a registrar el mismo error en consola (tres instancias nuevas, con timestamp actualizado). Sin embargo, esta vez “Acceder a mi cuenta” sí llevó a la pantalla real de post-alta, “Tu perfil está en revisión” — el alta se había completado del lado del servidor pese al error persistente del lado del cliente — ver Hallazgo 6.",
+      "Se verificó la pantalla “Completar documentos”: mostraba tanto el documento de identidad como el diploma con el estado “Cargado” para ambos.",
+      "Dado que la cuenta quedó en estado “En revisión” (sin acceso al panel del profesional), no fue posible volver a los campos de “Título profesional” ni “Multimedia” de esa misma cuenta para obtener capturas adicionales — motivo por el cual se realizó una segunda pasada completa con una cuenta nueva.",
+      "Segunda pasada, con capturas de pantalla (cuenta <code>...+pro2@gmail.com</code>): se cerró la sesión de la primera cuenta y se repitieron, en una pestaña limpia, los cuatro escenarios de error del login del Hallazgo 1, esta vez con captura de pantalla de cada uno: envío vacío, email con formato inválido (que además dispara la validación nativa del navegador, con su propio mensaje, independiente del banner genérico de la app), contraseña corta, y credenciales incorrectas (email válido, contraseña incorrecta) — las primeras tres muestran el mismo banner genérico del lado cliente; la última, un banner distinto pero también genérico del lado servidor (“El email o la contraseña no coinciden...”). En ningún caso se distingue el campo específico.",
+      "Se inició un alta nueva con el email <code>gaston.f.martino+pro2@gmail.com</code>. En el Paso 1 se repitió la prueba del Hallazgo 2: contraseñas que no coinciden entre sí, confirmando por script (<code>button.disabled === true</code>) el mismo resultado que en la primera pasada, esta vez con captura de pantalla. Se dejaron ambos campos de contraseña vacíos y se le pidió al Evaluador UX que los completara él mismo.",
+      "Con el enlace de verificación de email provisto por el Evaluador UX, se llegó directo al Paso 3 (“Identidad profesional”). Al completar Nombre/Apellido y abrir el desplegable “Título profesional” para elegir la opción correcta por script, se capturó pantalla del desplegable abierto: se confirmó, además, que la opción corrupta “Nutricionista” (<code>value=\"Sociólogo\"</code>) convive con una <strong>segunda opción, también de texto “Nutricionista”, esta sí con <code>value=\"Nutricionista\"</code> correcto</strong> — es decir, hay dos opciones visualmente idénticas en la misma lista, una rota y una funcional, un detalle no registrado en la primera pasada — ver Hallazgo 3 (actualizado).",
+      "Se completó el resto del Paso 3 (experiencia, horas de práctica, género, países, idioma, ámbitos de atención) y el Paso 4 (“Perfil público”) con los mismos datos de prueba que en la primera pasada.",
+      "En el Paso 5 (“Servicios y precios”) se confirmó nuevamente el reacomodo de layout ya descripto al escribir el precio, y se completaron los descuentos por paquete en las nuevas posiciones.",
+      "En el Paso 6 (“Multimedia”) se repitió la verificación del Hallazgo 4 con capturas de pantalla del antes y el después: se subió primero la foto de perfil (el botón “Siguiente paso” siguió deshabilitado) y luego el video de presentación, confirmando por script el cambio de <code>button.disabled</code> de <code>true</code> a <code>false</code> exactamente al completarse la subida del video.",
+      "Se completó el Paso 7 (“Formación”) con los mismos datos del diploma de prueba. Al intentar adjuntar el archivo por la vía automatizada, se repitió el mismo comportamiento ya documentado en la primera pasada (el campo no refleja ningún archivo adjunto pese a que el evento <code>change</code> sí se dispara) — reforzando que no es un problema puntual de una sola sesión.",
+      "En el Paso 8 (“Recibir pagos”) se repitió la verificación del Hallazgo 5 con captura de pantalla: los campos “Nombre” y “Apellido” volvieron a llegar pre-completados como “G” y “M” respectivamente. Se avisó al Evaluador UX y se le pidió completar los campos sensibles restantes (tipo de documento, CUIT/CUIL, banco, CBU/CVU o alias) con datos ficticios, y que subiera él mismo el archivo del diploma dado que la carga automatizada no había quedado reflejada.",
+      "Con todos los datos completos, el Evaluador UX presionó “Continuar al alta”. Apareció nuevamente el modal “Onboarding finalizado”, pero la consola registró, además del ya conocido <code>DIPLOMA_DOCUMENT_MISSING</code>, un error nuevo: <code>Could not sync onboarding payout profile Error: Invalid payload</code> — un fallo adicional al sincronizar los datos bancarios del Paso 8.",
+      "Al presionar “Acceder a mi cuenta”, el resultado fue distinto al de la primera pasada: en vez de “Tu perfil está en revisión”, apareció una pantalla nueva, “Tu registro está incompleto” (“Guardamos tu progreso... Hasta que envíes el alta, no entra en revisión del equipo”).",
+      "Al presionar el botón “Continuar registro” de esa pantalla, en vez de retomar el wizard en el Paso 7 u 8 (donde había quedado), la app devolvió directo al <strong>Paso 1 (“Correo y contraseña”)</strong>, pidiendo completar la contraseña de nuevo — contradiciendo el mensaje “Guardamos tu progreso” de la pantalla anterior — ver Hallazgo 6 (actualizado con esta variante).",
+      "A pedido del Evaluador UX, se dio por concluida la pasada en este punto: ya se cuenta con evidencia sólida y reproducible en dos cuentas de prueba distintas.",
+      "Verificación en tablet y móvil (a cargo del Evaluador UX, de forma manual): el Evaluador UX realizó, por su cuenta y sin esta herramienta de automatización, una pasada equivalente del login y del wizard de alta en viewport de tablet y de móvil, y confirmó que se reproducen los mismos hallazgos ya documentados en escritorio (Hallazgos 1 a 6), sin variantes adicionales reportadas para estos viewports."
+    ],
+    feedbackPositivo: [
+      "El Paso 7 (“Formación”) comunica con claridad sus requisitos obligatorios (que cada diploma necesita un archivo adjunto), a diferencia del Paso 6 (“Multimedia”) — ver Hallazgo 4.",
+      "La carga de archivos (foto de perfil, video, diploma, documento de identidad) muestra una confirmación clara en pantalla cuando funciona correctamente (“Adjunto listo” / “Cambiar...”, con nombre de archivo).",
+      "La pantalla final “Tu perfil está en revisión” (cuando efectivamente se alcanza) comunica con claridad qué sigue: revisión manual, plazo estimado con fecha concreta, y el canal de aviso por email.",
+      "El uso de <code>form_input</code> (en vez de clics directos) resultó un método confiable para todos los campos de tipo desplegable probados en este caso (título profesional, experiencia, horas de práctica, género, país, años de diploma), en ambas cuentas de prueba.",
+      "Las tres notificaciones por correo asociadas a este flujo llegaron sin problemas y sin demoras: el email de verificación de cuenta, el email que avisa que el registro fue recibido y quedó en revisión, y el email que avisa que la cuenta fue aprobada."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "El login no distingue por campo: siempre muestra el mismo error genérico combinado",
+        heuristicaId: "H09",
+        heuristicaNombre: "H9 — Diagnóstico y recuperación de errores",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "Se probaron cuatro escenarios de error en la pantalla de login: formulario vacío, email con formato inválido, contraseña demasiado corta, y credenciales incorrectas (email existente, contraseña equivocada). En los tres primeros casos la pantalla responde con el mismo banner genérico del lado del cliente (“Necesitamos un email válido y contraseña de al menos 8 caracteres. Corregí los campos y reintentá.”), sin indicar cuál de los dos campos es el problema ni resaltar visualmente el campo específico. El caso de credenciales incorrectas dispara un segundo mensaje, también genérico pero distinto y del lado del servidor (“El email o la contraseña no coinciden. Revisá mayúsculas, probá de nuevo o usá «Crear cuenta» si recién te registrás.”). En ningún caso se distingue si el problema es el email o la contraseña. Adicionalmente, el campo de email dispara la validación nativa del navegador (el tooltip estándar “Incluye un signo @...”) cuando el formato es inválido, una ayuda que depende del navegador y no es un mensaje propio, cuidado ni traducido por la propia app.",
+        recomendacion: "Agregar validación y mensajes específicos por campo (formato de email inválido, campo vacío, contraseña muy corta) antes de intentar el login, con su propio mensaje de la app en vez de depender del tooltip nativo del navegador. Para el caso de credenciales incorrectas, al menos resaltar visualmente los dos campos involucrados aunque el mensaje de texto se mantenga genérico por motivos de seguridad.",
+        evidencia: [
+          { src: "capturas/caso-07/04-login-envio-vacio-error-generico.jpg", caption: "Envío vacío, banner genérico del cliente" },
+          { src: "capturas/caso-07/05-login-password-corta-mismo-error-generico.jpg", caption: "Email válido + contraseña corta, mismo banner genérico" },
+          { src: "capturas/caso-07/06-login-credenciales-incorrectas-error-generico.jpg", caption: "Email + contraseña incorrectos, banner genérico distinto, del servidor" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX (sin la herramienta de automatización de esta auditoría): se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "Paso 1 del alta: si las contraseñas no coinciden, el botón “Continuar” se deshabilita sin ningún mensaje de error",
+        heuristicaId: "H09",
+        heuristicaNombre: "H9 — Diagnóstico y recuperación de errores",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "En el Paso 1 del alta (“Correo y contraseña”), al completar los dos campos de contraseña con valores que no coinciden entre sí, el botón “Continuar” queda deshabilitado (confirmado por script: <code>button.disabled === true</code>) — pero la pantalla no muestra ningún mensaje, ícono ni indicación de que el problema es que las contraseñas no coinciden. Una persona en esta situación ve un botón inactivo sin ninguna pista de qué corregir. Se verificó el mismo resultado en dos cuentas de prueba distintas.",
+        recomendacion: "Mostrar un mensaje explícito (“Las contraseñas no coinciden”) junto al segundo campo de contraseña en cuanto detecte la discrepancia, en vez de solo deshabilitar el botón en silencio.",
+        evidencia: [
+          { src: "capturas/caso-07/07-paso1-passwords-no-coinciden-boton-deshabilitado.jpg", caption: "Contraseñas distintas cargadas, botón “Continuar” deshabilitado, sin mensaje" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 3,
+        titulo: "Paso 3 del alta: la opción “Nutricionista” del desplegable “Título profesional” guarda el valor “Sociólogo” (y aparece duplicada)",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Mayor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "El campo “Título profesional” del Paso 3 (“Identidad profesional”) es un desplegable nativo. Se inspeccionó su HTML subyacente por script y se encontró que sus siete opciones son: “Seleccionar” (<code>value=\"\"</code>), “Psicólogo”, “Psiquiatra”, “Sexólogo”, <strong>“Nutricionista” (<code>value=\"Sociólogo\"</code>)</strong>, “Coach”, y una <strong>segunda opción también de texto “Nutricionista” (<code>value=\"Nutricionista\"</code>)</strong> — es decir, el texto “Nutricionista” aparece dos veces en la lista desplegada, una de ellas correcta y la otra corrupta. Cualquier profesional que elija la primera de las dos (la que efectivamente ve resaltada al abrir el desplegable en este orden) quedaría, del lado del servidor, registrado como “Sociólogo” en lugar de “Nutricionista” — con el impacto directo que eso tiene en el matching con pacientes y en la confianza general de la plataforma. No se revisó si existen desajustes similares en otras opciones de este mismo desplegable ni en desplegables equivalentes de otras pantallas.",
+        recomendacion: "Eliminar la opción duplicada y corregir el <code>value</code> de la opción “Nutricionista” que corresponde, para que coincida con su texto visible. Revisar la lista completa de opciones de este desplegable (y de desplegables equivalentes en otras pantallas) contra los valores que efectivamente persiste el backend, y agregar una validación o test automatizado que compare periódicamente el texto y el valor de cada opción, dado el impacto directo que un error acá tiene sobre el matching de pacientes con profesionales.",
+        evidencia: [
+          { src: "capturas/caso-07/08-paso3-dropdown-titulo-profesional-nutricionista-duplicado.jpg", caption: "Desplegable abierto, mostrando “Nutricionista” dos veces en la lista" },
+          { src: "capturas/caso-07/09-paso3-dropdown-nutricionista-duplicado-detalle.png", caption: "Detalle recortado de la lista de opciones" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 4,
+        titulo: "Paso 6 “Multimedia”: el video de presentación es obligatorio para avanzar, sin ninguna indicación en la pantalla",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "En el Paso 6 (“Multimedia”) del alta, el botón “Siguiente paso” aparece deshabilitado sin que la pantalla explique por qué. Se confirmó por script, en dos cuentas de prueba distintas, que el atributo <code>disabled</code> del botón cambia de <code>true</code> a <code>false</code> exactamente al subir un video al campo “Video de presentación” — es decir, el video es un requisito obligatorio real, no opcional como podría asumirse por la falta de asterisco, texto de ayuda o mensaje al intentar continuar sin él. Subir primero la foto de perfil (que sí es opcional) no alcanza para habilitar el botón. Esto contrasta directamente con el Paso 7 (“Formación”), inmediatamente posterior, que sí explica con claridad sus propios requisitos obligatorios (ver Feedback positivo) — una inconsistencia de criterio entre dos pasos consecutivos del mismo wizard. Grabar y subir un video de presentación es, además, una barrera bastante más alta que completar un campo de texto.",
+        recomendacion: "Indicar con claridad, junto al campo “Video de presentación” (por ejemplo con un asterisco y un texto breve, siguiendo el mismo criterio ya usado en el Paso 7), que el video es obligatorio para continuar. Evaluar además si conviene ofrecer una alternativa más liviana (por ejemplo, permitir completar este paso más adelante desde el panel del profesional una vez aprobada la cuenta) dado el esfuerzo relativamente alto que implica grabar un video.",
+        evidencia: [
+          { src: "capturas/caso-07/10-paso6-multimedia-boton-deshabilitado-sin-explicacion.png", caption: "Solo con la foto de perfil subida: botón “Siguiente paso” aún deshabilitado, sin ningún mensaje" },
+          { src: "capturas/caso-07/11-paso6-multimedia-boton-habilitado-tras-subir-video.png", caption: "Mismo paso, inmediatamente después de subir el video: botón habilitado" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 5,
+        titulo: "Paso 8 “Recibir pagos”: los campos “Nombre” y “Apellido” se autocompletan truncados a un solo carácter",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Mayor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "Los campos “Nombre (como en el DNI)” y “Apellido (como en el DNI)” del Paso 8 (“Recibir pagos”) llegan pre-completados automáticamente a partir del nombre de la cuenta. Visualmente, los campos no muestran ningún indicio de estar truncados. Se inspeccionó por script el valor real (<code>input.value</code>) de ambos campos en dos cuentas de prueba distintas: en ambos casos contenían únicamente el primer carácter de cada nombre (“G” de “GASTON F...” y “M” de “MARTINO”), no el nombre completo. Se trata de un bug de datos, no solo de presentación: estos campos existen específicamente para que el pago coincida con la identidad real del profesional en su cuenta bancaria, y un profesional que no revise con atención (o asuma que un campo pre-completado ya está correcto) podría enviar su alta con un nombre de una sola letra en los datos de cobro, con el consiguiente riesgo de que la transferencia real de sus pagos falle o quede mal identificada.",
+        recomendacion: "Corregir el autocompletado de estos dos campos para que tome el nombre completo de la cuenta, no solo su primer carácter. Mientras tanto, dado que son datos críticos para el cobro real, evaluar no autocompletarlos en absoluto (dejarlos vacíos y obligar a la persona a escribirlos ella misma) antes que arriesgarse a un autocompletado silenciosamente incorrecto.",
+        evidencia: [
+          { src: "capturas/caso-07/12-paso8-nombre-apellido-truncados-g-m.png", caption: "Ambos campos mostrando “G” y “M”, reproducido en la segunda cuenta de prueba" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      },
+      {
+        numero: 6,
+        titulo: "El cierre del alta falla de forma intermitente e impredecible: mensaje de éxito falso, y en algunos casos la recuperación reinicia el registro desde cero",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "Al presionar “Continuar al alta” en el Paso 8 (el último paso del wizard), la pantalla muestra siempre un modal de éxito (“Onboarding finalizado — Tu perfil profesional ya está listo”), independientemente de si el cierre del proceso realmente funcionó del lado del cliente. Este comportamiento se verificó de punta a punta en <strong>dos cuentas de prueba completamente distintas</strong>, con resultados finales distintos entre sí, lo que confirma que el problema no depende de una cuenta en particular.<br><br><strong>Cuenta 1 (<code>...+pro1@gmail.com</code>):</strong> en los dos primeros intentos de “Continuar al alta”, la consola registró <code>finishWebOnboarding: diploma document read failed Error: DIPLOMA_DOCUMENT_MISSING</code> en simultáneo con el modal de éxito, y “Acceder a mi cuenta” devolvió al Paso 7 con un error pidiendo volver a subir el diploma (pese a que ya se había cargado y confirmado). Se intentó re-adjuntar el diploma por la vía automatizada de esta auditoría: pese a que un listener de eventos confirmó que el campo de archivo sí recibió el evento <code>change</code> con un archivo adjunto, la interfaz nunca mostró ninguna confirmación visual ni se disparó ninguna petición de red nueva — un tercer intento con este estado dio el mismo resultado. Se notó además que el mensaje de error del diploma quedó visible también en el Paso 8, un paso sin relación con diplomas. Recién en un tercer intento, después de que el Evaluador UX subiera el diploma él mismo directamente en el navegador (con confirmación visual correcta, “Adjunto listo”), “Continuar al alta” volvió a registrar el mismo error de consola (tres instancias nuevas, con marca de tiempo actualizada) — pero esta vez “Acceder a mi cuenta” sí llevó a la pantalla real de post-alta, “Tu perfil está en revisión”, y “Completar documentos” confirmó que tanto el documento de identidad como el diploma habían quedado “Cargado”s del lado del servidor.<br><br><strong>Cuenta 2 (<code>...+pro2@gmail.com</code>):</strong> se repitió el mismo patrón (modal de éxito + <code>DIPLOMA_DOCUMENT_MISSING</code>, vuelta forzada al Paso 7, diploma re-adjuntado por la vía automatizada sin confirmación visual ni de red). Con el diploma subido esta vez por el propio Evaluador UX, un nuevo intento de “Continuar al alta” registró, además del ya conocido <code>DIPLOMA_DOCUMENT_MISSING</code>, un <strong>segundo error nuevo</strong>: <code>Could not sync onboarding payout profile Error: Invalid payload</code> — un fallo adicional al sincronizar los datos bancarios del Paso 8. Esta vez, “Acceder a mi cuenta” no llevó a “Tu perfil está en revisión” sino a una pantalla distinta, <strong>“Tu registro está incompleto”</strong> (“Guardamos tu progreso. Iniciá sesión (ya lo hiciste) y continuá el registro donde lo dejaste... Hasta que envíes el alta, no entra en revisión del equipo”). Al presionar el botón “Continuar registro” de esa misma pantalla, la app <strong>no retomó el wizard en el Paso 7 u 8</strong> como el propio mensaje aseguraba, sino que devolvió directamente al <strong>Paso 1 (“Correo y contraseña”)</strong>, pidiendo completar la contraseña de nuevo — una contradicción directa con el mensaje “Guardamos tu progreso” que la propia pantalla anterior mostraba.<br><br>En síntesis: el mismo error de consola (<code>DIPLOMA_DOCUMENT_MISSING</code>) llevó a dos resultados finales completamente distintos en las dos cuentas probadas (alta exitosa en un caso, alta atascada en “registro incompleto” en el otro), y cuando el resultado es el segundo, el propio mecanismo de recuperación que la app ofrece (“Continuar registro”) está roto: en vez de retomar en el punto donde quedó la persona, la manda de nuevo al primer paso del wizard, pidiéndole la contraseña otra vez, pese a asegurarle que su progreso está guardado.",
+        recomendacion: "Antes que nada, que el modal de éxito (“Onboarding finalizado”) se muestre únicamente cuando el cierre del alta efectivamente haya funcionado del lado del servidor, nunca de forma incondicional. Investigar la causa exacta de <code>DIPLOMA_DOCUMENT_MISSING</code> (a juzgar por la ausencia de una petición de red distinta para subir el archivo del diploma en sí, es posible que el archivo se mantenga solo como referencia en memoria del navegador en vez de subirse a almacenamiento persistente al completar el Paso 7) y de <code>Invalid payload</code> en la sincronización de los datos de cobro. Corregir con prioridad alta el botón “Continuar registro” de la pantalla “Tu registro está incompleto” para que efectivamente retome el wizard en el último paso completado, en vez de reiniciar desde el Paso 1 — tal como el propio mensaje de esa pantalla le promete a la persona. Investigar además por qué el mismo error de consola derivó en dos resultados finales distintos entre las dos cuentas de prueba, para descartar una condición de carrera (race condition) en el cierre del alta.",
+        evidencia: [
+          { src: "capturas/caso-07/01-modal-onboarding-finalizado-pese-a-error.jpg", caption: "Cuenta 1: modal de éxito, mostrado pese al error de consola simultáneo" },
+          { src: "capturas/caso-07/02-vuelta-paso-7-error-diploma-persiste.jpg", caption: "Cuenta 1: vuelta forzada al Paso 7 con el error del diploma, pese a que ya se había cargado" },
+          { src: "capturas/caso-07/03-perfil-en-revision-exito-real.jpg", caption: "Cuenta 1: pantalla real de post-alta, alcanzada en el tercer intento" },
+          { src: "capturas/caso-07/13-modal-onboarding-finalizado-cuenta2.jpg", caption: "Cuenta 2: mismo modal de éxito falso, reproducido en una cuenta distinta" },
+          { src: "capturas/caso-07/14-vuelta-paso7-error-diploma-cuenta2.jpg", caption: "Cuenta 2: misma vuelta forzada al Paso 7" },
+          { src: "capturas/caso-07/15-registro-incompleto-cuenta2.jpg", caption: "Cuenta 2: pantalla nueva “Tu registro está incompleto”, con el mensaje “Guardamos tu progreso”" },
+          { src: "capturas/caso-07/16-vuelta-paso1-tras-registro-incompleto-cuenta2.jpg", caption: "Cuenta 2: “Continuar registro” devuelve al Paso 1 pidiendo la contraseña, contradiciendo el mensaje anterior" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tablet",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          },
+          {
+            viewport: "Móvil",
+            resultado: "replica",
+            textoHtml: "Verificado de forma manual por el Evaluador UX: se reproduce el mismo comportamiento documentado en escritorio, sin variantes adicionales. No se guardó evidencia fotográfica propia para este viewport.",
+            evidencia: []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 8,
+    numero: "08",
+    slug: "caso-08-pantalla-principal-profesional",
+    areaId: "professional",
+    areaName: "Portal del Profesional",
+    titulo: "Pantalla principal del profesional (Dashboard) — arquitectura de la información, navegación, iconografía y wording",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "Se evaluó, en <code>pro.motivarcare.com</code>, la pantalla principal (“Dashboard”) a la que llega un profesional ya aprobado al iniciar sesión: su arquitectura de la información, la navegación principal y el acceso a los distintos paneles/secciones, el comportamiento de scroll, la iconografía, la diagramación (layout), el wording y la consistencia en el uso de los recursos visuales. Se recorrieron uno por uno todos los destinos de la barra de navegación lateral izquierda (Dashboard, Horarios, Pacientes, Chat, Ingresos) y del menú “···” de la esquina superior derecha (Reportes, Ajustes de agenda, Perfil, Ajustes, Idioma y moneda), en cuatro pasadas sucesivas: escritorio (Chrome real, ventana ~1568×737), tableta (768×1024), móvil (390×844) y, a pedido explícito del Evaluador UX antes de cerrar el caso, una verificación específica de accesibilidad por teclado limitada a escritorio (navegación con Tab/Shift+Tab/Enter/Escape/flechas, sin realizar ninguna operación). En las tres primeras pasadas, la evaluación fue puramente de observación: no se creó agenda ni se modificó ningún dato de la cuenta (no se completaron horarios, no se conectó Google Calendar, no se cambiaron preferencias de idioma/moneda, no se cerró sesión, no se envió ningún mensaje de chat). Se usó la cuenta de prueba <code>gaston.f.martino+pro1@gmail.com</code> (ya aprobada, con acceso normal al panel) y Chrome real (plugin Claude in Chrome). Además de la revisión visual e interactiva habitual, se usó inspección de DOM/JavaScript (<code>javascript_tool</code>) para confirmar con precisión numerosos hallazgos: comportamiento del modal de Google Calendar vía <code>localStorage</code>, atributos de elementos deshabilitados o no interactivos, y — en la pasada de accesibilidad — el orden de tabulación, la presencia de semántica ARIA de diálogo (<code>role=\"dialog\"</code>, <code>aria-modal</code>) y el comportamiento del foco al abrir y cerrar modales y menús.",
+    pasosRealizados: [
+      "Se cerró la sesión de la cuenta “pro2” (que había quedado abierta de una prueba anterior, en estado “En revisión”) y se inició sesión con la cuenta “pro1”, ya aprobada por el equipo de MotivarCare.",
+      "Al ingresar, apareció un modal a pantalla completa ofreciendo conectar Google Calendar (“Integrá tu agenda con Google Calendar”). Siguiendo la consigna de no modificar datos ni conectar servicios externos, se lo cerró con “Lo hago después” (sin conectar nada) para llegar al Dashboard.",
+      "Se relevó la estructura completa de la pantalla principal: una franja superior con el título “Dashboard”, una leyenda de “Estados de la sesión” (Reservada → Realizada → Pendiente de cobro → Pagada) con su propio color por estado, un interruptor “Visible”, una campana de notificaciones y un menú “···”; y, debajo, tres bloques: “Sesiones” (con pestañas “Próximas sesiones” / “Marcar realizadas”), “Resumen” (Pacientes, Próximas sesiones, Dinero por sesiones realizadas) e “Indicadores de práctica” (5 tarjetas de estado) junto a una tarjeta “Publicá tu disponibilidad”.",
+      "Se abrió la campana de notificaciones (“Sin novedades por ahora.”) y el menú “···”, que agrupa “Reportes” y “Ajustes de agenda” bajo “Consultorio”, y “Perfil”, “Ajustes” e “Idioma y moneda” bajo “Cuenta”, además de “Salir”.",
+      "Se pasó el mouse sobre los íconos de la barra lateral izquierda (colapsada por defecto, solo con íconos): al hacer hover, la barra se expande y muestra las etiquetas de texto de cada sección (Dashboard, Horarios, Pacientes, Chat, Ingresos), más “Idioma y moneda” y el nombre/email de la cuenta al pie. Se confirmó por script que los enlaces tienen el texto igualmente presente en el DOM aunque estén visualmente colapsados (no es un problema de accesibilidad para lectores de pantalla).",
+      "Al pasar el mouse por primera vez sobre el ícono de “Dashboard” de la barra colapsada, se disparó inesperadamente un tour guiado (“Tour con Maca”, paso 1 de 17) sin haberlo solicitado explícitamente. Se cerró el tour con la “×”. Se verificó que no se repite en visitas posteriores (queda una marca en <code>localStorage</code>, <code>motivarcare.pro.portalTour.v2.&lt;id&gt;</code>), por lo que no se documenta como hallazgo, solo como observación.",
+      "Se probaron las tarjetas de “Indicadores de práctica”: al hacer clic en cada una aparece un tooltip con el detalle exacto de ese indicador (por ejemplo, “Perfil público y oferta clara” detalla qué campos del perfil están completos; “Al menos un paciente activo” aclara “Pacientes en estado «activo» (según historial de reservas): 0”). Se notó una inconsistencia de color entre las tarjetas — ver Hallazgo 2.",
+      "Se recargó la pantalla principal varias veces (4 veces en total durante esta pasada) para verificar el comportamiento general: el modal de Google Calendar volvió a aparecer todas las veces, pese a haber sido cerrado con “Lo hago después” en cada oportunidad anterior — ver Hallazgo 1.",
+      "Se inspeccionó por script el <code>localStorage</code> del navegador: se confirmó que la clave <code>professional_calendar_prompt_dismissed_users</code> sí incluye el ID de la cuenta de prueba tras cerrar el modal, lo que confirma que el rechazo se guarda correctamente pero la pantalla no lo respeta al decidir si mostrar el modal de nuevo.",
+      "Se probó la pestaña “Marcar realizadas” de la sección “Sesiones”: muestra una advertencia clara antes de listar nada (“Al marcar realizada las enviás a cobro. Una vez enviadas, no podrás modificarlas.”), un selector de fecha y un filtro “Todas”. Con la cuenta de prueba sin sesiones, se ve el estado vacío “No hay sesiones”.",
+      "Se probaron los enlaces “Ver listado” (Pacientes), “Ver agenda” (Próximas sesiones) y “Ver ingresos” (Dinero por sesiones realizadas): los tres navegan correctamente a sus secciones correspondientes (<code>/pacientes</code>, <code>/horarios</code> o vista de agenda, <code>/ingresos</code>). No se evaluó el contenido de esas pantallas en profundidad — queda fuera del alcance de este caso, centrado en la pantalla principal.",
+      "Se verificó por script (<code>document.documentElement.scrollHeight</code> vs. <code>window.innerHeight</code>) que, en esta resolución de escritorio, todo el contenido de la pantalla principal entra sin necesidad de hacer scroll — ambos valores coinciden exactamente (903px).",
+      "Se comparó el acceso a “Idioma y moneda” y a “Perfil” desde dos lugares distintos: el pie de la barra lateral (al expandirla con hover) y el menú “···” de la esquina superior derecha. Ambos caminos llevan exactamente al mismo modal/pantalla y están rotulados de forma consistente entre sí en los dos lugares, por lo que no se documenta como hallazgo (a diferencia de un caso similar detectado en el Caso 06, acá ambos accesos están claramente identificados).",
+      "A pedido del Evaluador UX, se recorrieron además, uno por uno, todos los destinos de la barra de navegación lateral izquierda (Dashboard, Horarios, Pacientes, Chat, Ingresos) y del menú “···” de la esquina superior derecha (Reportes, Ajustes de agenda, Perfil, Ajustes, Idioma y moneda), sin realizar ninguna operación (no se guardó ningún horario, no se conectó Google Calendar, no se cerró sesión, no se envió ningún mensaje de chat ni se cambió el idioma o la moneda), únicamente para verificar que cada pantalla cargue y presente su información correctamente y evaluar la consistencia visual entre ellas.",
+      "“Horarios” muestra dos pestañas: “Configurar horarios de trabajo” (grilla semanal de franjas horarias por día) y “Disponibilidad configurada” (calendario mensual con el conteo de franjas publicadas). Se notó una inconsistencia en la navegación de retroceso entre ambas pestañas — ver Hallazgo 4.",
+      "“Pacientes” muestra el estado vacío esperado para la cuenta de prueba (sin pacientes todavía), con una redacción breve y en línea con los demás estados vacíos ya relevados en el Dashboard.",
+      "“Chat” muestra el layout típico de una mensajería (lista de conversaciones a la izquierda, panel de conversación a la derecha) con el estado vacío “Selecciona un chat” / “No hay conversaciones activas.”. Se notó que el campo para escribir un mensaje queda habilitado visualmente pese a no haber ninguna conversación seleccionada — ver Hallazgo 7.",
+      "“Ingresos” es consistente en estilo y wording con el resto de las pantallas ya relevadas (mismos encabezados, misma tipografía de montos, mismo criterio de estados vacíos).",
+      "Dentro del menú “···”, “Reportes” muestra el resumen de acompañamiento entre sesiones vía el asistente “Maca”, con la aclaración de que solo se listan pacientes que dieron su consentimiento, y el estado vacío correspondiente para la cuenta de prueba. No se detectaron problemas.",
+      "“Ajustes de agenda” muestra 4 filas: “Tiempo mínimo”, “Valor de sesión”, “Vacaciones” y “Carga de trabajo”. Se verificó que “Valor de sesión” (USD 50 · ARS 80.000) es consistente con la conversión de moneda ya vista en el Caso 07. Se notó que la fila “Carga de trabajo” aparece deshabilitada sin ninguna explicación — ver Hallazgo 6 — y que, en esta pantalla, conviven dos controles distintos para volver a la pantalla anterior (el enlace “← Volver” de arriba y el botón “‹” junto al título “Ajustes”, dentro de la tarjeta) — ver Hallazgo 4.",
+      "“Perfil” (perfil profesional público) muestra 8 secciones editables (Identidad profesional, Datos bancarios, Formación y títulos, Ámbitos de atención, Presentación pública, Tarifas, Foto y video, Preferencias avanzadas) junto con una vista previa (“Vista en matching”) de cómo lo ven los pacientes y un contador de progreso de completitud. Ese contador presenta un error de interpolación — ver Hallazgo 3.",
+      "“Ajustes” (distinto de “Ajustes de agenda”, solo accesible desde el menú “···”) agrupa Notificaciones, conexión con Google Calendar, cambio de contraseña y cierre de sesión. No se modificó ninguna preferencia ni se cerró la sesión, siguiendo la consigna de no realizar operaciones.",
+      "“Idioma y moneda”, tanto desde la barra lateral como desde el menú “···”, abre el mismo modal con la selección de idioma (Español/English/Português) y de moneda vigentes, sin aplicar ningún cambio.",
+      "Se relevaron, en varias de estas pantallas, textos sin tilde en palabras que deberían llevarla (por ejemplo “Tiempo minimo”, “Se aplicara…”, “se mostrara…”, “Espanol”) — ver Hallazgo 5.",
+      "Con la misma cuenta de prueba “pro1” ya con sesión iniciada, se redimensionó la ventana de Chrome real a 768×1024 (viewport de tableta) y se navegó a <code>pro.motivarcare.com/</code>.",
+      "Al cargar, volvió a aparecer el modal de Google Calendar — se repitió la recarga/navegación directa por URL en cuatro oportunidades distintas a lo largo de la pasada y el modal apareció las cuatro veces, cerrándose siempre con “Lo hago después” — ver verificación cruzada del Hallazgo 1. El modal en sí se ve bien adaptado al ancho de tableta.",
+      "Se relevó la estructura general del Dashboard en tableta: a diferencia de escritorio, no aparece la leyenda “Estados de la sesión” en ningún lugar de la pantalla — ver Hallazgo 8 (nuevo, propio de tableta).",
+      "Se confirmó que, en tableta, la barra de navegación lateral izquierda de escritorio (colapsada con hover) es reemplazada por una barra de navegación inferior fija, con ícono y etiqueta de texto siempre visibles simultáneamente para las 5 secciones.",
+      "Se confirmó que el menú “···” de la esquina superior derecha, en tableta, no se abre como un menú desplegable acotado sino como un panel lateral de altura completa que se desliza desde la izquierda, con la misma agrupación que en escritorio.",
+      "Se recorrieron uno por uno, igual que en escritorio, los 5 destinos de la barra de navegación inferior y los 5 del menú “···”, sin realizar ninguna operación de escritura. Todas las pantallas cargaron correctamente; el único punto llamativo fue la ausencia del textarea del Chat (ver verificación del Hallazgo 7).",
+      "Se notó que, a diferencia de la barra de navegación inferior (que permanece siempre fija), la cabecera superior de cada pantalla no es fija: al hacer scroll hacia abajo en una pantalla larga (por ejemplo “Perfil”), la cabecera se desplaza fuera de la vista junto con el resto del contenido — ver Hallazgo 9 (nuevo, propio de tableta).",
+      "Se verificaron puntualmente, con inspección de DOM/script cuando hizo falta, los 7 hallazgos ya documentados en la pasada de escritorio, para confirmar si se replican, varían o no aplican en tableta — el detalle de cada uno está en su respectivo campo de verificaciones.",
+      "A pedido puntual del Evaluador UX, se verificó específicamente el enlace del panel “Opiniones de pacientes” en “Perfil”: se probó el botón “Copiar” (funciona correctamente) y se abrió la URL completa copiada en una pestaña nueva del portal paciente, revisando además la consola del navegador y el texto completo de la página de destino en busca de cualquier mención a “opinión”. El enlace no lleva a ningún flujo de calificación — ver Hallazgo 10 (nuevo).",
+      "Con la misma cuenta de prueba “pro1” ya con sesión iniciada, se redimensionó la ventana de Chrome real a 390×844 (viewport de móvil) y se navegó a <code>pro.motivarcare.com/</code>.",
+      "El modal de Google Calendar volvió a aparecer en las tres recargas/navegaciones directas por URL realizadas, cerrándose siempre con “Lo hago después”. Se adapta bien al ancho de móvil — ver verificación cruzada del Hallazgo 1.",
+      "Se confirmó que, igual que en tableta, no aparece la leyenda “Estados de la sesión” en el Dashboard de móvil — ver verificación del Hallazgo 8.",
+      "Se confirmó que la barra de navegación inferior fija y el menú “···” como panel lateral se comportan igual que en tableta, sin diferencias relevantes.",
+      "Se recorrieron uno por uno los 5 destinos de la barra inferior y los 5 del menú “···”, sin realizar ninguna operación de escritura. Se notó una diferencia de rotulado en “Horarios” no vista antes — ver Hallazgo 11 (nuevo, propio de móvil).",
+      "Al probar el botón “‹ Ajustes” dentro de “Ajustes de agenda”, se repitió el mismo comportamiento ya visto en tableta: navegó al Dashboard, no a una pantalla “Ajustes” — tercera confirmación de este patrón en un tercer viewport distinto.",
+      "Se notó, al navegar a “Ajustes de agenda” por URL directa en vez de por clic dentro de la app, que el enlace “← Volver” no aparece (a diferencia de navegar hasta ahí haciendo clic desde el menú “···”, donde sí aparece) — el mismo patrón dependiente del historial de navegación ya documentado para el modal de Google Calendar (Hallazgo 1), aplicado ahora también a este control.",
+      "Se verificaron puntualmente los 10 hallazgos ya documentados en las pasadas de escritorio y tableta, para confirmar si se replican, varían o no aplican en móvil. Se detectó una discrepancia puntual en el Hallazgo 5 que ameritó dejarla registrada como pendiente de confirmar con desarrollo, en vez de resolverla unilateralmente.",
+      "Se confirmó que el panel “Opiniones de pacientes” en “Perfil”, con el mismo enlace del Hallazgo 10, está presente también en móvil con el mismo formato.",
+      "Antes de cerrar el caso, el Evaluador UX pidió una pasada adicional, exclusivamente de escritorio (Chrome real, ventana ~1568×900), para verificar si es posible navegar todos los paneles y secciones del Portal del Profesional usando únicamente el teclado, sin realizar ninguna operación de escritura ni guardar ningún cambio — el objetivo fue confirmar que toda la información esté alcanzable por teclado, no evaluar funcionalidad.",
+      "La metodología consistió en recorrer cada pantalla presionando Tab/Shift+Tab repetidamente, registrando con inspección de DOM (<code>document.activeElement</code> y atributos ARIA relevantes) qué elemento recibía el foco y si el indicador visual era visible. Para menús y modales se verificó además si el foco se traslada al abrirse, si existe <code>role=\"dialog\"</code>, si Escape cierra el panel, y si el foco vuelve al control que lo abrió.",
+      "Se recorrieron con esta metodología el Dashboard completo, el modal de bienvenida de Google Calendar, el menú “···” y la campana de notificaciones, y luego cada destino ya relevado: Chat, Horarios, Pacientes, Ingresos, Reportes, Ajustes de agenda, Perfil (con sus modales de edición), Ajustes generales y el modal “Idioma y moneda”.",
+      "Se detectó que el foco del teclado no se traslada automáticamente al modal “Editar identidad profesional” al abrirse, y que al presionar Tab una vez, el foco pasa a un elemento de la pantalla de fondo (“02 Datos bancarios”) en lugar de quedarse dentro del modal. Se repitió la misma verificación en “Editar datos bancarios” e “Idioma y moneda”, con el mismo resultado — ver Hallazgo 12 (nuevo).",
+      "Se verificó que el modal “Idioma y moneda” no se cierra al presionar Escape, a diferencia de los modales “Editar…” de Perfil — ver Hallazgo 13 (nuevo).",
+      "Se verificó por script que el modal de bienvenida de Google Calendar no tiene <code>role=\"dialog\"</code> ni <code>aria-modal</code>, que el foco permanece en <code>&lt;body&gt;</code> al abrirse y que Escape no lo cierra — ver Hallazgo 1 (incorporado al hallazgo del modal de Google Calendar).",
+      "Se confirmó que la barra lateral izquierda muestra correctamente el anillo de foco sobre cada ícono al navegar con teclado, pero no se expande para mostrar la etiqueta de texto de la sección (solo lo hace con el mouse) — ver Hallazgo 14 (nuevo).",
+      "Se confirmó que, al cerrar el menú “···” con Escape, el foco no vuelve al botón que lo abrió, y se observó un comportamiento relacionado en la campana de notificaciones (permanece visible aunque el foco se mueva a otro elemento) — ver Hallazgo 15 (nuevo).",
+      "Se verificó por script la estructura ARIA de las pestañas “Próximas sesiones” / “Marcar realizadas”: usan correctamente <code>role=\"tab\"</code> y <code>aria-selected</code>, pero no hay ningún ancestro con <code>role=\"tablist\"</code> ni navegación por flechas entre pestañas — ver Hallazgo 16 (nuevo).",
+      "Como hallazgos positivos de esta pasada: las 5 tarjetas de “Indicadores de práctica” muestran su tooltip tanto al enfocarlas con teclado como al pasar el mouse; las 8 secciones tipo acordeón de “Perfil” son botones reales con <code>aria-expanded</code> correctamente sincronizado; en Horarios, tanto las pestañas superiores como los 7 días son elementos nativamente interactivos con <code>aria-pressed</code> reflejando la selección; y, en todos los casos relevados, los controles deshabilitados quedan correctamente excluidos del orden de tabulación."
+    ],
+    feedbackPositivo: [
+
+      "Toda la pantalla principal entra en una sola vista sin necesidad de hacer scroll, en la resolución de escritorio evaluada — se confirmó por script que la altura del documento coincide exactamente con la altura de la ventana.",
+      "La leyenda “Estados de la sesión” (Reservada → Realizada → Pendiente de cobro → Pagada), con un color distintivo por estado, queda siempre visible en la parte superior y ayuda a entender de un vistazo el ciclo de vida de una sesión.",
+      "Los 5 indicadores de “Indicadores de práctica” muestran, al hacer clic, un tooltip con el detalle exacto del cálculo (por ejemplo, qué campos del perfil están completos, o cuántos pacientes están “activos” y bajo qué criterio) — una forma clara y consistente de dar contexto sin sobrecargar la tarjeta con texto.",
+      "Antes de listar sesiones en la pestaña “Marcar realizadas”, la pantalla muestra una advertencia explícita e inequívoca sobre las consecuencias de la acción (“Al marcar realizada las enviás a cobro. Una vez enviadas, no podrás modificarlas.”), en línea con buenas prácticas de prevención de errores.",
+      "Los estados vacíos (“No tenés reservas”, “No hay sesiones”, “Sin novedades por ahora”) usan una redacción breve y consistente entre las distintas secciones de la pantalla.",
+      "Aunque la barra lateral izquierda se muestra colapsada (solo íconos) por defecto, el texto de cada sección está igualmente presente en el DOM y no depende únicamente del hover para ser accesible por lectores de pantalla.",
+      "Los dos caminos para llegar a “Perfil” y a “Idioma y moneda” (barra lateral y menú “···”) están rotulados de forma consistente entre sí en ambos lugares, evitando la confusión de rótulos detectada en un caso anterior (Caso 06).",
+      "El monto de “Valor de sesión” en Ajustes de agenda (USD 50 · ARS 80.000) es consistente con la conversión de moneda vista en el Caso 07, lo que confirma que el tipo de cambio se aplica de forma coherente entre distintas pantallas del portal.",
+      "Los estados vacíos de “Pacientes”, “Chat” y “Reportes” mantienen la misma redacción breve y el mismo tono que los ya vistos en el Dashboard, reforzando la consistencia detectada en el resto de la pantalla principal.",
+      "“Ajustes” y “Ajustes de agenda” separan con claridad, ya desde sus propios títulos y descripciones, las preferencias generales de cuenta (notificaciones, Google Calendar, contraseña, sesión) de las preferencias específicas de la agenda (tiempo mínimo, valor de sesión, vacaciones, carga de trabajo), evitando que ambas pantallas se mezclen conceptualmente pese a compartir el ícono de engranaje.",
+      "(Tableta) La barra de navegación lateral colapsada de escritorio se reemplaza, en tableta, por una barra de navegación inferior fija con ícono y etiqueta de texto siempre visibles para las 5 secciones principales — una adaptación clara al ancho de tableta, que no depende de ningún hover para identificar cada sección.",
+      "(Tableta) El modal de Google Calendar y el modal de “Idioma y moneda” se adaptan correctamente al ancho de tableta, conservando el mismo diseño y buen espaciado que en escritorio, sin textos cortados ni elementos superpuestos.",
+      "(Tableta) Los 8 destinos de la barra inferior y del menú “···” cargaron correctamente en un solo intento cada uno, sin errores ni estados rotos, replicando la buena consistencia visual ya detectada en escritorio.",
+      "(Móvil) El Dashboard reorganiza los bloques “Por enviar” / “Pendiente de cobro” con un tratamiento visual propio (fondo de color sólido en vez de tarjetas blancas) que ayuda a que esos montos se destaquen en una pantalla angosta, sin perder legibilidad.",
+      "(Móvil) Los 10 destinos de la barra inferior y del menú “···” cargaron correctamente en un solo intento cada uno, y los modales (Google Calendar, Idioma y moneda) se adaptan bien al ancho de móvil, sin textos cortados ni botones superpuestos.",
+      "(Accesibilidad, escritorio) Las 5 tarjetas de “Indicadores de práctica” son alcanzables por teclado (<code>tabindex=\"0\"</code>) y muestran el mismo tooltip explicativo tanto al enfocarlas con Tab como al pasar el mouse por encima — una correcta paridad entre hover y foco, a diferencia de lo detectado en la barra lateral (Hallazgo 14).",
+      "(Accesibilidad, escritorio) Las 8 secciones tipo acordeón de “Perfil” son botones reales (no <code>&lt;div&gt;</code> con <code>onclick</code>) con el atributo <code>aria-expanded</code> correctamente sincronizado con su estado visual, y tanto sus 8 botones “Editar” como el botón “Copiar” del panel de opiniones de pacientes son alcanzables por teclado.",
+      "(Accesibilidad, escritorio) En “Horarios”, tanto las pestañas superiores como los 7 días de la semana (LUN a DOM) están implementados como elementos nativamente interactivos (enlaces con <code>href</code> y botones, respectivamente), con <code>aria-pressed</code> reflejando correctamente el día seleccionado.",
+      "(Accesibilidad, escritorio) En todas las pantallas relevadas, los controles deshabilitados (el botón “Enviar mensaje” del Chat sin conversación activa, la fila “Carga de trabajo” de Ajustes de agenda, los botones “Guardar”/“Eliminar selección del día” cuando corresponde) quedan correctamente excluidos del orden de tabulación, sin poder recibir foco por accidente ni generar confusión.",
+      "(Accesibilidad, escritorio) Los 3 checkboxes de “Ajustes” (Notificaciones por email, Alertas de seguridad, Visibilidad en matching) están correctamente envueltos en su propia etiqueta (<code>&lt;label&gt;</code>), por lo que su nombre accesible coincide con el texto visible."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "El modal de bienvenida de Google Calendar vuelve a aparecer en cada carga de la pantalla pese a haber sido rechazado, y además carece de semántica de diálogo accesible y no se cierra con Escape",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Recomendación",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737); el aspecto de semántica de diálogo (ARIA) y cierre con Escape se verificó puntualmente en la pasada específica de accesibilidad por teclado (ventana ~1568×900), limitada a escritorio.",
+        descripcionHtml: "Al ingresar al Dashboard, aparece un modal a pantalla completa invitando a conectar Google Calendar, con las opciones “Conectar ahora” y “Lo hago después”. Se cerró el modal con “Lo hago después” y se recargó la pantalla principal: el modal volvió a aparecer, idéntico. Se repitió la prueba varias veces (incluyendo recargas directas por URL y navegación de ida y vuelta desde “Ingresos”), y el modal apareció todas las veces sin excepción. Se inspeccionó por script el <code>localStorage</code> del navegador y se confirmó que la clave <code>professional_calendar_prompt_dismissed_users</code> sí incluye el ID de la cuenta de prueba después de cerrar el modal con “Lo hago después” — es decir, la aplicación registra correctamente el rechazo, pero la pantalla no consulta ese dato (o no lo consulta correctamente) al decidir si debe volver a mostrar el modal. Al recorrer los paneles de navegación (barra lateral y menú “···”) se confirmó que el problema no se limita al Dashboard: el modal reaparece ante cualquier carga completa de página (recarga o navegación directa por URL) hacia cualquier ruta del portal — se verificó puntualmente en <code>/</code>, <code>/horarios</code>, <code>/pacientes</code>, <code>/chat</code>, <code>/ingresos</code>, <code>/agenda/ajustes</code>, <code>/perfil</code> y <code>/ajustes</code> — mientras que, en cambio, nunca aparece al navegar de una pantalla a otra por medio de un clic dentro de la aplicación (navegación interna tipo SPA, por ejemplo desde el menú “···”). El resultado es que cualquier profesional que no quiera conectar Google Calendar tiene que rechazar la misma propuesta cada vez que recarga o abre una URL del portal directamente, indefinidamente. A esto se suma, detectado en la pasada específica de accesibilidad por teclado y relacionado también con H4 — Consistencia y estándares, que este mismo modal no tiene ningún elemento con <code>role=\"dialog\"</code>, <code>role=\"alertdialog\"</code> ni <code>aria-modal</code> — se confirmó por script que no existe ningún nodo con esos atributos en el DOM mientras el modal está en pantalla. El foco del teclado tampoco se traslada hacia él al aparecer (permanece en <code>&lt;body&gt;</code>), y la tecla Escape no lo cierra: hay que presionar Tab hasta llegar a uno de sus dos botones (“Conectar ahora” o “Lo hago después”) y confirmar con Enter. No se detectó fuga de foco hacia contenido de fondo al presionar Tab (el primer Tab lleva directamente a “Conectar ahora”), por lo que este segundo problema es exclusivamente de semántica y de la convención de cierre con Escape, no de atrapamiento de foco (a diferencia del Hallazgo 12, que sí describe fuga de foco hacia contenido de fondo en otros modales del portal).",
+        recomendacion: "Corregir la lógica global de la aplicación (no solo la del Dashboard) para que, en cualquier carga completa de página, consulte la lista de usuarios que ya rechazaron la propuesta (<code>professional_calendar_prompt_dismissed_users</code>, u otro mecanismo equivalente del lado del servidor, más robusto que depender solo de <code>localStorage</code> del dispositivo) antes de decidir si mostrar el modal, en vez de mostrarlo siempre. Considerar además un límite de reintentos (por ejemplo, no volver a preguntar antes de N días) en vez de una condición binaria de “preguntar siempre” vs. “no preguntar nunca”. De forma complementaria, agregar <code>role=\"dialog\"</code> (o <code>role=\"alertdialog\"</code>, dado que interrumpe el flujo normal de la pantalla) y <code>aria-modal=\"true\"</code> a este modal, trasladar el foco a uno de sus botones al abrirse, y agregar el cierre con Escape, unificando su comportamiento con el resto de los modales del portal.",
+        evidencia: [
+          { src: "capturas/caso-08/01-modal-google-calendar-reaparece-cada-recarga.jpg", caption: "El modal, reaparecido en una de las recargas de prueba sobre el Dashboard" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "replica",
+            textoHtml: "Replica (aspecto de reaparición en cada carga). Se repitieron cuatro recargas/navegaciones directas por URL distintas (“/” dos veces, “/agenda/ajustes”, “/perfil”) y el modal apareció las cuatro veces, igual que en escritorio. El modal se adapta correctamente al ancho de tableta (mismo diseño, buen espaciado, sin recortes). El aspecto de semántica ARIA/Escape no se repitió en este viewport, ya que la pasada de accesibilidad por teclado se limitó a escritorio.",
+            evidencia: [
+              { src: "capturas/caso-08/t17-modal-google-calendar-reaparece-perfil.jpg", caption: "El modal reaparecido tras navegar a “/perfil”" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica (aspecto de reaparición en cada carga). Se repitieron tres recargas/navegaciones directas por URL (“/” dos veces, “/agenda/ajustes”) y el modal apareció las tres veces. Se adapta correctamente al ancho de móvil. Con esta pasada, el modal fue confirmado en un total de 9 cargas de página distintas a lo largo de las tres pasadas (escritorio, tableta y móvil), sin ninguna excepción. El aspecto de semántica ARIA/Escape tampoco se repitió en este viewport, por el mismo motivo que en tableta.",
+            evidencia: [
+              { src: "capturas/caso-08/m15-modal-google-calendar-reaparece-perfil.jpg", caption: "El modal reaparecido tras navegar a “/perfil” en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "El indicador “Conversión de reservas” usa un color distinto al resto de los indicadores con el mismo estado de alerta",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "El bloque “Indicadores de práctica” muestra 5 tarjetas de estado, encabezadas por el texto “Hay margen de crecimiento — Revisá los ítems en ámbar y el detalle en tu perfil.”. De las 5 tarjetas, 4 muestran un valor “0” (sin datos/sin actividad): “Disponibilidad en los próximos 7 días” (0 franjas), “Agenda con movimiento” (0 sem. · 0 próx.), “Conversión de reservas (con datos)” (0 compl. · pocos datos) y “Al menos un paciente activo” (0 activos). De estas 4, tres usan un ícono con fondo naranja/ámbar y el valor de texto en el mismo tono naranja, consistente con el mensaje “revisá los ítems en ámbar” del encabezado. La tarjeta “Conversión de reservas (con datos)”, en cambio, usa un ícono con fondo verde (el mismo verde que la única tarjeta realmente completa, “Perfil público y oferta clara — 4/4 requisitos”) y su valor de texto aparece en un tono neutro (azul oscuro/negro), no en ámbar. Visualmente, esta tarjeta se lee como si estuviera en buen estado, igual que la de “Perfil público”, cuando en realidad también representa un ítem sin datos suficientes.",
+        recomendacion: "Unificar el criterio de color: todo indicador que el propio encabezado clasifica como “ítem en ámbar” (es decir, que necesita atención) debería usar el mismo tono de ícono y de texto que sus pares, reservando el verde exclusivamente para los indicadores realmente completos.",
+        evidencia: [
+          { src: "capturas/caso-08/02-indicadores-practica-inconsistencia-color-conversion-reservas.png", caption: "Las 5 tarjetas: nótese el ícono verde de “Conversión de reservas” junto a los íconos naranja de sus vecinas con el mismo estado “0”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "replica",
+            textoHtml: "Replica. Las 5 tarjetas se reordenan en una grilla de 3 columnas (en vez de 5 en una sola fila como en escritorio), pero la inconsistencia de color se mantiene idéntica: “Conversión de reservas (con datos)” sigue mostrando ícono verde y texto en tono neutro, mientras sus 3 pares con valor “0” usan ícono y texto en naranja/ámbar.",
+            evidencia: [
+              { src: "capturas/caso-08/t19-indicadores-practica-inconsistencia-color-zoom.png", caption: "Zoom de las 5 tarjetas en tableta" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica. Las 5 tarjetas se reordenan en una grilla de 2 columnas (con la última, “Al menos un paciente activo”, ocupando una fila propia de ancho completo), pero la inconsistencia de color es idéntica a escritorio y tableta.",
+            evidencia: [
+              { src: "capturas/caso-08/m02-indicadores-practica-inconsistencia-color.jpg", caption: "Las 5 tarjetas en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 3,
+        titulo: "El contador de progreso del perfil muestra el texto sin interpolar “{8} de {8} listos” en lugar de los valores numéricos",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "En la pantalla “Perfil” (perfil profesional), el panel “Vista en matching” incluye, debajo de las opiniones de pacientes, una barra de progreso de completitud del perfil. En vez de mostrar los números reales (por ejemplo “8 de 8 listos”), el texto se ve literalmente como <code>{8} de {8} listos</code>, con las llaves de un placeholder de plantilla sin interpolar. La barra de progreso en sí (100%) y la lista de 8 campos completados debajo (Nombre y apellido, Título profesional, Formación académica, Ámbitos de atención, Biografía, Foto profesional, etc.) sí se muestran correctamente; el problema es puntual del texto del encabezado de esa tarjeta.",
+        recomendacion: "Corregir la plantilla de texto de esa tarjeta para que interpole correctamente los valores numéricos (cantidad de campos completos y cantidad total de campos) en lugar de mostrar las llaves del placeholder sin procesar. Agregar una prueba automatizada que renderice esta tarjeta con distintos valores de completitud para evitar regresiones futuras.",
+        evidencia: [
+          { src: "capturas/caso-08/13-menu-perfil-contador-listos-bug.png", caption: "El texto “{8} de {8} listos”, con las llaves de la plantilla visibles sin interpolar" },
+          { src: "capturas/caso-08/12-menu-perfil.jpg", caption: "Ubicación del contador dentro de la pantalla completa de Perfil" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "replica",
+            textoHtml: "Replica. Se confirmó por script que el <code>&lt;strong&gt;{8} de {8} listos&lt;/strong&gt;</code> sigue sin interpolar. Cambia únicamente la ubicación relativa dentro de la pantalla (en tableta, el layout de una sola columna hace que este bloque quede debajo de “Vista en matching” y “Opiniones de pacientes”, en vez de al costado como en escritorio), pero el error de texto es idéntico.",
+            evidencia: [
+              { src: "capturas/caso-08/t13-perfil-contador-listos-bug.jpg", caption: "El texto “{8} de {8} listos” en tableta" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica, sin variantes respecto de tableta (mismo layout de una sola columna, mismo texto sin interpolar).",
+            evidencia: [
+              { src: "capturas/caso-08/m10-perfil-listos-bug-y-panel-opiniones.jpg", caption: "Se ve además, en la misma captura, el panel “Opiniones de pacientes” del Hallazgo 10" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 4,
+        titulo: "Los elementos de retroceso son inconsistentes entre pantallas y, en “Ajustes de agenda”, hay dos controles redundantes para la misma acción",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Menor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "Se detectaron dos problemas relacionados con la navegación de retroceso. Primero, dentro de “Horarios”, la pestaña “Disponibilidad configurada” muestra un enlace “← Volver” arriba a la izquierda, mientras que la pestaña “Configurar horarios de trabajo” de la misma pantalla no muestra ningún enlace equivalente, pese a tratarse de dos vistas de la misma sección. Segundo, dentro de “Ajustes de agenda” conviven dos controles distintos para volver a la pantalla anterior: arriba de todo, fuera de la tarjeta blanca, un enlace “← Volver”; y, dentro de la tarjeta, junto al título “Ajustes”, un botón independiente con el símbolo “‹” (confirmado por script: es un <code>&lt;button aria-label=\"Volver\"&gt;</code> real, distinto del texto “Ajustes” contiguo, que sí es un simple <code>&lt;div&gt;&lt;h2&gt;</code> sin interactividad) que cumple, en apariencia, la misma función. Tener dos controles distintos, en dos ubicaciones distintas de la misma pantalla, para una sola acción de “volver” es redundante y puede generar dudas sobre si hacen lo mismo o cosas distintas. <em>Nota de verificación:</em> al re-testear puntualmente el botón “‹” haciendo clic exactamente sobre su área (y no sobre el texto “Ajustes” contiguo), no se observó cambio de pantalla en las pruebas automatizadas realizadas para esta auditoría, mientras que “← Volver” sí navegó correctamente hacia atrás; el Evaluador UX reporta que en su propio uso manual el botón “‹” responde con normalidad, por lo que este punto puntual queda pendiente de confirmar con el equipo de desarrollo y no se computa como una falla adicional — el hallazgo en sí es la redundancia de dos controles para la misma acción, no el funcionamiento de ninguno de los dos en particular.",
+        recomendacion: "En “Horarios”, agregar el mismo enlace “← Volver” a la pestaña “Configurar horarios de trabajo” que ya tiene “Disponibilidad configurada”. En “Ajustes de agenda”, eliminar uno de los dos controles de retroceso — lo más simple es quitar el botón “‹” junto a “Ajustes”, ya que “← Volver” arriba de la pantalla ya cumple esa función — para no duplicar la misma acción con dos elementos distintos.",
+        evidencia: [
+          { src: "capturas/caso-08/05-sidebar-horarios.jpg", caption: "“Configurar horarios de trabajo”: sin ningún enlace de retroceso arriba a la izquierda" },
+          { src: "capturas/caso-08/16-horarios-disponibilidad-configurada-con-volver.jpg", caption: "“Disponibilidad configurada”, la otra pestaña de la misma pantalla: sí muestra “← Volver”" },
+          { src: "capturas/caso-08/10-menu-ajustes-agenda-breadcrumb-y-carga-trabajo.jpg", caption: "“Ajustes de agenda”: el enlace “← Volver” arriba y, dentro de la tarjeta, el botón “‹ Ajustes” — dos controles para la misma acción" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "variante",
+            textoHtml: "Replica, con un dato adicional. Tanto la falta de “← Volver” en “Configurar horarios de trabajo” como los dos controles redundantes en “Ajustes de agenda” se ven exactamente igual que en escritorio. Además, en esta pasada se probó de nuevo el botón “‹” junto a “Ajustes” (clic preciso sobre el botón, no sobre el texto): esta vez sí se detectó navegación, pero hacia el Dashboard, no hacia una pantalla “Ajustes” general — comportamiento reproducido dos veces de forma idéntica. Esto es consistente con que el botón esté implementado como un “volver” genérico de historial del navegador (<code>history.back()</code>) en lugar de una acción explícita “ir a Ajustes”: el resultado final depende de qué pantalla estaba abierta antes en el historial. Sigue pendiente de confirmar con el equipo de desarrollo si el botón está pensado como “volver en el historial” o como “ir a Ajustes”, ya que su propio texto (“‹ Ajustes”) sugiere lo segundo.",
+            evidencia: [
+              { src: "capturas/caso-08/t09-ajustes-agenda-doble-volver-carga-trabajo-tiempo-minimo.jpg", caption: "Los dos controles de retroceso en tableta" },
+              { src: "capturas/caso-08/t10-click-boton-ajustes-navega-a-dashboard.jpg", caption: "Pantalla resultante tras el clic en “‹ Ajustes”: Dashboard, no Ajustes" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "variante",
+            textoHtml: "Replica, con un dato adicional que termina de explicar el comportamiento de “← Volver”. El botón “‹ Ajustes” repitió, por tercera vez en un tercer viewport, la misma navegación al Dashboard. Además, se comparó explícitamente cómo se llega a “Ajustes de agenda”: al navegar por URL directa, el enlace “← Volver” no aparece; al llegar por un clic dentro de la app (desde el menú “···”), sí aparece. Esto confirma que “← Volver” depende de que exista una entrada previa en el historial de navegación del navegador — no es una falla intermitente, sino que no tiene sentido mostrar un “volver” cuando no hay una pantalla anterior a la que volver dentro de esa sesión.",
+            evidencia: [
+              { src: "capturas/caso-08/m06-ajustes-agenda-doble-volver-spa-nav.jpg", caption: "“← Volver” presente, llegando por clic desde el menú" },
+              { src: "capturas/caso-08/m07-ajustes-agenda-sin-volver-nav-directa-url.jpg", caption: "“← Volver” ausente, llegando por URL directa" },
+              { src: "capturas/caso-08/m09-click-boton-ajustes-navega-a-dashboard.jpg", caption: "Resultado del clic en “‹ Ajustes”" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 5,
+        titulo: "Faltan tildes en varios textos de la interfaz en distintas pantallas",
+        heuristicaId: "H02",
+        heuristicaNombre: "H2 — Coincidencia con el mundo real",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "Se relevaron varios textos en castellano sin la tilde correspondiente, repetidos en más de una pantalla: “Tiempo minimo” (debería ser “Tiempo mínimo”, en Ajustes de agenda), “Se aplicara recurrente hacia adelante durante 0 semanas…” (debería ser “Se aplicará…”, en Horarios → Configurar horarios de trabajo), “Tu portal se mostrara con estas preferencias en este dispositivo” (debería ser “se mostrará”, en el modal Idioma y moneda) y “Espanol” en lugar de “Español” (aparece repetido en el modal “Idioma y moneda”, en la etiqueta de la barra lateral y en el campo “Idiomas de atención” de Perfil). Al tratarse de un portal en castellano dirigido a profesionales de la salud, este tipo de detalles resta prolijidad y profesionalismo a la imagen del producto, aunque no afecta la funcionalidad.",
+        recomendacion: "Revisar el diccionario/archivo de textos en castellano del portal profesional y corregir las tildes faltantes, priorizando “Español” por ser la más visible y repetida (aparece en al menos 3 pantallas distintas). De ser posible, incorporar un corrector ortográfico automatizado (linter de copys) al proceso de build para prevenir este tipo de errores a futuro.",
+        evidencia: [
+          { src: "capturas/caso-08/10-menu-ajustes-agenda-breadcrumb-y-carga-trabajo.jpg", caption: "“Tiempo minimo” sin tilde, en Ajustes de agenda" },
+          { src: "capturas/caso-08/05-sidebar-horarios.jpg", caption: "“Se aplicara… durante 0 semanas…” sin tilde, en Horarios" },
+          { src: "capturas/caso-08/15-menu-idioma-y-moneda.jpg", caption: "“se mostrara” y “Espanol” sin tilde, en el modal Idioma y moneda" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "variante",
+            textoHtml: "Replica, con instancias adicionales. Los mismos textos sin tilde de escritorio (“Tiempo minimo”, “Se aplicara…”, “Espanol”) aparecen igual en tableta, y se sumaron dos casos nuevos: “Todavia no hay pacientes que hayan habilitado…” en Reportes, y “Portugues” / “Dolar estadounidense” en el selector de idioma y moneda (debería ser “Portugués” y “Dólar estadounidense”).",
+            evidencia: [
+              { src: "capturas/caso-08/t08-reportes-accento-todavia.jpg", caption: "“Todavia” sin tilde en Reportes" },
+              { src: "capturas/caso-08/t15-idioma-y-moneda-modal-accentos.jpg", caption: "“Portugues” y “Dolar estadounidense” en el modal" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "variante",
+            textoHtml: "Replica en general (“Tiempo minimo”, “Espanol”, “Portugues”, “Dolar estadounidense” aparecen igual que en las otras pasadas), con una instancia nueva — “Max. clientes simultaneos” en la fila “Carga de trabajo” de Ajustes de agenda — pero con una discrepancia puntual respecto de tableta: en Reportes, el mismo texto que en tableta se había registrado como “Todavia no hay pacientes que hayan habilitado…” (sin tilde) aparece en móvil correctamente escrito como “Todavía no hay pacientes que hayan habilitado…” (con tilde), para la misma cuenta de prueba y el mismo estado vacío. No se pudo determinar la causa exacta solo con esta evaluación; queda pendiente confirmar con el equipo de desarrollo y, de mínima, repetir la lectura en tableta para descartar un error de esa pasada.",
+            evidencia: [
+              { src: "capturas/caso-08/m08-carga-trabajo-simultaneos-sin-tilde-zoom.png", caption: "“simultaneos” sin tilde" },
+              { src: "capturas/caso-08/m12-reportes-todavia-con-tilde.jpg", caption: "“Todavía”, con tilde, en Reportes en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 6,
+        titulo: "La opción “Carga de trabajo” de Ajustes de agenda aparece deshabilitada sin ninguna explicación visible",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Menor",
+        clasificacion: "Otros",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "De las 4 filas de “Ajustes de agenda” (Tiempo mínimo, Valor de sesión, Vacaciones, Carga de trabajo), las primeras 3 se muestran como filas interactivas con flecha “›” hacia la derecha. “Carga de trabajo” (Max. clientes simultáneos), en cambio, se muestra con íconos y texto en un tono grisáceo/muted y sin flecha. Se confirmó por script que la fila tiene el atributo <code>aria-disabled=\"true\"</code> y la clase <code>muted</code>, es decir que está deshabilitada intencionalmente. Sin embargo, no hay ningún texto, ícono de candado, etiqueta “Próximamente” ni tooltip que explique por qué esta opción puntual no está disponible para la cuenta de prueba, a diferencia de sus 3 filas vecinas.",
+        recomendacion: "Agregar una indicación explícita (una etiqueta breve tipo “Próximamente” o “No disponible en tu plan”, o un tooltip al pasar el mouse) que explique por qué “Carga de trabajo” está deshabilitada, para que la persona entienda que se trata de una restricción intencional y no de un error de carga.",
+        evidencia: [
+          { src: "capturas/caso-08/11-menu-ajustes-agenda-carga-trabajo-zoom.png", caption: "“Carga de trabajo” en tono grisáceo y sin flecha “›”, sin ninguna explicación junto al texto" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "replica",
+            textoHtml: "Replica, sin variantes. La fila “Carga de trabajo” se ve igual de deshabilitada (tono grisáceo, sin flecha “›”) y sin ninguna explicación visible.",
+            evidencia: [
+              { src: "capturas/caso-08/t09-ajustes-agenda-doble-volver-carga-trabajo-tiempo-minimo.jpg", caption: "Fila “Carga de trabajo” deshabilitada, en tableta" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica, sin variantes.",
+            evidencia: [
+              { src: "capturas/caso-08/m06-ajustes-agenda-doble-volver-spa-nav.jpg", caption: "Fila “Carga de trabajo” deshabilitada, en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 7,
+        titulo: "El campo para escribir un mensaje en Chat queda habilitado visualmente aunque no haya ninguna conversación seleccionada",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "En la pantalla “Chat”, con la cuenta de prueba sin conversaciones, se muestra el estado vacío “Selecciona un chat” / “No hay conversaciones activas.”. Pese a esto, el campo de texto (<code>&lt;textarea placeholder=\"Escribe un mensaje\"&gt;</code>) se ve y se comporta como habilitado (no tiene el atributo <code>disabled</code> ni <code>readOnly</code>), invitando visualmente a escribir un mensaje que en realidad no se podría enviar. Se confirmó por script que el botón de enviar sí está correctamente deshabilitado (<code>disabled: true</code>), por lo que no hay ningún riesgo funcional (no se puede enviar nada por error): es únicamente una inconsistencia visual entre el estado real de la pantalla (sin conversación activa) y la apariencia del campo de texto.",
+        recomendacion: "Deshabilitar (o mostrar en modo de solo lectura, con un placeholder del tipo “Seleccioná una conversación para escribir”) el campo de texto del chat mientras no haya ninguna conversación seleccionada, en línea con el estado ya correcto del botón de enviar.",
+        evidencia: [
+          { src: "capturas/caso-08/07-sidebar-chat-composer-habilitado.jpg", caption: "El campo de texto del chat, con apariencia habilitada pese a no haber conversación seleccionada" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "no-aplica",
+            textoHtml: "No replica (variante distinta, no es la misma inconsistencia). En tableta, “Chat” sin conversaciones muestra únicamente el mensaje centrado “No hay conversaciones activas.”, sin lista de conversaciones a la izquierda ni panel de conversación a la derecha, y sin ningún campo de texto visible: al no haber conversación seleccionada, no se renderiza ningún <code>&lt;textarea&gt;</code> en absoluto. Es decir, en tableta el problema puntual de escritorio no está presente, porque directamente no se muestra ningún campo hasta que exista o se seleccione una conversación — un comportamiento distinto (y, en este punto puntual, más correcto) que el de escritorio.",
+            evidencia: [
+              { src: "capturas/caso-08/t04-chat-sin-textarea-composer.jpg", caption: "Chat en tableta, sin conversaciones: sin campo de texto visible" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "no-aplica",
+            textoHtml: "No replica, igual que en tableta — mismo comportamiento (sin campo de texto visible cuando no hay conversación seleccionada).",
+            evidencia: [
+              { src: "capturas/caso-08/m11-chat-sin-textarea.jpg", caption: "Chat en móvil, sin conversaciones: sin campo de texto visible" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 8,
+        titulo: "En tableta, el Dashboard no muestra la leyenda “Estados de la sesión” que sí está presente en escritorio",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "A revisar",
+        clasificacion: "Responsive",
+        viewport: "Tableta (Chrome real, ventana 768×1024)",
+        descripcionHtml: "En la pasada de escritorio se había registrado como feedback positivo que la leyenda “Estados de la sesión” (Reservada → Realizada → Pendiente de cobro → Pagada, cada una con su color distintivo) queda siempre visible en la parte superior del Dashboard, ayudando a entender de un vistazo el ciclo de vida de una sesión. En tableta (768×1024), esa leyenda no aparece en ningún lugar de la pantalla principal: la cabecera pasa directamente del título “Dashboard” (con el interruptor “Visible”, la campana y el menú “···”) a la sección “Sesiones”, sin ningún rastro de la leyenda de colores. Se revisó la pantalla completa, de arriba a abajo, sin encontrarla reubicada en otro lugar. No se pudo determinar, solo con inspección visual y de DOM básica, si se trata de una decisión de diseño intencional para ahorrar espacio en pantallas más chicas, o de un elemento que debería mostrarse y no se está renderizando por error en este breakpoint.",
+        recomendacion: "Confirmar con el equipo de diseño/desarrollo si la ausencia de la leyenda en tableta es intencional. Si lo es, considerar un formato compacto (por ejemplo, un ícono con tooltip, o un enlace “¿Qué significa cada estado?”) para no perder del todo esa información de referencia en pantallas más chicas. Si no es intencional, restituir la leyenda adaptada al ancho de tableta.",
+        evidencia: [
+          { src: "capturas/caso-08/t16-dashboard-header-completo-sin-leyenda.jpg", caption: "Cabecera completa del Dashboard en tableta, sin la leyenda “Estados de la sesión”" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica. Tampoco aparece la leyenda “Estados de la sesión” en el Dashboard de móvil — es consistente con tableta, lo que refuerza la hipótesis de que se trata de una decisión de diseño para viewports angostos (compartida entre tableta y móvil) y no de un error puntual de un solo breakpoint.",
+            evidencia: [
+              { src: "capturas/caso-08/m01-dashboard-vista-general-sin-leyenda.jpg", caption: "Dashboard en móvil, sin la leyenda" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 9,
+        titulo: "La cabecera superior (campana, menú “···”, interruptor “Visible”) no es fija y deja de estar accesible al hacer scroll, a diferencia de la barra de navegación inferior",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
+        severidad: "A revisar",
+        clasificacion: "Responsive",
+        viewport: "Tableta (Chrome real, ventana 768×1024)",
+        descripcionHtml: "En tableta, la navegación principal se resuelve con una barra fija en la parte inferior de la pantalla (Dashboard, Horarios, Pacientes, Chat, Ingresos), que permanece siempre visible y accesible sin importar cuánto se haya scrolleado. La cabecera superior de cada pantalla, en cambio, no tiene ese mismo comportamiento: incluye el título de la sección, el interruptor “Visible”, la campana de notificaciones y el menú “···” (acceso a Reportes, Ajustes de agenda, Perfil, Ajustes e Idioma y moneda), y se desplaza fuera de la vista junto con el resto del contenido al hacer scroll hacia abajo. Esto se comprobó puntualmente en la pantalla “Perfil” (una de las más largas del portal): al bajar hasta la sección “Preferencias avanzadas”, la cabecera ya no es visible, y hace falta volver a subir hasta el principio para poder abrir el menú “···” o revisar las notificaciones. El resultado es una asimetría entre los dos mecanismos de navegación de la pantalla: uno (la barra inferior) siempre accesible, y el otro (la cabecera, con el menú de más opciones) solo accesible desde el principio de cada pantalla.",
+        recomendacion: "Evaluar fijar la cabecera (o al menos la campana y el menú “···”) en la parte superior de la pantalla, igual que ya se hace con la barra de navegación inferior, para que las notificaciones y el resto de las opciones del menú “···” estén siempre accesibles sin necesidad de volver a subir hasta el principio de pantallas largas como “Perfil”.",
+        evidencia: [
+          { src: "capturas/caso-08/t18-perfil-scroll-header-no-accesible.jpg", caption: "Pantalla “Perfil” con scroll hacia abajo: la cabecera ya no está visible, solo la barra de navegación inferior" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica, sin variantes. Al bajar en “Perfil” hasta la sección “Vista en matching”, la cabecera ya no está visible y solo queda la barra de navegación inferior. En móvil, donde la pantalla es más angosta, este problema es aún más relevante, ya que hay menos espacio en general y perder el acceso rápido a la campana y al menú “···” se siente más limitante que en tableta o escritorio.",
+            evidencia: [
+              { src: "capturas/caso-08/m14-perfil-scroll-header-ausente.jpg", caption: "Pantalla “Perfil” con scroll, en móvil: cabecera ausente" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 10,
+        titulo: "El enlace para compartir y recibir opiniones de pacientes, en “Perfil”, no lleva a ningún lugar donde se pueda dejar una opinión",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Mayor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737); verificado a pedido puntual del Evaluador UX, fuera de la secuencia habitual de pasos.",
+        descripcionHtml: "En “Perfil”, el panel “Opiniones de pacientes” dice: “Las opiniones las dejan pacientes con al menos 2 sesiones realizadas en MotivarCare. Compartí este enlace para que puedan calificarte desde el portal paciente.”, junto con un campo de texto con una URL (por ejemplo <code>https://app.motivarcare.com/?dejar-opinion=cmuhkh9zk04h0pa0d5uois1j9</code>, con un identificador propio de la cuenta de prueba) y un botón “Copiar”. El botón “Copiar” en sí funciona correctamente (cambia a “Copiado” y copia el texto al portapapeles). El problema está en el destino: al abrir esa URL completa en una pestaña nueva del portal paciente, la aplicación ignora por completo el parámetro <code>?dejar-opinion=&lt;id&gt;</code> y muestra simplemente el Dashboard genérico del paciente que esté logueado en ese momento — no aparece ningún modal, formulario, pantalla o mensaje relacionado con dejar una opinión o calificación. Se inspeccionó la consola del navegador (sin errores ni mensajes) y el texto completo de la página (sin ninguna mención a “opinión” en ningún lado), lo que descarta que se trate de un mensaje de error visible o de una validación explícita: el parámetro simplemente no es leído ni utilizado por la aplicación en esta URL. El resultado práctico es que un profesional que comparte este enlace con sus pacientes, tal como la propia pantalla lo invita a hacer, les está enviando un enlace que no cumple ninguna función y los deja en su Dashboard habitual sin ninguna explicación. Relacionado también con H5 — Prevención de errores, ya que no hay ninguna validación ni mensaje que informe por qué el paciente no puede calificar.",
+        recomendacion: "Implementar del lado del portal paciente la lectura del parámetro <code>dejar-opinion</code> para que, al abrir el enlace, se muestre explícitamente el flujo de calificación/opinión hacia el profesional identificado por ese id, incluyendo un mensaje claro si el paciente logueado no cumple los requisitos (por ejemplo, menos de 2 sesiones realizadas con ese profesional en particular). Como paso intermedio, considerar agregar al menos una validación que informe al paciente por qué no puede calificar, en vez de redirigirlo en silencio a su Dashboard habitual. Dado que se trata de una funcionalidad central para la reputación del profesional en el portal (que además se promociona activamente desde su propio Perfil), se sugiere priorizar este hallazgo.",
+        evidencia: [
+          { src: "capturas/caso-08/t20-perfil-opiniones-pacientes-link-panel.png", caption: "El panel “Opiniones de pacientes” en Perfil, con el enlace y el botón “Copiar”" },
+          { src: "capturas/caso-08/t21-link-opiniones-lleva-a-dashboard-generico.jpg", caption: "El resultado de abrir ese enlace: el Dashboard genérico del portal paciente, sin ningún rastro de una pantalla para dejar una opinión" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Presente, sin repetir la prueba de navegación. El panel “Opiniones de pacientes” con el enlace y el botón “Copiar” está igual de presente en la versión móvil de “Perfil”. No se repitió la prueba de abrir el enlace en el portal paciente en esta pasada porque el problema ya confirmado (el parámetro “dejar-opinion” no es leído por la aplicación) es de lógica de la aplicación, no de presentación visual, y no depende del viewport desde el que se copia el enlace.",
+            evidencia: [
+              { src: "capturas/caso-08/m10-perfil-listos-bug-y-panel-opiniones.jpg", caption: "El panel “Opiniones de pacientes”, presente también en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 11,
+        titulo: "Las pestañas de “Horarios” tienen nombres distintos en móvil que en escritorio y tableta",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "A revisar",
+        clasificacion: "Otros",
+        viewport: "Móvil (Chrome real, ventana 390×844)",
+        descripcionHtml: "En escritorio y en tableta, la pantalla “Horarios” muestra dos pestañas rotuladas “Configurar horarios de trabajo” y “Disponibilidad configurada”. En móvil, la misma pantalla, con el mismo contenido y la misma función en cada pestaña, usa los rótulos “Plantilla” y “Publicados” — nombres completamente distintos para los mismos dos conceptos. Es esperable que el texto se acorte en pantallas chicas por una cuestión de espacio, pero acá no se trata de una versión abreviada del mismo texto, sino de palabras distintas que no comparten ninguna raíz con los rótulos de escritorio/tableta. Alguien que use el portal en varios dispositivos podría no reconocer que se trata de la misma sección.",
+        recomendacion: "Unificar el rótulo de estas dos pestañas entre todos los tamaños de pantalla, usando una versión abreviada del mismo texto en vez de palabras distintas (por ejemplo, “Configurar” y “Disponibilidad”, o mantener “Plantilla” y “Publicados” pero también en escritorio y tableta, lo que decida el equipo de contenidos/diseño).",
+        evidencia: [
+          { src: "capturas/caso-08/m03-horarios-plantilla-sin-volver.jpg", caption: "Pestaña “Plantilla” en móvil, equivalente a “Configurar horarios de trabajo”" },
+          { src: "capturas/caso-08/m04-horarios-publicados-con-volver.jpg", caption: "Pestaña “Publicados” en móvil, equivalente a “Disponibilidad configurada”" },
+          { src: "capturas/caso-08/t03-horarios-configurar-sin-volver-accento.jpg", caption: "La misma pantalla en tableta, con los rótulos originales, para contrastar" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 12,
+        titulo: "Los diálogos modales del portal no atrapan el foco del teclado: al presionar Tab, el foco escapa hacia contenido de fondo mientras el modal sigue abierto",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso",
+        severidad: "Mayor",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×900) — verificación específica de accesibilidad por teclado, a pedido del Evaluador UX; no se evaluó tableta ni móvil en esta pasada.",
+        descripcionHtml: "Se verificó el comportamiento de teclado de los modales del Portal del Profesional en tres casos distintos: “Editar identidad profesional” y “Editar datos bancarios” (abiertos desde los botones “Editar” de “Perfil”) e “Idioma y moneda” (abierto desde el menú “···”). Los tres están correctamente marcados en el HTML como <code>&lt;section role=\"dialog\" aria-modal=\"true\"&gt;</code>, lo cual en principio le indica a la tecnología asistiva que el resto de la página debe considerarse inerte mientras el modal está abierto. Sin embargo, en los tres casos, al abrir el modal el foco del teclado no se traslada automáticamente hacia ningún elemento dentro de él (queda en el botón que lo disparó, o en <code>&lt;body&gt;</code> si el modal se abrió desde un menú que ya se había cerrado). Y, más importante: al presionar Tab una sola vez con el modal abierto, el foco se mueve a un elemento de la página de fondo, detrás del modal — se confirmó puntualmente que en “Editar identidad profesional” y en “Editar datos bancarios” el foco pasa al encabezado del acordeón “02 Datos bancarios” (visualmente detrás del velo oscuro del modal), y en “Idioma y moneda” pasa a un botón de la tarjeta “Vista en matching” (la calificación con estrellas). En ambos casos el modal permanece abierto y visible en primer plano mientras el anillo de foco aparece sobre un elemento oculto detrás de él. Esto significa que el modal no cumple la promesa de <code>aria-modal=\"true\"</code>: una persona que navegue solo con teclado puede seguir interactuando con el contenido de fondo (por ejemplo, expandir el acordeón “Datos bancarios” con Enter) sin haber cerrado el modal, y una persona usuaria de lector de pantalla puede terminar en un estado inconsistente entre lo que el modal declara (contenido de fondo inerte) y lo que realmente ocurre (contenido de fondo todavía operable). Para una persona vidente que navega con teclado, el resultado es además muy desorientador: el indicador de foco desaparece visualmente detrás del velo oscuro del modal.",
+        recomendacion: "Implementar un focus trap real en el componente de diálogo modal que usa toda la aplicación (dado que se reprodujo en tres modales distintos, es muy probablemente un componente compartido): al abrirse, trasladar el foco al primer elemento interactivo del modal (o al propio contenedor del diálogo); mientras esté abierto, que Tab y Shift+Tab solo recorran los elementos dentro del modal, volviendo al primero al llegar al final y viceversa; y, al cerrarse, devolver el foco al elemento que lo abrió (ver también el Hallazgo 15, sobre el mismo problema de retorno de foco en el menú “···”). Priorizar esta corrección dado que afecta a todos los modales de edición del portal (al menos 8 solo en “Perfil”) y no a un caso aislado.",
+        evidencia: [
+          { src: "capturas/caso-08/a01-modal-editar-perfil-foco-escapa-a-fondo.jpg", caption: "Modal “Editar identidad profesional” abierto; tras un solo Tab, el anillo de foco aparece sobre “02 Datos bancarios”, detrás del velo del modal" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 13,
+        titulo: "El modal “Idioma y moneda” no se cierra con la tecla Escape",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×900) — verificación específica de accesibilidad por teclado, a pedido del Evaluador UX; no se evaluó tableta ni móvil en esta pasada.",
+        descripcionHtml: "A diferencia de los modales “Editar…” de la pantalla “Perfil” (que sí se cierran al presionar Escape), el modal “Idioma y moneda” permanece abierto al presionar Escape — se verificó por script que el elemento <code>[role=\"dialog\"]</code> sigue presente en el DOM después de la tecla. Este modal, además, contiene una lista larga de más de 15 monedas presentadas como botones individuales en orden secuencial (sin agrupación tipo listbox ni atajo de teclado), por lo que una persona navegando solo con teclado que quiera cerrar el modal sin elegir nada debe presionar Tab muchas veces hasta llegar al botón “×”, en lugar de poder cerrarlo con una sola tecla como es el estándar esperado para cualquier diálogo modal.",
+        recomendacion: "Agregar el cierre con Escape a este modal, en línea con el resto de los modales del portal que sí lo implementan. De forma opcional, evaluar agrupar la lista de monedas con el patrón ARIA listbox/radiogroup y navegación por flechas, para que no haga falta recorrer con Tab, uno por uno, hasta 15 o más opciones.",
+        evidencia: [
+          { src: "capturas/caso-08/a02-modal-idioma-moneda-no-cierra-con-escape.jpg", caption: "El modal “Idioma y moneda”, todavía abierto después de presionar Escape" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 14,
+        titulo: "La barra de navegación lateral no revela las etiquetas de texto al recibir el foco por teclado, solo al pasar el mouse",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares (principio “Contenido en hover o foco”, WCAG 1.4.13)",
+        severidad: "A revisar",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×900) — verificación específica de accesibilidad por teclado, a pedido del Evaluador UX; no se evaluó tableta ni móvil en esta pasada.",
+        descripcionHtml: "La barra de navegación lateral izquierda está colapsada por defecto, mostrando solo íconos; al pasar el mouse por encima, se expande y muestra la etiqueta de texto de cada sección (Dashboard, Horarios, Pacientes, Chat, Ingresos), tal como ya se había documentado como feedback positivo en la pasada de escritorio original. Al recorrer la misma barra con teclado (Tab), el anillo de foco aparece correctamente sobre cada ícono — son enlaces reales, alcanzables y con el texto igual de presente en el DOM (accesible para lectores de pantalla) — pero la barra no se expande para revelar la etiqueta de texto cuando el ícono recibe el foco, a diferencia de lo que ocurre con el mouse. El resultado es que una persona que navegue con teclado y pueda ver la pantalla (por ejemplo, alguien con una limitación motriz que no usa mouse pero sí ve el contenido) no tiene forma de saber a qué sección corresponde cada ícono sin adivinar por su forma, mientras que con mouse esa misma información aparece de inmediato.",
+        recomendacion: "Hacer que la barra lateral se expanda también al recibir el foco por teclado (por ejemplo, escuchando el evento <code>:focus-within</code> además de <code>:hover</code> en CSS), para que el contenido revelado por hover se revele también por foco, en línea con el criterio de éxito 1.4.13 de las WCAG. Confirmar con el equipo de desarrollo/diseño la severidad definitiva de este hallazgo.",
+        evidencia: [
+          { src: "capturas/caso-08/a03-sidebar-foco-teclado-sin-etiqueta-zoom.png", caption: "Zoom de la barra lateral con el ícono “Ingresos” enfocado por teclado: se ve el anillo de foco, pero no la etiqueta de texto" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 15,
+        titulo: "El menú “···” no devuelve el foco al botón que lo abrió al cerrarse, y la campana de notificaciones queda visualmente abierta aunque el foco se mueva a otro lado",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×900) — verificación específica de accesibilidad por teclado, a pedido del Evaluador UX; no se evaluó tableta ni móvil en esta pasada.",
+        descripcionHtml: "Al abrir el menú “···” con Enter, Tab traslada correctamente el foco hacia el primer elemento del menú (“Reportes”), y Escape lo cierra correctamente. Sin embargo, una vez cerrado con Escape, el foco no vuelve al botón “···” que lo había abierto, sino que queda en <code>&lt;body&gt;</code>, obligando a la persona a retomar la navegación desde el principio de la página en vez de continuar desde donde estaba. Se observó un problema relacionado, aunque distinto, en la campana de notificaciones: su contenido (“Sin novedades por ahora.”) permanece visible en pantalla aun cuando el foco del teclado se traslada hacia otro elemento de la página; sí se cierra correctamente al presionar Escape estando enfocado dentro de él.",
+        recomendacion: "Al cerrar el menú “···” (con Escape o al seleccionar una opción), devolver el foco al botón “···” que lo abrió. Revisar el comportamiento del popover de notificaciones para que se comporte de forma consistente con el resto de los overlays de la aplicación (por ejemplo, cerrándose también al mover el foco fuera de él, no solo con Escape).",
+        evidencia: [
+
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 16,
+        titulo: "Las pestañas “Próximas sesiones” / “Marcar realizadas” no implementan completamente el patrón ARIA de pestañas",
+        heuristicaId: "H07",
+        heuristicaNombre: "H7 — Flexibilidad y eficiencia de uso (patrón WAI-ARIA de pestañas)",
+        severidad: "A revisar",
+        clasificacion: "Accesibilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×900) — verificación específica de accesibilidad por teclado, a pedido del Evaluador UX; no se evaluó tableta ni móvil en esta pasada.",
+        descripcionHtml: "Las dos pestañas del bloque “Sesiones” en el Dashboard (“Próximas sesiones” y “Marcar realizadas”) usan correctamente los atributos <code>role=\"tab\"</code> y <code>aria-selected</code> en cada botón. Sin embargo, se verificó por script que ningún elemento ancestro de ambas pestañas tiene <code>role=\"tablist\"</code> (se revisaron tres niveles de contenedores hacia arriba sin encontrarlo), y que, con una de las pestañas enfocada, la flecha derecha del teclado no cambia a la otra pestaña — no hay implementado un <code>tabindex</code> dinámico (roving tabindex) ni navegación por flechas, que es el patrón esperado para un grupo de pestañas según las WAI-ARIA Authoring Practices. En la práctica, ambas pestañas siguen siendo perfectamente alcanzables y operables con Tab y Enter/Espacio de forma individual, por lo que no se trata de un bloqueo funcional, sino de una implementación incompleta del patrón ARIA de pestañas, que podría confundir a personas usuarias de lectores de pantalla que esperan poder moverse entre pestañas con las flechas una vez que entran al grupo.",
+        recomendacion: "Envolver ambos botones de pestaña en un contenedor con <code>role=\"tablist\"</code>, e implementar la navegación por flechas (izquierda/derecha) con <code>tabindex=\"0\"</code> solo en la pestaña activa y <code>tabindex=\"-1\"</code> en las demás, siguiendo el patrón estándar de pestañas de las WAI-ARIA Authoring Practices. Confirmar con el equipo de desarrollo la severidad definitiva de este hallazgo.",
+        evidencia: [
+
+        ],
+        verificaciones: []
       }
     ]
   }
