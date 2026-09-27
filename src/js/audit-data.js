@@ -97,7 +97,7 @@ export const auditAreas = [
     description: "Entorno de gestión para los psicólogos: validación de matrícula/colegiatura, configuración de horarios y zonas horarias, historial de pacientes y sala de consulta clínica.",
     score: 64,
     status: "Revisión Prioritaria",
-    findingsCount: { critica: 0, mayor: 6, menor: 6, recomendacion: 5, aRevisar: 5 }
+    findingsCount: { critica: 0, mayor: 7, menor: 6, recomendacion: 7, aRevisar: 5 }
   }
 ];
 
@@ -2241,6 +2241,16 @@ export const casos = [
               { src: "capturas/caso-08/m08-carga-trabajo-simultaneos-sin-tilde-zoom.png", caption: "“simultaneos” sin tilde" },
               { src: "capturas/caso-08/m12-reportes-todavia-con-tilde.jpg", caption: "“Todavía”, con tilde, en Reportes en móvil" }
             ]
+          },
+          {
+            viewport: "Escritorio y Tableta (evaluación funcional del Caso 09 — Horarios)",
+            resultado: "variante",
+            textoHtml: "Mismo patrón, con nuevas instancias detectadas durante la evaluación funcional de la pantalla “Horarios” (Caso 09): “…para las proximas 8 semanas” (próximas, en el mensaje de confirmación de “Guardar”), “Esta accion no se puede deshacer.” (acción, en el modal de confirmación de “Quitar”) y “Se restauraron 1 horarios segun tu semana de trabajo.” (según, en el mensaje de “Anular” de Vacaciones). Confirma que el mismo problema transversal de tildes faltantes alcanza también a los mensajes dinámicos de confirmación, no solo a los textos estáticos de la interfaz ya relevados en este hallazgo.",
+            evidencia: [
+              { src: "capturas/caso-09/02-guardar-recrea-3-horarios-nuevos.jpg", caption: "“…horarios nuevos para las proximas 8 semanas” sin tilde, en el mensaje de “Guardar”" },
+              { src: "capturas/caso-09/04-modal-quitar-horario-30-09-09h-10h.jpg", caption: "“Esta accion no se puede deshacer.” sin tilde, en el modal de “Quitar”" },
+              { src: "capturas/caso-09/11-tablet-vacaciones-anuladas-restauraron-1-horarios.jpg", caption: "“Se restauraron 1 horarios segun tu semana de trabajo.” sin tilde, al anular Vacaciones" }
+            ]
           }
         ]
       },
@@ -2470,6 +2480,117 @@ export const casos = [
         recomendacion: "Envolver ambos botones de pestaña en un contenedor con <code>role=\"tablist\"</code>, e implementar la navegación por flechas (izquierda/derecha) con <code>tabindex=\"0\"</code> solo en la pestaña activa y <code>tabindex=\"-1\"</code> en las demás, siguiendo el patrón estándar de pestañas de las WAI-ARIA Authoring Practices. Confirmar con el equipo de desarrollo la severidad definitiva de este hallazgo.",
         evidencia: [
 
+        ],
+        verificaciones: []
+      }
+    ]
+  },
+  {
+    id: 9,
+    numero: "09",
+    slug: "caso-09-horarios-agenda-disponibilidad",
+    areaId: "professional",
+    areaName: "Portal del Profesional",
+    titulo: "Horarios del profesional — funcionalidad para definir agenda y disponibilidad, y para realizar cambios",
+    estado: "Completado",
+    idioma: "Castellano",
+    descripcionHtml: "A pedido explícito del Evaluador UX, se evaluó en <code>pro.motivarcare.com</code> la pantalla “Horarios” del profesional, a diferencia del Caso 08 (que fue puramente de observación): en este caso se ejercitó la funcionalidad real de definición de agenda y disponibilidad, y de modificación de horarios ya publicados. Se usó la cuenta de prueba <code>gaston.f.martino+pro1@gmail.com</code> y Chrome real (plugin Claude in Chrome), en las tres pasadas habituales — escritorio (~1568×737), tableta (768×1024) y móvil (390×844). La pantalla “Horarios” tiene dos pestañas: “Configurar horarios de trabajo” (grilla semanal para seleccionar franjas por día, con recurrencia fija de 8 semanas hacia adelante) y “Disponibilidad configurada” (calendario mensual con las franjas ya publicadas, agrupadas por fecha, con opción de quitarlas individual o masivamente). Relacionada con esta pantalla, en “Ajustes de agenda” existe además una función “Vacaciones” para bloquear un rango de fechas completo. Además de la interacción habitual, se usó <code>javascript_tool</code> para ejecutar llamadas <code>fetch</code> autenticadas directamente contra la API del backend (leyendo el token desde <code>localStorage</code>), lo que permitió verificar a nivel de servidor — y no solo visualmente — el estado real de las franjas de disponibilidad en cada paso.",
+    pasosRealizados: [
+      "Se ingresó a “Horarios” con la cuenta pro1 (escritorio) y se abrió la pestaña “Configurar horarios de trabajo”: se confirmó que la selección de franjas por día persiste al cambiar de pestaña o de día, sin necesidad de guardar primero.",
+      "Se seleccionaron franjas nuevas (lunes 07:00-08:00 y miércoles 08:00-09:00 y 09:00-10:00, a partir del 28/09/2026) y se presionó “Guardar”: el mensaje de confirmación informó la creación de 24 horarios nuevos para las próximas 8 semanas, conteo verificado manualmente mes a mes en “Disponibilidad configurada” (septiembre 3, octubre 12, noviembre 9, diciembre 0).",
+      "Se probó el checkbox “seleccionar todo” de “Disponibilidad configurada” (selecciona correctamente todas las franjas del mes, incluidas las colapsadas) y se eliminó una franja individual (miércoles 30/09, 09:00-10:00) con “Quitar”, confirmando por API (<code>DELETE /api/availability/slots/{id}</code>, 200) que la baja se reflejó del lado del servidor.",
+      "Se probó la baja masiva (“Quitar seleccionados”) sobre el resto de septiembre: se confirmaron dos llamados <code>DELETE</code> independientes (no existe un endpoint de baja en lote), ambos exitosos.",
+      "Hallazgo 1: al volver a “Configurar horarios de trabajo”, la plantilla semanal de miércoles seguía mostrando las franjas ya eliminadas como seleccionadas; al presionar “Guardar” sin intención de tocar ese día, la aplicación las recreó automáticamente. Se reprodujo el ciclo completo una segunda vez con el mismo resultado.",
+      "Se repitió la prueba en tableta: se eliminó nuevamente la franja del miércoles y se verificó por API que la baja se reflejó correctamente. Una prueba de recarga controlada (eliminar franja → recargar de inmediato, sin tocar “Configurar horarios de trabajo” → consultar la API) descartó que la sola recarga de página sea la causa de una resurrección inmediata.",
+      "Al iniciar la pasada de tableta, varios minutos después del cierre de la pasada de escritorio y sin ninguna acción del Evaluador UX ni del Evaluador de por medio, se encontró que dos franjas ya eliminadas habían reaparecido solas, con IDs y <code>createdAt</code> nuevos e idénticos entre sí.",
+      "Se probó la función “Vacaciones” (Ajustes de agenda): se bloqueó un día completo y se verificó por API que genera un registro aparte (<code>source: \"vacation\"</code>) sin tocar la plantilla semanal (<code>source: \"weekly-template\"</code>).",
+      "Al presionar “Anular” sobre ese bloqueo de vacaciones, el mensaje de la aplicación confirmó explícitamente que “se restauraron” horarios según la semana de trabajo, y se verificó por API que esa acción recreó la franja del miércoles que había sido eliminada — confirmación decisiva del Hallazgo 1.",
+      "Se repitió el ciclo en móvil: la baja de la misma franja se reflejó correctamente, pero la plantilla siguió mostrándola como seleccionada — tercera confirmación cruzada del Hallazgo 1 en el tercer viewport.",
+      "En móvil se detectó además que las pestañas, el botón de limpieza y el formato de fecha de esta pantalla usan un rotulado distinto al de escritorio/tableta (“Plantilla” / “Publicados” / “Limpiar día” en vez de “Configurar horarios de trabajo” / “Disponibilidad configurada” / “Eliminar selección del día”) — ver Hallazgo 3.",
+      "Se revisaron los mensajes de confirmación de “Guardar” y “Vacaciones”: varios no ajustan correctamente el singular/plural al interpolar cantidades, incluso cuando la cantidad es 1 (por ejemplo, “1 horarios nuevos” en vez de “1 horario nuevo”) — ver Hallazgo 2."
+    ],
+    feedbackPositivo: [
+      "El conteo de horarios nuevos informado por el mensaje de “Guardar” coincidió exactamente con lo verificado manualmente en “Disponibilidad configurada” (24 de 24).",
+      "El checkbox “seleccionar todo” de “Disponibilidad configurada” funciona correctamente incluso sobre entradas colapsadas.",
+      "El modal de confirmación de “Quitar” es propio de la aplicación (no un <code>confirm()</code> nativo) y se adapta correctamente a tableta y a móvil, donde se presenta apropiadamente como hoja modal (“bottom sheet”).",
+      "La función “Vacaciones” está bien resuelta como concepto: bloquea un rango de fechas de forma clara, con su propia etiqueta visual (“VACACIONES”) en “Disponibilidad configurada” que reemplaza el detalle de franjas individuales, y permite anular el bloqueo fácilmente — es, en espíritu, el tipo de mecanismo de “excepción por fecha” que se recomienda extender para resolver el Hallazgo 1.",
+      "El layout de “Horarios” (ambas pestañas) se adapta correctamente al ancho de tableta y de móvil, sin recortes ni problemas de legibilidad.",
+      "El nombre “Plantilla” usado en móvil para la pestaña de configuración describe, en los hechos, mejor el modelo de datos real de la aplicación que su equivalente de escritorio/tableta."
+    ],
+    hallazgos: [
+      {
+        numero: 1,
+        titulo: "Las franjas de disponibilidad eliminadas con “Quitar” pueden reaparecer solas: ni “Quitar” ni “Eliminar selección del día” garantizan una baja permanente",
+        heuristicaId: "H05",
+        heuristicaNombre: "H5 — Prevención de errores",
+        severidad: "Mayor",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (Chrome real, ventana ~1568×737)",
+        descripcionHtml: "La pantalla “Horarios” guarda, del lado del servidor, una plantilla semanal recurrente por franja (<code>source: \"weekly-template\"</code>) que es independiente de las franjas puntuales con fecha concreta que administra “Disponibilidad configurada”. Al eliminar una franja puntual con “Quitar” (miércoles 30/09, 09:00-10:00, primero individual y luego en lote junto con el resto de septiembre) se confirmó por API (<code>DELETE /api/availability/slots/{id}</code>, 200) que la baja se reflejó correctamente del lado del servidor en el momento. Sin embargo, la plantilla semanal de origen no se toca: la pestaña “Configurar horarios de trabajo” siguió mostrando esa franja como seleccionada para el miércoles, indefinidamente y sin ningún indicio visual de discrepancia con lo recién eliminado. Al presionar “Guardar” en esa pestaña, sin ninguna intención de modificar el miércoles, la aplicación recreó automáticamente las 3 franjas de esa semana (“Horario semanal guardado: 3 horarios nuevos”), resucitando exactamente lo que se acababa de eliminar. Se reprodujo el ciclo completo (eliminar → verificar → “Guardar” en otro contexto → reaparece) una segunda vez con el mismo resultado. En una primera exploración, usar “Eliminar selección del día” antes de “Guardar” pareció evitar la resurrección inmediata, pero esa confianza se revisó a la baja tras la evidencia obtenida en tableta (ver verificación siguiente): no se trata de una solución real, solo de una mitigación parcial y temporal. Relacionado también con H1 — Visibilidad del estado del sistema, ya que la interfaz no muestra ningún indicio de que la plantilla y la disponibilidad publicada hayan quedado desincronizadas.",
+        recomendacion: "Modelar la eliminación puntual como una exclusión explícita y persistente de esa fecha respecto de la plantilla semanal (por ejemplo, una lista de “excepciones” por fecha, similar en espíritu al mecanismo ya usado por “Vacaciones” para bloquear rangos), en vez de depender de que la plantilla semanal deje de incluir esa franja. Cualquier operación que reconcilie disponibilidad contra la plantilla (guardar, anular vacaciones, o el proceso no identificado que causó la resurrección espontánea) debería respetar esa lista de exclusiones. Mientras no se corrija de raíz, como mínimo la aplicación debería advertir explícitamente antes de recrear franjas que el profesional eliminó a propósito (“vas a volver a publicar N horarios que habías eliminado, ¿confirmás?”), en vez de un mensaje de éxito genérico. Dado el impacto potencial sobre reservas de pacientes, se recomienda tratar este hallazgo con prioridad alta.",
+        evidencia: [
+          { src: "capturas/caso-09/01-plantilla-mie-sigue-seleccionada-tras-vaciar-septiembre.jpg", caption: "La plantilla semanal de miércoles sigue mostrando las franjas seleccionadas tras vaciar septiembre" },
+          { src: "capturas/caso-09/02-guardar-recrea-3-horarios-nuevos.jpg", caption: "“Guardar” recrea automáticamente 3 horarios nuevos" },
+          { src: "capturas/caso-09/03-disponibilidad-septiembre-restaurada-a-3.jpg", caption: "“Disponibilidad configurada”: septiembre restaurado a 3 franjas" },
+          { src: "capturas/caso-09/04-modal-quitar-horario-30-09-09h-10h.jpg", caption: "Modal de confirmación de “Quitar” sobre la franja del 30/09, 09h-10h" },
+          { src: "capturas/caso-09/05-eliminar-seleccion-del-dia-mie-vacia-plantilla.jpg", caption: "“Eliminar selección del día” vacía la plantilla de miércoles" },
+          { src: "capturas/caso-09/06-guardar-ya-no-recrea-mensaje-ya-aplicado.jpg", caption: "Tras vaciar la selección, “Guardar” ya no recrea horarios" },
+          { src: "capturas/caso-09/07-disponibilidad-septiembre-confirma-baja-definitiva.jpg", caption: "“Disponibilidad configurada” confirma la baja definitiva de septiembre" }
+        ],
+        verificaciones: [
+          {
+            viewport: "Tableta (768×1024)",
+            resultado: "variante",
+            textoHtml: "Replica, con evidencia adicional que agrava el hallazgo original de escritorio. Se repitió el ciclo eliminando nuevamente la misma franja (miércoles 30/09, 09:00-10:00) y se confirmó por API que la baja se reflejó correctamente. Una prueba de recarga controlada (eliminar franja → recargar la página de inmediato, sin tocar “Configurar horarios de trabajo” → volver a consultar la API) descartó que la sola recarga sea la causa de una resurrección inmediata: la franja permaneció eliminada en esa ventana de observación (~20-40 s). Sin embargo, al revisar el estado general de la cuenta al inicio de esta pasada — varios minutos después del cierre de la pasada de escritorio, sin ninguna acción del Evaluador UX ni del Evaluador en ese lapso — se encontró que la franja de miércoles ya había reaparecido sola, junto con la franja de lunes 28/09 (que nunca se había tocado), ambas con IDs y <code>createdAt</code> nuevos e idénticos entre sí, es decir recreadas juntas en un mismo lote sin que mediara ningún “Guardar” explícito. Se investigó además la función “Vacaciones”: se cargó un bloqueo de un día y se verificó por API que agrega un registro aparte (<code>source: \"vacation\"</code>, <code>isBlocked: true</code>) sin tocar la plantilla semanal. Al presionar “Anular” sobre ese bloqueo, la aplicación respondió “Vacaciones anuladas: 1 horarios desbloqueados. Se restauraron 1 horarios según tu semana de trabajo.” — y se verificó por API que esa acción, en efecto, recreó nuevamente la franja de miércoles que había sido eliminada con “Quitar”. Esta es la confirmación más decisiva del hallazgo: el propio mensaje de la aplicación admite explícitamente que “restaura” horarios según la plantilla, sin distinguir entre una franja nunca creada y una eliminada a propósito. El disparador exacto de la resurrección espontánea (sin “Guardar” ni “Anular” de por medio) no pudo determinarse con certeza dentro del alcance de esta auditoría manual.",
+            evidencia: [
+              { src: "capturas/caso-09/08-tablet-modal-quitar-30-09-09h-10h.jpg", caption: "Modal “Quitar” en tableta, sobre la franja del 30/09, 09h-10h" },
+              { src: "capturas/caso-09/09-tablet-disponibilidad-badge-vacaciones.jpg", caption: "Etiqueta “VACACIONES” en “Disponibilidad configurada”" },
+              { src: "capturas/caso-09/10-tablet-vacaciones-guardadas-1-dias-bloqueados.jpg", caption: "Confirmación al guardar el bloqueo de vacaciones" },
+              { src: "capturas/caso-09/11-tablet-vacaciones-anuladas-restauraron-1-horarios.jpg", caption: "Mensaje “se restauraron 1 horarios” al anular vacaciones, confirmando la resurrección" }
+            ]
+          },
+          {
+            viewport: "Móvil (390×844)",
+            resultado: "replica",
+            textoHtml: "Replica, tercera confirmación cruzada en el tercer viewport. Se eliminó nuevamente la misma franja (miércoles 30/09, 09:00-10:00) desde la hoja modal (“bottom sheet”) de “Quitar”, con el mismo modal de confirmación bien adaptado. La baja se reflejó correctamente (de 2 a 1 franjas en miércoles), pero al volver a la pestaña de configuración (“Plantilla” en móvil — ver Hallazgo 3) y seleccionar miércoles, la franja seguía marcada como seleccionada: la misma causa raíz ya documentada en escritorio y tableta.",
+            evidencia: [
+              { src: "capturas/caso-09/12-movil-modal-quitar-30-09-09h-10h.jpg", caption: "Modal “Quitar” en móvil, como hoja modal" },
+              { src: "capturas/caso-09/13-movil-plantilla-labels-mie-seleccionado.jpg", caption: "Miércoles sigue seleccionado en “Plantilla” tras la baja en móvil" }
+            ]
+          }
+        ]
+      },
+      {
+        numero: 2,
+        titulo: "Mensajes de confirmación con error de concordancia de número (singular/plural) en “Horarios” y “Vacaciones”",
+        heuristicaId: "H08",
+        heuristicaNombre: "H8 — Estética sobria y minimalismo antiestrés",
+        severidad: "Recomendación",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio y Tableta",
+        descripcionHtml: "Varios mensajes de confirmación de esta pantalla y de “Vacaciones” no ajustan correctamente el género/número de las palabras según la cantidad informada, incluso cuando la cantidad es 1: “Horario semanal guardado: 1 horarios nuevos para las proximas 8 semanas” (debería ser “1 horario nuevo”); “Vacaciones guardadas: 1 dias bloqueados” (debería ser “1 día bloqueado”); “Vacaciones anuladas: 1 horarios desbloqueados. Se restauraron 1 horarios segun tu semana de trabajo.” (debería ser “1 horario desbloqueado” / “se restauró 1 horario”). Se trata de un patrón transversal distinto al de las tildes (ver el Hallazgo 5 del Caso 08, que suma estos mismos mensajes como evidencia adicional del problema de tildes), probablemente originado en la misma fuente de textos/plantillas de mensajes de la aplicación, pero específicamente relacionado con la interpolación de cantidades en singular.",
+        recomendacion: "Ajustar las plantillas de mensajes para manejar correctamente singular/plural según la cantidad interpolada (por ejemplo, con una función de pluralización), en vez de concatenar siempre la forma plural.",
+        evidencia: [
+          { src: "capturas/caso-09/02-guardar-recrea-3-horarios-nuevos.jpg", caption: "El caso puntual de esta captura es plural (“3 horarios nuevos”, correcto); el error de concordancia se observó específicamente con cantidad 1" },
+          { src: "capturas/caso-09/10-tablet-vacaciones-guardadas-1-dias-bloqueados.jpg", caption: "“Vacaciones guardadas: 1 dias bloqueados”, sin concordancia" },
+          { src: "capturas/caso-09/11-tablet-vacaciones-anuladas-restauraron-1-horarios.jpg", caption: "“Se restauraron 1 horarios…”, sin concordancia" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 3,
+        titulo: "En móvil, las pestañas, el botón de limpieza y el formato de fecha de “Horarios” usan un rotulado distinto al de escritorio/tableta",
+        heuristicaId: "H04",
+        heuristicaNombre: "H4 — Consistencia y estándares",
+        severidad: "Recomendación",
+        clasificacion: "Responsive",
+        viewport: "Móvil (390×844), comparado contra Escritorio y Tableta",
+        descripcionHtml: "La misma pantalla “Horarios”, con exactamente la misma funcionalidad, usa nombres distintos según el viewport. En escritorio y tableta, las pestañas se llaman “Configurar horarios de trabajo” y “Disponibilidad configurada”, y el botón para vaciar la selección pendiente de un día se llama “Eliminar selección del día”. En móvil, las mismas dos pestañas pasan a llamarse “Plantilla” y “Publicados”, y el mismo botón pasa a llamarse “Limpiar día”. El formato de fecha también cambia: en escritorio/tableta el encabezado del mes se muestra en mayúsculas (“SEPTIEMBRE DE 2026”) y cada fecha en una sola línea (“28 de septiembre - Lunes”); en móvil, el mes se muestra en minúsculas (“septiembre de 2026”) y cada fecha se separa en dos líneas (“Lunes” arriba, “28 sept” abajo). Un profesional que use la aplicación tanto en computadora como en el celular podría no reconocer de inmediato que se trata de la misma función, o tener dificultad para seguir instrucciones de soporte redactadas pensando en un solo viewport. Vale aclarar que el nombre “Plantilla” usado en móvil es, en los hechos, más preciso y ayuda a entender el modelo de datos real de la aplicación (la plantilla semanal recurrente descripta en el Hallazgo 1), por lo que no se sugiere necesariamente unificar hacia el nombre de escritorio.",
+        recomendacion: "Unificar el rotulado de pestañas, botones y formato de fecha entre los tres viewports. Dado que “Plantilla” y “Publicados” describen mejor el modelo de datos subyacente, considerar adoptarlos también en escritorio y tableta (en vez de “Configurar horarios de trabajo” y “Disponibilidad configurada”), aprovechando además para reforzar visualmente al profesional que ambas vistas son estados relacionados pero distintos — lo cual también ayudaría a prevenir la confusión de fondo del Hallazgo 1.",
+        evidencia: [
+          { src: "capturas/caso-09/13-movil-plantilla-labels-mie-seleccionado.jpg", caption: "Pestañas “Plantilla” / “Publicados” y grilla de 3 columnas en móvil" },
+          { src: "capturas/caso-09/14-movil-publicados-formato-fecha.jpg", caption: "Formato de fecha en dos líneas y mes en minúsculas, en “Publicados” en móvil" },
+          { src: "capturas/caso-09/03-disponibilidad-septiembre-restaurada-a-3.jpg", caption: "Pestañas “Configurar horarios de trabajo” / “Disponibilidad configurada” y formato de fecha en escritorio, para contrastar" }
         ],
         verificaciones: []
       }
