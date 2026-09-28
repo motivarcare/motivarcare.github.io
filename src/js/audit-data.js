@@ -87,7 +87,7 @@ export const auditAreas = [
     description: "Flujo integral del usuario desde el triaje o búsqueda de terapeuta, selección de horario, pasarela de pago, hasta la sala de espera virtual y la realización de la videoconsulta.",
     score: 59,
     status: "Revisión Prioritaria",
-    findingsCount: { critica: 4, mayor: 10, menor: 23, recomendacion: 10, aRevisar: 2 }
+    findingsCount: { critica: 5, mayor: 10, menor: 23, recomendacion: 10, aRevisar: 2 }
   },
   {
     id: "professional",
@@ -1433,6 +1433,21 @@ export const casos = [
         recomendacion: "Hacer que el botón “Comprar” de esta pantalla abra el mismo selector de paquetes (“Elegí tu terapia”) que usa la tarjeta “Comprar sesiones” de la Home, en lugar de saltar directo a un paquete fijo. Si el comportamiento actual es intencional (por ejemplo, como atajo hacia un paquete “recomendado”), mostrar como mínimo una pantalla de confirmación dentro de la app, con el nombre y el precio del paquete, antes de redirigir a la pasarela de pago externa.",
         evidencia: [
           { src: "capturas/caso-04/28-movil-boton-comprar-checkout-directo-pro-460000.jpg", caption: "Checkout de dLocal Go tras tocar “Comprar”: MotivarCare Pro, ARS 460.000,00, sin haber elegido ningún paquete" }
+        ],
+        verificaciones: []
+      },
+      {
+        numero: 12,
+        titulo: "La asignación de profesionales no es del todo clara y se confunde con la “Sesión de prueba”",
+        heuristicaId: "H01",
+        heuristicaNombre: "H1 — Visibilidad del estado del sistema",
+        severidad: "Crítica",
+        clasificacion: "Usabilidad",
+        viewport: "Escritorio (verificado por el Evaluador UX, fuera de esta sesión de auditoría)",
+        descripcionHtml: "Inmediatamente después de crear una cuenta como paciente se abre la pantalla que lista los profesionales disponibles, pero el usuario puede saltear ese paso con la opción “Más tarde”. Si más adelante compra un paquete de sesiones —incluso días después, y sin haber vuelto a pasar por esa pantalla—, la app le asigna un profesional en forma automática (el primero de la lista), sin que ese vínculo entre “comprar un paquete” y “quedar asignado a un profesional” quede comunicado con claridad en ningún momento del flujo de compra. Existe un circuito para cambiar de profesional, pero es completamente manual: hay que escribir un mail a soporte. A la vez, el botón “Reservar sesión de prueba” sigue disponible en todo momento y permite reservar con un profesional distinto (a un precio también distinto), por lo que el paciente puede terminar vinculado a más de un profesional sin haberlo decidido conscientemente. La app tampoco resuelve con claridad el manejo de esos múltiples profesionales: por ejemplo, no es evidente con cuál de ellos se abre el chat cuando hay más de uno asociado a la cuenta. El cálculo de sesiones disponibles se suma a esta confusión: cuando conviven un paquete comprado y una sesión de prueba, la sesión de prueba descuenta del contador de sesiones del paquete aun cuando fue pagada por separado. Y si esa sesión de prueba se cancela, no hay forma de reagendarla sin volver a pagarla o sin escribirle a soporte.",
+        recomendacion: "Comunicar explícitamente, en el momento de comprar un paquete, que la compra incluye la asignación automática de un profesional (mostrando cuál) y ofrecer ahí mismo, dentro del flujo, la opción de elegir uno distinto o confirmar el sugerido, en vez de dejar que el paciente lo descubra por su cuenta en la Home. Reemplazar el circuito de reasignación por mail a soporte por uno autogestionable desde la propia cuenta. Definir y comunicar con claridad cómo se maneja la relación con múltiples profesionales (por ejemplo, a cuál se dirige el chat cuando hay más de uno). Corregir el cálculo de sesiones disponibles para que una sesión de prueba pagada aparte no descuente créditos del paquete. Y permitir reagendar una sesión de prueba cancelada de forma autogestionable, sin requerir un nuevo pago ni contactar a soporte.",
+        evidencia: [
+          { src: "capturas/caso-04/29-sesiones-disponibles-2-descuento-sesion-prueba.png", caption: "Pantalla “Sesiones”: dos reservas con profesionales distintos en “Próximas Reservas”, mientras “Sesiones listas para agendar” muestra solo 2 de las 4 del paquete — la sesión de prueba, pagada aparte, descuenta igual del total del paquete" }
         ],
         verificaciones: []
       }
