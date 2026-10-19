@@ -418,11 +418,11 @@ img { max-width: 100%; display: block; }
 /* ---------- Quiénes somos ---------- */
 .nosotros { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 /* Elección de profesional: tarjetas que suben y se elige una (loop de 14 s) */
-.eleccion { --paso: 216px; position: relative; margin: 0; padding: 28px 6% 28px; }
+.eleccion { --paso: 224px; position: relative; margin: 0; padding: 28px 6% 28px; }
 .mancha-eleccion { position: absolute; inset: -4% -6%; width: 112%; height: 108%; z-index: 0; }
 .ventana-eleccion { position: relative; z-index: 1; height: calc(var(--paso) * 2.3); overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); }
 .lista-pro { display: grid; gap: 14px; padding: 14px 0; animation: elegir-scroll 14s infinite; }
-.tarjeta-pro { height: calc(var(--paso) - 14px); box-sizing: border-box; display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--superficie); border: 1.5px solid var(--linea); border-radius: var(--radio-medio); padding: 16px 16px 16px; box-shadow: 0 18px 36px -26px rgba(20, 41, 31, 0.45); }
+.tarjeta-pro { height: calc(var(--paso) - 14px); box-sizing: border-box; display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--superficie); border: 1.5px solid var(--linea); border-radius: var(--radio-medio); padding: 16px 16px 22px; box-shadow: 0 18px 36px -26px rgba(20, 41, 31, 0.45); }
 .avatar-pro { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--salvia); display: block; }
 .tarjeta-pro .info { display: grid; gap: 2px; min-width: 0; }
 .tarjeta-pro .nombre { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
@@ -433,8 +433,8 @@ img { max-width: 100%; display: block; }
 .datos-pro span { font-size: 11.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 99px; padding: 3px 9px; white-space: nowrap; }
 .tarjeta-pro .bio { margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: var(--tinta-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pie-pro { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 8px; }
-.turno { font-size: 12.5px; font-weight: 700; color: var(--verde-medio); line-height: 1.2; }
-.turno small { display: block; font-size: 10.5px; font-weight: 600; color: var(--tinta-tenue); text-transform: uppercase; letter-spacing: 0.08em; }
+.turno { font-size: 11.5px; font-weight: 700; color: var(--verde-medio); line-height: 1.2; }
+.turno small { display: block; font-size: 9.5px; font-weight: 600; color: var(--tinta-tenue); text-transform: uppercase; letter-spacing: 0.08em; }
 .ver { position: relative; flex: none; font-size: 12.5px; font-weight: 800; color: var(--crema); background: var(--bosque); border-radius: 99px; padding: 7px 14px; }
 .toque { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 2px solid var(--bosque); opacity: 0; pointer-events: none; }
 .coincidencia { flex: none; font-size: 10.5px; font-weight: 800; color: var(--bosque); background: var(--amarillo-suave); border-radius: 99px; padding: 3px 8px; opacity: 0; transform: translateY(4px); }
@@ -445,7 +445,7 @@ img { max-width: 100%; display: block; }
 /* Recorrido: se desplaza en tramos, se detiene en la cuarta tarjeta, se elige y sigue hasta empalmar con el inicio */
 @media (max-width: 480px) {
   .eleccion { padding: 20px 0; }
-  .tarjeta-pro { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 14px 12px; }
+  .tarjeta-pro { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 14px 12px 20px; }
   .avatar-pro { width: 46px; height: 46px; }
   .tarjeta-pro .nombre b { font-size: 15.5px; }
 }
@@ -466,6 +466,9 @@ img { max-width: 100%; display: block; }
 .nosotros .texto > p:not(.cita-marca) { color: var(--tinta-suave); font-size: 16.5px; }
 @media (max-width: 860px) { .nosotros { grid-template-columns: 1fr; } }
 
+.destacado-nosotros { background: var(--menta); border-radius: var(--radio-medio); padding: 16px 20px; display: grid; gap: 4px; max-width: 46ch; }
+.destacado-nosotros b { font-family: var(--serif); font-weight: 500; font-size: 19px; color: var(--bosque); }
+.destacado-nosotros p { margin: 0; color: var(--tinta-suave); font-size: 15.5px; }
 .texto-pendiente { border: 1.5px dashed var(--verde-medio); border-radius: var(--radio-chico); padding: 12px 16px; font-size: 14.5px; color: var(--bosque-2); background: radial-gradient(rgba(30, 64, 51, 0.12) 1px, transparent 1.3px) 0 0 / 8px 8px; }
 .texto-pendiente b { display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bosque); margin-bottom: 2px; }
 
