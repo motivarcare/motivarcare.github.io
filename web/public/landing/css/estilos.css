@@ -336,8 +336,8 @@ img { max-width: 100%; display: block; }
 .ficha-revision { background: var(--superficie); border: 1px solid var(--linea); border-radius: var(--radio-grande); padding: 28px; box-shadow: var(--sombra-flotante); display: grid; gap: 18px; }
 .ficha-revision .fila { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
 .ficha-revision .avatar-ficha { display: block; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--salvia); }
-.ficha-revision .barra { height: 10px; border-radius: 99px; background: var(--menta); }
-.ficha-revision .barra.corta { width: 55%; margin-top: 8px; }
+.ficha-revision .datos b { display: block; font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--bosque); line-height: 1.2; }
+.ficha-revision .datos small { display: block; margin-top: 4px; font-size: 13.5px; color: var(--tinta-suave); line-height: 1.35; }
 .ficha-revision .pasos-rev { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
 .ficha-revision .pasos-rev li { display: flex; align-items: center; gap: 12px; font-size: 14.5px; font-weight: 600; color: var(--bosque); }
 .ficha-revision .pasos-rev li::before { content: ''; flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--salvia) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231E4033' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat; }
