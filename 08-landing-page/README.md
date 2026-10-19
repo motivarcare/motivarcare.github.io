@@ -1,6 +1,6 @@
 ---
 titulo: Landing page
-numero: "09"
+numero: "08"
 estado: en-revision
 resumen: "Contenidos de la landing page pública de MotivarCare (www.motivarcare.com): la versión actual relevada y una propuesta nueva con el design system de la marca."
 actualizado: 2026-10-15
@@ -19,7 +19,7 @@ iniciativas:
     boton: Ver la propuesta
 ---
 
-# 09 · Landing page
+# 08 · Landing page
 
 Contenidos de la landing page pública de MotivarCare ([www.motivarcare.com](https://www.motivarcare.com/)).
 

@@ -41,12 +41,12 @@ El primer frente que se abordó fue la **auditoría integral de UX** del portal 
 | `00-resumen/` | Contenido de la portada del portal interno (`index.md`) |
 | `01-investigacion/` | Investigación (usuarios, mercado, competencia) |
 | `02-comercial/` | Comercial (investor deck, propuestas, modelo de negocio) |
+| `03-marketing/` | Marketing |
 | `04-design-system/` | Design system (tokens, componentes, guías) |
 | `05-diseno/` | Diseño de producto (flujos, pantallas, prototipos) |
 | `06-desarrollo/` | Desarrollo |
 | `07-auditoria/` | Auditoría UX: bitácora de casos, documentos y material de trabajo |
-| `08-marketing/` | Marketing |
-| `09-landing-page/` | Contenidos de la landing page pública (www.motivarcare.com) |
+| `08-landing-page/` | Contenidos de la landing page pública (www.motivarcare.com) |
 | `web/` | **Portal HTML interno** para presentar los trabajos de cada frente |
 
 Cada carpeta tiene un `README.md` que explica para qué es.

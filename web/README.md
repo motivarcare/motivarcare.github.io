@@ -100,5 +100,5 @@ web/
 ├── src/styles/global.css   estilos (paleta y tipografía del investor deck)
 ├── public/img/             imágenes del portal (fotos de la portada e imágenes de las iniciativas)
 ├── public/decks/           investor deck en HTML (02-comercial)
-└── public/landing/         propuesta de nueva landing pública (09-landing-page): HTML, CSS y JS propios, sin depender del portal
+└── public/landing/         propuesta de nueva landing pública (08-landing-page): HTML, CSS y JS propios, sin depender del portal
 ```

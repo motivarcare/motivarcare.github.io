@@ -17,12 +17,12 @@ Cada frente de trabajo tiene su carpeta. El `README.md` de cada una explica qué
 | [`00-resumen`](00-resumen) | Presentación general del proyecto |
 | [`01-investigacion`](01-investigacion) | Investigación de usuarios, mercado y competencia |
 | [`02-comercial`](02-comercial) | Plan de negocio, investor deck y modelo de negocio |
+| [`03-marketing`](03-marketing) | Estrategia, contenidos y campañas |
 | [`04-design-system`](04-design-system) | Lenguaje visual de la plataforma |
 | [`05-diseno`](05-diseno) | Flujos, pantallas y prototipos |
 | [`06-desarrollo`](06-desarrollo) | Especificaciones técnicas e implementación |
 | [`07-auditoria`](07-auditoria) | Auditoría UX de la plataforma en producción |
-| [`08-marketing`](08-marketing) | Estrategia, contenidos y campañas |
-| [`09-landing-page`](09-landing-page) | Contenidos de la landing page pública |
+| [`08-landing-page`](08-landing-page) | Contenidos de la landing page pública |
 | [`web`](web) | Portal interno que muestra el trabajo de cada frente |
 
 El archivo [`contexto.md`](contexto.md) reúne las decisiones generales y la forma de trabajo.

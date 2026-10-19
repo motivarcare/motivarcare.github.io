@@ -1,12 +1,12 @@
 ---
 titulo: Marketing
-numero: "08"
+numero: "03"
 estado: sin-iniciar
 resumen: "Estrategia de marketing, contenidos, campañas y comunicación de marca."
-actualizado: 2026-10-15
+actualizado: 2026-10-19
 proximos_pasos: []
 ---
 
-# 08 · Marketing
+# 03 · Marketing
 
 Estrategia de marketing, contenidos, campañas y comunicación de marca.
