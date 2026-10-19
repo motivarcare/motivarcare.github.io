@@ -6,7 +6,7 @@ resumen: "Contenidos de la landing page pública de MotivarCare (www.motivarcare
 actualizado: 2026-10-19
 proximos_pasos:
   - "Revisar la propuesta y ajustar textos y secciones."
-  - "Completar el placeholder que queda: equipo de MotivarCare."
+  - "Completar el placeholder de texto que queda: equipo de MotivarCare."
   - "Confirmar con el equipo los datos nuevos (verificación de perfiles, países, tratamiento de las reseñas)."
 iniciativas:
   - titulo: Propuesta de nueva landing page
@@ -51,7 +51,7 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Psicólogos certificados | Pasa a explicar **cómo** se verifica: cada profesional carga matrícula, título y experiencia, y el equipo los revisa antes de publicar el perfil. Se acompaña con una ficha de revisión con la foto, el nombre y la especialidad de un profesional ficticio (Lic. Diego Ferreyra, psicólogo clínico, terapia cognitivo-conductual). Al entrar en pantalla, el último paso ("Revisión del equipo de MotivarCare") se revisa, se completa y recién entonces aparece el sello "Perfil verificado". |
 | Cómo empezar | Los mismos cuatro pasos, en voseo, con un botón "Crear mi cuenta" al final. |
 | Maca | Se agrega el bloque de los dos territorios (la terapia y el apoyo). El texto, los beneficios, el aviso y el chat se mantienen, en voseo. La ventana de Maca va con borde punteado. El ícono de Maca (mujer con auricular, en línea orgánica) aparece en la tarjeta "El apoyo" y en el encabezado del chat. |
-| Quiénes somos | Se corrige "Maca impulsó MotivarCare" (Maca es la IA, no la fundadora) por "MotivarCare nació en Argentina…". Se dejan placeholders para la foto del equipo y para un texto sobre quiénes lo integran. |
+| Quiénes somos | Se corrige "Maca impulsó MotivarCare" (Maca es la IA, no la fundadora) por "MotivarCare nació en Argentina…". En lugar de la foto, a la izquierda va una animación: tarjetas de cuatro profesionales ficticios (con avatar redondo, experiencia, especialidad, precio, sesiones, una línea de presentación y próximo turno) suben como si alguien las recorriera, se detienen en una, aparece "Compatible" y se toca "Ver horarios". Queda un placeholder para un texto sobre quiénes integran el equipo. |
 | Precios | Mismo contenido, en una tarjeta de precio y una lista de "Lo que tenés que saber". |
 | Reseñas | Se muestran todas juntas en una grilla en lugar de un carrusel, sin editar, con la aclaración "Reseñas publicadas por pacientes en la plataforma, sin editar". Cada una lleva la foto de perfil del sitio actual, con el tratamiento de color de la marca para unificarlas (`landing/img/resenas/`). Se saca el "hace 163 días". |
 | Preguntas frecuentes | Las seis en voseo, más dos nuevas: "¿Los profesionales tienen matrícula?" y "¿Qué hago si estoy en crisis?" (sin destacar, al final de la lista). |
@@ -62,13 +62,13 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 
 ### Placeholders pendientes
 
-- Quiénes somos: foto o retratos del equipo, y un texto sobre quiénes lo integran y qué profesionales asesoran a MotivarCare.
+- Quiénes somos: un texto sobre quiénes integran el equipo y qué profesionales asesoran a MotivarCare.
 
 ### A confirmar con el equipo
 
 - Que la revisión de matrícula, título y experiencia antes de publicar un perfil se describa como en la propuesta.
 - La lista de países donde se ofrece el servicio.
-- Los perfiles del hero (Lic. Agustina Torres) y de la ficha de revisión (Lic. Diego Ferreyra), y sus fotos, son ficticios: las fotos se generaron con Figma AI. Antes de publicar, decidir si se reemplazan por un perfil y fotos reales (con autorización) o si se aclara que es una ilustración.
+- Los perfiles del hero (Lic. Agustina Torres), de la ficha de revisión (Lic. Diego Ferreyra) y de las tarjetas de "Quiénes somos" (Lic. Valeria Quiroga, Lic. Tomás Benítez, Lic. Mónica Aranda y Lic. Andrés Salvatierra), y sus fotos, son ficticios: las fotos se generaron con Figma AI. Antes de publicar, decidir si se reemplazan por un perfil y fotos reales (con autorización) o si se aclara que es una ilustración.
 - Si las reseñas pueden mostrarse con nombre y foto. Algunas fotos del sitio actual parecen de banco de imágenes o generadas; si no son de los pacientes reales, conviene reemplazarlas por fotos reales (con autorización) o por iniciales, porque una foto genérica junto a un testimonio resta credibilidad.
 
 ## Versión actual en producción

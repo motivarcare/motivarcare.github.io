@@ -417,7 +417,50 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Quiénes somos ---------- */
 .nosotros { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
-.nosotros .placeholder { aspect-ratio: 4 / 3; border-radius: var(--radio-grande); }
+/* Elección de profesional: tarjetas que suben y se elige una (loop de 14 s) */
+.eleccion { --paso: 216px; position: relative; margin: 0; padding: 28px 6% 28px; }
+.mancha-eleccion { position: absolute; inset: -4% -6%; width: 112%; height: 108%; z-index: 0; }
+.ventana-eleccion { position: relative; z-index: 1; height: calc(var(--paso) * 2.3); overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); }
+.lista-pro { display: grid; gap: 14px; padding: 14px 0; animation: elegir-scroll 14s infinite; }
+.tarjeta-pro { height: calc(var(--paso) - 14px); box-sizing: border-box; display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--superficie); border: 1.5px solid var(--linea); border-radius: var(--radio-medio); padding: 16px 16px 16px; box-shadow: 0 18px 36px -26px rgba(20, 41, 31, 0.45); }
+.avatar-pro { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--salvia); display: block; }
+.tarjeta-pro .info { display: grid; gap: 2px; min-width: 0; }
+.tarjeta-pro .nombre { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tarjeta-pro .nombre b { min-width: 0; font-family: var(--serif); font-weight: 500; font-size: 17px; color: var(--bosque); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tarjeta-pro .exp { font-size: 12.5px; font-weight: 700; color: var(--bosque); }
+.tarjeta-pro .esp { font-size: 12.5px; color: var(--tinta-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.datos-pro { display: flex; gap: 6px; margin-top: 6px; }
+.datos-pro span { font-size: 11.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 99px; padding: 3px 9px; white-space: nowrap; }
+.tarjeta-pro .bio { margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: var(--tinta-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pie-pro { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-top: 8px; }
+.turno { font-size: 12.5px; font-weight: 700; color: var(--verde-medio); line-height: 1.2; }
+.turno small { display: block; font-size: 10.5px; font-weight: 600; color: var(--tinta-tenue); text-transform: uppercase; letter-spacing: 0.08em; }
+.ver { position: relative; flex: none; font-size: 12.5px; font-weight: 800; color: var(--crema); background: var(--bosque); border-radius: 99px; padding: 7px 14px; }
+.toque { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 2px solid var(--bosque); opacity: 0; pointer-events: none; }
+.coincidencia { flex: none; font-size: 10.5px; font-weight: 800; color: var(--bosque); background: var(--amarillo-suave); border-radius: 99px; padding: 3px 8px; opacity: 0; transform: translateY(4px); }
+.tarjeta-pro.elegida { animation: elegida 14s infinite; }
+.tarjeta-pro.elegida .coincidencia { animation: coincidencia 14s infinite; }
+.tarjeta-pro.elegida .ver { animation: ver-elegido 14s infinite; }
+.tarjeta-pro.elegida .toque { animation: toque 14s infinite; }
+/* Recorrido: se desplaza en tramos, se detiene en la cuarta tarjeta, se elige y sigue hasta empalmar con el inicio */
+@media (max-width: 480px) {
+  .eleccion { padding: 20px 0; }
+  .tarjeta-pro { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 14px 12px; }
+  .avatar-pro { width: 46px; height: 46px; }
+  .tarjeta-pro .nombre b { font-size: 15.5px; }
+}
+@keyframes elegir-scroll {
+  0%, 7% { transform: translateY(0); animation-timing-function: cubic-bezier(.3, 0, .2, 1); }
+  17%, 21% { transform: translateY(calc(var(--paso) * -0.85)); animation-timing-function: cubic-bezier(.3, 0, .2, 1); }
+  31%, 34% { transform: translateY(calc(var(--paso) * -1.8)); animation-timing-function: cubic-bezier(.3, 0, .2, 1); }
+  42% { transform: translateY(calc(var(--paso) * -2.38)); animation-timing-function: ease-out; }
+  45%, 82% { transform: translateY(calc(var(--paso) * -2.32)); animation-timing-function: cubic-bezier(.5, 0, .2, 1); }
+  100% { transform: translateY(calc(var(--paso) * -4)); }
+}
+@keyframes elegida { 0%, 46% { border-color: var(--linea); box-shadow: 0 18px 36px -26px rgba(20, 41, 31, 0.45); } 50%, 80% { border-color: var(--bosque); box-shadow: 0 0 0 4px var(--salvia), 0 24px 44px -24px rgba(20, 41, 31, 0.5); } 86%, 100% { border-color: var(--linea); box-shadow: 0 18px 36px -26px rgba(20, 41, 31, 0.45); } }
+@keyframes coincidencia { 0%, 48% { opacity: 0; transform: translateY(4px); } 52%, 80% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; } }
+@keyframes ver-elegido { 0%, 58% { background: var(--bosque); color: var(--crema); transform: none; } 60% { transform: scale(0.94); } 62%, 80% { background: var(--amarillo); color: var(--tinta); transform: none; } 86%, 100% { background: var(--bosque); color: var(--crema); } }
+@keyframes toque { 0%, 58% { opacity: 0; transform: scale(0.4); } 59% { opacity: 0.8; transform: scale(0.5); } 66% { opacity: 0; transform: scale(1.6); } 100% { opacity: 0; } }
 .nosotros .texto { display: grid; gap: 18px; justify-items: start; }
 .cita-marca { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.25; color: var(--bosque); font-weight: 460; font-style: italic; }
 .nosotros .texto > p:not(.cita-marca) { color: var(--tinta-suave); font-size: 16.5px; }
@@ -521,5 +564,9 @@ img { max-width: 100%; display: block; }
   .js .chat-animado .escribiendo { display: none; }
   .ilus-sitio * { animation: none !important; }
   .ficha-revision *, .ficha-revision *::before { animation: none !important; transition: none !important; }
+  .lista-pro { animation: none !important; transform: translateY(calc(var(--paso) * -2.32)); }
+  .tarjeta-pro.elegida { animation: none !important; border-color: var(--bosque); box-shadow: 0 0 0 4px var(--salvia); }
+  .tarjeta-pro.elegida .coincidencia { animation: none !important; opacity: 1; transform: none; }
+  .tarjeta-pro.elegida .ver { animation: none !important; background: var(--amarillo); color: var(--tinta); }
   .ilus-sitio .vibra { opacity: 0; }
 }

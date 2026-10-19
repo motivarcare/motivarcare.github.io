@@ -228,6 +228,9 @@ Lenguaje gráfico para representar pacientes, profesionales y sesiones en diagra
 | Barras de audio | 1,6 s, en loop | Indicador de que alguien habla en la videollamada |
 | Subrayado ondulante | 4,8 s, en loop | Palabra clave del título |
 | Mancha que respira | 14 s, en loop | Manchas de fondo e íconos sobre manchas |
+| Mancha que cambia de forma | 9–12 s, en loop | Manchas principales de una escena; cada una a su ritmo |
+| Elección de profesional | 14 s, en loop | Tarjetas de profesionales que suben en tramos, se detienen en una, se marca "Compatible" y se toca "Ver horarios" |
+| Revisión de perfil | 2,4 s, una vez | El último paso gira mientras se revisa, se completa y recién entonces aparece el sello |
 
 - Una animación principal por pantalla. Se repite al volver a la pantalla.
 - Curva de entrada `cubic-bezier(.2, .7, .2, 1)`. Los loops usan `ease-in-out`.
