@@ -50,7 +50,7 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Por qué MotivarCare | Cuatro razones, con textos moderados: desde donde estés, conexión en minutos, profesionales de toda la región y acompañamiento. Se quita la tarjeta de inteligencia artificial (la IA queda solo en la sección de Maca). Toma el título "Pensado para empezar sin fricción", que antes estaba en un bloque aparte. Las banderas pasan a chips de texto y se suma un mapa de puntos. El chat de ejemplo queda en voseo y se anima mensaje por mensaje. |
 | Psicólogos certificados | Pasa a explicar **cómo** se verifica: cada profesional carga matrícula, título y experiencia, y el equipo los revisa antes de publicar el perfil. Se acompaña con una ficha de revisión. |
 | Cómo empezar | Los mismos cuatro pasos, en voseo, con un botón "Crear mi cuenta" al final. |
-| Maca | Se agrega el bloque de los dos territorios (la terapia y el apoyo). El texto, los beneficios, el aviso y el chat se mantienen, en voseo. La ventana de Maca va con borde punteado. |
+| Maca | Se agrega el bloque de los dos territorios (la terapia y el apoyo). El texto, los beneficios, el aviso y el chat se mantienen, en voseo. La ventana de Maca va con borde punteado. El ícono de Maca (mujer con auricular, en línea orgánica) aparece en la tarjeta "El apoyo" y en el encabezado del chat. |
 | Quiénes somos | Se corrige "Maca impulsó MotivarCare" (Maca es la IA, no la fundadora) por "MotivarCare nació en Argentina…". Se dejan placeholders para la foto del equipo y para un texto sobre quiénes lo integran. |
 | Precios | Mismo contenido, en una tarjeta de precio y una lista de "Lo que tenés que saber". |
 | Reseñas | Se muestran todas juntas en una grilla en lugar de un carrusel, sin editar, con la aclaración "Reseñas publicadas por pacientes en la plataforma, sin editar". Cada una lleva la foto de perfil del sitio actual, con el tratamiento de color de la marca para unificarlas (`landing/img/resenas/`). Se saca el "hace 163 días". |
@@ -58,7 +58,7 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | **Para profesionales** (nueva) | "¿Sos psicólogo o psicóloga?", con los tres pasos para sumarse y un botón al portal de profesionales. |
 | **Cierre** (nueva) | Banda verde bosque en dos columnas: a la izquierda "Tu cambio empieza acá.", un texto corto y los botones "Empezá hoy" y "Tengo dudas"; a la derecha, sobre el corazón, la misma foto de la escena de cierre que usa el deck. |
 | Pie | Mismos enlaces, ordenados en columnas (portales e información). |
-| Botón flotante | "Escribile a Maca", con borde punteado. |
+| Botón flotante | "Escribile a Maca", con borde punteado y el ícono de Maca. |
 
 ### Placeholders pendientes
 

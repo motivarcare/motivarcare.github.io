@@ -160,6 +160,7 @@ En los títulos grandes, una palabra clave puede ir en itálica, en `bosque-2`, 
 - Íconos de línea de 2 px de trazo, con extremos y uniones redondeados, sobre una grilla de 24 px.
 - **Íconos sobre manchas:** una mancha orgánica de color, semitransparente y sin contorno, que se deforma muy lento en loop. El ícono va calado en línea crema (el color del fondo), con trazo limpio.
 - No se usan emojis como íconos.
+- **Ícono de Maca:** una mujer joven de melena con flequillo en onda, ojos sonrientes, mejillas en amarillo suave y auricular con micrófono amarillo. Está dibujado a mano alzada, con trazo de 2,2 px y formas blandas. La vincha del auricular va punteada porque Maca es IA. Se usa en el botón flotante, en la ventana de chat y donde se presenta a Maca. El archivo es `web/public/landing/img/maca.svg`.
 
 ## Personas y sesiones
 
