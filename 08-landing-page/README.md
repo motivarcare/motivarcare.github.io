@@ -6,7 +6,7 @@ resumen: "Contenidos de la landing page pública de MotivarCare (www.motivarcare
 actualizado: 2026-10-19
 proximos_pasos:
   - "Revisar la propuesta y ajustar textos y secciones."
-  - "Completar los placeholders que quedan: equipo de MotivarCare y foto de cierre."
+  - "Completar el placeholder que queda: equipo de MotivarCare."
   - "Confirmar con el equipo los datos nuevos (verificación de perfiles, países, tratamiento de las reseñas)."
 iniciativas:
   - titulo: Propuesta de nueva landing page
@@ -45,7 +45,7 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Sección | Qué cambia |
 |---|---|
 | Encabezado | Se reordena la navegación (Cómo funciona, Profesionales, Maca, Precios, Preguntas) y se suma el acceso "Soy profesional". |
-| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona") y tres garantías concretas debajo. La tarjeta de perfil muestra a la Lic. Agustina Torres, sin número de matrícula. La composición de videollamada sobre el corazón tiene una foto de la profesional y una del paciente, con el tratamiento de color de la marca; la ventana del paciente es más grande que en la primera versión. |
+| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona") y tres garantías concretas debajo. La tarjeta de perfil muestra a la Lic. Agustina Torres, sin número de matrícula. La composición de videollamada sobre el corazón tiene una foto de la profesional y una del paciente, con el tratamiento de color de la marca; la ventana de la profesional tiene un marco punteado y la del paciente, un poco más grande, lleva el ícono amarillo del micrófono, como en la portada del deck. |
 | **Para quién es** (nueva) | "La terapia también es para lo que te pasa en el día a día." Un texto que invita a empezar sin tener todo claro y una caja con temas frecuentes de consulta (ansiedad, dormir mal, duelo, vínculos, primera vez en terapia, etc.). |
 | Por qué MotivarCare | Cuatro razones, con textos moderados: desde donde estés, conexión en minutos, profesionales de toda la región y acompañamiento. Se quita la tarjeta de inteligencia artificial (la IA queda solo en la sección de Maca). Toma el título "Pensado para empezar sin fricción", que antes estaba en un bloque aparte. Las banderas pasan a chips de texto y se suma un mapa de puntos. El chat de ejemplo queda en voseo y se anima mensaje por mensaje. |
 | Psicólogos certificados | Pasa a explicar **cómo** se verifica: cada profesional carga matrícula, título y experiencia, y el equipo los revisa antes de publicar el perfil. Se acompaña con una ficha de revisión. |
@@ -56,14 +56,13 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Reseñas | Se muestran todas juntas en una grilla en lugar de un carrusel, sin editar, con la aclaración "Reseñas publicadas por pacientes en la plataforma, sin editar". Cada una lleva la foto de perfil del sitio actual, con el tratamiento de color de la marca para unificarlas (`landing/img/resenas/`). Se saca el "hace 163 días". |
 | Preguntas frecuentes | Las seis en voseo, más dos nuevas: "¿Los profesionales tienen matrícula?" y "¿Qué hago si estoy en crisis?" (sin destacar, al final de la lista). |
 | **Para profesionales** (nueva) | "¿Sos psicólogo o psicóloga?", con los tres pasos para sumarse y un botón al portal de profesionales. |
-| **Cierre** (nueva) | Banda verde bosque en dos columnas: a la izquierda "Tu cambio empieza acá.", un texto corto y los botones "Empezá hoy" y "Tengo dudas"; a la derecha, la foto de la escena de cierre sobre el corazón, con el par de sesiones (reservada y en curso). |
+| **Cierre** (nueva) | Banda verde bosque en dos columnas: a la izquierda "Tu cambio empieza acá.", un texto corto y los botones "Empezá hoy" y "Tengo dudas"; a la derecha, sobre el corazón, la misma foto de la escena de cierre que usa el deck. |
 | Pie | Mismos enlaces, ordenados en columnas (portales e información). |
 | Botón flotante | "Escribile a Maca", con borde punteado. |
 
 ### Placeholders pendientes
 
 - Quiénes somos: foto o retratos del equipo, y un texto sobre quiénes lo integran y qué profesionales asesoran a MotivarCare.
-- Cierre: foto de la escena de cierre (paciente cerrando la laptop al terminar la sesión), vertical, con el tratamiento de marca. Puede ser la que ya está en el design system.
 
 ### A confirmar con el equipo
 

@@ -216,13 +216,17 @@ img { max-width: 100%; display: block; }
 .lienzo .p2 { left: calc(var(--u) * 588); top: calc(var(--u) * 44); width: calc(var(--u) * 11); height: calc(var(--u) * 11); opacity: 0.7; }
 .lienzo .ventana { border-radius: calc(var(--u) * 22); box-shadow: var(--sombra-flotante); overflow: hidden; background: var(--salvia); }
 .lienzo .ventana img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lienzo .grande { border: max(1.5px, calc(var(--u) * 2)) dashed var(--verde-medio); padding: calc(var(--u) * 6); background: var(--crema); }
+.lienzo .grande img { border-radius: calc(var(--u) * 15); }
+.lienzo .chica .silencio { position: absolute; left: calc(var(--u) * 12); bottom: calc(var(--u) * 12); width: calc(var(--u) * 34); height: calc(var(--u) * 34); border-radius: 50%; background: var(--amarillo); color: var(--tinta); display: flex; align-items: center; justify-content: center; }
+.lienzo .chica .silencio svg { width: calc(var(--u) * 16); height: calc(var(--u) * 16); }
 .lienzo .grande { left: calc(var(--u) * 150); top: calc(var(--u) * 150); width: calc(var(--u) * 470); height: calc(var(--u) * 315); }
 .lienzo .chica { left: calc(var(--u) * 108); top: calc(var(--u) * 318); width: calc(var(--u) * 235); height: calc(var(--u) * 260); border: calc(var(--u) * 6) solid var(--crema); border-radius: calc(var(--u) * 26); }
 .lienzo .placeholder { padding: calc(var(--u) * 16); }
 .lienzo .grande.placeholder { padding-left: calc(var(--u) * 190); }
 .lienzo .placeholder b { font-size: max(9px, calc(var(--u) * 11)); }
 .lienzo .placeholder span { font-size: max(10px, calc(var(--u) * 13)); }
-.pastilla-audio { position: absolute; left: calc(var(--u) * 16); top: calc(var(--u) * 16); display: inline-flex; align-items: center; gap: calc(var(--u) * 8); background: rgba(20, 41, 31, 0.6); color: #fff; border-radius: 99px; padding: calc(var(--u) * 8) calc(var(--u) * 12); }
+.pastilla-audio { position: absolute; left: calc(var(--u) * 20); top: calc(var(--u) * 20); display: inline-flex; align-items: center; gap: calc(var(--u) * 8); background: rgba(20, 41, 31, 0.6); color: #fff; border-radius: 99px; padding: calc(var(--u) * 8) calc(var(--u) * 12); }
 .pastilla-audio svg { width: calc(var(--u) * 15); height: calc(var(--u) * 15); }
 .barras { display: inline-flex; gap: calc(var(--u) * 3); align-items: center; height: calc(var(--u) * 14); }
 .barras i { width: calc(var(--u) * 3); border-radius: 2px; background: var(--amarillo); display: block; animation: hablar 1.6s ease-in-out infinite; }
@@ -442,8 +446,8 @@ img { max-width: 100%; display: block; }
 .cierre-visual { position: relative; width: 100%; max-width: 460px; justify-self: center; aspect-ratio: 460 / 520; }
 .cierre-visual > * { position: absolute; }
 .corazon-cierre { left: -12%; top: -6%; width: 118%; height: auto; transform: rotate(6deg); }
-.foto-cierre { left: 18%; top: 8%; width: 64%; aspect-ratio: 760 / 940; border-radius: var(--radio-grande); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.45); }
-.sesiones-cierre { right: 0; bottom: 6%; width: 40%; height: auto; background: var(--crema); border-radius: 99px; padding: 6px 10px; box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.5); }
+.foto-cierre { left: 18%; top: 8%; width: 64%; aspect-ratio: 760 / 940; border-radius: var(--radio-grande); overflow: hidden; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.45); }
+.foto-cierre img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .punto-cierre { border-radius: 50%; background: var(--amarillo); }
 .punto-cierre.p1 { left: 8%; top: 4%; width: 22px; height: 22px; }
 .punto-cierre.p2 { left: 2%; top: 13%; width: 10px; height: 10px; opacity: 0.7; }
@@ -473,10 +477,8 @@ img { max-width: 100%; display: block; }
 .js .chat-animado .msg, .js .chat-animado .escribiendo { opacity: 0; transform: translateY(6px); transition: opacity 0.4s ease, transform 0.4s var(--entrada); }
 .js .chat-animado .msg.mostrar { opacity: 1; transform: none; }
 .js .chat-animado .escribiendo.mostrar { opacity: 1; transform: none; }
-.latido { transform-box: fill-box; transform-origin: center; animation: latir 2.6s ease-in-out infinite; }
 @keyframes hablar { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.55); } }
 @keyframes tipear { 0%, 100% { opacity: 0.35; transform: none; } 50% { opacity: 1; transform: translateY(-3px); } }
-@keyframes latir { 0%, 100% { transform: scale(1); } 18% { transform: scale(1.07); } 36% { transform: scale(0.99); } 54% { transform: scale(1.04); } 75% { transform: scale(1); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
