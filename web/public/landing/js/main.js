@@ -46,7 +46,7 @@
 
   /* Chat de ejemplo: los mensajes aparecen de a uno, con "escribiendo…" antes del último */
   document.querySelectorAll('.chat-animado').forEach(function (chat) {
-    var items = Array.prototype.slice.call(chat.children);
+    var items = Array.prototype.slice.call(chat.querySelectorAll('.msg, .escribiendo'));
     var obs = new IntersectionObserver(function (entradas) {
       if (!entradas[0].isIntersecting) return;
       obs.disconnect();
@@ -56,7 +56,7 @@
         setTimeout(function () { el.classList.add('mostrar'); }, t);
         if (esEscribiendo) {
           t += 1400;
-          setTimeout(function () { el.style.display = 'none'; }, t);
+          setTimeout(function () { el.classList.remove('mostrar'); }, t);
         } else {
           t += 700;
         }

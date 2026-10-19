@@ -307,15 +307,14 @@ img { max-width: 100%; display: block; }
 .chat .msg { max-width: 85%; padding: 9px 13px; border-radius: 16px; line-height: 1.4; opacity: 1; transform: none; }
 .chat .msg.persona { justify-self: end; background: var(--bosque); color: var(--bosque-claro); border-bottom-right-radius: 4px; }
 .chat .msg.plataforma { justify-self: start; background: var(--menta); color: var(--bosque); border-bottom-left-radius: 4px; }
+.chat .ultimo { display: grid; }
+.chat .ultimo > * { grid-area: 1 / 1; align-self: start; }
+.chat .ultimo .msg { justify-self: start; }
 .chat .escribiendo { justify-self: start; display: inline-flex; gap: 4px; padding: 12px 14px; background: var(--menta); border-radius: 16px; }
 .chat .escribiendo i { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-medio); animation: tipear 1.2s ease-in-out infinite; }
 .chat .escribiendo i:nth-child(2) { animation-delay: 0.15s; }
 .chat .escribiendo i:nth-child(3) { animation-delay: 0.3s; }
-.trazo { position: absolute; right: -4px; top: -6px; width: 110px; height: 82px; pointer-events: none; }
-.razon--e h3 { padding-right: 64px; }
-.razon > :not(.trazo) { position: relative; }
-.trazo path, .trazo line, .trazo circle.l { fill: none; stroke: var(--bosque); stroke-opacity: 0.32; stroke-width: 1.6; stroke-linecap: round; }
-.razon--e .trazo path, .razon--e .trazo line { stroke: var(--crema); stroke-opacity: 0.3; }
+.razon > * { position: relative; }
 @media (max-width: 980px) {
   .razones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ilus-sitio, .razon--b { grid-column: span 2; }
@@ -335,8 +334,8 @@ img { max-width: 100%; display: block; }
 .tildes li::before { margin-top: 2px; }
 .tildes li b { color: var(--bosque); }
 .ficha-revision { background: var(--superficie); border: 1px solid var(--linea); border-radius: var(--radio-grande); padding: 28px; box-shadow: var(--sombra-flotante); display: grid; gap: 18px; }
-.ficha-revision .fila { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: center; }
-.ficha-revision .placeholder { width: 52px; height: 52px; border-radius: 50%; padding: 0; }
+.ficha-revision .fila { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
+.ficha-revision .avatar-ficha { display: block; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--salvia); }
 .ficha-revision .barra { height: 10px; border-radius: 99px; background: var(--menta); }
 .ficha-revision .barra.corta { width: 55%; margin-top: 8px; }
 .ficha-revision .pasos-rev { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
