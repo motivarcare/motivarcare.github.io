@@ -273,9 +273,12 @@ img { max-width: 100%; display: block; }
 .ilus-sitio svg { display: block; width: 100%; height: auto; overflow: visible; -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent); mask-image: linear-gradient(to bottom, #000 86%, transparent); }
 .ilus-sitio .linea path { fill: none; stroke: var(--bosque); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ilus-sitio .mancha { transform-box: fill-box; transform-origin: center; animation: mancha 14s ease-in-out infinite alternate; }
-.ilus-sitio .m-copa, .ilus-sitio .m-lejos { animation-duration: 11s; animation-delay: -4s; }
-.ilus-sitio .m-sol { animation-duration: 9s; }
-.ilus-sitio .m-pasto, .ilus-sitio .m-sombra { animation: none; }
+.ilus-sitio .m-lejos { animation-duration: 11s; animation-delay: -4s; }
+/* Estas cambian de forma con <animate> en el SVG; no rotan */
+.ilus-sitio .m-sol, .ilus-sitio .m-copa, .ilus-sitio .m-copa2, .ilus-sitio .m-telefono, .ilus-sitio .m-pasto, .ilus-sitio .m-pantalla { animation: none; }
+.ilus-sitio .bandada { animation: bandada 16s ease-in-out infinite alternate; }
+.ilus-sitio .pajaro { transform-box: fill-box; transform-origin: center; animation: aletear 0.9s ease-in-out infinite alternate; }
+.ilus-sitio .pajaro.p2 { animation-duration: 0.75s; animation-delay: -0.3s; }
 .ilus-sitio .nube, .ilus-sitio .m-nube { animation: nube 18s ease-in-out infinite alternate; }
 .ilus-sitio text { fill: var(--bosque); font-family: var(--sans); }
 .ilus-sitio .t-hora { font-family: var(--serif); font-size: 46px; font-weight: 500; }
@@ -289,6 +292,8 @@ img { max-width: 100%; display: block; }
 .ilus-sitio .vibra { animation: vibra 7s linear infinite; }
 .ilus-sitio .telefono { animation: zumbido 7s linear infinite; }
 @keyframes mancha { from { transform: rotate(0) scale(1); } to { transform: rotate(3deg) scale(1.05, 0.97); } }
+@keyframes bandada { from { transform: translate(0, 0); } 50% { transform: translate(18px, -6px); } to { transform: translate(34px, 4px); } }
+@keyframes aletear { from { transform: scaleY(1); } to { transform: scaleY(0.45) translateY(2px); } }
 @keyframes nube { from { transform: translateX(0); } to { transform: translateX(22px); } }
 @keyframes notif { 0%, 4% { opacity: 0; transform: translateY(-22px); } 10%, 86% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; transform: translateY(-6px); } }
 @keyframes boton-sala { 0%, 14% { opacity: 0; transform: scale(0.9); } 20%, 86% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; } }

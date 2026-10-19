@@ -161,10 +161,10 @@ Para las escenas de la landing y del portal (la primera es "Pensado para empezar
 
 - **Punto de vista en primera persona.** La escena muestra lo que ve quien usa MotivarCare: el teléfono o la pantalla en primer plano y el lugar detrás. No se dibujan personas ni personajes, ni manos; el contexto cuenta la situación.
 - **Línea blanda.** Trazo verde bosque de 2 px en primer plano y de 1,6 px con menos opacidad en lo lejano, con extremos redondeados. Las formas no se cierran del todo: una copa de árbol o una nube quedan abiertas.
-- **Manchas desfasadas.** Debajo de la línea van manchas irregulares de color plano (salvia, menta, lima o amarillo suave) que no coinciden con el contorno: se corren un poco y destacan solo una parte del dibujo. Se deforman muy lento en loop.
+- **Manchas desfasadas.** Debajo de la línea van manchas irregulares de color plano (salvia, menta, lima o amarillo suave) que no coinciden con el contorno: se corren un poco y destacan solo una parte del dibujo. Las principales cambian de forma muy lento en loop (entre 9 y 12 segundos por ciclo), cada una a su ritmo; las demás quedan quietas o apenas se mecen.
 - **Un solo acento.** El amarillo fuerte se reserva para lo que importa en la escena (en la primera, el botón "Entrar a la sala"). El sol o la luz van en amarillo suave.
 - **Interfaz real dentro de la escena.** Lo que aparece en la pantalla usa los textos, tipografías y componentes de la marca, no garabatos.
-- **Movimiento con sentido.** La animación cuenta el momento (llega la notificación, el teléfono vibra, aparece el botón) y se repite con pausas. Con "reducir movimiento" activado, la escena queda quieta y completa.
+- **Movimiento con sentido.** El movimiento es parte del lenguaje, no un adorno. La animación principal cuenta el momento (llega la notificación, el teléfono vibra, aparece el botón) y se repite con pausas. Alrededor, la escena respira: las manchas cambian de forma, los pájaros aletean y se desplazan, y unos puntitos vuelan como abejas por detrás del primer plano. Con "reducir movimiento" activado, la escena queda quieta y completa.
 - **Bordes que se disuelven.** La escena no va en un recuadro: se apoya sobre el fondo y se desvanece hacia abajo.
 
 ## Iconografía

@@ -3,6 +3,11 @@
   'use strict';
   var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Con movimiento reducido, las animaciones SVG (<animate>) quedan quietas */
+  if (reducir) {
+    document.querySelectorAll('.ilus-sitio svg').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
+  }
+
   /* Borde del encabezado al hacer scroll */
   var encabezado = document.getElementById('encabezado');
   var alScroll = function () { encabezado.classList.toggle('con-borde', window.scrollY > 8); };
