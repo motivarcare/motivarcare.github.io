@@ -155,6 +155,18 @@ En los títulos grandes, una palabra clave puede ir en itálica, en `bosque-2`, 
 - **Texturas:** grano y trama de puntos. La trama se usa sobre manchas y fondos, y sobre lo punteado para reforzar "provisorio" o "IA".
 - **Sólido** = existe hoy, humano, clínico. **Punteado** = provisorio, futuro, digital o IA.
 
+## Ilustración de escenas
+
+Para las escenas de la landing y del portal (la primera es "Pensado para empezar sin fricción"). Se construyen a partir de las decisiones anteriores:
+
+- **Punto de vista en primera persona.** La escena muestra lo que ve quien usa MotivarCare: el teléfono o la pantalla en primer plano y el lugar detrás. No se dibujan personas ni personajes, ni manos; el contexto cuenta la situación.
+- **Línea blanda.** Trazo verde bosque de 2 px en primer plano y de 1,6 px con menos opacidad en lo lejano, con extremos redondeados. Las formas no se cierran del todo: una copa de árbol o una nube quedan abiertas.
+- **Manchas desfasadas.** Debajo de la línea van manchas irregulares de color plano (salvia, menta, lima o amarillo suave) que no coinciden con el contorno: se corren un poco y destacan solo una parte del dibujo. Se deforman muy lento en loop.
+- **Un solo acento.** El amarillo fuerte se reserva para lo que importa en la escena (en la primera, el botón "Entrar a la sala"). El sol o la luz van en amarillo suave.
+- **Interfaz real dentro de la escena.** Lo que aparece en la pantalla usa los textos, tipografías y componentes de la marca, no garabatos.
+- **Movimiento con sentido.** La animación cuenta el momento (llega la notificación, el teléfono vibra, aparece el botón) y se repite con pausas. Con "reducir movimiento" activado, la escena queda quieta y completa.
+- **Bordes que se disuelven.** La escena no va en un recuadro: se apoya sobre el fondo y se desvanece hacia abajo.
+
 ## Iconografía
 
 - Íconos de línea de 2 px de trazo, con extremos y uniones redondeados, sobre una grilla de 24 px.

@@ -144,26 +144,71 @@
         <div class="cabeza aparece">
           <span class="etiqueta">Por qué MotivarCare</span>
           <h2>Pensado para empezar sin fricción.</h2>
+          <p class="bajada"><b>Desde donde estés.</b> Terapia desde tu casa, el trabajo o donde estés. Sin traslados ni salas de espera.</p>
         </div>
         <div class="razones aparece">
-          <article class="razon razon--a">
-            <h3>Desde donde estés</h3>
-            <p>Terapia desde tu casa, el trabajo o donde estés. Sin traslados ni salas de espera.</p>
-            <svg class="mapa-puntos" viewBox="0 0 360 170" aria-hidden="true">
-              <circle class="anillo" cx="250" cy="128" r="22"/><circle class="anillo" cx="250" cy="128" r="40"/>
-              <path class="linea" d="M250 128 C 210 110, 170 120, 150 92"/>
-              <path class="linea" d="M250 128 C 220 80, 150 60, 120 40"/>
-              <path class="linea" d="M250 128 C 290 90, 300 60, 290 30"/>
-              <path class="linea" d="M250 128 C 200 150, 120 150, 70 120"/>
-              <path class="linea" d="M250 128 C 280 140, 310 150, 330 140"/>
-              <circle class="nodo" cx="150" cy="92" r="5"/><circle class="nodo" cx="120" cy="40" r="5"/><circle class="nodo" cx="290" cy="30" r="5"/>
-              <circle class="nodo" cx="70" cy="120" r="5"/><circle class="nodo" cx="330" cy="140" r="5"/><circle class="nodo" cx="200" cy="56" r="4"/>
-              <circle class="origen" cx="250" cy="128" r="8"/>
+          <figure class="ilus-sitio aparece" aria-hidden="true">
+            <svg viewBox="0 0 760 460" role="presentation">
+              <!-- Manchas de fondo: irregulares y desfasadas de la línea -->
+              <path class="mancha m-sol" d="M268 58 C 290 26, 352 30, 366 66 C 380 100, 352 132, 316 130 C 280 128, 250 92, 268 58Z" fill="#FBE9B0"/>
+              <path class="mancha m-pasto" d="M26 330 C 60 304, 150 320, 236 306 C 310 296, 372 314, 418 308 C 446 340, 436 420, 420 460 L 40 460 C 14 430, 6 360, 26 330Z" fill="#E6EDC4"/>
+              <path class="mancha m-copa" d="M58 146 C 66 102, 136 92, 168 120 C 204 146, 200 200, 158 218 C 116 236, 60 222, 50 190 C 46 172, 52 160, 58 146Z" fill="#D6E7DC"/>
+              <path class="mancha m-copa2" d="M646 124 C 664 82, 722 74, 744 104 C 764 132, 758 196, 734 222 C 708 248, 664 236, 650 208 C 636 182, 634 150, 646 124Z" fill="#D6E7DC"/>
+              <path class="mancha m-nube" d="M86 62 C 96 44, 130 44, 140 58 C 156 52, 172 64, 164 80 C 150 92, 100 92, 86 82 C 76 76, 78 68, 86 62Z" fill="#E7F1EA"/>
+              <path class="mancha m-lejos" d="M232 252 C 236 234, 268 230, 276 248 C 284 266, 262 280, 244 276 C 230 272, 228 262, 232 252Z" fill="#E7F1EA"/>
+              <g class="linea">
+                <!-- Horizonte y sendero -->
+                <path d="M12 294 C 120 286, 210 298, 318 290 S 560 286, 748 294" stroke-opacity=".45"/>
+                <path d="M150 460 C 210 400, 270 332, 316 297"/>
+                <path d="M300 460 C 312 404, 324 334, 334 298"/>
+                <!-- Sol y nube -->
+                <path d="M312 58 C 334 56, 344 76, 336 92 C 326 110, 296 108, 290 88 C 286 74, 294 62, 306 59"/>
+                <path class="nube" d="M80 74 C 86 56, 110 52, 120 64 C 132 54, 154 60, 152 78" stroke-opacity=".6"/>
+                <path d="M206 118 q 7 -8 13 0 q 6 -8 13 0 M236 136 q 5 -6 10 0 q 5 -6 10 0" stroke-width="1.6" stroke-opacity=".7"/>
+                <!-- Árbol cercano -->
+                <path d="M96 322 C 98 284, 92 252, 100 214 M99 252 C 108 242, 116 238, 126 232"/>
+                <path d="M74 214 C 44 208, 40 168, 68 160 C 64 126, 106 112, 124 134 C 144 112, 184 128, 176 160 C 198 172, 190 206, 162 212"/>
+                <!-- Árbol lejano -->
+                <path d="M252 296 V 274 M240 274 C 226 270, 228 248, 244 248 C 246 236, 266 236, 266 250 C 280 252, 278 272, 262 274" stroke-opacity=".5" stroke-width="1.6"/>
+                <!-- Farol -->
+                <path d="M200 334 V 236 M188 238 C 190 226, 210 226, 212 238 Z M196 334 H 204" stroke-opacity=".8"/>
+                <!-- Banco -->
+                <path d="M22 384 L 134 376 M26 362 L 132 354 M40 363 V 382 M114 357 V 377 M30 386 L 28 412 M124 378 L 126 404"/>
+                <!-- Árbol de la derecha -->
+                <path d="M708 300 C 704 270, 712 248, 706 216 M660 196 C 630 178, 646 128, 684 132 C 692 96, 742 92, 756 122"/>
+                <!-- Pasto -->
+                <path d="M356 352 l 4 -11 l 3 11 l 4 -8 M48 438 l 4 -12 l 3 12 l 4 -9 M232 420 l 4 -11 l 3 11" stroke-width="1.6"/>
+              </g>
+              <!-- Teléfono en primer plano, sobre una mancha que lo destaca -->
+              <path class="mancha m-telefono" d="M392 150 C 400 86, 470 40, 556 50 C 640 60, 690 120, 676 210 C 664 290, 690 350, 660 410 C 630 460, 540 470, 470 450 C 400 430, 372 360, 384 290 C 392 240, 386 196, 392 150Z" fill="#D6E7DC"/>
+              <g class="telefono">
+                <g transform="rotate(-5 510 300)">
+                  
+                  <rect x="405" y="64" width="210" height="440" rx="34" fill="#FBFAF5" stroke="#1E4033" stroke-width="2.6"/>
+                  <path class="mancha m-pantalla" d="M420 360 C 460 320, 540 340, 600 300 L 600 500 L 420 500 Z" fill="#E7F1EA"/>
+                  <rect x="482" y="82" width="56" height="10" rx="5" fill="#1E4033"/>
+                  <text x="510" y="150" text-anchor="middle" class="t-hora">17:55</text>
+                  <text x="510" y="172" text-anchor="middle" class="t-fecha">martes 21 de octubre</text>
+                  <g class="notif">
+                    <rect x="419" y="194" width="182" height="96" rx="18" fill="#fff" stroke="#1E4033" stroke-width="1.6"/>
+                    <circle cx="441" cy="216" r="11" fill="#E7F1EA" stroke="#1E4033" stroke-width="1.4"/>
+                    <path d="M300 140 C 250 70, 150 50, 95 105 C 30 170, 45 280, 130 360 L 236 452 C 246 461, 250 470, 250 482 L 250 530 C 250 547, 266 556, 281 547 L 340 508 C 430 452, 565 350, 562 212 C 560 120, 490 60, 410 70 C 362 76, 326 104, 300 140 Z" transform="translate(431.6 206.6) scale(0.034)" fill="none" stroke="#1E4033" stroke-width="44"/>
+                    <text x="459" y="220" class="t-app">MotivarCare · ahora</text>
+                    <text x="433" y="250" class="t-titulo">Sesión en 5 minutos</text>
+                    <text x="433" y="268" class="t-detalle">Con Lic. Agustina Torres</text>
+                    <text x="433" y="282" class="t-detalle">Videollamada · 50 min</text>
+                  </g>
+                  <g class="boton-sala">
+                    <rect x="437" y="304" width="146" height="34" rx="17" fill="#F5C33B" stroke="#1E4033" stroke-width="1.6"/>
+                    <text x="510" y="325.5" text-anchor="middle" class="t-boton">Entrar a la sala</text>
+                  </g>
+                  <g class="vibra" fill="none" stroke="#1E4033" stroke-width="2" stroke-linecap="round">
+                    <path d="M391 112 q -7 12 0 24 M380 104 q -11 20 0 40 M629 112 q 7 12 0 24 M640 104 q 11 20 0 40"/>
+                  </g>
+                </g>
+              </g>
             </svg>
-            <ul class="paises" aria-label="Países">
-              <li>Argentina</li><li>Uruguay</li><li>Chile</li><li>Perú</li><li>Colombia</li><li>Ecuador</li><li>Venezuela</li><li>México</li>
-            </ul>
-          </article>
+          </figure>
           <article class="razon razon--b">
             <h3>Conexión en minutos</h3>
             <p>Contanos qué te pasa y te sugerimos profesionales compatibles en minutos.</p>
