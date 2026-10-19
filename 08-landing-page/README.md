@@ -3,10 +3,10 @@ titulo: Landing page
 numero: "08"
 estado: en-revision
 resumen: "Contenidos de la landing page pública de MotivarCare (www.motivarcare.com): la versión actual relevada y una propuesta nueva con el design system de la marca."
-actualizado: 2026-10-15
+actualizado: 2026-10-19
 proximos_pasos:
   - "Revisar la propuesta y ajustar textos y secciones."
-  - "Completar los placeholders: fotos con tratamiento de marca, equipo de MotivarCare y perfil de ejemplo."
+  - "Completar los placeholders que quedan: equipo de MotivarCare y foto de cierre."
   - "Confirmar con el equipo los datos nuevos (verificación de perfiles, países, tratamiento de las reseñas)."
 iniciativas:
   - titulo: Propuesta de nueva landing page
@@ -45,7 +45,7 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Sección | Qué cambia |
 |---|---|
 | Encabezado | Se reordena la navegación (Cómo funciona, Profesionales, Maca, Precios, Preguntas) y se suma el acceso "Soy profesional". |
-| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona") y tres garantías concretas debajo. La tarjeta de perfil queda rotulada como **Ejemplo** y sin número de matrícula. La composición de videollamada sobre el corazón usa placeholders para las fotos. |
+| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona") y tres garantías concretas debajo. La tarjeta de perfil muestra a la Lic. Agustina Torres, sin número de matrícula. La composición de videollamada sobre el corazón tiene una foto de la profesional y una del paciente, con el tratamiento de color de la marca; la ventana del paciente es más grande que en la primera versión. |
 | **Para quién es** (nueva) | "La terapia también es para lo que te pasa en el día a día." Un texto que invita a empezar sin tener todo claro y una caja con temas frecuentes de consulta (ansiedad, dormir mal, duelo, vínculos, primera vez en terapia, etc.). |
 | Por qué MotivarCare | Cuatro razones, con textos moderados: desde donde estés, conexión en minutos, profesionales de toda la región y acompañamiento. Se quita la tarjeta de inteligencia artificial (la IA queda solo en la sección de Maca). Toma el título "Pensado para empezar sin fricción", que antes estaba en un bloque aparte. Las banderas pasan a chips de texto y se suma un mapa de puntos. El chat de ejemplo queda en voseo y se anima mensaje por mensaje. |
 | Psicólogos certificados | Pasa a explicar **cómo** se verifica: cada profesional carga matrícula, título y experiencia, y el equipo los revisa antes de publicar el perfil. Se acompaña con una ficha de revisión. |
@@ -62,15 +62,14 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 
 ### Placeholders pendientes
 
-- Hero: foto de la profesional en videollamada (940 × 630) y foto del paciente en su casa (356 × 396), con el tratamiento de color de la marca.
 - Quiénes somos: foto o retratos del equipo, y un texto sobre quiénes lo integran y qué profesionales asesoran a MotivarCare.
 - Cierre: foto de la escena de cierre (paciente cerrando la laptop al terminar la sesión), vertical, con el tratamiento de marca. Puede ser la que ya está en el design system.
-- Perfil de ejemplo del hero: reemplazarlo por un perfil real (con autorización) o dejarlo rotulado como ejemplo.
 
 ### A confirmar con el equipo
 
 - Que la revisión de matrícula, título y experiencia antes de publicar un perfil se describa como en la propuesta.
 - La lista de países donde se ofrece el servicio.
+- El perfil del hero (Lic. Agustina Torres) y las fotos de la videollamada son ficticios: las fotos se generaron con Figma AI. Antes de publicar, decidir si se reemplazan por un perfil y fotos reales (con autorización) o si se aclara que es una ilustración.
 - Si las reseñas pueden mostrarse con nombre y foto. Algunas fotos del sitio actual parecen de banco de imágenes o generadas; si no son de los pacientes reales, conviene reemplazarlas por fotos reales (con autorización) o por iniciales, porque una foto genérica junto a un testimonio resta credibilidad.
 
 ## Versión actual en producción
