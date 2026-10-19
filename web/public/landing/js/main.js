@@ -32,6 +32,7 @@
   if (reducir || !('IntersectionObserver' in window)) {
     document.querySelectorAll('.aparece').forEach(function (el) { el.classList.add('visible'); });
     document.querySelectorAll('.chat-animado .msg').forEach(function (el) { el.classList.add('mostrar'); });
+    document.querySelectorAll('.ficha-revision').forEach(function (el) { el.classList.add('lista'); });
     document.querySelectorAll('svg animate').forEach(function (a) { a.remove(); });
     return;
   }
@@ -43,6 +44,17 @@
     });
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
   document.querySelectorAll('.aparece').forEach(function (el) { observador.observe(el); });
+
+  /* Ficha de revisión: el último paso se revisa, se completa y aparece el sello */
+  document.querySelectorAll('.ficha-revision').forEach(function (ficha) {
+    var obs = new IntersectionObserver(function (entradas) {
+      if (!entradas[0].isIntersecting) return;
+      obs.disconnect();
+      setTimeout(function () { ficha.classList.add('revisando'); }, 800);
+      setTimeout(function () { ficha.classList.add('lista'); }, 3200);
+    }, { threshold: 0.5 });
+    obs.observe(ficha);
+  });
 
   /* Chat de ejemplo: los mensajes aparecen de a uno, con "escribiendo…" antes del último */
   document.querySelectorAll('.chat-animado').forEach(function (chat) {
