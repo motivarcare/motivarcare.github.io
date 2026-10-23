@@ -107,6 +107,8 @@ img { max-width: 100%; display: block; }
 .contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding: 0 var(--margen); }
 .seccion { padding: clamp(72px, 10vw, 128px) 0; }
 .seccion--menta { background: var(--menta); }
+.seccion--lima { background: var(--lima); }
+.seccion--lima .etiqueta { background: var(--superficie); }
 .seccion--bosque { background: var(--bosque); color: var(--bosque-claro); }
 .seccion--bosque h2, .seccion--bosque h3 { color: var(--crema); }
 
@@ -250,6 +252,20 @@ img { max-width: 100%; display: block; }
   .hero .contenedor { grid-template-columns: 1fr; }
   .videollamada { justify-self: center; max-width: 520px; }
 }
+
+/* ---------- Tres barreras ---------- */
+.barreras { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: none; }
+.barrera { background: var(--superficie); border-radius: var(--radio-grande); padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.barrera .num { width: 46px; height: 46px; border-radius: 48% 52% 46% 54% / 55% 45% 55% 45%; background: var(--salvia); color: var(--bosque); font-family: var(--serif); font-size: 24px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.barrera:nth-child(2) .num { background: var(--lima); border-radius: 55% 45% 52% 48% / 46% 54% 46% 54%; }
+.barrera:nth-child(3) .num { background: var(--amarillo-suave); border-radius: 46% 54% 50% 50% / 52% 48% 56% 44%; }
+.barrera .rotulo { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde-medio); }
+.barrera h3 { font-size: clamp(19px, 1.7vw, 22px); line-height: 1.3; }
+.barrera p { color: var(--tinta-suave); font-size: 15.5px; margin-top: auto; padding-top: 6px; }
+.vision { margin-top: 16px; background: var(--bosque); color: var(--crema); border-radius: var(--radio-grande); padding: clamp(28px, 4vw, 48px); display: grid; gap: 14px; justify-items: start; }
+.vision .etiqueta { background: rgba(234, 241, 236, 0.12); color: var(--lima-fuerte); }
+.vision p { font-family: var(--serif); font-style: italic; font-weight: 460; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.3; color: var(--crema); max-width: 32ch; }
+@media (max-width: 900px) { .barreras { grid-template-columns: 1fr; } }
 
 /* ---------- Para quién ---------- */
 .para-quien { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
