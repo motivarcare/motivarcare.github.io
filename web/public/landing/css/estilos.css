@@ -418,7 +418,7 @@ img { max-width: 100%; display: block; }
 /* ---------- Quiénes somos ---------- */
 .nosotros { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 /* Elección de profesional: tarjetas que suben y se elige una (loop de 14 s) */
-.eleccion { --paso: 224px; position: relative; margin: 0; padding: 28px 6% 28px; }
+.eleccion { --paso: 246px; position: relative; margin: 0; padding: 28px 6% 28px; }
 .mancha-eleccion { position: absolute; inset: -4% -6%; width: 112%; height: 108%; z-index: 0; }
 .ventana-eleccion { position: relative; z-index: 1; height: calc(var(--paso) * 2.3); overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); }
 .lista-pro { display: grid; gap: 14px; padding: 14px 0; animation: elegir-scroll 14s infinite; }
@@ -427,6 +427,14 @@ img { max-width: 100%; display: block; }
 .tarjeta-pro .info { display: grid; gap: 2px; min-width: 0; }
 .tarjeta-pro .nombre { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .tarjeta-pro .nombre b { min-width: 0; font-family: var(--serif); font-weight: 500; font-size: 17px; color: var(--bosque); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.valoracion { display: flex; align-items: center; gap: 6px; margin: 1px 0 2px; font-size: 12px; color: var(--tinta-suave); white-space: nowrap; }
+.valoracion > b { font-weight: 800; color: var(--bosque); }
+.estrellas { position: relative; display: inline-block; font-size: 13px; line-height: 1; letter-spacing: 1px; }
+.estrellas i { font-style: normal; display: block; }
+.estrellas i:first-child { color: var(--linea); }
+.estrellas i:last-child { position: absolute; inset: 0 auto 0 0; width: var(--v); overflow: hidden; color: var(--amarillo); }
+.pais { display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; padding-left: 8px; border-left: 1px solid var(--linea); font-weight: 600; }
+.pais svg { width: 13px; height: 13px; fill: none; stroke: var(--verde-medio); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .tarjeta-pro .exp { font-size: 12.5px; font-weight: 700; color: var(--bosque); }
 .tarjeta-pro .esp { font-size: 12.5px; color: var(--tinta-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .datos-pro { display: flex; gap: 6px; margin-top: 6px; }
