@@ -60,6 +60,7 @@ La base es crema con tinta verde muy oscura. Los verdes bosque son el color de m
 | menta | `#E7F1EA` | Tarjetas suaves, botones de control y paneles de notas |
 | lima | `#E6EDC4` | Etiquetas de sección y tarjetas de contraste |
 | lima-fuerte | `#C8D98A` | Bordes y etiquetas sobre fondo bosque |
+| lima-suave | `#F2F5E0` | Fondo de sección cálido y liviano, para alternar con crema y menta |
 
 ### Acento
 

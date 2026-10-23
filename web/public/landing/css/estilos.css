@@ -58,6 +58,7 @@
   --menta: #e7f1ea;
   --lima: #e6edc4;
   --lima-fuerte: #c8d98a;
+  --lima-suave: #f2f5e0;
   /* Acento */
   --amarillo: #f5c33b;
   --amarillo-suave: #fbe9b0;
@@ -107,7 +108,7 @@ img { max-width: 100%; display: block; }
 .contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding: 0 var(--margen); }
 .seccion { padding: clamp(72px, 10vw, 128px) 0; }
 .seccion--menta { background: var(--menta); }
-.seccion--lima { background: var(--lima); }
+.seccion--lima { background: var(--lima-suave); }
 .seccion--lima .etiqueta { background: var(--superficie); }
 .seccion--bosque { background: var(--bosque); color: var(--bosque-claro); }
 .seccion--bosque h2, .seccion--bosque h3 { color: var(--crema); }
@@ -270,7 +271,7 @@ img { max-width: 100%; display: block; }
 /* ---------- Para quién ---------- */
 .para-quien { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .para-quien .cabeza { margin-bottom: 20px; }
-.motivos-caja { background: var(--superficie); border-radius: var(--radio-grande); padding: clamp(24px, 3vw, 32px); }
+.motivos-caja { background: var(--superficie); border: 1.5px solid rgba(30, 64, 51, 0.22); border-radius: var(--radio-grande); padding: clamp(24px, 3vw, 32px); }
 .motivos-titulo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-medio); margin-bottom: 16px; }
 .motivos { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .motivos li { font-size: 15px; font-weight: 600; color: var(--bosque); background: var(--menta); padding: 10px 16px; border-radius: 99px; }
