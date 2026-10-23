@@ -275,7 +275,7 @@ img { max-width: 100%; display: block; }
 .motivos-titulo { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-medio); margin-bottom: 16px; }
 .motivos { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .motivos li { font-size: 15px; font-weight: 600; color: var(--bosque); background: var(--menta); padding: 10px 16px; border-radius: 99px; }
-.motivos li:nth-child(4n + 2) { background: var(--amarillo-suave); }
+.motivos li:nth-child(4n + 2) { background: var(--lima); }
 .motivos li:nth-child(4n + 3) { background: var(--salvia); }
 .motivos li.primera { background: transparent; border: 1.5px dashed var(--verde-medio); }
 /* Los temas aparecen de a uno cuando la sección entra en pantalla */
@@ -328,7 +328,7 @@ img { max-width: 100%; display: block; }
 @keyframes boton-sala { 0%, 14% { opacity: 0; transform: scale(0.9); } 20%, 86% { opacity: 1; transform: none; } 94%, 100% { opacity: 0; } }
 @keyframes vibra { 0%, 5% { opacity: 0; } 6%, 8% { opacity: 1; } 9%, 10% { opacity: 0; } 11%, 13% { opacity: 1; } 14%, 100% { opacity: 0; } }
 @keyframes zumbido { 0%, 5%, 14%, 100% { transform: none; } 6% { transform: translateX(-1.5px); } 7% { transform: translateX(1.5px); } 8% { transform: translateX(-1px); } 11% { transform: translateX(1.5px); } 12% { transform: translateX(-1.5px); } 13% { transform: translateX(1px); } }
-.razon--d { grid-column: span 3; background: var(--amarillo-suave); border-color: transparent; }
+.razon--d { grid-column: span 3; background: var(--salvia); border-color: transparent; }
 .razon--e { grid-column: span 3; background: var(--bosque); border-color: transparent; }
 .razon--e h3 { color: var(--crema); }
 .razon--e p { color: rgba(234, 241, 236, 0.8); }
