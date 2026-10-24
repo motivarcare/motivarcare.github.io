@@ -272,7 +272,7 @@ img { max-width: 100%; display: block; }
 /* Teléfono ilustrado con la reserva de un turno */
 .movil-reserva { position: relative; width: 100%; margin: 0; padding: 30px 0 0; display: flex; justify-content: center; }
 .mancha-movil { position: absolute; left: -6%; top: -2%; width: 112%; height: 100%; z-index: 0; }
-.movil { position: relative; z-index: 1; width: min(330px, 100%); height: 600px; -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
+.movil { position: relative; z-index: 1; width: min(330px, 100%); height: 640px; -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
 .movil .marco { position: absolute; inset: 0; width: 100%; height: 104%; overflow: visible; pointer-events: none; }
 .movil .marco path { fill: none; stroke: var(--bosque); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .pantalla { position: absolute; inset: 7px 8px -20px; border-radius: 46px 46px 0 0; background: #FBFAF5; padding: 34px 20px 0; display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
@@ -300,7 +300,7 @@ img { max-width: 100%; display: block; }
 .horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .horas span { text-align: center; font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 10px; padding: 9px 0; }
 .horas .h-elegida { animation: hora-elegida 6s ease infinite; }
-.confirmar { margin-top: 12px; width: 100%; font-size: 12.5px; font-weight: 800; color: var(--tinta); background: var(--amarillo); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 10px 0; animation: confirmar 6s ease infinite; }
+.confirmar { margin-top: 24px; width: 100%; font-size: 12.5px; font-weight: 800; color: var(--tinta); background: var(--amarillo); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 10px 0; animation: confirmar 6s ease infinite; }
 @keyframes hora-elegida { 0%, 22% { background: var(--menta); color: var(--bosque); transform: none; } 26% { transform: scale(0.92); } 30%, 92% { background: var(--bosque); color: var(--crema); transform: none; } 100% { background: var(--menta); color: var(--bosque); } }
 @keyframes confirmar { 0%, 30% { opacity: 0; transform: translateY(8px); } 38%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 /* Pills que flotan superpuestas al teléfono */
@@ -324,9 +324,9 @@ img { max-width: 100%; display: block; }
   .vision { margin-top: 4px; }
   .pill-flotante, .pill-flotante.p-a, .pill-flotante.p-b, .pill-flotante.p-c, .pill-flotante.p-d { position: relative; inset: auto; order: 1; font-size: 12px; max-width: none; white-space: nowrap; border-radius: 99px; }
 }
-.vision { position: relative; z-index: 3; width: min(400px, 100%); margin-top: -34px; background: var(--bosque); color: var(--crema); border-radius: var(--radio-grande); padding: 22px 26px; display: grid; gap: 10px; justify-items: start; box-shadow: 0 24px 44px -26px rgba(20, 41, 31, 0.6); }
+.vision { position: relative; z-index: 3; width: min(400px, 100%); margin-top: -14px; background: var(--bosque); color: var(--crema); border-radius: var(--radio-grande); padding: 22px 26px; display: grid; gap: 10px; justify-items: start; box-shadow: 0 24px 44px -26px rgba(20, 41, 31, 0.6); }
 .vision .etiqueta { background: rgba(234, 241, 236, 0.12); color: var(--lima-fuerte); }
-.vision p { font-family: var(--serif); font-style: italic; font-weight: 460; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.35; color: var(--crema); }
+.vision p { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 17px; line-height: 1.35; color: var(--crema); }
 @media (max-width: 900px) { .barreras { grid-template-columns: 1fr; } }
 
 /* ---------- Para quién ---------- */
