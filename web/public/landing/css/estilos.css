@@ -272,7 +272,7 @@ img { max-width: 100%; display: block; }
 /* Teléfono ilustrado con la reserva de un turno */
 .movil-reserva { position: relative; width: 100%; margin: 0; padding: 30px 0 0; display: flex; justify-content: center; }
 .mancha-movil { position: absolute; left: -6%; top: -2%; width: 112%; height: 100%; z-index: 0; }
-.movil { position: relative; z-index: 1; width: min(330px, 100%); height: 640px; -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
+.movil { position: relative; z-index: 1; width: min(330px, 100%); height: 700px; -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
 .movil .marco { position: absolute; inset: 0; width: 100%; height: 104%; overflow: visible; pointer-events: none; }
 .movil .marco path { fill: none; stroke: var(--bosque); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .pantalla { position: absolute; inset: 7px 8px -20px; border-radius: 46px 46px 0 0; background: #FBFAF5; padding: 34px 20px 0; display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
@@ -287,20 +287,20 @@ img { max-width: 100%; display: block; }
 .pantalla .valoracion { justify-content: center; margin-top: 6px; }
 .precio-sesion { margin-top: 8px; font-size: 12px; color: var(--bosque); background: var(--menta); border-radius: 99px; padding: 5px 12px; }
 .precio-sesion b { font-weight: 800; }
-.agenda { width: 100%; margin-top: 14px; background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 12px; text-align: left; }
+.agenda { width: 100%; margin-top: 36px; background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 16px 14px 16px; text-align: left; }
 .dias { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--linea); }
 .dia { flex: 1; text-align: center; font-size: 11px; color: var(--tinta-tenue); line-height: 1.3; padding: 2px 0 8px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .dia b { display: block; font-size: 12px; color: var(--tinta-suave); }
 .dia.activo { color: var(--bosque); border-bottom-color: var(--bosque); }
 .dia.activo b { color: var(--bosque); }
 .flecha-dia { font-size: 18px; color: var(--verde-medio); padding: 0 4px 8px; }
-.elegi { display: flex; justify-content: space-between; align-items: baseline; margin: 10px 2px 8px; }
+.elegi { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 2px 12px; }
 .elegi b { font-size: 12.5px; color: var(--bosque); }
 .elegi small { font-size: 10.5px; color: var(--tinta-tenue); }
-.horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
-.horas span { text-align: center; font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 10px; padding: 9px 0; }
+.horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.horas span { text-align: center; font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 10px; padding: 11px 0; }
 .horas .h-elegida { animation: hora-elegida 6s ease infinite; }
-.confirmar { margin-top: 24px; width: 100%; font-size: 12.5px; font-weight: 800; color: var(--tinta); background: var(--amarillo); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 10px 0; animation: confirmar 6s ease infinite; }
+.confirmar { margin-top: 30px; width: 100%; font-size: 12.5px; font-weight: 800; color: var(--tinta); background: var(--amarillo); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 10px 0; animation: confirmar 6s ease infinite; }
 @keyframes hora-elegida { 0%, 22% { background: var(--menta); color: var(--bosque); transform: none; } 26% { transform: scale(0.92); } 30%, 92% { background: var(--bosque); color: var(--crema); transform: none; } 100% { background: var(--menta); color: var(--bosque); } }
 @keyframes confirmar { 0%, 30% { opacity: 0; transform: translateY(8px); } 38%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 /* Pills que flotan superpuestas al teléfono */
