@@ -254,16 +254,73 @@ img { max-width: 100%; display: block; }
   .videollamada { justify-self: center; max-width: 520px; }
 }
 
-/* ---------- Tres barreras ---------- */
-.barreras { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; counter-reset: none; }
-.barrera { background: var(--superficie); border-radius: var(--radio-grande); padding: 28px; display: flex; flex-direction: column; gap: 10px; }
-.barrera .num { width: 46px; height: 46px; border-radius: 48% 52% 46% 54% / 55% 45% 55% 45%; background: var(--salvia); color: var(--bosque); font-family: var(--serif); font-size: 24px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+/* ---------- Propuesta: tres barreras + teléfono ---------- */
+.propuesta { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.propuesta-texto .cabeza { margin-bottom: 28px; }
+.barreras { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.barrera { display: grid; grid-template-columns: 46px minmax(0, 1fr); column-gap: 18px; row-gap: 4px; padding: 22px 0; border-top: 1px solid rgba(30, 64, 51, 0.14); }
+.barrera:last-child { border-bottom: 1px solid rgba(30, 64, 51, 0.14); }
+.barrera > :not(.num) { grid-column: 2; }
+.barrera .num { grid-row: 1 / span 3; width: 46px; height: 46px; border-radius: 48% 52% 46% 54% / 55% 45% 55% 45%; background: var(--salvia); color: var(--bosque); font-family: var(--serif); font-size: 24px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; }
 .barrera:nth-child(2) .num { background: var(--lima); border-radius: 55% 45% 52% 48% / 46% 54% 46% 54%; }
 .barrera:nth-child(3) .num { background: var(--amarillo-suave); border-radius: 46% 54% 50% 50% / 52% 48% 56% 44%; }
 .barrera .rotulo { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde-medio); }
-.barrera h3 { font-size: clamp(19px, 1.7vw, 22px); line-height: 1.3; }
-.barrera p { color: var(--tinta-suave); font-size: 15.5px; margin-top: auto; padding-top: 6px; }
-.vision { margin-top: 16px; background: var(--bosque); color: var(--crema); border-radius: var(--radio-grande); padding: clamp(28px, 4vw, 48px); display: grid; gap: 14px; justify-items: start; }
+.barrera h3 { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.3; }
+.barrera p { color: var(--tinta-suave); font-size: 15px; }
+
+/* Teléfono ilustrado con la reserva de un turno */
+.movil-reserva { position: relative; margin: 0; padding: 30px 0 0; display: flex; justify-content: center; }
+.mancha-movil { position: absolute; left: -6%; top: -2%; width: 112%; height: 100%; z-index: 0; }
+.movil { position: relative; z-index: 1; width: min(330px, 100%); height: 600px; -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent); mask-image: linear-gradient(to bottom, #000 88%, transparent); }
+.movil .marco { position: absolute; inset: 0; width: 100%; height: 104%; overflow: visible; pointer-events: none; }
+.movil .marco path { fill: none; stroke: var(--bosque); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.pantalla { position: absolute; inset: 7px 8px -20px; border-radius: 46px 46px 0 0; background: #FBFAF5; padding: 34px 20px 0; display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
+.pantalla .estado { position: absolute; top: 14px; left: 30px; right: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--bosque); }
+.senal { display: inline-flex; gap: 2px; align-items: flex-end; height: 10px; }
+.senal i { width: 3px; border-radius: 1px; background: var(--bosque); }
+.senal i:nth-child(1) { height: 4px; } .senal i:nth-child(2) { height: 6px; } .senal i:nth-child(3) { height: 8px; } .senal i:nth-child(4) { height: 10px; }
+.pantalla .volver { align-self: flex-start; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--verde-medio); }
+.pantalla .foto { width: 88px; height: 88px; border-radius: 50%; border: 3px solid var(--salvia); object-fit: cover; margin-top: 26px; }
+.pantalla .nombre { margin-top: 10px; font-family: var(--serif); font-weight: 500; font-size: 20px; color: var(--bosque); }
+.pantalla .esp { font-size: 12px; color: var(--tinta-suave); }
+.pantalla .valoracion { justify-content: center; margin-top: 6px; }
+.precio-sesion { margin-top: 8px; font-size: 12px; color: var(--bosque); background: var(--menta); border-radius: 99px; padding: 5px 12px; }
+.precio-sesion b { font-weight: 800; }
+.agenda { width: 100%; margin-top: 14px; background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 12px; text-align: left; }
+.dias { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--linea); }
+.dia { flex: 1; text-align: center; font-size: 11px; color: var(--tinta-tenue); line-height: 1.3; padding: 2px 0 8px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.dia b { display: block; font-size: 12px; color: var(--tinta-suave); }
+.dia.activo { color: var(--bosque); border-bottom-color: var(--bosque); }
+.dia.activo b { color: var(--bosque); }
+.flecha-dia { font-size: 18px; color: var(--verde-medio); padding: 0 4px 8px; }
+.elegi { display: flex; justify-content: space-between; align-items: baseline; margin: 10px 2px 8px; }
+.elegi b { font-size: 12.5px; color: var(--bosque); }
+.elegi small { font-size: 10.5px; color: var(--tinta-tenue); }
+.horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.horas span { text-align: center; font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--menta); border-radius: 10px; padding: 9px 0; }
+.horas .h-elegida { animation: hora-elegida 6s ease infinite; }
+.confirmar { margin-top: 12px; width: 100%; font-size: 12.5px; font-weight: 800; color: var(--tinta); background: var(--amarillo); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 10px 0; animation: confirmar 6s ease infinite; }
+@keyframes hora-elegida { 0%, 22% { background: var(--menta); color: var(--bosque); transform: none; } 26% { transform: scale(0.92); } 30%, 92% { background: var(--bosque); color: var(--crema); transform: none; } 100% { background: var(--menta); color: var(--bosque); } }
+@keyframes confirmar { 0%, 30% { opacity: 0; transform: translateY(8px); } 38%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+/* Pills que flotan superpuestas al teléfono */
+.pill-flotante { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; background: var(--superficie); border: 1.5px solid var(--bosque); border-radius: 99px; padding: 7px 14px 7px 7px; font-size: 13px; font-weight: 700; color: var(--bosque); box-shadow: 0 18px 34px -22px rgba(20, 41, 31, 0.55); white-space: nowrap; animation: flotar 7s ease-in-out infinite alternate; }
+.pill-flotante i { width: 28px; height: 28px; border-radius: 50%; background: var(--menta); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.pill-flotante svg { width: 16px; height: 16px; fill: none; stroke: var(--bosque); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pill-flotante.p-a { right: calc(50% + 54px); top: 22%; }
+.pill-flotante.p-b { left: calc(50% + 58px); top: 13%; animation-duration: 8s; animation-delay: -3s; }
+.pill-flotante.p-b i { background: var(--amarillo-suave); }
+.pill-flotante.p-c { right: calc(50% + 78px); top: 5%; white-space: normal; max-width: 236px; line-height: 1.25; border-radius: 22px; animation-duration: 9s; animation-delay: -5s; }
+.pill-flotante.p-c i { background: var(--lima); }
+@keyframes flotar { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+@media (max-width: 900px) {
+  .propuesta { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .movil-reserva { flex-wrap: wrap; gap: 8px; padding-top: 0; }
+  .movil { order: 2; flex: 0 0 100%; max-width: 330px; margin: 14px auto 0; height: 560px; }
+  .pill-flotante, .pill-flotante.p-a, .pill-flotante.p-b, .pill-flotante.p-c { position: relative; inset: auto; order: 1; font-size: 12px; max-width: none; white-space: nowrap; border-radius: 99px; }
+}
+.vision { margin-top: clamp(40px, 5vw, 64px); background: var(--bosque); color: var(--crema); border-radius: var(--radio-grande); padding: clamp(28px, 4vw, 48px); display: grid; gap: 14px; justify-items: start; }
 .vision .etiqueta { background: rgba(234, 241, 236, 0.12); color: var(--lima-fuerte); }
 .vision p { font-family: var(--serif); font-style: italic; font-weight: 460; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.3; color: var(--crema); max-width: 32ch; }
 @media (max-width: 900px) { .barreras { grid-template-columns: 1fr; } }
@@ -604,6 +661,8 @@ img { max-width: 100%; display: block; }
   .js .chat-animado .escribiendo { display: none; }
   .ilus-sitio * { animation: none !important; }
   .ficha-revision *, .ficha-revision *::before { animation: none !important; transition: none !important; }
+  .pill-flotante, .horas .h-elegida, .confirmar { animation: none !important; }
+  .horas .h-elegida { background: var(--bosque); color: var(--crema); }
   .lista-pro { animation: none !important; transform: translateY(calc(var(--paso) * -2.32)); }
   .tarjeta-pro.elegida { animation: none !important; border-color: var(--bosque); box-shadow: 0 0 0 4px var(--salvia); }
   .tarjeta-pro.elegida .coincidencia { animation: none !important; opacity: 1; transform: none; }

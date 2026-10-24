@@ -5,7 +5,7 @@
 
   /* Con movimiento reducido, las animaciones SVG (<animate>) quedan quietas */
   if (reducir) {
-    document.querySelectorAll('.ilus-sitio svg, .mancha-eleccion').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
+    document.querySelectorAll('.ilus-sitio svg, .mancha-eleccion, .mancha-movil').forEach(function (svg) { if (svg.pauseAnimations) svg.pauseAnimations(); });
   }
 
   /* Borde del encabezado al hacer scroll */
