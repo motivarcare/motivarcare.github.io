@@ -3,16 +3,16 @@ titulo: Landing page
 numero: "08"
 estado: en-revision
 resumen: "Contenidos de la landing page pública de MotivarCare (www.motivarcare.com): la versión actual relevada y una propuesta nueva con el design system de la marca."
-actualizado: 2026-10-19
+actualizado: 2026-10-23
 proximos_pasos:
-  - "Revisar la propuesta y ajustar textos y secciones."
-  - "Confirmar con el equipo los datos nuevos (verificación de perfiles, países, tratamiento de las reseñas)."
+  - "Revisar la propuesta completa con el cliente."
+  - "Confirmar con el equipo los datos nuevos (verificación de perfiles, países, perfiles y fotos ficticios, tratamiento de las reseñas)."
 iniciativas:
   - titulo: Propuesta de nueva landing page
     tipo: Página web
     fecha: Octubre 2026
     estado: en-revision
-    descripcion: "Rediseño de motivarcare.com con el design system de MotivarCare. Mantiene los contenidos actuales, unifica el tratamiento en voseo, suma secciones nuevas pensadas para quien busca terapia y deja indicados los lugares de las imágenes."
+    descripcion: "Rediseño de motivarcare.com con el design system de MotivarCare. Mantiene los contenidos actuales, unifica el tratamiento en voseo, suma secciones nuevas pensadas para quien busca terapia e incorpora fotos con el tratamiento de marca, ilustraciones y animaciones propias."
     imagen: /img/landing/propuesta-landing.jpg
     enlace: /landing/index.html
     boton: Ver la propuesta
@@ -24,7 +24,7 @@ Contenidos de la landing page pública de MotivarCare ([www.motivarcare.com](htt
 
 ## Propuesta nueva
 
-Primera versión de una landing renovada, armada con el design system de MotivarCare (`04-design-system`). Usa los contenidos actuales con ajustes chicos, suma algunas secciones y deja indicado con **PLACEHOLDER** el lugar de cada imagen.
+Landing renovada, armada con el design system de MotivarCare (`04-design-system`). Usa los contenidos actuales con ajustes chicos, suma secciones nuevas (entre ellas la propuesta del cliente sobre las tres barreras) y tiene todas sus imágenes: fotos con el tratamiento de marca, ilustraciones de línea y animaciones.
 
 - **Dónde está:** `web/public/landing/`. Se ve en el portal en `/landing/index.html`.
 - **Cómo está armada:** HTML, CSS y JavaScript separados (`index.html`, `css/estilos.css`, `js/main.js`), con las fuentes y el logo dentro de la misma carpeta. No depende del portal: la carpeta `landing/` se puede copiar tal cual y publicar como un sitio independiente.
@@ -37,17 +37,18 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 3. **Lo humano primero; la IA, en su lugar.** La IA se menciona solo en la sección de Maca, para que no parezca un sitio donde la terapia la hace una IA. Ahí, la terapia (sólido) y Maca (punteado) se presentan como dos territorios con un límite claro, siguiendo el principio "sólido = humano; punteado = IA".
 4. **Seguridad sin alarmar.** La información sobre crisis no se destaca en la entrada de la página, para no ahuyentar a quien recién se acerca. Queda donde corresponde: en el aviso de Maca, en una pregunta frecuente y en el pie (líneas de apoyo). Más adelante en el flujo, dentro de la app, puede tener más presencia.
 5. **Un solo tratamiento: voseo.** Se unifica "tú", "usted" y voseo en un voseo rioplatense amable ("Encontrá", "Contanos", "Reservá").
-6. **Calma visual.** Fondo crema, secciones alternadas en menta, un solo acento amarillo por bloque, una animación principal por pantalla y nada de emojis (las banderas pasan a ser chips con el nombre del país). Con "reducir movimiento" no hay animaciones.
+6. **Calma visual.** Fondo crema, secciones alternadas en menta (y una en lima suave), un solo acento amarillo por bloque, una animación principal por pantalla y nada de emojis: los países van con su nombre y un ícono de ubicación de línea. Con "reducir movimiento" no hay animaciones y se ve el estado final de cada pieza.
+7. **El encabezado sigue la página.** Los links del menú avanzan en el mismo orden que las secciones, de izquierda a derecha.
 
 ### Cambios por sección
 
 | Sección | Qué cambia |
 |---|---|
 | Encabezado | Navegación en el orden de la página: Propuesta (lleva a la sección de las tres barreras), Cómo empezar, Maca, Precios y Preguntas. "Soy profesional" lleva a la sección "¿Sos psicólogo o psicóloga?" de la misma página, donde está el botón "Quiero sumarme". "Ingresar" sigue llevando a la app de pacientes. |
-| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona") y tres garantías concretas debajo. La tarjeta de perfil muestra a la Lic. Agustina Torres, sin número de matrícula. La composición de videollamada sobre el corazón tiene una foto de la profesional y una del paciente, con el tratamiento de color de la marca; la ventana de la profesional tiene un marco punteado y la del paciente, un poco más grande, lleva el ícono amarillo del micrófono, como en la portada del deck. |
+| Hero | Mismo mensaje, en voseo, con "ideal" destacado. Se agregan un segundo botón ("Cómo funciona", que baja a "Cómo empezar") y tres garantías concretas debajo. La tarjeta de perfil muestra a la Lic. Agustina Torres, sin número de matrícula. La composición de videollamada sobre el corazón tiene una foto de la profesional y una del paciente, con el tratamiento de color de la marca; la ventana de la profesional tiene un marco punteado y la del paciente, un poco más grande, lleva el ícono amarillo del micrófono, como en la portada del deck. |
 | **Tres barreras** (nueva) | Texto del cliente. Etiqueta "Propuesta", título "Una nueva forma de acceder a la terapia, sin barreras." A la izquierda, los tres ítems numerados (acceso, compatibilidad y flexibilidad); a la derecha, un teléfono dibujado en línea sobre una mancha animada, con la reserva de un turno con la Lic. Valeria Quiroga: foto, calificación, país, precio de la sesión y un calendario donde se elige un horario y aparece "Reservar". Cuatro pills flotan superpuestas al teléfono: "Búsqueda por compatibilidad", "Selección según preferencia", "Opciones de presupuesto" y "Profesionales de la región". Debajo del teléfono, una caja verde bosque compacta con "Nuestra visión". Va justo después del hero. |
 | Por qué MotivarCare | Cuatro razones, con textos moderados: desde donde estés, conexión en minutos, profesionales de toda la región y acompañamiento. Se quita la tarjeta de inteligencia artificial (la IA queda solo en la sección de Maca). Toma el título "Pensado para empezar sin fricción", que antes estaba en un bloque aparte. "Desde donde estés" pasa a ser la bajada del título y su lugar lo ocupa una ilustración en primera persona: un teléfono en una plaza que recibe la notificación "Sesión en 5 minutos" y muestra el botón "Iniciar sesión". Las manchas del sol, de los árboles y de detrás del teléfono cambian de forma en loop, los pájaros aletean y unos puntitos vuelan como abejas. "Conexión en minutos" queda a la derecha, más angosta. El chat de ejemplo queda en voseo y se anima mensaje por mensaje. Se quitan las banderas de países. |
-| **Para quién es** (nueva) | "La terapia también es para lo que te pasa en el día a día." Un texto que invita a empezar sin tener todo claro y una caja con temas frecuentes de consulta (ansiedad, dormir mal, duelo, vínculos, primera vez en terapia, etc.). Va después de "Por qué MotivarCare", sobre fondo lima. |
+| **Para quién es** (nueva) | "La terapia también es para lo que te pasa en el día a día." Un texto que invita a empezar sin tener todo claro y una caja con temas frecuentes de consulta (ansiedad, dormir mal, duelo, vínculos, primera vez en terapia, etc.). Va después de "Por qué MotivarCare", sobre fondo lima suave (`#F2F5E0`). La caja de temas tiene un contorno fino y los temas aparecen de a uno al entrar en pantalla. |
 | Psicólogos certificados | Pasa a explicar **cómo** se verifica: cada profesional carga matrícula, título y experiencia, y el equipo los revisa antes de publicar el perfil. Se acompaña con una ficha de revisión con la foto, el nombre y la especialidad de un profesional ficticio (Lic. Diego Ferreyra, psicólogo clínico, terapia cognitivo-conductual). Al entrar en pantalla, el último paso ("Revisión del equipo de MotivarCare") se revisa, se completa y recién entonces aparece el sello "Perfil verificado". |
 | Cómo empezar | Los mismos cuatro pasos, en voseo, con un botón "Crear mi cuenta" al final. |
 | Maca | Se agrega el bloque de los dos territorios (la terapia y el apoyo). El texto, los beneficios, el aviso y el chat se mantienen, en voseo. La ventana de Maca va con borde punteado. El ícono de Maca (mujer con auricular, en línea orgánica) aparece en la tarjeta "El apoyo" y en el encabezado del chat. |
@@ -55,14 +56,41 @@ Primera versión de una landing renovada, armada con el design system de Motivar
 | Precios | Mismo contenido, en una tarjeta de precio y una lista de "Lo que tenés que saber". |
 | Reseñas | Se muestran todas juntas en una grilla en lugar de un carrusel, sin editar, con la aclaración "Reseñas publicadas por pacientes en la plataforma, sin editar". Cada una lleva la foto de perfil del sitio actual, con el tratamiento de color de la marca para unificarlas (`landing/img/resenas/`). Se saca el "hace 163 días". |
 | Preguntas frecuentes | Las seis en voseo, más dos nuevas: "¿Los profesionales tienen matrícula?" y "¿Qué hago si estoy en crisis?" (sin destacar, al final de la lista). |
-| **Para profesionales** (nueva) | "¿Sos psicólogo o psicóloga?", con los tres pasos para sumarse y un botón al portal de profesionales. |
+| **Para profesionales** (nueva) | "¿Sos psicólogo o psicóloga?", con los tres pasos para sumarse y el botón "Quiero sumarme", que lleva al portal de profesionales. Es el destino del link "Soy profesional" del encabezado. |
 | **Cierre** (nueva) | Banda verde bosque en dos columnas: a la izquierda "Tu cambio empieza acá.", un texto corto y los botones "Empezá hoy" y "Tengo dudas"; a la derecha, sobre el corazón, la misma foto de la escena de cierre que usa el deck. |
 | Pie | Mismos enlaces, ordenados en columnas (portales e información). |
 | Botón flotante | "Escribile a Maca", con borde punteado y el ícono de Maca. |
 
-### Placeholders pendientes
+### Orden de las secciones
 
-No quedan placeholders: todas las imágenes y los textos de la propuesta están completos.
+1. Hero
+2. Propuesta: tres barreras y "Nuestra visión"
+3. Por qué MotivarCare ("Pensado para empezar sin fricción")
+4. Para quién es
+5. Psicólogos certificados
+6. Cómo empezar
+7. Maca
+8. Quiénes somos
+9. Precios
+10. Reseñas
+11. Preguntas frecuentes
+12. Para profesionales
+13. Cierre
+
+### Imágenes y animaciones
+
+No quedan placeholders. Todas las fotos llevan el tratamiento de marca (degradé bosque → salvia → amarillo en luz suave, grano y trama de puntos) y las ilustraciones siguen las reglas de "Ilustración de escenas" del design system.
+
+| Sección | Pieza | Origen |
+|---|---|---|
+| Hero | Videollamada: la Lic. Agustina Torres y un paciente en su casa, sobre la mancha de corazón | Fotos generadas con Figma AI (`img/hero/`) |
+| Propuesta | Teléfono en línea con la reserva de un turno, cuatro pills flotantes y la mancha que cambia de forma | Ilustración propia; foto de la Lic. Valeria Quiroga |
+| Por qué MotivarCare | Plaza en primera persona: teléfono con la notificación "Sesión en 5 minutos", manchas que cambian de forma, pájaros y abejas | Ilustración propia |
+| Psicólogos certificados | Ficha de revisión animada de la Lic. Diego Ferreyra | Foto generada con Figma AI (`img/profesionales/`) |
+| Maca | Ícono de Maca (mujer con auricular, línea orgánica) | Ícono propio (`img/maca.svg`) |
+| Quiénes somos | Tarjetas de cuatro profesionales que suben y se elige una | Avatares generados con Figma AI (`img/profesionales/`) |
+| Reseñas | Fotos de perfil de las reseñas | Fotos del sitio actual, con el tratamiento de marca (`img/resenas/`) |
+| Cierre | Paciente cerrando la laptop al terminar la sesión | La misma foto del deck (`img/cierre.jpg`) |
 
 ### A confirmar con el equipo
 
