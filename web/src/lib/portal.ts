@@ -22,7 +22,7 @@ export function slug(segmento: string): string {
     .replace(/^-|-$/g, '');
 }
 
-/** "07-auditoria/bitacora-auditoria-ux/README" -> partes para la URL del documento */
+/** "05-auditoria/bitacora-auditoria-ux/README" -> partes para la URL del documento */
 export function rutaDocumento(id: string) {
   const [frente, ...resto] = id.split('/');
   return { frente, doc: resto.map(slug).join('/') };

@@ -26,7 +26,7 @@ Otros comandos:
 | Página | Archivo |
 |---|---|
 | Inicio (`/`) | `00-resumen/index.md` |
-| Página de cada frente (`/07-auditoria/`) | `README.md` de la carpeta del frente |
+| Página de cada frente (`/05-auditoria/`) | `README.md` de la carpeta del frente |
 | Documentos de un frente | Cualquier otro `.md` dentro de la carpeta del frente, en cualquier subcarpeta |
 | Materiales de un frente | Todos los archivos que no son `.md` (pptx, docx, imágenes, html…), con enlace a GitHub |
 | Contexto (`/contexto/`) | `contexto.md` en la raíz |
@@ -40,7 +40,7 @@ El `README.md` de cada frente empieza con este bloque. El portal lo usa para la 
 ```yaml
 ---
 titulo: Auditoría
-numero: "07"
+numero: "05"
 estado: en-curso        # sin-iniciar | en-curso | en-revision | completado
 resumen: "Una o dos frases sobre el frente."
 actualizado: 2026-10-14

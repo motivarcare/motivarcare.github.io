@@ -25,7 +25,7 @@ El proyecto consiste en realizar una **auditoría integral de Experiencia de Usu
 ---
 
 ## 3. Estructura de Trabajo Local
-El espacio de trabajo de la auditoría (`07-auditoria/`) se organiza en los siguientes módulos:
+El espacio de trabajo de la auditoría (`05-auditoria/`) se organiza en los siguientes módulos:
 * `medios/`: Almacén de material multimedia, capturas de pantalla del portal auditado, marcas y referencias gráficas.
 * Repositorio `motivarcare-audit`: Repositorio Git vinculado a GitHub Pages, que aloja el código fuente del sitio web del informe final.
 * `exploracion/`: Área donde se preservan los prototipos de estilo, mockups interactivos previos y comparativas de diseño.

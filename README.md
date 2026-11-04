@@ -19,9 +19,9 @@ Cada frente de trabajo tiene su carpeta. El `README.md` de cada una explica qué
 | [`02-comercial`](02-comercial) | Plan de negocio, investor deck y modelo de negocio |
 | [`03-marketing`](03-marketing) | Estrategia, contenidos y campañas |
 | [`04-design-system`](04-design-system) | Lenguaje visual de la plataforma |
-| [`05-app-usuario`](05-app-usuario) | Diseño y desarrollo del nuevo portal para pacientes |
-| [`06-app-profesional`](06-app-profesional) | Diseño y desarrollo del nuevo portal del profesional |
-| [`07-auditoria`](07-auditoria) | Auditoría UX de la plataforma en producción |
+| [`05-auditoria`](05-auditoria) | Auditoría UX de la plataforma en producción |
+| [`06-app-usuario`](06-app-usuario) | Diseño y desarrollo del nuevo portal para pacientes |
+| [`07-app-profesional`](07-app-profesional) | Diseño y desarrollo del nuevo portal del profesional |
 | [`08-landing-page`](08-landing-page) | Contenidos de la landing page pública |
 | [`web`](web) | Portal interno que muestra el trabajo de cada frente |
 

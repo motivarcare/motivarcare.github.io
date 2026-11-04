@@ -1,9 +1,9 @@
 ---
 titulo: Auditoría
-numero: "07"
+numero: "05"
 estado: en-curso
 resumen: "Auditoría UX de la plataforma en producción, con las heurísticas de Nielsen adaptadas a la salud mental digital. 10 casos registrados en la bitácora."
-actualizado: 2026-10-14
+actualizado: 2026-11-04
 proximos_pasos:
   - "Seguir con la auditoría caso por caso."
   - "Pasar al informe los hallazgos de cada caso cerrado."
@@ -18,7 +18,7 @@ iniciativas:
     boton: Ver el informe
 ---
 
-# 07 · Auditoría
+# 05 · Auditoría
 
 Auditoría UX de la plataforma en producción (heurísticas de Nielsen adaptadas a salud mental digital).
 

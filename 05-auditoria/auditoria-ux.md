@@ -91,7 +91,7 @@ La elección de cuál usar en cada caso se define puntualmente al proponer el ca
 
 ## 7. Estructura de carpetas — Bitácora de auditoría
 
-Se crea la carpeta **`bitacora-auditoria-ux/`** en la raíz del workspace local (`07-auditoria/`), con la siguiente organización:
+Se crea la carpeta **`bitacora-auditoria-ux/`** en la raíz del workspace local (`05-auditoria/`), con la siguiente organización:
 
 ```
 bitacora-auditoria-ux/
