@@ -84,6 +84,17 @@ ul.pendientes li::before { background: transparent; border: 1.5px dashed var(--n
 .paginacion a { text-decoration: none; color: var(--bosque); font-weight: 700; }
 .paginacion small { display: block; color: var(--tinta-tenue); font-weight: 600; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
 footer { font-size: 13px; color: var(--tinta-tenue); padding: 0 0 40px; }
+.hechas { display: grid; gap: 22px; }
+.hecha { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 0.75fr) minmax(0, 1.15fr); gap: 18px; align-items: start; padding: 22px; border-radius: 24px; background: var(--superficie); border: 1px solid var(--linea); }
+.hecha figure { margin: 0; }
+.hecha img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--linea); background: var(--crema); }
+.hecha figcaption { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-tenue); margin-top: 8px; }
+.hecha h3 { font: 560 21px/1.25 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); margin: 0 0 8px; }
+.hecha p { margin: 0 0 14px; font-size: 15px; color: var(--tinta-suave); }
+.hecha .chip { border-style: solid; border-color: var(--salvia); background: var(--salvia); color: var(--bosque); margin-bottom: 12px; }
+.subtitulo { font: 700 13px/1.4 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--verde-medio); margin: 28px 0 12px; }
+@media (max-width: 820px) { .hecha { grid-template-columns: 1fr 0.5fr; } .hecha .texto { grid-column: 1 / -1; } }
+.chip--curso { border-style: solid; border-color: var(--salvia); background: var(--salvia); color: var(--bosque); }
 @media (max-width: 820px) {
   .columnas { grid-template-columns: 1fr; gap: 24px; }
   .cabecera { grid-template-columns: 1fr; gap: 0; }

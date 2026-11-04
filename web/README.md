@@ -77,6 +77,8 @@ tarjetas:
     boton: Ver el análisis                                # por defecto, "Ver más"
 ```
 
+La grilla va debajo de la cabecera. Para ubicarla en otro lugar del texto, se escribe `<div data-tarjetas></div>` en una línea propia del README, donde tiene que aparecer. En GitHub esa línea no se ve.
+
 ### Encabezado de la portada
 
 ```yaml

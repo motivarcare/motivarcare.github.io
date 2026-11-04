@@ -28,7 +28,10 @@ const externo = (u: string) => /^https?:\/\//.test(u);
   }
   .tarjeta:hover { transform: translateY(-3px); border-color: var(--verde-medio); }
   .imagen { display: block; background: var(--salvia); }
-  .imagen img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .imagen img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin: 0; border: 0; border-radius: 0; }
+  /* Dentro del texto de un README */
+  :global(.prosa) .tarjetas { margin: 24px 0 40px; }
+  :global(.prosa) .tarjeta { color: var(--tinta); text-decoration: none; }
   .texto { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; flex: 1; }
   .etiqueta { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-medio); }
   .titulo { font-family: var(--serif); font-size: 26px; line-height: 1.15; color: var(--bosque); }

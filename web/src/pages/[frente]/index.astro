@@ -22,6 +22,10 @@ const mats = materiales(frente.id);
 const gruposMat = agrupar(mats, (m) => m.carpeta || '');
 const esDS = frente.id === '04-design-system';
 const anchoCompleto = !esDS && frente.data.ancho === 'completo';
+// Si el README tiene la marca <div data-tarjetas></div>, la grilla de tarjetas va en ese lugar del texto
+const html = frente.rendered?.html ?? '';
+const MARCA = /<div data-tarjetas(?:="")?\s*><\/div>/;
+const partes = !esDS && frente.data.tarjetas.length > 0 && MARCA.test(html) ? html.split(MARCA) : null;
 const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(k));
 ---
 <Base titulo={frente.data.titulo} descripcion={frente.data.resumen} frenteActual={frente.id}>
@@ -43,12 +47,19 @@ const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(
 
     {frente.data.iniciativas.length > 0 && <Iniciativas items={frente.data.iniciativas} />}
 
-    {frente.data.tarjetas.length > 0 && <Tarjetas items={frente.data.tarjetas} />}
+    {frente.data.tarjetas.length > 0 && !partes && <Tarjetas items={frente.data.tarjetas} />}
 
     {esDS && <PaginaDS html={frente.rendered?.html ?? ''} />}
 
     <div class={esDS ? 'cuerpo cuerpo--ds' : anchoCompleto ? 'cuerpo cuerpo--ancho' : 'cuerpo'}>
-      {!esDS && <article class="prosa"><Content /></article>}
+      {!esDS && !partes && <article class="prosa"><Content /></article>}
+      {partes && (
+        <article class="prosa">
+          <Fragment set:html={partes[0]} />
+          <Tarjetas items={frente.data.tarjetas} />
+          <Fragment set:html={partes.slice(1).join('')} />
+        </article>
+      )}
 
       <aside>
         <section class="panel">

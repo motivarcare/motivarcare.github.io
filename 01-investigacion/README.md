@@ -57,7 +57,7 @@ La sesión que está por empezar va arriba, con un solo botón fuerte. La zona h
 
 ### Lo que cambia: el eje
 
-Cada plataforma organiza la experiencia alrededor de algo distinto: la sesión (Mindly), el profesional (Clearly y Talkspace), la conversación (BetterHelp) o el proceso entre sesiones (Talkspace con "Journey" y BetterHelp con "Wellness"). Esos cuatro ejes dan origen a las [familias de la propuesta](/app-usuario/propuesta/) del portal del paciente (frente 06).
+Cada plataforma organiza la experiencia alrededor de algo distinto: la sesión (Mindly), el profesional (Clearly y Talkspace), la conversación (BetterHelp) o el proceso entre sesiones (Talkspace con "Journey" y BetterHelp con "Wellness"). Esos cuatro ejes dan origen a las [familias de la propuesta](/06-app-usuario/#propuesta-cuatro-familias) del portal del paciente (frente 06).
 
 ### Sobre las imágenes
 
