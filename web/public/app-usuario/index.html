@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Portal del paciente · Mockup</title>
+<link rel="icon" href="../landing/img/logo.svg" type="image/svg+xml">
+<style>
+/* =========================================================================
+   MotivarCare · Nuevo portal del paciente · Primer mockup (noviembre 2026)
+   Usa los tokens y las fuentes del design system (04-design-system), tomados
+   de la propuesta de landing (../landing/).
+   ========================================================================= */
+@font-face { font-family: 'Fraunces'; font-weight: 100 900; font-display: block;
+  src: url('../landing/fonts/fraunces-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-weight: 100 900; font-display: block;
+  src: url('../landing/fonts/fraunces-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+A720-A7FF; }
+@font-face { font-family: 'Manrope'; font-weight: 200 800; font-display: block;
+  src: url('../landing/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Manrope'; font-weight: 200 800; font-display: block;
+  src: url('../landing/fonts/manrope-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+A720-A7FF; }
+
+:root {
+  --crema: #f5f3eb; --superficie: #ffffff; --tinta: #1b2a23; --tinta-suave: #5d6a63; --tinta-tenue: #8a958f; --linea: #e2dfd3;
+  --bosque: #1e4033; --bosque-2: #2a5543; --verde-medio: #2f6b51; --bosque-claro: #eaf1ec;
+  --salvia: #d6e7dc; --salvia-fuerte: #9fc9ae; --menta: #e7f1ea; --lima: #e6edc4; --lima-fuerte: #c8d98a; --lima-suave: #f2f5e0;
+  --amarillo: #f5c33b; --amarillo-suave: #fbe9b0;
+  --e1: #1e4033; --e2: #2f6b51; --e3: #5e9677; --e4: #8dba9e; --e5: #b7cf95;
+  --rg: 24px; --rm: 18px; --rc: 10px;
+  --serif: 'Fraunces', Georgia, serif; --sans: 'Manrope', system-ui, sans-serif;
+  --sombra: 0 30px 60px -28px rgba(20, 41, 31, .45);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); padding: 48px 24px 80px; }
+.lamina { max-width: 1440px; margin: 0 auto 56px; }
+.lamina > h2 { font: 600 13px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); margin-bottom: 14px; }
+.fila-tel { display: flex; gap: 40px; flex-wrap: wrap; }
+.fila-tel > div { flex: 0 0 auto; }
+
+/* ---------- Marcos ---------- */
+.marco { position: relative; overflow: hidden; background: var(--crema); font-size: 16px; line-height: 1.5; }
+.marco.esc { width: 1440px; height: 900px; display: grid; grid-template-columns: 252px 1fr; }
+.marco.tel { width: 390px; height: 844px; display: flex; flex-direction: column; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico.chico { width: 18px; height: 18px; }
+
+/* ---------- Tipografía ---------- */
+.t-fecha { font: 700 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--verde-medio); }
+.t1 { font: 500 42px/1.08 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); letter-spacing: -.01em; }
+.t1 em, .t2 em { font-style: italic; color: var(--bosque-2); }
+.t2 { font: 500 30px/1.12 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.t3 { font: 560 22px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.bajada { font-size: 18px; color: var(--tinta-suave); }
+.peq { font-size: 14px; font-weight: 500; color: var(--tinta-suave); }
+.tenue { font-size: 13px; color: var(--tinta-tenue); }
+.etiqueta { display: inline-flex; align-items: center; gap: 8px; background: var(--lima); color: var(--bosque); font: 700 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 7px 12px 7px 10px; border-radius: 99px; }
+.etiqueta::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amarillo); }
+
+/* ---------- Botones ---------- */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 99px; font: 700 15px/1 var(--sans); text-decoration: none; white-space: nowrap; border: 1px solid transparent; }
+.boton.primario { background: var(--amarillo); color: var(--bosque); }
+.boton.bosque { background: var(--bosque); color: var(--bosque-claro); }
+.boton.contorno { background: var(--superficie); color: var(--bosque); border-color: var(--linea); }
+.boton.texto { background: none; color: var(--verde-medio); padding: 0 6px; }
+.boton.grande { height: 52px; padding: 0 28px; font-size: 16px; }
+.boton.ancho { width: 100%; }
+.boton-icono { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--superficie); border: 1px solid var(--linea); color: var(--bosque); position: relative; }
+.boton-icono .punto { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--amarillo); border: 2px solid var(--superficie); box-sizing: content-box; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta { border-radius: var(--rg); padding: 26px; background: var(--superficie); border: 1px solid var(--linea); }
+.tarjeta.menta { background: var(--menta); border-color: transparent; }
+.tarjeta.salvia { background: var(--salvia); border-color: transparent; }
+.tarjeta.lima { background: var(--lima-suave); border-color: transparent; }
+.tarjeta.bosque { background: var(--bosque); border-color: transparent; color: var(--bosque-claro); }
+.tarjeta.punteada { background: transparent; border: 1.5px dashed var(--salvia-fuerte); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 700 12.5px/1 var(--sans); padding: 7px 11px; border-radius: 99px; background: var(--menta); color: var(--bosque); white-space: nowrap; }
+.chip.lima { background: var(--lima); }
+.chip.amarillo { background: var(--amarillo-suave); }
+.chip.contorno { background: transparent; border: 1px solid var(--linea); color: var(--tinta-suave); }
+.chip .late { width: 8px; height: 8px; border-radius: 50%; background: var(--verde-medio); box-shadow: 0 0 0 4px rgba(47,107,81,.18); }
+.avatar { border-radius: 50%; object-fit: cover; flex: none; filter: saturate(.85); }
+.pais { display: inline-flex; align-items: center; gap: 4px; }
+.pais .ico { width: 15px; height: 15px; }
+.estrella { color: var(--amarillo); }
+
+/* ---------- Navegación de escritorio ---------- */
+.lateral { border-right: 1px solid var(--linea); padding: 26px 18px; display: flex; flex-direction: column; gap: 6px; background: var(--crema); }
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 13px; letter-spacing: .16em; color: var(--bosque); padding: 0 10px 26px; }
+.marca img { width: 32px; }
+.nav-item { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; font-weight: 600; font-size: 15.5px; color: var(--tinta-suave); text-decoration: none; }
+.nav-item.activo { background: var(--salvia); color: var(--bosque); font-weight: 700; }
+.nav-item .contador { margin-left: auto; font-size: 12px; font-weight: 800; background: var(--amarillo); color: var(--bosque); border-radius: 99px; padding: 3px 8px; }
+.lateral .pie { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+.apoyo { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: var(--tinta-suave); padding: 14px; border-radius: 14px; border: 1px solid var(--linea); }
+.apoyo b { color: var(--bosque); display: block; font-size: 13.5px; }
+.apoyo .ico { color: var(--verde-medio); margin-top: 1px; }
+
+.principal { overflow: hidden; display: flex; flex-direction: column; }
+.barra { display: flex; align-items: center; gap: 12px; padding: 18px 48px 0; }
+.barra .espacio { flex: 1; }
+.cuenta { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px 0 5px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); font-weight: 700; font-size: 14.5px; color: var(--bosque); }
+.cuenta .inicial { width: 34px; height: 34px; border-radius: 50%; background: var(--lima); display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+.contenido { padding: 0 48px 40px; }
+
+/* ---------- Inicio: sesión ---------- */
+.saludo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.grilla-inicio { display: grid; grid-template-columns: 1.55fr 1fr; gap: 20px; }
+.sesion { position: relative; overflow: hidden; padding: 30px 32px; display: flex; flex-direction: column; gap: 18px; min-height: 286px; }
+.sesion .mancha { position: absolute; right: -70px; top: -60px; width: 330px; opacity: .75; }
+.sesion .cabeza { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.sesion .cuando { font: 500 38px/1.08 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); position: relative; }
+.sesion .cuando small { display: block; font: 600 16px/1.5 var(--sans); color: var(--tinta-suave); margin-top: 8px; }
+.con { display: flex; align-items: center; gap: 14px; position: relative; }
+.con b { display: block; color: var(--bosque); font-size: 16px; }
+.con .anillo { width: 58px; height: 58px; border-radius: 50%; padding: 3px; border: 2px solid var(--bosque); background: var(--salvia); }
+.con .anillo img { width: 100%; height: 100%; }
+.acciones { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; position: relative; margin-top: auto; }
+.nota { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: var(--tinta-suave); }
+.nota i { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--amarillo-suave); color: var(--bosque); font: italic 700 12px/20px var(--serif); text-align: center; }
+
+.columna { display: flex; flex-direction: column; gap: 20px; }
+.pro { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+.pro .fila { display: flex; gap: 14px; align-items: center; }
+.pro .fila b { display: block; font-size: 16.5px; color: var(--bosque); }
+.pro .datos { display: flex; gap: 12px; font-size: 13.5px; color: var(--tinta-suave); margin-top: 3px; }
+.pro .botones { display: flex; gap: 10px; }
+.creditos { display: flex; align-items: center; gap: 18px; padding: 22px 24px; }
+.creditos .numero { font: 500 44px/1 var(--serif); color: var(--bosque); }
+.creditos .texto { flex: 1; }
+.creditos .texto b { display: block; color: var(--bosque); font-size: 15.5px; }
+.puntos { display: flex; gap: 6px; margin-top: 8px; }
+.puntos span { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--bosque); background: var(--salvia); }
+.puntos span.usada { background: var(--bosque); }
+.puntos span.libre { background: transparent; border-style: dashed; border-color: var(--salvia-fuerte); }
+
+.entre { margin-top: 24px; }
+.entre .cabeza { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.grilla-entre { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 20px; }
+.animo { display: flex; flex-direction: column; gap: 16px; }
+.opciones-animo { display: flex; gap: 8px; }
+.opciones-animo span { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 10px; border-radius: 14px; background: var(--superficie); font-size: 12.5px; font-weight: 700; color: var(--tinta-suave); }
+.opciones-animo span i { width: 18px; height: 18px; border-radius: 50%; }
+.privado { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--verde-medio); }
+.privado .ico { width: 16px; height: 16px; }
+.grafico { display: flex; flex-direction: column; gap: 12px; }
+.grafico svg { width: 100%; height: auto; display: block; }
+.recurso { display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; }
+.icono-mancha { position: relative; width: 58px; height: 58px; display: grid; place-items: center; color: var(--crema); }
+.icono-mancha svg.blob { position: absolute; inset: 0; width: 100%; height: 100%; }
+.icono-mancha .ico { position: relative; width: 26px; height: 26px; }
+.enlace { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14.5px; color: var(--verde-medio); text-decoration: none; }
+.enlace .ico { width: 16px; height: 16px; }
+
+/* ---------- Maca ---------- */
+.maca { position: absolute; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 20px 0 8px; border-radius: 99px; background: var(--superficie); border: 1.5px dashed var(--bosque); box-shadow: var(--sombra); font-weight: 700; font-size: 14.5px; color: var(--bosque); }
+.maca img { width: 40px; height: 40px; border-radius: 50%; background: var(--menta); padding: 3px; }
+.maca.lateral-maca { position: static; box-shadow: none; height: 50px; padding-left: 6px; font-size: 14.5px; }
+.maca.cab-maca { position: static; box-shadow: none; width: 42px; height: 42px; padding: 0; justify-content: center; }
+.maca.cab-maca img { width: 36px; height: 36px; padding: 2px; }
+.maca.redonda { width: 56px; height: 56px; padding: 0; justify-content: center; }
+.maca.redonda img { width: 46px; height: 46px; }
+
+/* ---------- Teléfono ---------- */
+.estado-tel { height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; font-weight: 700; font-size: 15px; color: var(--tinta); flex: none; }
+.estado-tel .senal { display: flex; gap: 3px; align-items: flex-end; }
+.estado-tel .senal i { width: 4px; background: var(--tinta); border-radius: 1px; }
+.cabecera-tel { display: flex; align-items: center; gap: 10px; padding: 6px 18px 10px; flex: none; }
+.cabecera-tel .marca { padding: 0; font-size: 12px; }
+.cabecera-tel .marca img { width: 28px; }
+.cabecera-tel .espacio { flex: 1; }
+.cabecera-tel .boton-icono { width: 42px; height: 42px; }
+.cabecera-tel .inicial { width: 42px; height: 42px; border-radius: 50%; background: var(--lima); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: var(--bosque); border: 1px solid var(--linea); }
+.cuerpo-tel { flex: 1; overflow: hidden; padding: 8px 18px 0; display: flex; flex-direction: column; gap: 14px; }
+.tel .t1 { font-size: 32px; }
+.tel .bajada { font-size: 16px; }
+.tel .sesion { min-height: 0; padding: 22px; gap: 14px; }
+.tel .sesion .cuando { font-size: 28px; }
+.tel .sesion .cuando small { font-size: 14px; margin-top: 6px; }
+.tel .sesion .mancha { width: 220px; right: -60px; top: -50px; }
+.tel .con .anillo { width: 48px; height: 48px; }
+.tel .tarjeta { padding: 18px; border-radius: 20px; }
+.nav-tel { flex: none; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 6px 26px; background: var(--superficie); border-top: 1px solid var(--linea); }
+.nav-tel a { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700; color: var(--tinta-tenue); text-decoration: none; padding-top: 4px; }
+.nav-tel a .ico { width: 24px; height: 24px; }
+.nav-tel a .pastilla { width: 56px; height: 30px; border-radius: 99px; display: grid; place-items: center; }
+.nav-tel a.activo { color: var(--bosque); }
+.nav-tel a.activo .pastilla { background: var(--salvia); }
+.tel .maca { right: 16px; bottom: 100px; }
+
+/* ---------- Sin profesional ---------- */
+.pasos { display: flex; flex-direction: column; gap: 12px; margin: 4px 0 2px; }
+.paso { display: flex; gap: 12px; align-items: center; font-size: 15px; font-weight: 600; }
+.paso .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13.5px; flex: none; }
+.bosque .paso .num { background: var(--amarillo); color: var(--bosque); }
+.bosque .paso.pendiente { color: rgba(234,241,236,.62); }
+.bosque .paso.pendiente .num { background: transparent; border: 1.5px dashed rgba(234,241,236,.5); color: rgba(234,241,236,.75); }
+.sugeridos { display: flex; flex-direction: column; gap: 10px; }
+.mini-pro { display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 18px; background: var(--superficie); border: 1px solid var(--linea); }
+.mini-pro .info { flex: 1; min-width: 0; }
+.mini-pro b { display: block; color: var(--bosque); font-size: 15px; }
+.mini-pro .peq { font-size: 13px; }
+.mini-pro .meta { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+
+/* ---------- Reserva ---------- */
+.reserva { display: flex; flex-direction: column; }
+.marco.esc.reserva { display: flex; }
+.cab-reserva { display: flex; align-items: center; gap: 24px; padding: 22px 48px; border-bottom: 1px solid var(--linea); }
+.cab-reserva .marca { padding: 0; }
+.cab-reserva .espacio { flex: 1; }
+.stepper { display: flex; align-items: center; gap: 10px; }
+.stepper .s { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 700; color: var(--bosque); }
+.stepper .s .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+.stepper .s.hecho .num { background: var(--bosque); color: var(--crema); }
+.stepper .s.actual .num { background: var(--amarillo); color: var(--bosque); }
+.stepper .s.pendiente { color: var(--tinta-tenue); }
+.stepper .s.pendiente .num { border: 1.5px dashed var(--tinta-tenue); color: var(--tinta-tenue); }
+.stepper .raya { width: 36px; height: 2px; background: var(--bosque); border-radius: 2px; }
+.stepper .raya.pend { background: none; border-top: 2px dashed var(--linea); height: 0; }
+.cuerpo-reserva { flex: 1; display: grid; grid-template-columns: 1fr 420px; gap: 48px; padding: 44px 120px 0; align-content: start; }
+.opciones { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.opcion { display: flex; gap: 18px; align-items: flex-start; padding: 22px 24px; border-radius: var(--rm); background: var(--superficie); border: 1px solid var(--linea); }
+.opcion.elegida { border: 2px solid var(--bosque); background: var(--superficie); box-shadow: 0 0 0 4px var(--menta); }
+.radio { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--tinta-tenue); flex: none; margin-top: 2px; display: grid; place-items: center; }
+.elegida .radio { border-color: var(--bosque); }
+.elegida .radio::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--bosque); }
+.opcion .info { flex: 1; }
+.opcion .titulo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; color: var(--bosque); }
+.opcion .precio { text-align: right; }
+.opcion .precio b { display: block; font: 600 24px/1.1 var(--serif); color: var(--bosque); white-space: nowrap; }
+.opcion .precio small { font-size: 13px; color: var(--tinta-suave); white-space: nowrap; }
+.resumen { padding: 26px; display: flex; flex-direction: column; gap: 18px; }
+.resumen .linea { height: 1px; background: var(--linea); }
+.resumen .item { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--tinta-suave); }
+.resumen .item .ico { color: var(--verde-medio); margin-top: 1px; }
+.resumen .item b { color: var(--tinta); font-weight: 700; }
+.resumen .fila { display: flex; justify-content: space-between; font-size: 14.5px; color: var(--tinta-suave); }
+.resumen .total { display: flex; justify-content: space-between; align-items: baseline; }
+.resumen .total span { font-weight: 800; color: var(--bosque); font-size: 15px; }
+.resumen .total b { font: 600 30px/1 var(--serif); color: var(--bosque); }
+.tel .opcion { padding: 16px; gap: 14px; }
+.tel .opcion .titulo { font-size: 15.5px; }
+.tel .opcion .precio b { font-size: 20px; }
+.barra-pago { flex: none; padding: 14px 18px 30px; background: var(--superficie); border-top: 1px solid var(--linea); display: flex; flex-direction: column; gap: 10px; }
+.barra-pago .total { display: flex; justify-content: space-between; align-items: baseline; }
+.barra-pago .total span { font-weight: 700; color: var(--tinta-suave); font-size: 14px; }
+.barra-pago .total b { font: 600 24px/1 var(--serif); color: var(--bosque); }
+</style>
+</head>
+<body>
+
+<!-- Íconos de línea (2 px, grilla de 24 px) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6h-6v6H5.5A1.5 1.5 0 0 1 4 19z"/></symbol>
+  <symbol id="i-sesiones" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/><circle cx="12" cy="15" r="1.6"/></symbol>
+  <symbol id="i-profesional" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c.8-4 3.9-6.3 7.5-6.3s6.7 2.3 7.5 6.3"/></symbol>
+  <symbol id="i-diario" viewBox="0 0 24 24"><path d="M6 3.5h10.5A2.5 2.5 0 0 1 19 6v14.5H7.5A2.5 2.5 0 0 1 5 18V4.5a1 1 0 0 1 1-1z"/><path d="M5 18a2.5 2.5 0 0 1 2.5-2.5H19M9 8h6M9 11.5h4"/></symbol>
+  <symbol id="i-bienestar" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13.5 14-14-.3 9-5.8 14-14 14z"/><path d="M5 19c3-3.5 6-6 9.5-8"/></symbol>
+  <symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-abajo" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6.5" width="12.5" height="11" rx="2.5"/><path d="m15.5 10.5 5-3v9l-5-3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10h-9l-4.5 4v-4H4.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+  <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-respira" viewBox="0 0 24 24"><path d="M3.5 9.5h10a2.5 2.5 0 1 0-2.5-2.5M3.5 14h14a2.5 2.5 0 1 1-2.5 2.5"/></symbol>
+  <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol>
+  <symbol id="i-ayuda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.5a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5"/><circle cx="12" cy="17" r=".6"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2C10.6 19 5 13.4 4.5 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-atras" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+</svg>
+
+<!-- =====================================================================
+     1 · Inicio · escritorio · la sesión empieza en minutos
+     ===================================================================== -->
+<section class="lamina">
+<h2>1 · Inicio en escritorio · sesión a punto de empezar</h2>
+<div class="marco esc" id="inicio-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Mi profesional<span class="contador">1</span></a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <span class="maca lateral-maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo">
+        <span class="t-fecha">Miércoles 4 de noviembre</span>
+        <h1 class="t1">Hola, <em>Gastón.</em></h1>
+        <p class="bajada">Tu sesión con Valeria empieza en unos minutos.</p>
+      </div>
+      <div class="grilla-inicio">
+        <article class="tarjeta salvia sesion">
+          <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="380" cy="150" r="14" fill="#F5C33B"/></svg>
+          <div class="cabeza"><span class="chip" style="background:var(--superficie)"><span class="late"></span>Empieza en 8 minutos</span></div>
+          <div class="cuando">Hoy, 18:00<small>Videollamada de 50 min · hora de Argentina (GMT-3)</small></div>
+          <div class="con">
+            <span class="anillo"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span>
+            <div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Ansiedad y estrés</span></div>
+          </div>
+          <div class="acciones">
+            <a class="boton primario grande"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
+            <a class="boton contorno">Ver detalle</a>
+            <a class="boton texto">Probar cámara y micrófono</a>
+          </div>
+        </article>
+        <div class="columna">
+          <article class="tarjeta pro">
+            <div class="fila">
+              <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+              <div><span class="tenue">Tu profesional</span><b>Lic. Valeria Quiroga</b>
+                <div class="datos"><span><span class="estrella">★</span> 4,9</span><span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></div></div>
+            </div>
+            <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
+            <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
+          </article>
+          <article class="tarjeta creditos">
+            <div class="numero">3</div>
+            <div class="texto"><b>sesiones disponibles</b><span class="peq" style="white-space:nowrap">Paquete de 4 · una es hoy</span>
+              <div class="puntos"><span class="usada"></span><span></span><span class="libre"></span><span class="libre"></span></div></div>
+            <a class="boton contorno">Reservar otra</a>
+          </article>
+        </div>
+      </div>
+
+      <section class="entre">
+        <div class="cabeza"><h2 class="t3">Entre sesiones</h2><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+        <div class="grilla-entre">
+          <article class="tarjeta menta animo">
+            <div><b style="color:var(--bosque);font-size:16.5px">¿Cómo estás hoy?</b><p class="peq">Un registro rápido para tu diario.</p></div>
+            <div class="opciones-animo">
+              <span><i style="background:var(--e5)"></i>Muy mal</span><span><i style="background:var(--e4)"></i>Mal</span><span><i style="background:var(--e3)"></i>Regular</span><span><i style="background:var(--e2)"></i>Bien</span><span><i style="background:var(--e1)"></i>Muy bien</span>
+            </div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+          <article class="tarjeta grafico">
+            <div><b style="color:var(--bosque);font-size:16.5px">Tu semana</b><p class="peq">Cómo te sentiste los últimos 7 días</p></div>
+            <svg viewBox="0 0 300 110" aria-hidden="true">
+              <g stroke="#E2DFD3" stroke-width="1"><line x1="10" y1="20" x2="290" y2="20"/><line x1="10" y1="55" x2="290" y2="55"/><line x1="10" y1="90" x2="290" y2="90"/></g>
+              <polyline points="20,72 63,60 106,78 149,48 192,52 235,34 278,40" fill="none" stroke="#2F6B51" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#2F6B51"><circle cx="20" cy="72" r="4"/><circle cx="63" cy="60" r="4"/><circle cx="106" cy="78" r="4"/><circle cx="149" cy="48" r="4"/><circle cx="192" cy="52" r="4"/><circle cx="235" cy="34" r="4"/></g>
+              <circle cx="278" cy="40" r="5" fill="#F5C33B" stroke="#1E4033" stroke-width="2"/>
+              <text x="278" y="22" text-anchor="middle" font-family="Manrope" font-weight="700" font-size="11" fill="#1E4033">Bien</text>
+              <g font-family="Manrope" font-size="10.5" fill="#8A958F" text-anchor="middle"><text x="20" y="107">jue</text><text x="63" y="107">vie</text><text x="106" y="107">sáb</text><text x="149" y="107">dom</text><text x="192" y="107">lun</text><text x="235" y="107">mar</text><text x="278" y="107">mié</text></g>
+            </svg>
+          </article>
+          <article class="tarjeta lima recurso">
+            <span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-respira"/></svg></span>
+            <div><span class="tenue">Antes de tu sesión · 3 min</span><b style="display:block;color:var(--bosque);font-size:16.5px">Respiración para llegar con calma</b></div>
+            <a class="enlace">Empezar<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</section>
+
+<!-- =====================================================================
+     2 y 3 · Inicio · teléfono
+     ===================================================================== -->
+<section class="lamina">
+<h2>2 · Inicio en el teléfono · sesión a punto de empezar &nbsp;·&nbsp; 3 · Inicio en el teléfono · todavía sin profesional</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel" id="inicio-telefono">
+  <div class="estado-tel"><span>17:52</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="maca cab-maca"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:4px">
+      <span class="t-fecha">Miércoles 4 de noviembre</span>
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+    </div>
+    <article class="tarjeta salvia sesion">
+      <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="330" cy="200" r="15" fill="#F5C33B"/></svg>
+      <div class="cabeza"><span class="chip" style="background:var(--superficie)"><span class="late"></span>Empieza en 8 minutos</span></div>
+      <div class="cuando">Hoy, 18:00<small>Videollamada de 50 min · hora de Argentina</small></div>
+      <div class="con">
+        <span class="anillo"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span>
+        <div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica</span></div>
+      </div>
+      <a class="boton primario grande ancho" style="position:relative"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
+      <div style="display:flex;justify-content:space-between;position:relative"><a class="boton texto" style="height:28px">Ver detalle</a><a class="boton texto" style="height:28px">Probar cámara</a></div>
+    </article>
+    <article class="tarjeta menta animo" style="gap:12px">
+      <div><b style="color:var(--bosque);font-size:16px">¿Cómo estás hoy?</b></div>
+      <div class="opciones-animo" style="gap:6px">
+        <span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e5)"></i>Muy mal</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e4)"></i>Mal</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e3)"></i>Regular</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e2)"></i>Bien</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e1)"></i>Muy bien</span>
+      </div>
+      <span class="privado" style="font-size:12px"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+    </article>
+    <article class="tarjeta creditos" style="padding:16px 18px;gap:14px">
+      <div class="numero" style="font-size:36px">3</div>
+      <div class="texto"><b style="font-size:14.5px">sesiones disponibles</b>
+        <div class="puntos" style="margin-top:6px"><span class="usada" style="width:18px;height:18px"></span><span style="width:18px;height:18px"></span><span class="libre" style="width:18px;height:18px"></span><span class="libre" style="width:18px;height:18px"></span></div></div>
+      <a class="enlace">Reservar<svg class="ico"><use href="#i-flecha"/></svg></a>
+    </article>
+  </div>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+
+<div>
+<div class="marco tel" id="inicio-sin-profesional">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="maca cab-maca"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:2px">
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+      <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
+    </div>
+    <article class="tarjeta bosque" style="display:flex;flex-direction:column;gap:16px">
+      <span class="t-fecha" style="color:var(--lima-fuerte)">Tu primera sesión, en 4 pasos</span>
+      <div class="pasos">
+        <div class="paso"><span class="num">1</span>Elegí a tu profesional</div>
+        <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
+        <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
+        <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
+      </div>
+      <a class="boton primario grande ancho">Encontrá a tu profesional</a>
+      <span style="font-size:13px;color:rgba(234,241,236,.8);text-align:center">Sesiones de 50 min desde $40.000 ARS · sin suscripción</span>
+    </article>
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="t3" style="font-size:19px">Sugeridos para vos</h2><span class="tenue">según tu cuestionario</span></div>
+    <div class="sugeridos">
+      <div class="mini-pro">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
+        <div class="info"><b>Lic. Valeria Quiroga</b><span class="peq">Ansiedad y estrés · Argentina</span>
+          <div class="meta"><span class="chip lima">92 % compatible</span><span class="tenue">$42.000</span></div></div>
+      </div>
+      <div class="mini-pro">
+        <img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="52" height="52">
+        <div class="info"><b>Lic. Tomás Benítez</b><span class="peq">Vínculos y pareja · Colombia</span>
+          <div class="meta"><span class="chip lima">88 % compatible</span><span class="tenue">$38.000</span></div></div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+<!-- =====================================================================
+     4 · Reserva · paso 3 · escritorio
+     ===================================================================== -->
+<section class="lamina">
+<h2>4 · Reserva en escritorio · paso 3: elegí cómo pagar</h2>
+<div class="marco esc reserva" id="reserva-escritorio">
+  <header class="cab-reserva">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <div class="stepper">
+      <span class="s hecho"><span class="num"><svg class="ico chico"><use href="#i-check"/></svg></span>Profesional</span><span class="raya"></span>
+      <span class="s hecho"><span class="num"><svg class="ico chico"><use href="#i-check"/></svg></span>Horario</span><span class="raya"></span>
+      <span class="s actual"><span class="num">3</span>Cómo pagar</span><span class="raya pend"></span>
+      <span class="s pendiente"><span class="num">4</span>Confirmación</span>
+    </div>
+    <span class="espacio"></span>
+    <a class="boton contorno"><svg class="ico chico"><use href="#i-cerrar"/></svg>Salir</a>
+  </header>
+  <div class="cuerpo-reserva">
+    <div>
+      <a class="enlace" style="margin-bottom:18px"><svg class="ico"><use href="#i-atras"/></svg>Cambiar el horario</a>
+      <h1 class="t1" style="font-size:42px;margin-top:14px">Elegí <em>cómo pagar.</em></h1>
+      <p class="bajada" style="margin-top:10px">Pagás solo lo que elegís, sin suscripción ni renovación automática.</p>
+      <div class="opciones">
+        <div class="opcion">
+          <span class="radio"></span>
+          <div class="info"><div class="titulo">Una sesión</div><p class="peq">Para tu primera sesión con Valeria.</p></div>
+          <div class="precio"><b>$42.000</b><small>ARS</small></div>
+        </div>
+        <div class="opcion elegida">
+          <span class="radio"></span>
+          <div class="info"><div class="titulo">Paquete de 4 sesiones <span class="chip lima">Ahorrás $8.400</span></div><p class="peq">Reservás esta y te quedan 3 para las próximas semanas. $39.900 por sesión.</p></div>
+          <div class="precio"><b>$159.600</b><small>ARS · 4 sesiones</small></div>
+        </div>
+        <div class="opcion" style="background:transparent;border-style:dashed">
+          <span class="radio" style="border-style:dashed"></span>
+          <div class="info"><div class="titulo">Usar un código de descuento</div><p class="peq">Si tu empresa o tu obra social te dio uno.</p></div>
+        </div>
+      </div>
+    </div>
+    <aside class="tarjeta resumen">
+      <div class="con">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="56" height="56">
+        <div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Ansiedad y estrés</span></div>
+      </div>
+      <div class="linea"></div>
+      <div class="item"><svg class="ico chico"><use href="#i-sesiones"/></svg><span><b>Jueves 12 de noviembre, 18:00</b><br>Hora de Argentina (GMT-3)</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min. El enlace te llega por mail y queda en Sesiones.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div>
+      <div class="linea"></div>
+      <div class="fila"><span>Paquete de 4 sesiones</span><span>$168.000</span></div>
+      <div class="fila"><span>Descuento por paquete (5 %)</span><span>−$8.400</span></div>
+      <div class="total"><span>Total a pagar ahora</span><b>$159.600 <small style="font:700 13px var(--sans)">ARS</small></b></div>
+      <a class="boton primario grande ancho">Continuar al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+      <span class="privado" style="justify-content:center;font-weight:500;color:var(--tinta-suave)"><svg class="ico"><use href="#i-escudo"/></svg>Es el monto exacto que vas a ver en el pago.</span>
+    </aside>
+  </div>
+</div>
+</section>
+
+<!-- =====================================================================
+     5 · Reserva · paso 3 · teléfono
+     ===================================================================== -->
+<section class="lamina">
+<h2>5 · Reserva en el teléfono · paso 3: elegí cómo pagar</h2>
+<div class="marco tel" id="reserva-telefono">
+  <div class="estado-tel"><span>10:31</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel" style="padding-bottom:4px">
+    <span class="boton-icono"><svg class="ico"><use href="#i-atras"/></svg></span>
+    <span class="espacio"></span>
+    <span class="t-fecha" style="color:var(--tinta-suave)">Paso 3 de 4</span>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-cerrar"/></svg></span>
+  </div>
+  <div style="display:flex;gap:6px;padding:4px 18px 0">
+    <span style="flex:1;height:5px;border-radius:9px;background:var(--bosque)"></span><span style="flex:1;height:5px;border-radius:9px;background:var(--bosque)"></span><span style="flex:1;height:5px;border-radius:9px;background:var(--amarillo)"></span><span style="flex:1;height:0;border-top:2px dashed var(--salvia-fuerte);margin-top:2px"></span>
+  </div>
+  <div class="cuerpo-tel" style="padding-top:16px">
+    <h1 class="t1" style="font-size:30px">Elegí <em>cómo pagar.</em></h1>
+    <div class="con" style="padding:12px 14px;border-radius:16px;background:var(--menta)">
+      <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="44" height="44">
+      <div><b style="font-size:14.5px">Lic. Valeria Quiroga</b><span class="peq" style="font-size:13px">Jueves 12 de noviembre, 18:00 · 50 min</span></div>
+    </div>
+    <div class="opciones" style="margin-top:2px;gap:10px">
+      <div class="opcion">
+        <span class="radio"></span>
+        <div class="info"><div class="titulo">Una sesión</div><p class="peq" style="font-size:13px">Solo esta sesión</p></div>
+        <div class="precio"><b>$42.000</b><small>ARS</small></div>
+      </div>
+      <div class="opcion elegida">
+        <span class="radio"></span>
+        <div class="info"><div class="titulo">Paquete de 4</div><p class="peq" style="font-size:13px">$39.900 por sesión</p><span class="chip lima" style="margin-top:8px">Ahorrás $8.400</span></div>
+        <div class="precio"><b>$159.600</b><small>ARS</small></div>
+      </div>
+    </div>
+    <div class="opcion" style="background:transparent;border-style:dashed;padding:14px 16px">
+      <span class="radio" style="border-style:dashed"></span>
+      <div class="info"><div class="titulo" style="font-size:15px">Usar un código de descuento</div></div>
+    </div>
+    <div class="nota"><i>i</i><span>Sin suscripción. Podés reprogramar sin costo hasta 24 h antes.</span></div>
+  </div>
+  <div class="barra-pago">
+    <div class="total"><span>Total a pagar ahora</span><b>$159.600 <small style="font:700 12px var(--sans)">ARS</small></b></div>
+    <a class="boton primario grande ancho">Continuar al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+  </div>
+</div>
+</section>
+
+</body>
+</html>
