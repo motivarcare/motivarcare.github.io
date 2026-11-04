@@ -121,9 +121,9 @@ La migración se haría por flujos. Empieza por la estructura y por lo esencial 
 
 1. **Inicio y navegación**, porque son la estructura de todo lo demás (caso 03).
 2. **Reserva y pago**, porque tocan la confianza y el dinero (caso 04).
-3. **Registro e ingreso** (caso 02).
-4. **Cuenta y datos personales** (caso 06).
-5. **Diario y bienestar**, que son funciones secundarias (caso 05).
+3. **Registro e ingreso** (caso 02). Un cuestionario inicial claro y breve es la base para sugerir a los profesionales que mejor se ajustan a cada persona, y es la primera experiencia que tiene con el portal.
+4. **Cuenta y datos personales** (caso 06). La persona tiene que poder ver, corregir y decidir sobre sus datos, y saber con claridad quién accede a su información: es una parte central de la confianza en un servicio de salud.
+5. **Diario y bienestar** (caso 05). Son funciones secundarias, pero se integran al estilo nuevo y al recorrido de la persona como parte de su proceso, y no como un catálogo aislado de recursos sin curar.
 
 Esta recomendación es provisoria: depende de lo que muestre el relevamiento de la API. Si el relevamiento encuentra que reglas como "nada se paga sin un profesional definido" no se pueden cumplir con el backend actual, hay que revisar el camino.
 
