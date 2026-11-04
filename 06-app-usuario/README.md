@@ -15,7 +15,7 @@ iniciativas:
     tipo: Mockup
     fecha: Noviembre 2026
     estado: en-revision
-    descripcion: "Ocho pantallas en escritorio y teléfono con el design system: el Inicio en tres momentos (usuario nuevo, con profesional pero sin sesiones, y con la sesión por empezar) y el paso de pago de la reserva."
+    descripcion: "Pantallas en escritorio y teléfono con el design system: el Inicio en tres momentos (usuario nuevo, con profesional pero sin sesiones, y con la sesión por empezar), el paso de pago de la reserva y dos variantes para la mensajería con el profesional."
     imagen: /img/app-usuario/mockup-inicio.jpg
     enlace: /app-usuario/index.html
     boton: Ver el mockup
@@ -50,7 +50,7 @@ Los hallazgos de la auditoría UX (`05-auditoria/bitacora-auditoria-ux/`) sobre 
 Primera versión visual de la propuesta, con pocas pantallas, para validar el enfoque antes de pasar a Figma.
 
 - **Dónde está:** el HTML está en `web/public/app-usuario/index.html` y se ve en el portal en `/app-usuario/index.html`. Usa las fuentes, el logo y el ícono de Maca de la propuesta de landing. Las capturas están en `mockups/`.
-- **Pantallas:**
+- **Pantallas de la variante A** (el chat con el profesional dentro de "Mi profesional"):
   1. Inicio en escritorio de un usuario nuevo, sin profesional ni sesiones (`mockups/01-nuevo-escritorio.png`).
   2. El mismo Inicio en el teléfono (`mockups/02-nuevo-telefono.png`).
   3. Inicio en escritorio con profesional asignado y sin sesiones reservadas (`mockups/03-asignado-escritorio.png`).
@@ -82,3 +82,21 @@ Primera versión visual de la propuesta, con pocas pantallas, para validar el en
 | Cada opción de pago, el desglose y el total nombran al profesional, y el resumen arranca con "Reservás y pagás con". Antes de elegir profesional no se muestran paquetes, solo que cada profesional define su precio | Paquetes vendidos sin profesional definido y asignación automática al comprar (caso 03, H23; caso 04, H11 y H12); regla de producto de la sección "Lineamientos de la migración" |
 | La reserva se ve igual de clara en escritorio (página con resumen al costado) y en el teléfono (total y botón fijos abajo) | Ventanas del flujo de compra con patrones distintos (caso 04, H9 y H10) |
 
+### Dos variantes para la mensajería con el profesional
+
+| | Variante A · chat dentro de "Mi profesional" | Variante B · "Mensajes" en el centro |
+|---|---|---|
+| Navegación | Inicio, Sesiones, Mi profesional, Diario, Bienestar | Inicio, Mensajes, Sesiones, Diario, Bienestar |
+| Dónde está el chat | Dentro de "Mi profesional", junto al perfil | Es un destino propio: una sola conversación, siempre con tu profesional |
+| Perfil del profesional | Es la sección "Mi profesional" | Se abre desde la conversación (encabezado y panel lateral) |
+| En el Inicio | Tarjeta "Tu profesional" con "Escribile" | Tarjeta con el último mensaje y un campo para responder |
+| Referencia | Apps de salud con chat ligado a la ficha del profesional | Apps de terapia por mensajes, donde la conversación con el terapeuta es el centro del producto |
+
+En las dos, el chat siempre es con el profesional asignado, nunca un chat independiente, y se diferencia claramente de Maca: Maca es el botón punteado de abajo a la derecha y no aparece en la pantalla de Mensajes.
+
+**Pantallas de la variante B:**
+
+1. Mensajes en escritorio (`mockups/b1-mensajes-escritorio.png`): la conversación con el encabezado del profesional ("Suele responder en el día, de lunes a viernes") y "Reservar sesión", los ejercicios y las entradas del diario compartidas como tarjetas dentro del hilo, el aviso de la sesión de hoy con borde punteado, y el campo para escribir con adjuntos y mensaje de voz. Debajo, "Este chat no es para urgencias", con el enlace a las líneas de apoyo. Al costado, el perfil, la próxima sesión con las sesiones disponibles con Valeria, lo compartido en el chat y "Pedir un cambio de profesional".
+2. Mensajes en el teléfono (`mockups/b2-mensajes-telefono.png`).
+3. Inicio en escritorio con el último mensaje destacado (`mockups/b3-inicio-escritorio.png`).
+4. Inicio en el teléfono con el último mensaje destacado (`mockups/b4-inicio-telefono.png`).
