@@ -100,6 +100,18 @@ estado: en-revision
 ---
 ```
 
+### Referencias a otros frentes
+
+En cualquier `.md`, una carpeta de frente escrita como código se muestra en el portal como un enlace con el nombre de la página. En GitHub se sigue viendo el nombre de la carpeta.
+
+| En el `.md` | En el portal |
+|---|---|
+| `` `05-auditoria` ``, `` `05-auditoria/` `` o `` `05-auditoria/README.md` `` | Enlace "05 · Auditoría" a la página del frente |
+| `` `01-investigacion/competencia/RES-clearly.md` `` | Enlace "01 · Investigación › (título del documento)" al documento |
+| `` `05-auditoria/bitacora-auditoria-ux/` `` (una carpeta u otro archivo) | Enlace "05 · Auditoría", seguido de `bitacora-auditoria-ux/` |
+
+Las rutas que no empiezan con la carpeta de un frente (por ejemplo `web/public/landing/`) no cambian. La lógica está en `src/lib/rehype-frentes.mjs`.
+
 ## Estructura del código
 
 ```

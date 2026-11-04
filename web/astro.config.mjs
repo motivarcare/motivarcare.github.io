@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import rehypeFrentes from './src/lib/rehype-frentes.mjs';
 
 // El contenido del portal vive fuera de web/ (en las carpetas de cada frente),
 // así que se le permite al servidor de desarrollo leer el repositorio completo.
@@ -8,6 +9,8 @@ export default defineConfig({
   site: 'https://motivarcare.github.io',
   server: { port: 4321 },
   devToolbar: { enabled: false },
+  // Las referencias a carpetas de frentes (`05-auditoria`) se muestran con el nombre de la página
+  markdown: { rehypePlugins: [rehypeFrentes] },
   vite: {
     server: { fs: { allow: ['..'] } },
   },
