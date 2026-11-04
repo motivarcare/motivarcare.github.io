@@ -45,8 +45,7 @@ const archivo = (entrada.filePath ?? '').replace(/^\.\.\//, '');
         )}
         <div class="panel fuente">
           <p class="eyebrow">Archivo fuente</p>
-          <code>{archivo}</code>
-          <a href={`${REPO_GITHUB}/${archivo.split('/').map(encodeURIComponent).join('/')}`} target="_blank" rel="noopener">Ver en GitHub ↗</a>
+          <a href={`${REPO_GITHUB}/${archivo.split('/').map(encodeURIComponent).join('/')}`} target="_blank" rel="noopener">Ver el archivo en GitHub ↗</a>
         </div>
       </aside>
     </div>
@@ -62,6 +61,7 @@ const archivo = (entrada.filePath ?? '').replace(/^\.\.\//, '');
   .indice a { text-decoration: none; color: var(--tinta-suave); }
   .indice a:hover { color: var(--bosque); text-decoration: underline; text-decoration-color: var(--amarillo); }
   .fuente code { display: block; font-size: 12px; word-break: break-all; color: var(--tinta-suave); margin: 10px 0; }
+  .fuente .eyebrow { margin-bottom: 8px; }
   .fuente a { font-size: 13.5px; font-weight: 700; color: var(--verde-medio); text-decoration: none; }
   @media (max-width: 960px) {
     .doc { grid-template-columns: 1fr; }
