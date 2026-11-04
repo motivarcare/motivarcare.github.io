@@ -37,6 +37,7 @@ La migración no es una copia de la app actual: el nuevo portal se arma con el l
   4. **Seguridad sin alarmar:** la información sobre crisis está siempre a mano, sin dominar la experiencia. Dentro de la app puede tener más presencia que en la landing.
   5. **Un solo tratamiento: voseo** rioplatense amable ("Reservá", "Contanos").
   6. **Calma visual:** fondo crema, un solo acento amarillo por bloque, pocas animaciones, nada de emojis, y estado final sin animaciones con "reducir movimiento".
+- **Regla de producto: nada se paga sin un profesional definido.** Las sesiones y los paquetes siempre están vinculados a un profesional. El portal nunca debe dar la sensación de vender paquetes por sí solos: en todo flujo de compra, la persona tiene que ver con claridad a qué profesional le está pagando antes de pagar. Por eso no hay botones de "Comprar sesiones" o "Ver paquetes" sueltos, cada opción de pago nombra al profesional ("4 sesiones con Valeria"), el resumen dice "Reservás y pagás con" y las sesiones disponibles se muestran siempre junto al nombre del profesional.
 - **Referencia de implementación:** la propuesta de landing (`web/public/landing/`) sirve como ejemplo concreto de cómo se aplican los tokens, las fuentes y los componentes en código.
 
 ## Referencias
@@ -77,5 +78,6 @@ Primera versión visual de la propuesta, con pocas pantallas, para validar el en
 | Con profesional asignado, el Inicio dice cuándo se eligió y ofrece "Cambiar de profesional" antes de reservar. La asignación nunca es automática ni silenciosa | Profesional asignado sin que la persona lo elija (caso 04, H12) |
 | Los horarios libres van con borde punteado y los estados vacíos (por ejemplo, el gráfico antes del primer registro) también: "punteado = lo pendiente" | Principio del design system |
 | La reserva es un recorrido de cuatro pasos. En el de pago, las opciones se comparan juntas, con precio por sesión, descuento y total en un único formato, y la aclaración "Es el monto exacto que vas a ver en el pago" | "Comprar" que lleva directo al paquete más caro (caso 04, H11); monto cobrado distinto del mostrado (caso 04, H1); formatos de moneda distintos (caso 04, H5) |
+| Cada opción de pago, el desglose y el total nombran al profesional, y el resumen arranca con "Reservás y pagás con". Antes de elegir profesional no se muestran paquetes, solo que cada profesional define su precio | Paquetes vendidos sin profesional definido y asignación automática al comprar (caso 03, H23; caso 04, H11 y H12); regla de producto de la sección "Lineamientos de la migración" |
 | La reserva se ve igual de clara en escritorio (página con resumen al costado) y en el teléfono (total y botón fijos abajo) | Ventanas del flujo de compra con patrones distintos (caso 04, H9 y H10) |
 

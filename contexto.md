@@ -19,6 +19,7 @@ El primer frente que se abordó fue la **auditoría integral de UX** del portal 
   * Landing pública: `https://www.motivarcare.com/`
   * App del paciente: `https://app.motivarcare.com/`
   * Portal del profesional: `https://pro.motivarcare.com/`
+* **Regla de producto, sin excepciones:** las sesiones y los paquetes siempre están vinculados a un profesional. El portal del paciente nunca debe dar la sensación de vender paquetes por sí solos, y no hay forma de pagar nada sin que la persona tenga claro a qué profesional le está pagando. Aplica a todos los flujos y a todas las pantallas.
 * **Sensibilidad del dominio:** la salud mental y la telemedicina exigen niveles muy altos de **confianza, claridad, privacidad y reducción de fricción**. Quienes buscan atención suelen estar en un momento de vulnerabilidad emocional, así que cualquier confusión en las tarifas, la falta de verificación de los profesionales o una barrera técnica en el agendamiento dispara el abandono.
 
 ---
