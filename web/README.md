@@ -68,6 +68,7 @@ Un frente también puede mostrar una **grilla de tarjetas** con imagen debajo de
 
 ```yaml
 ancho: completo        # normal (por defecto) | completo
+materiales: false      # oculta el panel de materiales (por defecto se muestra)
 tarjetas:
   - titulo: BetterHelp
     etiqueta: EE. UU. · suscripción semanal              # opcional, va arriba del título

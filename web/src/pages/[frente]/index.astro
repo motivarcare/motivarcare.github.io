@@ -86,6 +86,7 @@ const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(
           ))}
         </section>
 
+        {frente.data.materiales && (
         <section class="panel">
           <h2>Materiales <span class="cuenta">{mats.length}</span></h2>
           {mats.length === 0 && <p class="vacio">Todavía no hay materiales en este frente.</p>}
@@ -110,6 +111,7 @@ const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(
             </details>
           )}
         </section>
+        )}
       </aside>
     </div>
   </div>
@@ -134,6 +136,10 @@ const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(
   .cuerpo--ancho .prosa { max-width: none; }
   .cuerpo--ancho .prosa > :global(:is(p, ul, ol, h2, h3, h4, blockquote)) { max-width: var(--lectura); }
   .cuerpo--ancho .prosa :global(table) { display: table; font-size: 14px; }
+  /* Imágenes solas en un párrafo: a todo el ancho */
+  .cuerpo--ancho .prosa > :global(p:has(> img:only-child)) { max-width: none; }
+  .cuerpo--ancho .prosa > :global(p:has(> img:only-child) img) { display: block; width: 100%; height: auto; margin: 8px 0 0; }
+  .cuerpo--ancho .prosa :global(p.pie) { font-size: 14px; color: var(--gris); margin-top: -6px; }
   .cuerpo--ancho aside { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; align-items: start; margin-top: 56px; padding-top: 40px; border-top: 1.5px dashed var(--neutro); }
   .cuerpo--ancho .panel + .panel { margin-top: 0; }
   .cuenta { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--gris); margin-left: 6px; }

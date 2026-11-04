@@ -5,6 +5,7 @@ estado: en-curso
 resumen: "Migración de la app actual del portal del paciente a un nuevo portal para pacientes (usuarios), con el nuevo design system y los lineamientos de la landing page: diseño y desarrollo."
 actualizado: 2026-11-04
 ancho: completo
+materiales: false
 proximos_pasos:
   - "Relevar las pantallas y funciones de la app actual del paciente, y el estado de su API."
   - "Decidir con el equipo el camino de la migración (sección \"Cómo migrar\")."
@@ -41,17 +42,11 @@ tarjetas:
 
 # 06 · App del usuario
 
-Diseño y desarrollo del nuevo portal para pacientes (usuarios). El punto de partida es **migrar la app actual del portal del paciente** ([app.motivarcare.com](https://app.motivarcare.com/)) al nuevo portal. Incluye flujos, wireframes, pantallas, prototipos e implementación.
+Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **migrar la app actual del portal del paciente** ([app.motivarcare.com](https://app.motivarcare.com/)) al nuevo portal. El trabajo parte de la investigación del frente `01-investigacion`: a partir de ella se analizan alternativas, organizadas en familias de propuestas, cada una con sus mockups, prototipos y diseños finales.
 
-## Por qué migrar
+![El Inicio actual del portal del paciente, con un carrusel violeta, accesos en tarjetas de varios colores y una barra lateral de íconos](/img/app-usuario/portal-actual-inicio.jpg)
 
-La app actual funciona, pero lo que encontró la auditoría UX (`05-auditoria`) no se resuelve con ajustes sueltos. Hay cinco razones para migrar:
-
-1. **Los problemas son de estructura, no de detalle.** La auditoría registró dos Home distintas y un selector "Inicio ML" (caso 03, H1), menús que cambian según el tamaño de pantalla (caso 03), etiquetas que solo aparecen al pasar el mouse (caso 03, H14) y un mismo botón "Reservar" en tres colores (caso 03, H21 y H22). Son decisiones de arquitectura de la información y de navegación: corregirlas pantalla por pantalla deja el problema de fondo.
-2. **Hay fallas que afectan la confianza.** Los más graves tocan el dinero y la privacidad: un monto cobrado distinto del mostrado (caso 04, H1), un "Comprar" que lleva directo al paquete más caro (caso 04, H11), un profesional asignado sin que la persona lo elija (caso 04, H12) y un diario con la privacidad preseleccionada en "compartida" (caso 05, H1). En salud mental, la confianza es la condición para que alguien empiece y siga un tratamiento.
-3. **La app no tiene un sistema detrás.** Las pantallas se hicieron íntegramente con IA y sin un design system, así que cada una resolvió los colores, los botones y los textos a su manera. La interfaz actual usa otra identidad (violeta `#5F44EB`, Inter y Plus Jakarta Sans), distinta de la que se definió para MotivarCare.
-4. **La marca ya cambió en otros frentes.** El design system (`04-design-system`) y la propuesta de landing (`08-landing-page`) definen una identidad nueva. Si la app no la adopta, la persona pasa de una landing cálida y en voseo a una app con otra paleta, otros textos y otro trato.
-5. **Es la base para el portal del profesional.** El portal del profesional (`07-app-profesional`) se va a migrar con el mismo sistema. Lo que se defina acá (navegación, tarjetas de sesión, agenda, pagos) se reutiliza allá.
+<p class="pie">El Inicio actual del portal del paciente, relevado en la auditoría UX (septiembre de 2026).</p>
 
 ## Lineamientos que se mantienen en toda la migración
 
@@ -63,10 +58,27 @@ La app actual funciona, pero lo que encontró la auditoría UX (`05-auditoria`) 
   5. **Un solo tratamiento: voseo** rioplatense amable ("Reservá", "Contanos").
   6. **Calma visual:** fondo crema, un solo acento amarillo por bloque, pocas animaciones, nada de emojis, y estado final sin animaciones con "reducir movimiento".
 - **Regla de producto: nada se paga sin un profesional definido.** Las sesiones y los paquetes siempre están vinculados a un profesional. El portal nunca debe dar la sensación de vender paquetes por sí solos: en todo flujo de compra, la persona tiene que ver con claridad a qué profesional le está pagando antes de pagar. Por eso no hay botones de "Comprar sesiones" o "Ver paquetes" sueltos, cada opción de pago nombra al profesional ("4 sesiones con Valeria"), el resumen dice "Reservás y pagás con" y las sesiones disponibles se muestran siempre junto al nombre del profesional.
-- **Cambio de profesional: solo a pedido, lo hace el backoffice.** La persona no puede cambiar de profesional por su cuenta: lo pide desde el portal y el equipo de MotivarCare hace el cambio. Las sesiones que le queden de un paquete no se pueden usar con otro profesional ni transferir, así que el pedido tiene que avisarlo con claridad antes de enviarse, con el saldo que se pierde. Los textos del portal dicen "Pedir un cambio de profesional", nunca "Cambiar de profesional".
 - **Hallazgos de la auditoría:** los casos de la app del paciente (`05-auditoria/bitacora-auditoria-ux/`, casos 02 a 06 y 10) son la lista de lo que el portal nuevo tiene que resolver.
 
+## Por qué migrar
+
+El objetivo principal de la migración sale directamente de esos lineamientos: **una interfaz limpia y ordenada, sin redundancias, que transmita confianza**. La interfaz no tiene que robarse el protagonismo. Tiene que ser un espacio que permita coordinar y llevar a cabo las sesiones con claridad, sin distracciones, y que genere confianza sin abrumar a alguien que puede estar pasando un momento difícil.
+
+La app actual está lejos de ese objetivo, y no por detalles aislados:
+
+1. **La estructura no ayuda a orientarse.** Hay dos Inicios distintos, menús que cambian según el tamaño de la pantalla, accesos repetidos y un carrusel que avanza solo. La pantalla compite por la atención de la persona en lugar de acompañarla.
+2. **Hay fallas que afectan la confianza.** La auditoría encontró un monto cobrado distinto del mostrado, un profesional asignado sin que la persona lo elija y un diario que se comparte por defecto. En salud mental, la confianza es la condición para que alguien empiece y siga un tratamiento.
+3. **No hay un sistema detrás.** Las pantallas se hicieron con IA y sin un design system, así que cada una resolvió los colores, los botones y los textos a su manera. La interfaz actual usa otra identidad (violeta, Inter y Plus Jakarta Sans), distinta de la que se definió para MotivarCare.
+4. **La marca ya cambió en otros frentes.** El design system y la propuesta de landing definen una identidad nueva. Si la app no la adopta, la persona pasa de una landing cálida y en voseo a una app con otra paleta, otros textos y otro trato.
+5. **Es la base para el portal del profesional.** El portal del profesional (`07-app-profesional`) se va a migrar con el mismo sistema, así que lo que se defina acá se reutiliza allá.
+
+El detalle de los hallazgos está en el frente `05-auditoria`.
+
 ## El papel del design system
+
+![Lámina del design system: la paleta de verdes con el acento amarillo, las tipografías Fraunces y Manrope, una tarjeta de sesión, botones, estados y el botón punteado de Maca](/img/app-usuario/design-system.jpg)
+
+<p class="pie">Algunas piezas del design system (frente 04) aplicadas al portal del paciente.</p>
 
 El design system (`04-design-system`) es la **fuente única** de las decisiones visuales y de los componentes. En la migración cumple tres funciones:
 
@@ -75,6 +87,8 @@ El design system (`04-design-system`) es la **fuente única** de las decisiones 
 3. **Lleva los principios.** "Calma antes que estímulo", "lo humano primero" y "sólido es lo que existe; punteado es lo provisorio" se aplican a cada pantalla, no solo a los colores.
 
 ## Qué hacen otras plataformas
+
+![Las cuatro plataformas relevadas: BetterHelp, Mindly, Clearly y Talkspace, cada una con una captura de su pantalla principal y su eje](/img/app-usuario/otras-plataformas.jpg)
 
 La propuesta se apoya en un relevamiento de cómo resuelven la pantalla principal del paciente cuatro plataformas de terapia online. El relevamiento, con la tabla comparativa y un análisis por plataforma, está en el frente [01 · Investigación](/01-investigacion/):
 
@@ -86,6 +100,8 @@ La propuesta se apoya en un relevamiento de cómo resuelven la pantalla principa
 Cada plataforma organiza la experiencia alrededor de un eje distinto, y esos cuatro ejes dan origen a las familias de la propuesta.
 
 ## Cómo migrar
+
+![Diagrama de los tres caminos: A, migración directa, que repinta la interfaz y mantiene la API y los datos; B, reimplementación del frontend, con una interfaz nueva sobre la API y los datos actuales (recomendación preliminar); y C, reimplementación completa, que rehace todo](/img/app-usuario/caminos-migracion.jpg)
 
 ### Tres caminos posibles
 

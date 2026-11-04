@@ -62,6 +62,8 @@ const frentes = defineCollection({
       .default([]),
     // "completo": el texto del README usa todo el ancho y los paneles van debajo (para tablas anchas)
     ancho: z.enum(['normal', 'completo']).default('normal'),
+    // false: no muestra el panel de materiales en la página del frente
+    materiales: z.boolean().default(true),
   }),
 });
 
