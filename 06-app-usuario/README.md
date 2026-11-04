@@ -2,7 +2,7 @@
 titulo: App del usuario
 numero: "06"
 estado: en-curso
-resumen: "Migración de la app actual del portal del paciente a un nuevo portal para pacientes (usuarios), con el nuevo design system y los lineamientos de la landing page: diseño y desarrollo."
+resumen: "Migración de la app actual del portal del paciente a un nuevo portal para pacientes (usuarios), con el nuevo design system y los lineamientos de la landing page."
 actualizado: 2026-11-04
 ancho: completo
 materiales: false
