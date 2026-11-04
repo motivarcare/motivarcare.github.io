@@ -42,7 +42,7 @@ tarjetas:
 
 # 06 · App del usuario
 
-Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **migrar la app actual del portal del paciente** ([app.motivarcare.com](https://app.motivarcare.com/)) al nuevo portal. El trabajo parte de la investigación del frente `01-investigacion`: a partir de ella se analizan alternativas, organizadas en familias de propuestas, cada una con sus mockups, prototipos y diseños finales.
+Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **migrar la app actual del portal del paciente** ([app.motivarcare.com](https://app.motivarcare.com/)) al nuevo portal. El trabajo parte de la investigación del frente `01-investigacion` y aplica las definiciones y los hallazgos que surgieron al diseñar la nueva landing page (`08-landing-page`), documentados en el nuevo design system de MotivarCare (`04-design-system`). Con esa base se analizan alternativas, organizadas en familias de propuestas, cada una con sus mockups, prototipos y diseños finales.
 
 ![El Inicio actual del portal del paciente, con un carrusel violeta, accesos en tarjetas de varios colores y una barra lateral de íconos](/img/app-usuario/portal-actual-inicio.jpg)
 
@@ -50,6 +50,8 @@ Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **mig
 
 ## Lineamientos que se mantienen en toda la migración
 
+- **Una sola identidad, coherente en todo el producto.** El nuevo design system le da a la app la misma voz visual que la landing: colores, tipografías, formas y componentes pensados para la calma, la cercanía y la confianza, que son los valores del producto. Cada pantalla se arma con las mismas piezas, así que la experiencia se siente igual de un extremo al otro.
+- **La interfaz acompaña, no protagoniza.** Lo importante es la terapia y la relación con el profesional. Cada pantalla muestra solo lo necesario para el paso que la persona tiene por delante (reservar, prepararse, entrar a la sesión), sin elementos que compitan por su atención ni información repetida.
 - **Criterios de la landing** (`08-landing-page/README.md`, sección "Criterios"), aplicados a la app:
   1. **Credibilidad antes que promesa:** datos verificables del servicio (matrícula verificada, duración de las sesiones, precios claros, sin suscripción) en lugar de afirmaciones que no se pueden respaldar.
   2. **Hablarle a quien busca ayuda, no a "un usuario":** textos que invitan y no asustan, sin lenguaje interno o técnico.
@@ -101,13 +103,13 @@ Cada plataforma organiza la experiencia alrededor de un eje distinto, y esos cua
 
 ## Cómo migrar
 
-![Diagrama de los tres caminos: A, migración directa, que repinta la interfaz y mantiene la API y los datos; B, reimplementación del frontend, con una interfaz nueva sobre la API y los datos actuales (recomendación preliminar); y C, reimplementación completa, que rehace todo](/img/app-usuario/caminos-migracion.jpg)
+![Diagrama de los tres caminos: A, migración directa, que repinta la interfaz y mantiene la API y los datos; B, reimplementación del frontend, con una interfaz nueva sobre los datos actuales y la API en revisión según la propuesta de diseño (recomendación preliminar); y C, reimplementación completa, que rehace todo](/img/app-usuario/caminos-migracion.jpg)
 
 ### Tres caminos posibles
 
 | | **A · Migración directa** | **B · Reimplementación del frontend** | **C · Reimplementación completa** |
 |---|---|---|---|
-| **Qué es** | Se mantiene la app actual (React, servida desde Railway) y se le aplica el design system pantalla por pantalla: colores, tipografías, componentes y textos. | Se construye un frontend nuevo sobre la API y los datos actuales. Las pantallas y los flujos se rediseñan, y el backend se mantiene. | Se rehace todo: el frontend, la API y el modelo de datos. |
+| **Qué es** | Se mantiene la app actual (React, servida desde Railway) y se le aplica el design system pantalla por pantalla: colores, tipografías, componentes y textos. | Se construye un frontend nuevo sobre la API y los datos actuales. Las pantallas y los flujos se rediseñan. En principio, la API y las reglas del producto no se modifican, pero eso depende de la propuesta de diseño que se acuerde: puede requerir ajustes. | Se rehace todo: el frontend, la API y el modelo de datos. |
 | **Ventajas** | Es lo más rápido para cambiar el aspecto. Tiene menos riesgo técnico y no toca los datos ni los pagos. | Permite corregir la estructura (navegación, flujos y estados) y usar el design system desde el origen. Los datos, los pagos y las cuentas siguen donde están. Se puede hacer por partes. | Es libertad total. Permite corregir reglas de negocio que hoy están en el backend (por ejemplo, cómo se asignan los profesionales o cómo se cobran los paquetes). |
 | **Desventajas** | Hereda los problemas de estructura que marcó la auditoría. El resultado tiene la cara nueva y la lógica vieja. Es probable que cada pantalla necesite más trabajo del previsto, porque el código no se pensó con componentes compartidos. | Requiere conocer bien la API actual y lo que ya hace. Si la API tiene huecos, hay que completarlos. Durante un tiempo conviven dos frontends. | Es el camino más largo, caro y riesgoso: implica migrar datos de pacientes, historiales y pagos. Durante el desarrollo, la app actual sigue con sus problemas. |
 | **Cuándo conviene** | Si el objetivo inmediato es solo unificar la marca. | Si la API actual es razonable y el problema está en la experiencia. | Si el backend tiene problemas graves que impiden las reglas del producto. |
@@ -116,23 +118,15 @@ Cada plataforma organiza la experiencia alrededor de un eje distinto, y esos cua
 
 **Camino B, por partes.** Por lo que vimos en la auditoría, los problemas principales están en la experiencia (navegación, flujos, textos y estados) y en algunas reglas que se ven en la interfaz, más que en la infraestructura. Un frontend nuevo permite construir con el design system desde el principio, sin pagar el costo de rehacer datos y pagos.
 
-La migración se haría por flujos, en el orden en que la auditoría marcó mayor riesgo para la persona:
+La migración se haría por flujos. Empieza por la estructura y por lo esencial para tomar una sesión, y deja para el final las funciones secundarias:
 
-1. **Reserva y pago**, porque toca la confianza y el dinero (caso 04).
-2. **Inicio y navegación**, porque son la estructura de todo lo demás (caso 03).
-3. **Diario y bienestar**, por la privacidad (caso 05).
+1. **Inicio y navegación**, porque son la estructura de todo lo demás (caso 03).
+2. **Reserva y pago**, porque tocan la confianza y el dinero (caso 04).
+3. **Registro e ingreso** (caso 02).
 4. **Cuenta y datos personales** (caso 06).
-5. **Registro e ingreso** (caso 02).
+5. **Diario y bienestar**, que son funciones secundarias (caso 05).
 
 Esta recomendación es provisoria: depende de lo que muestre el relevamiento de la API. Si el relevamiento encuentra que reglas como "nada se paga sin un profesional definido" no se pueden cumplir con el backend actual, hay que revisar el camino.
-
-### Lo que falta saber para decidir
-
-- Qué pantallas y funciones tiene hoy la app, y cuáles se usan.
-- Qué hace la API actual, cómo está documentada y quién la mantiene.
-- Con qué servicios se integra para el pago, la videollamada, los correos y las notificaciones.
-- Cómo se manejan hoy los paquetes, las asignaciones de profesional y los cambios.
-- Si hay plazos o restricciones del negocio, como una fecha de lanzamiento o campañas.
 
 ## Propuesta: cuatro familias
 
