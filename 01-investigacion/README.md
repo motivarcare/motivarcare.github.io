@@ -2,7 +2,7 @@
 titulo: Investigación
 numero: "01"
 estado: en-curso
-resumen: "Investigación de usuarios, mercado y competencia. El primer trabajo es un relevamiento de cómo cuatro plataformas de terapia online resuelven la pantalla principal del paciente, como referencia para el nuevo portal (frente 06)."
+resumen: "Investigación de usuarios (pacientes y profesionales), mercado y competencia. El primer trabajo es un relevamiento de cómo cuatro plataformas de terapia online resuelven la pantalla principal del paciente, como referencia para el nuevo portal (frente 06)."
 actualizado: 2026-11-04
 ancho: completo
 proximos_pasos:
@@ -37,8 +37,6 @@ tarjetas:
 ---
 
 # 01 · Investigación
-
-Investigación de usuarios (pacientes y profesionales), mercado y competencia de MotivarCare: entrevistas, encuestas, benchmarks, personas y mapas de experiencia.
 
 ## La pantalla principal del paciente en otras plataformas
 
