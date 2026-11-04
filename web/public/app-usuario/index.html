@@ -44,7 +44,7 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 
 /* ---------- Marcos ---------- */
 .marco { position: relative; overflow: hidden; background: var(--crema); font-size: 16px; line-height: 1.5; }
-.marco.esc { width: 1440px; height: 900px; display: grid; grid-template-columns: 252px 1fr; }
+.marco.esc { width: 1440px; height: 1024px; display: grid; grid-template-columns: 252px 1fr; }
 .marco.tel { width: 390px; height: 844px; display: flex; flex-direction: column; }
 .ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 .ico.chico { width: 18px; height: 18px; }
@@ -160,11 +160,9 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 /* ---------- Maca ---------- */
 .maca { position: absolute; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 20px 0 8px; border-radius: 99px; background: var(--superficie); border: 1.5px dashed var(--bosque); box-shadow: var(--sombra); font-weight: 700; font-size: 14.5px; color: var(--bosque); }
 .maca img { width: 40px; height: 40px; border-radius: 50%; background: var(--menta); padding: 3px; }
-.maca.lateral-maca { position: static; box-shadow: none; height: 50px; padding-left: 6px; font-size: 14.5px; }
-.maca.cab-maca { position: static; box-shadow: none; width: 42px; height: 42px; padding: 0; justify-content: center; }
-.maca.cab-maca img { width: 36px; height: 36px; padding: 2px; }
-.maca.redonda { width: 56px; height: 56px; padding: 0; justify-content: center; }
-.maca.redonda img { width: 46px; height: 46px; }
+.esc .maca { right: 40px; bottom: 32px; }
+.maca.redonda { width: 54px; height: 54px; padding: 0; justify-content: center; }
+.maca.redonda img { width: 44px; height: 44px; }
 
 /* ---------- Teléfono ---------- */
 .estado-tel { height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; font-weight: 700; font-size: 15px; color: var(--tinta); flex: none; }
@@ -191,7 +189,26 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 .nav-tel a .pastilla { width: 56px; height: 30px; border-radius: 99px; display: grid; place-items: center; }
 .nav-tel a.activo { color: var(--bosque); }
 .nav-tel a.activo .pastilla { background: var(--salvia); }
-.tel .maca { right: 16px; bottom: 100px; }
+.tel .maca { right: 16px; bottom: 96px; }
+
+/* ---------- Horarios, vacíos y primera vez ---------- */
+.horarios { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+.horario { display: flex; flex-direction: column; line-height: 1.25; padding: 10px 14px; border-radius: 12px; border: 1.5px dashed var(--bosque); background: rgba(255,255,255,.55); font-weight: 800; font-size: 14.5px; color: var(--bosque); }
+.horario small { font-weight: 600; font-size: 12px; color: var(--tinta-suave); }
+.horario.mas { border-style: solid; border-color: transparent; background: none; color: var(--verde-medio); justify-content: center; font-weight: 700; }
+.tel .horarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tel .horario { padding: 9px 10px; font-size: 14px; }
+.vacio { border: 1.5px dashed var(--salvia-fuerte); border-radius: 14px; height: 96px; display: grid; place-items: center; text-align: center; font-size: 13px; color: var(--tinta-tenue); padding: 0 18px; }
+.lista-simple { display: flex; flex-direction: column; gap: 10px; }
+.lista-simple li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--tinta-suave); list-style: none; }
+.lista-simple li .tilde { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--salvia); color: var(--bosque); display: grid; place-items: center; margin-top: 1px; }
+.lista-simple li .tilde .ico { width: 13px; height: 13px; stroke-width: 2.6; }
+ul.lista-simple { padding: 0; }
+.sugeridos-esc { display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; }
+.sugeridos-esc .fila-pro { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--linea); }
+.sugeridos-esc .fila-pro:last-of-type { border-bottom: 0; }
+.sugeridos-esc .fila-pro b { display: block; color: var(--bosque); font-size: 15px; }
+.sugeridos-esc .fila-pro .info { flex: 1; }
 
 /* ---------- Sin profesional ---------- */
 .pasos { display: flex; flex-direction: column; gap: 12px; margin: 4px 0 2px; }
@@ -281,11 +298,292 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 </svg>
 
 <!-- =====================================================================
-     1 · Inicio · escritorio · la sesión empieza en minutos
+     1 y 2 · Inicio · usuario nuevo
      ===================================================================== -->
 <section class="lamina">
-<h2>1 · Inicio en escritorio · sesión a punto de empezar</h2>
-<div class="marco esc" id="inicio-escritorio">
+<h2>1 · Inicio en escritorio · usuario nuevo, sin profesional ni sesiones</h2>
+<div class="marco esc" id="nuevo-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Mi profesional</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo">
+        <span class="t-fecha">Te damos la bienvenida</span>
+        <h1 class="t1">Hola, <em>Gastón.</em></h1>
+        <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
+      </div>
+      <div class="grilla-inicio">
+        <article class="tarjeta bosque sesion" style="gap:20px">
+          <span class="t-fecha" style="color:var(--lima-fuerte)">Tu primera sesión, en 4 pasos</span>
+      <div class="pasos">
+        <div class="paso"><span class="num">1</span>Elegí a tu profesional</div>
+        <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
+        <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
+        <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
+      </div>
+          <div class="acciones">
+            <a class="boton primario grande">Encontrá a tu profesional<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+            <span style="font-size:14px;color:rgba(234,241,236,.8)">Sesiones de 50 min desde $40.000 ARS · sin suscripción</span>
+          </div>
+        </article>
+        <article class="tarjeta sugeridos-esc">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px"><h2 class="t3" style="font-size:20px">Sugeridos para vos</h2><span class="tenue">según tu cuestionario</span></div>
+            <div class="fila-pro">
+              <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+              <div class="info"><b>Lic. Valeria Quiroga</b><span class="peq" style="font-size:13px">Ansiedad · Argentina</span></div>
+              <span class="chip lima">92 %</span><span class="tenue" style="width:62px;text-align:right">$42.000</span>
+            </div>
+            <div class="fila-pro">
+              <img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="48" height="48">
+              <div class="info"><b>Lic. Tomás Benítez</b><span class="peq" style="font-size:13px">Vínculos y pareja · Colombia</span></div>
+              <span class="chip lima">88 %</span><span class="tenue" style="width:62px;text-align:right">$38.000</span>
+            </div>
+            <div class="fila-pro">
+              <img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="48" height="48">
+              <div class="info"><b>Lic. Mónica Aranda</b><span class="peq" style="font-size:13px">Duelo y cambios · México</span></div>
+              <span class="chip lima">85 %</span><span class="tenue" style="width:62px;text-align:right">$48.000</span>
+            </div>
+          <a class="enlace" style="margin-top:8px">Ver todos los profesionales<svg class="ico"><use href="#i-flecha"/></svg></a>
+        </article>
+      </div>
+      <section class="entre">
+        <div class="cabeza"><h2 class="t3">Mientras tanto</h2></div>
+        <div class="grilla-entre">
+          <article class="tarjeta menta animo">
+            <div><b style="color:var(--bosque);font-size:16.5px">¿Cómo estás hoy?</b><p class="peq">Un registro rápido para tu diario.</p></div>
+            <div class="opciones-animo"><span><i style="background:var(--e5)"></i>Muy mal</span><span><i style="background:var(--e4)"></i>Mal</span><span><i style="background:var(--e3)"></i>Regular</span><span><i style="background:var(--e2)"></i>Bien</span><span><i style="background:var(--e1)"></i>Muy bien</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+          <article class="tarjeta" style="display:flex;flex-direction:column;gap:14px">
+            <div><b style="color:var(--bosque);font-size:16.5px">¿Es tu primera vez en terapia?</b><p class="peq">No hace falta tener todo claro para empezar.</p></div>
+            <ul class="lista-simple">
+              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span>La primera sesión es para conocerse.</li>
+              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span>Podés cambiar de profesional cuando quieras.</li>
+            </ul>
+            <a class="enlace">Qué esperar de la primera sesión<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+          <article class="tarjeta lima recurso">
+            <span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-respira"/></svg></span>
+            <div><span class="tenue">Para empezar el día · 3 min</span><b style="display:block;color:var(--bosque);font-size:16.5px">Respiración para bajar la ansiedad</b></div>
+            <a class="enlace">Empezar<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+<section class="lamina">
+<h2>2 · Inicio en el teléfono · usuario nuevo</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel" id="nuevo-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:2px">
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+      <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
+    </div>
+    <article class="tarjeta bosque" style="display:flex;flex-direction:column;gap:16px">
+      <span class="t-fecha" style="color:var(--lima-fuerte)">Tu primera sesión, en 4 pasos</span>
+      <div class="pasos" style="gap:8px">
+        <div class="paso"><span class="num">1</span>Elegí a tu profesional</div>
+        <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
+        <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
+        <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
+      </div>
+      <a class="boton primario grande ancho">Encontrá a tu profesional</a>
+      <span style="font-size:13px;color:rgba(234,241,236,.8);text-align:center">Sesiones de 50 min desde $40.000 ARS · sin suscripción</span>
+    </article>
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="t3" style="font-size:19px">Sugeridos para vos</h2><span class="tenue">según tu cuestionario</span></div>
+    <div class="sugeridos">
+      <div class="mini-pro">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
+        <div class="info"><b>Lic. Valeria Quiroga</b><span class="peq">Ansiedad y estrés · Argentina</span>
+          <div class="meta"><span class="chip lima">92 % compatible</span><span class="tenue">$42.000</span></div></div>
+      </div>
+      <a class="enlace" style="padding-left:4px">Ver los 3 sugeridos<svg class="ico"><use href="#i-flecha"/></svg></a>
+    </div>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+<!-- =====================================================================
+     3 y 4 · Inicio · con profesional, sin sesiones
+     ===================================================================== -->
+<section class="lamina">
+<h2>3 · Inicio en escritorio · con profesional asignado, sin sesiones reservadas</h2>
+<div class="marco esc" id="asignado-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Mi profesional</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo">
+        <span class="t-fecha">Miércoles 4 de noviembre</span>
+        <h1 class="t1">Hola, <em>Gastón.</em></h1>
+        <p class="bajada">Ya elegiste a tu profesional. Solo falta reservar tu primera sesión.</p>
+      </div>
+      <div class="grilla-inicio">
+        <article class="tarjeta salvia sesion">
+          <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="380" cy="150" r="14" fill="#F5C33B"/></svg>
+          <div class="cabeza"><span class="chip" style="background:var(--superficie)">Tu próximo paso</span></div>
+          <div class="cuando" style="font-size:34px">Reservá tu primera sesión<small>Próximos horarios libres de Valeria, en tu hora (Argentina, GMT-3)</small></div>
+          <div class="horarios">
+            <span class="horario">13:00<small>Mañana, jue 5</small></span>
+            <span class="horario">18:30<small>Mañana, jue 5</small></span>
+            <span class="horario">09:00<small>Viernes 6</small></span>
+            <span class="horario">17:00<small>Viernes 6</small></span>
+            <span class="horario mas">Ver más horarios</span>
+          </div>
+          <div class="acciones">
+            <a class="boton primario grande"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
+            <span class="peq" style="color:var(--bosque)">Sesión de 50 min · <b>$42.000 ARS</b> · pagás al reservar</span>
+          </div>
+        </article>
+        <div class="columna">
+          <article class="tarjeta pro">
+            <div class="fila">
+              <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+              <div><span class="tenue">Tu profesional</span><b>Lic. Valeria Quiroga</b>
+                <div class="datos"><span><span class="estrella">★</span> 4,9</span><span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span><span>9 años</span></div></div>
+            </div>
+            <p class="peq">Acompaño procesos de ansiedad y estrés laboral desde la terapia cognitivo-conductual.</p>
+            <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
+          </article>
+          <article class="tarjeta punteada" style="padding:20px 24px;display:flex;flex-direction:column;gap:6px">
+            <b style="color:var(--bosque);font-size:15px">La elegiste el 3 de noviembre</b>
+            <span class="peq">Si preferís a otra persona, podés cambiar de profesional antes de reservar.</span>
+            <a class="enlace" style="margin-top:4px">Cambiar de profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+        </div>
+      </div>
+      <section class="entre">
+        <div class="cabeza"><h2 class="t3">Mientras tanto</h2><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+        <div class="grilla-entre">
+          <article class="tarjeta menta animo">
+            <div><b style="color:var(--bosque);font-size:16.5px">¿Cómo estás hoy?</b><p class="peq">Un registro rápido para tu diario.</p></div>
+            <div class="opciones-animo"><span><i style="background:var(--e5)"></i>Muy mal</span><span><i style="background:var(--e4)"></i>Mal</span><span><i style="background:var(--e3)"></i>Regular</span><span><i style="background:var(--e2)"></i>Bien</span><span><i style="background:var(--e1)"></i>Muy bien</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+          <article class="tarjeta grafico">
+            <div><b style="color:var(--bosque);font-size:16.5px">Tu semana</b><p class="peq">Cómo te sentiste los últimos 7 días</p></div>
+            <div class="vacio">Cuando hagas tu primer registro, tu semana va a aparecer acá.</div>
+          </article>
+          <article class="tarjeta lima recurso">
+            <span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-respira"/></svg></span>
+            <div><span class="tenue">Antes de tu primera sesión · 3 min</span><b style="display:block;color:var(--bosque);font-size:16.5px">Respiración para llegar con calma</b></div>
+            <a class="enlace">Empezar<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+<section class="lamina">
+<h2>4 · Inicio en el teléfono · con profesional asignado, sin sesiones</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel" id="asignado-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:2px">
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+    </div>
+    <article class="tarjeta salvia sesion">
+      <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="330" cy="200" r="14" fill="#F5C33B"/></svg>
+      <div class="cuando" style="font-size:26px">Reservá tu primera sesión</div>
+      <div class="con">
+        <span class="anillo"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span>
+        <div><b>Lic. Valeria Quiroga</b><span class="peq">Sesión de 50 min · $42.000 ARS</span></div>
+      </div>
+      <div class="horarios">
+        <span class="horario">13:00<small>Mañana</small></span>
+        <span class="horario">18:30<small>Mañana</small></span>
+        <span class="horario">09:00<small>Vie 6</small></span>
+      </div>
+      <a class="boton primario grande ancho" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg>Ver todos los horarios</a>
+      <a class="boton texto" style="height:24px;position:relative;align-self:center">Cambiar de profesional</a>
+    </article>
+    <article class="tarjeta menta animo" style="gap:12px">
+      <div><b style="color:var(--bosque);font-size:16px">¿Cómo estás hoy?</b></div>
+      <div class="opciones-animo" style="gap:6px"><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e5)"></i>Muy mal</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e4)"></i>Mal</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e3)"></i>Regular</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e2)"></i>Bien</span><span style="font-size:11px;padding:10px 2px 8px"><i style="background:var(--e1)"></i>Muy bien</span></div>
+      <span class="privado" style="font-size:12px"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+    </article>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+<!-- =====================================================================
+     5 y 6 · Inicio · sesión a punto de empezar
+     ===================================================================== -->
+<section class="lamina">
+<h2>5 · Inicio en escritorio · sesión a punto de empezar</h2>
+<div class="marco esc" id="sesion-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
@@ -294,7 +592,6 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
     <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
     <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
     <div class="pie">
-      <span class="maca lateral-maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
       <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
       <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
     </div>
@@ -375,22 +672,18 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
       </section>
     </div>
   </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
 </div>
 </section>
-
-<!-- =====================================================================
-     2 y 3 · Inicio · teléfono
-     ===================================================================== -->
 <section class="lamina">
-<h2>2 · Inicio en el teléfono · sesión a punto de empezar &nbsp;·&nbsp; 3 · Inicio en el teléfono · todavía sin profesional</h2>
+<h2>6 · Inicio en el teléfono · sesión a punto de empezar</h2>
 <div class="fila-tel">
 <div>
-<div class="marco tel" id="inicio-telefono">
+<div class="marco tel" id="sesion-telefono">
   <div class="estado-tel"><span>17:52</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
   <div class="cabecera-tel">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <span class="espacio"></span>
-    <span class="maca cab-maca"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
     <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span>
     <span class="inicial">G</span>
   </div>
@@ -417,63 +710,8 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
       </div>
       <span class="privado" style="font-size:12px"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
     </article>
-    <article class="tarjeta creditos" style="padding:16px 18px;gap:14px">
-      <div class="numero" style="font-size:36px">3</div>
-      <div class="texto"><b style="font-size:14.5px">sesiones disponibles</b>
-        <div class="puntos" style="margin-top:6px"><span class="usada" style="width:18px;height:18px"></span><span style="width:18px;height:18px"></span><span class="libre" style="width:18px;height:18px"></span><span class="libre" style="width:18px;height:18px"></span></div></div>
-      <a class="enlace">Reservar<svg class="ico"><use href="#i-flecha"/></svg></a>
-    </article>
   </div>
-  <nav class="nav-tel">
-    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
-    <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
-    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
-    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
-    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
-  </nav>
-</div>
-</div>
-
-<div>
-<div class="marco tel" id="inicio-sin-profesional">
-  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
-  <div class="cabecera-tel">
-    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
-    <span class="espacio"></span>
-    <span class="maca cab-maca"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
-    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
-    <span class="inicial">G</span>
-  </div>
-  <div class="cuerpo-tel">
-    <div class="saludo" style="margin-bottom:2px">
-      <h1 class="t1">Hola, <em>Gastón.</em></h1>
-      <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
-    </div>
-    <article class="tarjeta bosque" style="display:flex;flex-direction:column;gap:16px">
-      <span class="t-fecha" style="color:var(--lima-fuerte)">Tu primera sesión, en 4 pasos</span>
-      <div class="pasos">
-        <div class="paso"><span class="num">1</span>Elegí a tu profesional</div>
-        <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
-        <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
-        <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
-      </div>
-      <a class="boton primario grande ancho">Encontrá a tu profesional</a>
-      <span style="font-size:13px;color:rgba(234,241,236,.8);text-align:center">Sesiones de 50 min desde $40.000 ARS · sin suscripción</span>
-    </article>
-    <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="t3" style="font-size:19px">Sugeridos para vos</h2><span class="tenue">según tu cuestionario</span></div>
-    <div class="sugeridos">
-      <div class="mini-pro">
-        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
-        <div class="info"><b>Lic. Valeria Quiroga</b><span class="peq">Ansiedad y estrés · Argentina</span>
-          <div class="meta"><span class="chip lima">92 % compatible</span><span class="tenue">$42.000</span></div></div>
-      </div>
-      <div class="mini-pro">
-        <img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="52" height="52">
-        <div class="info"><b>Lic. Tomás Benítez</b><span class="peq">Vínculos y pareja · Colombia</span>
-          <div class="meta"><span class="chip lima">88 % compatible</span><span class="tenue">$38.000</span></div></div>
-      </div>
-    </div>
-  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
   <nav class="nav-tel">
     <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
     <a><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
@@ -487,10 +725,10 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 </section>
 
 <!-- =====================================================================
-     4 · Reserva · paso 3 · escritorio
+     7 · Reserva · paso 3 · escritorio
      ===================================================================== -->
 <section class="lamina">
-<h2>4 · Reserva en escritorio · paso 3: elegí cómo pagar</h2>
+<h2>7 · Reserva en escritorio · paso 3: elegí cómo pagar</h2>
 <div class="marco esc reserva" id="reserva-escritorio">
   <header class="cab-reserva">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
@@ -547,10 +785,10 @@ body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); paddi
 </section>
 
 <!-- =====================================================================
-     5 · Reserva · paso 3 · teléfono
+     8 · Reserva · paso 3 · teléfono
      ===================================================================== -->
 <section class="lamina">
-<h2>5 · Reserva en el teléfono · paso 3: elegí cómo pagar</h2>
+<h2>8 · Reserva en el teléfono · paso 3: elegí cómo pagar</h2>
 <div class="marco tel" id="reserva-telefono">
   <div class="estado-tel"><span>10:31</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
   <div class="cabecera-tel" style="padding-bottom:4px">

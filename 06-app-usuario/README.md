@@ -15,7 +15,7 @@ iniciativas:
     tipo: Mockup
     fecha: Noviembre 2026
     estado: en-revision
-    descripcion: "Cinco pantallas en escritorio y teléfono con el design system: el Inicio cuando la sesión está por empezar, el Inicio de alguien que todavía no tiene profesional y el paso de pago de la reserva."
+    descripcion: "Ocho pantallas en escritorio y teléfono con el design system: el Inicio en tres momentos (usuario nuevo, con profesional pero sin sesiones, y con la sesión por empezar) y el paso de pago de la reserva."
     imagen: /img/app-usuario/mockup-inicio.jpg
     enlace: /app-usuario/index.html
     boton: Ver el mockup
@@ -49,11 +49,15 @@ Primera versión visual de la propuesta, con pocas pantallas, para validar el en
 
 - **Dónde está:** el HTML está en `web/public/app-usuario/index.html` y se ve en el portal en `/app-usuario/index.html`. Usa las fuentes, el logo y el ícono de Maca de la propuesta de landing. Las capturas están en `mockups/`.
 - **Pantallas:**
-  1. Inicio en escritorio, con la sesión a punto de empezar (`mockups/01-inicio-escritorio.png`).
-  2. Inicio en el teléfono, en el mismo estado (`mockups/02-inicio-telefono.png`).
-  3. Inicio en el teléfono para alguien que todavía no tiene profesional (`mockups/03-inicio-sin-profesional-telefono.png`).
-  4. Reserva en escritorio, paso 3: elegí cómo pagar (`mockups/04-reserva-pago-escritorio.png`).
-  5. Reserva en el teléfono, paso 3 (`mockups/05-reserva-pago-telefono.png`).
+  1. Inicio en escritorio de un usuario nuevo, sin profesional ni sesiones (`mockups/01-nuevo-escritorio.png`).
+  2. El mismo Inicio en el teléfono (`mockups/02-nuevo-telefono.png`).
+  3. Inicio en escritorio con profesional asignado y sin sesiones reservadas (`mockups/03-asignado-escritorio.png`).
+  4. El mismo Inicio en el teléfono (`mockups/04-asignado-telefono.png`).
+  5. Inicio en escritorio con la sesión a punto de empezar (`mockups/05-sesion-escritorio.png`).
+  6. El mismo Inicio en el teléfono (`mockups/06-sesion-telefono.png`).
+  7. Reserva en escritorio, paso 3: elegí cómo pagar (`mockups/07-reserva-escritorio.png`).
+  8. Reserva en el teléfono, paso 3 (`mockups/08-reserva-telefono.png`).
+- **Tamaños:** escritorio de 1440 × 1024 y teléfono de 390 × 844, los marcos estándar de Figma.
 - **Datos:** los profesionales, los precios y las fechas son ficticios, los mismos que usa la propuesta de landing.
 
 ### Decisiones que muestra
@@ -63,11 +67,14 @@ Primera versión visual de la propuesta, con pocas pantallas, para validar el en
 | Una sola navegación de cinco destinos (Inicio, Sesiones, Mi profesional, Diario, Bienestar), con los mismos nombres en escritorio y teléfono, y con texto siempre visible | Dos Home y el selector "Inicio ML" (caso 03, H1); menús distintos según el tamaño (caso 03, "Más" / "Explorar"); etiquetas que solo aparecen con el mouse (caso 03, H14) |
 | El Inicio muestra el próximo paso según el momento de la persona, con un solo botón amarillo | Carrusel que avanza solo (caso 03, H6); accesos rápidos duplicados (caso 03, H9 y H18); "Reservar" en tres colores (caso 03, H21 y H22; caso 04, H7) |
 | "Cuenta" queda como botón de contorno junto a las notificaciones | "Cuenta" con el mismo estilo que el botón principal (caso 03, H21) |
-| Maca tiene un lugar fijo: la barra lateral en escritorio y el encabezado en el teléfono, siempre con borde punteado | El tour con Maca inalcanzable en tablet y teléfono (caso 03, H17); "lo humano primero; la IA, en su lugar" |
+| Maca va abajo a la derecha, como en la landing y como cualquier chat: píldora "Hablar con Maca" en escritorio y círculo sobre la barra inferior en el teléfono, siempre con borde punteado. El contenido deja libre esa esquina, y Maca no aparece en la reserva ni durante la videollamada | El tour con Maca inalcanzable en tablet y teléfono (caso 03, H17); "lo humano primero; la IA, en su lugar" |
 | Las líneas de apoyo están siempre a mano en la barra lateral, sin alarmar | Página de líneas de apoyo sin estilo y con un número de EE. UU. primero (caso 03, H4) |
 | El registro rápido del diario aclara que es privado salvo que se elija compartirlo | Privacidad preseleccionada en "compartida" (caso 05, H1) |
 | El gráfico de la semana usa un solo color y los puntos están en su valor | Punto mal dibujado en "Evolución emocional" (caso 05, H2) |
-| Para quien no tiene profesional, el Inicio muestra los cuatro pasos de la primera sesión y profesionales sugeridos, con el precio visible | Asignación de profesional poco clara (caso 04, H12); "sesión de prueba" que parece gratis (caso 03, H23) |
+| El Inicio cambia en tres momentos: sin profesional (los cuatro pasos de la primera sesión y sugeridos con su compatibilidad), con profesional y sin sesiones (sus próximos horarios libres y "Reservar sesión"), y con la sesión por empezar ("Entrar a la sesión") | Home larga e igual para todos (caso 03, H9) |
+| Para quien no tiene profesional, el precio está visible desde el inicio y no se habla de "sesión de prueba". Una tarjeta acompaña a quien hace terapia por primera vez | "Sesión de prueba" que parece gratis (caso 03, H23); criterio "hablarle a quien busca ayuda" |
+| Con profesional asignado, el Inicio dice cuándo se eligió y ofrece "Cambiar de profesional" antes de reservar. La asignación nunca es automática ni silenciosa | Profesional asignado sin que la persona lo elija (caso 04, H12) |
+| Los horarios libres van con borde punteado y los estados vacíos (por ejemplo, el gráfico antes del primer registro) también: "punteado = lo pendiente" | Principio del design system |
 | La reserva es un recorrido de cuatro pasos. En el de pago, las opciones se comparan juntas, con precio por sesión, descuento y total en un único formato, y la aclaración "Es el monto exacto que vas a ver en el pago" | "Comprar" que lleva directo al paquete más caro (caso 04, H11); monto cobrado distinto del mostrado (caso 04, H1); formatos de moneda distintos (caso 04, H5) |
 | La reserva se ve igual de clara en escritorio (página con resumen al costado) y en el teléfono (total y botón fijos abajo) | Ventanas del flujo de compra con patrones distintos (caso 04, H9 y H10) |
 
