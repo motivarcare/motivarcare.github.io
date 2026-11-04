@@ -64,6 +64,16 @@ const frentes = defineCollection({
     ancho: z.enum(['normal', 'completo']).default('normal'),
     // false: no muestra el panel de materiales en la página del frente
     materiales: z.boolean().default(true),
+    // Enlaces directos a archivos sueltos (por ejemplo, una imagen para compartir), en un panel propio
+    complementarios: z
+      .array(
+        z.object({
+          titulo: z.string(),
+          archivo: z.string(), // ruta dentro de la carpeta del frente
+          descripcion: z.string().optional(),
+        }),
+      )
+      .default([]),
   }),
 });
 

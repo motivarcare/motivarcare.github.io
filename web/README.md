@@ -69,6 +69,10 @@ Un frente también puede mostrar una **grilla de tarjetas** con imagen debajo de
 ```yaml
 ancho: completo        # normal (por defecto) | completo
 materiales: false      # oculta el panel de materiales (por defecto se muestra)
+complementarios:       # panel "Materiales complementarios" con enlaces directos a archivos sueltos
+  - titulo: Alternativas para "¿Cómo estás hoy?"
+    archivo: exploraciones/animo-alternativas.png   # ruta dentro de la carpeta del frente
+    descripcion: "Exploración"  # opcional
 tarjetas:
   - titulo: BetterHelp
     etiqueta: EE. UU. · suscripción semanal              # opcional, va arriba del título

@@ -5,7 +5,7 @@ import Estado from '../../components/Estado.astro';
 import PaginaDS from '../../components/ds/PaginaDS.astro';
 import Iniciativas from '../../components/Iniciativas.astro';
 import Tarjetas from '../../components/Tarjetas.astro';
-import { materiales, agrupar, tamano, fecha, urlDocumento, tituloDoc, humanizar, REPO_GITHUB, esDocumento } from '../../lib/portal';
+import { materiales, agrupar, tamano, fecha, urlDocumento, tituloDoc, humanizar, REPO_GITHUB, REPO_CRUDO, esDocumento } from '../../lib/portal';
 
 export async function getStaticPaths() {
   const frentes = await getCollection('frentes');
@@ -85,6 +85,26 @@ const enRaiz = (k: string) => (k === '' ? 'En la carpeta principal' : humanizar(
             </div>
           ))}
         </section>
+
+        {frente.data.complementarios.length > 0 && (
+          <section class="panel">
+            <h2>Materiales complementarios <span class="cuenta">{frente.data.complementarios.length}</span></h2>
+            <ul class="lista-docs">
+              {frente.data.complementarios.map((c) => {
+                const ruta = `${frente.id}/${c.archivo}`;
+                const tipo = (c.archivo.split('.').pop() ?? 'archivo').toLowerCase();
+                return (
+                  <li>
+                    <a href={`${REPO_CRUDO}/${ruta.split('/').map(encodeURIComponent).join('/')}`} target="_blank" rel="noopener">
+                      <span><span class={`tipo tipo--${tipo}`}>{tipo}</span>{c.titulo}</span>
+                      {c.descripcion && <span class="meta">{c.descripcion}</span>}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
 
         {frente.data.materiales && (
         <section class="panel">

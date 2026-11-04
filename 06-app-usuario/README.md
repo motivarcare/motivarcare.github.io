@@ -6,6 +6,10 @@ resumen: "Migración de la app actual del portal del paciente a un nuevo portal 
 actualizado: 2026-11-04
 ancho: completo
 materiales: false
+complementarios:
+  - titulo: "Alternativas para \"¿Cómo estás hoy?\""
+    archivo: exploraciones/animo-alternativas.png
+    descripcion: "Exploración"
 proximos_pasos:
   - "Relevar las pantallas y funciones de la app actual del paciente, y el estado de su API."
   - "Decidir con el equipo el camino de la migración (sección \"Cómo migrar\")."
