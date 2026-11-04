@@ -2,16 +2,15 @@
 titulo: Auditoría
 numero: "05"
 estado: en-revision
-resumen: "Auditoría UX de la plataforma en producción, con las heurísticas de Nielsen adaptadas a la salud mental digital. 10 casos registrados en la bitácora."
+resumen: "Auditoría UX de la plataforma en producción, con las heurísticas de Nielsen adaptadas a la salud mental digital. 10 casos registrados en la bitácora. Cerrada provisoriamente por la migración de los portales actuales."
 actualizado: 2026-11-04
 proximos_pasos:
-  - "Seguir con la auditoría caso por caso."
-  - "Pasar al informe los hallazgos de cada caso cerrado."
+  - "Después de la migración de los portales, evaluar si se reabre la auditoría."
 iniciativas:
   - titulo: Informe de auditoría UX
     tipo: Informe web
     fecha: Septiembre 2026
-    estado: en-curso
+    estado: en-revision
     descripcion: "Informe interactivo con el diagnóstico de la experiencia de usuario de MotivarCare en sus tres entornos (landing, app del paciente y portal del profesional): resumen ejecutivo, hallazgos por área y severidad, y el detalle de cada caso con sus capturas."
     imagen: /img/auditoria/informe-auditoria.jpg
     enlace: https://motivarcare.github.io/motivarcare-audit/
@@ -21,6 +20,10 @@ iniciativas:
 # 05 · Auditoría
 
 Auditoría UX de la plataforma en producción (heurísticas de Nielsen adaptadas a salud mental digital).
+
+## Estado
+
+Cerrada provisoriamente el 04/11/2026 con 10 casos registrados en la bitácora. Como se van a migrar los portales actuales (el del paciente y el del profesional), no tiene sentido seguir auditando la versión en producción. Después de la migración se evaluará si se reabre.
 
 ## Informe web
 

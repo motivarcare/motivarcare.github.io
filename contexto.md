@@ -111,9 +111,7 @@ Es un estilo con identidad visual propia, independiente de la marca auditada:
 ### 6.5 Arquitectura del sitio del informe (repositorio `motivarcare-audit`)
 * **Tecnología:** HTML5 semántico + Tailwind CSS + Vanilla JS modular, con **Vite**.
 * **Componentes:** `index.html` (dashboard, dictamen C-Level, scorecard, selector de áreas, catálogo de hallazgos), `src/css/style.css`, `src/js/audit-data.js` (datos, heurísticas y matriz de hallazgos) y `src/js/app.js` (filtros y buscador).
-* **CI/CD:** GitHub Actions (`.github/workflows/deploy.yml`). Cada push a `main` compila con Vite y publica el informe en GitHub Pages como sitio de proyecto: https://motivarcare.github.io/motivarcare-audit/. La página del frente 07 en el portal enlaza a ese informe.
+* **CI/CD:** GitHub Actions (`.github/workflows/deploy.yml`). Cada push a `main` compila con Vite y publica el informe en GitHub Pages como sitio de proyecto: https://motivarcare.github.io/motivarcare-audit/. La página del frente 05 en el portal enlaza a ese informe.
 
-### 6.6 Próximos pasos de la auditoría
-1. Seguir con la auditoría caso por caso en las 3 superficies, según el flujo de la sección 6.4.
-2. Guardar la evidencia en `medios/` y en el `capturas/` de cada caso.
-3. Al cerrar cada caso, y solo a pedido de Gastón, cargar sus hallazgos en `audit-data.js`.
+### 6.6 Estado y próximos pasos de la auditoría
+La auditoría quedó **cerrada provisoriamente el 04/11/2026**, con 10 casos registrados en la bitácora. Como se van a migrar los portales actuales (el del paciente y el del profesional), no tiene sentido seguir auditando la versión en producción. Después de la migración se evaluará si se reabre. Si se reabre, se retoma con el flujo de la sección 6.4.
