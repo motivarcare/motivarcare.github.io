@@ -64,15 +64,14 @@ Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **mig
 
 ## Por qué migrar
 
-El objetivo principal de la migración sale directamente de esos lineamientos: **una interfaz limpia y ordenada, sin redundancias, que transmita confianza**. La interfaz no tiene que robarse el protagonismo. Tiene que ser un espacio que permita coordinar y llevar a cabo las sesiones con claridad, sin distracciones, y que genere confianza sin abrumar a alguien que puede estar pasando un momento difícil.
+La migración es una oportunidad para que el portal del paciente esté a la altura de lo que MotivarCare ofrece y de la identidad que ya se definió en otros frentes. Estas son las razones principales:
 
-La app actual está lejos de ese objetivo, y no por detalles aislados:
-
-1. **La estructura no ayuda a orientarse.** Hay dos Inicios distintos, menús que cambian según el tamaño de la pantalla, accesos repetidos y un carrusel que avanza solo. La pantalla compite por la atención de la persona en lugar de acompañarla.
-2. **Hay fallas que afectan la confianza.** La auditoría encontró un monto cobrado distinto del mostrado, un profesional asignado sin que la persona lo elija y un diario que se comparte por defecto. En salud mental, la confianza es la condición para que alguien empiece y siga un tratamiento.
-3. **No hay un sistema detrás.** Las pantallas se hicieron con IA y sin un design system, así que cada una resolvió los colores, los botones y los textos a su manera. La interfaz actual usa otra identidad (violeta, Inter y Plus Jakarta Sans), distinta de la que se definió para MotivarCare.
-4. **La marca ya cambió en otros frentes.** El design system y la propuesta de landing definen una identidad nueva. Si la app no la adopta, la persona pasa de una landing cálida y en voseo a una app con otra paleta, otros textos y otro trato.
-5. **Es la base para el portal del profesional.** El portal del profesional (`07-app-profesional`) se va a migrar con el mismo sistema, así que lo que se defina acá se reutiliza allá.
+1. **Llevar los lineamientos a la experiencia diaria.** El objetivo es un portal ordenado y sin redundancias, donde la persona encuentre enseguida lo que necesita para coordinar y vivir sus sesiones, con calma y con confianza. La interfaz queda en segundo plano para que el centro sea la terapia.
+2. **Simplificar la estructura.** Hoy conviven dos Inicios, los menús cambian según el tamaño de la pantalla y hay accesos que se repiten. Una sola estructura, igual en todos los dispositivos, hace que la persona se oriente sin esfuerzo.
+3. **Reforzar la confianza en los momentos clave.** La auditoría marcó algunos puntos sensibles, como que el monto que se cobra coincida siempre con el que se muestra, que la persona elija a su profesional y que el diario sea privado por defecto. Cuidarlos desde el diseño es clave en salud mental, donde la confianza es la condición para empezar y sostener un tratamiento.
+4. **Construir sobre un sistema común.** Las pantallas actuales se armaron sin un design system compartido y con otra identidad (violeta, Inter y Plus Jakarta Sans). Pasar al sistema de MotivarCare da coherencia y hace más simple mantener y sumar funciones.
+5. **Acompañar el cambio de marca.** La landing ya usa la identidad nueva. Si el portal la adopta, la persona encuentra el mismo tono, la misma paleta y el mismo trato desde que conoce MotivarCare hasta que hace su sesión.
+6. **Preparar el portal del profesional.** El portal del profesional (`07-app-profesional`) se va a migrar con el mismo sistema, así que lo que se defina acá se reutiliza allá.
 
 El detalle de los hallazgos está en el frente `05-auditoria`.
 
