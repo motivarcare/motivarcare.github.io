@@ -83,8 +83,8 @@ El detalle de los hallazgos está en el frente `05-auditoria`.
 
 El design system (`04-design-system`) es la **fuente única** de las decisiones visuales y de los componentes. En la migración cumple tres funciones:
 
-1. **Define antes de construir.** Si la app necesita un componente que el design system todavía no tiene (navegación, tarjeta de sesión, opciones de pago, pasos, escala de ánimo), se define ahí primero y después se usa en la app. Así el portal del profesional y la landing lo reciben igual.
-2. **Se traduce a código.** Los tokens (color, tipografía, radios, sombras y movimiento) se publican en un archivo reutilizable (CSS y JSON) que usa el frontend nuevo. La propuesta de landing (`web/public/landing/`) es el ejemplo concreto de cómo se aplican.
+1. **Reúne todo en un solo lugar.** Los componentes, las tipografías, la paleta de colores, la iconografía y los lineamientos de uso están definidos en un único lugar, desde donde los pueden consultar y usar los diseñadores, los desarrolladores y también las herramientas de IA que se usen en el desarrollo. Cuando la app necesita algo nuevo (por ejemplo, la tarjeta de sesión o la escala de ánimo), se suma ahí, y así la landing y el portal del profesional lo reciben igual.
+2. **Se traduce en tokens.** Una colección de tokens completa y robusta define con claridad el valor de cada atributo de los componentes: colores, tipografías, espaciados, radios, sombras y movimiento. Así nada queda escrito a mano en el código, cambiar un valor se hace en un solo lugar y el sistema es más fácil de mantener y de hacer crecer. La propuesta de landing (`web/public/landing/`) ya aplica esos valores y sirve de ejemplo.
 3. **Lleva los principios.** "Calma antes que estímulo", "lo humano primero" y "sólido es lo que existe; punteado es lo provisorio" se aplican a cada pantalla, no solo a los colores.
 
 ## Qué hacen otras plataformas
