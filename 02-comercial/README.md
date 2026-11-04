@@ -1,9 +1,9 @@
 ---
 titulo: Comercial
 numero: "02"
-estado: en-curso
+estado: en-revision
 resumen: "Material comercial y de negocio de MotivarCare. Hasta ahora, dos iniciativas: el investor deck y el plan de negocio para inversores."
-actualizado: 2026-10-14
+actualizado: 2026-11-04
 proximos_pasos:
   - "Cerrar las slides 7 a 11 del investor deck."
 iniciativas:

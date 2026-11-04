@@ -1,7 +1,7 @@
 ---
 titulo: Auditoría
 numero: "05"
-estado: en-curso
+estado: en-revision
 resumen: "Auditoría UX de la plataforma en producción, con las heurísticas de Nielsen adaptadas a la salud mental digital. 10 casos registrados en la bitácora."
 actualizado: 2026-11-04
 proximos_pasos:

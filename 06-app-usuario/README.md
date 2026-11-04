@@ -1,7 +1,7 @@
 ---
 titulo: App del usuario
 numero: "06"
-estado: sin-iniciar
+estado: en-curso
 resumen: "Diseño y desarrollo del nuevo portal para pacientes (usuarios): flujos, pantallas, prototipos e implementación."
 actualizado: 2026-11-04
 proximos_pasos: []
