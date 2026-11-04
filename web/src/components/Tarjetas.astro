@@ -1,0 +1,39 @@
+---
+/* Grilla de tarjetas con imagen de un frente (campo "tarjetas" del README). */
+interface Tarjeta { titulo: string; frase: string; imagen?: string; enlace: string; etiqueta?: string; boton: string }
+const { items } = Astro.props as { items: Tarjeta[] };
+const externo = (u: string) => /^https?:\/\//.test(u);
+---
+<section class="tarjetas" aria-label="Accesos">
+  {items.map((t, i) => (
+    <a class="tarjeta" href={t.enlace} {...(externo(t.enlace) ? { target: '_blank', rel: 'noopener' } : {})}>
+      {t.imagen && <span class="imagen"><img src={t.imagen} alt="" loading={i < 4 ? 'eager' : 'lazy'} /></span>}
+      <span class="texto">
+        {t.etiqueta && <span class="etiqueta">{t.etiqueta}</span>}
+        <span class="titulo">{t.titulo}</span>
+        {t.frase && <span class="frase">{t.frase}</span>}
+        <span class="ver">{t.boton} <span aria-hidden="true">{externo(t.enlace) ? '↗' : '→'}</span></span>
+      </span>
+    </a>
+  ))}
+</section>
+
+<style>
+  .tarjetas { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-bottom: 56px; }
+  .tarjeta {
+    display: flex; flex-direction: column;
+    border-radius: 24px; overflow: hidden; text-decoration: none; color: var(--tinta);
+    background: rgba(255, 255, 255, 0.55); border: 1px solid rgba(30, 64, 51, 0.12);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .tarjeta:hover { transform: translateY(-3px); border-color: var(--verde-medio); }
+  .imagen { display: block; background: var(--salvia); }
+  .imagen img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .texto { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; flex: 1; }
+  .etiqueta { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-medio); }
+  .titulo { font-family: var(--serif); font-size: 26px; line-height: 1.15; color: var(--bosque); }
+  .frase { font-size: 15.5px; line-height: 1.5; color: var(--tinta-suave); }
+  .ver { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 700; color: var(--bosque); }
+  .tarjeta:hover .ver { text-decoration: underline; text-decoration-color: var(--amarillo); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .tarjeta { transition: none; } .tarjeta:hover { transform: none; } }
+</style>

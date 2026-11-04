@@ -30,7 +30,8 @@ El primer frente que se abordó fue la **auditoría integral de UX** del portal 
 * **Repositorio:** [`motivarcare/motivarcare.github.io`](https://github.com/motivarcare/motivarcare.github.io), rama `main`.
 * **Publicación:** cada push a `main` compila el portal (`web/`) y lo publica en GitHub Pages, en https://motivarcare.github.io/ (workflow `.github/workflows/deploy.yml`).
 * **Claude trabaja directamente sobre el repositorio en GitHub**: crea y edita archivos, hace los commits y los sube con push.
-* **Gastón hace `git pull`** de vez en cuando en su copia local (`C:\Users\gasto\Trabajo\ux-ui\motivarcare`) para bajar los cambios y probarlos.
+* **Gastón hace `git pull`** de vez en cuando en su copia local (`/home/chorizo/Trabajo/ux-ui/motivarcare`) para bajar los cambios y probarlos.
+* **Claude no escribe en la copia local** (decisión del 04/11/2026): todos los cambios van a GitHub. La copia local se usa solo para leer, por ejemplo un archivo que todavía no se subió.
 * Para evitar conflictos, conviene no editar la copia local sin hacer pull antes. Si Gastón cambia algo localmente, lo sube con push antes de pedirle nuevas tareas a Claude.
 * **Visibilidad:** por ahora el repositorio es **público** (decisión del 14/10/2026) y el portal se publica abierto en GitHub Pages. Todo lo que se suba es visible para cualquiera, así que conviene revisar qué se incluye en cada push (por ejemplo, documentos comerciales o datos sensibles). Las páginas llevan `noindex` para que no aparezcan en buscadores.
 
@@ -41,7 +42,7 @@ El primer frente que se abordó fue la **auditoría integral de UX** del portal 
 | Carpeta | Frente |
 |---|---|
 | `00-resumen/` | Contenido de la portada del portal interno (`index.md`) |
-| `01-investigacion/` | Investigación (usuarios, mercado, competencia) |
+| `01-investigacion/` | Investigación (usuarios, mercado, competencia). En `competencia/`, el relevamiento de la pantalla principal del paciente en otras plataformas |
 | `02-comercial/` | Comercial (investor deck, propuestas, modelo de negocio) |
 | `03-marketing/` | Marketing |
 | `04-design-system/` | Design system (tokens, componentes, guías) |

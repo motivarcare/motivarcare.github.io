@@ -47,6 +47,21 @@ const frentes = defineCollection({
         }),
       )
       .default([]),
+    // Tarjetas con imagen que llevan a documentos o páginas, en una grilla debajo de la cabecera
+    tarjetas: z
+      .array(
+        z.object({
+          titulo: z.string(),
+          frase: z.string().default(''),
+          imagen: z.string().optional(),
+          enlace: z.string(),
+          etiqueta: z.string().optional(),
+          boton: z.string().default('Ver más'),
+        }),
+      )
+      .default([]),
+    // "completo": el texto del README usa todo el ancho y los paneles van debajo (para tablas anchas)
+    ancho: z.enum(['normal', 'completo']).default('normal'),
   }),
 });
 

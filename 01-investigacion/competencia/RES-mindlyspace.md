@@ -137,7 +137,7 @@ Es propia, sin servicios externos. La imagen del especialista ocupa toda la pant
 
 ## 7. Comparación con BetterHelp y con nuestro mockup del Inicio
 
-| Tema | Mindly | BetterHelp (`RES-betterhelp.md`) | Mockup de MotivarCare (`mockups/06-sesion-telefono.png`) | Para pensar |
+| Tema | Mindly | BetterHelp | Mockup de MotivarCare (`06-app-usuario/mockups/06-sesion-telefono.png`) | Para pensar |
 |---|---|---|---|---|
 | **Eje de la pantalla principal** | La agenda ("Mis sesiones") | El vínculo con el terapeuta (la conversación) | El próximo paso del paciente, en un Inicio propio | Nuestro Inicio está en el medio: muestra la sesión (como Mindly) y al profesional con nombre y foto (más cerca de BetterHelp). Es una posición que vale la pena sostener. |
 | **Saludo y contexto** | No tiene: el título es "Mis sesiones" | No tiene: el título es "Therapy with Dr. …" | "Miércoles 4 de noviembre — Hola, Gastón." | Somos los únicos que saludamos. Suma calidez sin agregar ruido. |
@@ -148,7 +148,7 @@ Es propia, sin servicios externos. La imagen del especialista ocupa toda la pant
 | **Acción de agendar** | Un botón flotante, siempre visible: "+ Agendar una sesión" | En la pestaña Schedule | "Reservar →", en la tarjeta de sesiones disponibles | El botón flotante tapa contenido. Nuestro acceso en contexto es más calmo. |
 | **Autocuidado** (diario, ánimo) | No tiene | Wellness (diario y objetivos) | "¿Cómo estás hoy?" en el Inicio, y la pestaña Diario | Es una diferencia frente a Mindly: nosotros acompañamos entre sesiones. |
 | **Navegación** | 4 pestañas: Horario · Lista · Chats · Perfil | 5: Therapy · Wellness · Schedule · Worksheets · More | 5: Inicio · Sesiones · Profesional · Diario · Bienestar | Mindly separa **Chats**. Si mantenemos el chat, falta definir dónde vive. |
-| **Elegir profesional** | Un catálogo con filtros, precios, valoraciones, horarios libres y "Encaja con tu solicitud" | Asignación automática y una lista corta si se pide un cambio | Los profesionales sugeridos, con el precio visible (Inicio sin profesional) | "Encaja con tu solicitud" es un patrón muy bueno para explicar **por qué** sugerimos a alguien (está entre los pendientes del README). |
+| **Elegir profesional** | Un catálogo con filtros, precios, valoraciones, horarios libres y "Encaja con tu solicitud" | Asignación automática y una lista corta si se pide un cambio | Los profesionales sugeridos, con el precio visible (Inicio sin profesional) | "Encaja con tu solicitud" es un patrón muy bueno para explicar **por qué** sugerimos a alguien (está entre los pendientes del README del frente 06). |
 | **Reserva recurrente** | "Semanalmente / Sesión única" y "se repetirán todas las semanas al mismo horario" | "Repeats weekly" | No está definido | Vale la pena considerarlo para quien compra paquetes de 4 o más sesiones. |
 | **Tono** | Operativo en la app y comercial en las fichas | Cálido y con nombre propio | Voseo amable y calmo | Conviene evitar los recursos de urgencia ("5 sesiones reservadas en 3 días") por el criterio de "calma visual" y de "credibilidad antes que promesa". |
 

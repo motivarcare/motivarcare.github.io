@@ -64,6 +64,19 @@ iniciativas:
     boton: Ver el investor deck
 ```
 
+Un frente también puede mostrar una **grilla de tarjetas** con imagen debajo de la cabecera (por ejemplo, para enlazar documentos), con el campo `tarjetas`. Y con `ancho: completo`, el texto del README usa todo el ancho de la página y los paneles de próximos pasos, documentos y materiales van debajo, algo útil para las tablas anchas:
+
+```yaml
+ancho: completo        # normal (por defecto) | completo
+tarjetas:
+  - titulo: BetterHelp
+    etiqueta: EE. UU. · suscripción semanal              # opcional, va arriba del título
+    frase: "La conversación con el terapeuta como pantalla principal."
+    imagen: /img/investigacion/betterhelp.jpg             # archivo dentro de web/public/, en 4:3
+    enlace: /01-investigacion/competencia/res-betterhelp/ # página del portal o URL externa
+    boton: Ver el análisis                                # por defecto, "Ver más"
+```
+
 ### Encabezado de la portada
 
 ```yaml

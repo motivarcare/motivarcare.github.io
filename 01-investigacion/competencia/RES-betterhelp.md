@@ -153,9 +153,9 @@ Ese cuestionario termina en una persona asignada, y desde ahí todo se ordena al
 
 ## 7. Comparación con nuestro mockup del Inicio
 
-| Tema | BetterHelp | Mockup de MotivarCare (`mockups/06-sesion-telefono.png`) | Para pensar |
+| Tema | BetterHelp | Mockup de MotivarCare (`06-app-usuario/mockups/06-sesion-telefono.png`) | Para pensar |
 |---|---|---|---|
-| **Eje de la pantalla principal** | La conversación con el terapeuta (pestaña "Therapy") | Un Inicio propio con el próximo paso del paciente | Nuestro Inicio es un "tablero calmo". Podríamos reforzar la presencia del profesional, por ejemplo con el nombre y un acceso a escribirle, si el equipo decide mantener el chat (está entre los pendientes del README). |
+| **Eje de la pantalla principal** | La conversación con el terapeuta (pestaña "Therapy") | Un Inicio propio con el próximo paso del paciente | Nuestro Inicio es un "tablero calmo". Podríamos reforzar la presencia del profesional, por ejemplo con el nombre y un acceso a escribirle, si el equipo decide mantener el chat (está entre los pendientes del README del frente 06). |
 | **Estado de la sesión** | Franja fija arriba con un solo botón: "Join video session" | Tarjeta principal: "Empieza en 8 minutos", "Entrar a la sesión", "Probar cámara" | **Coincide.** Las dos soluciones ponen arriba lo que pasa ahora, con un único llamado a la acción fuerte. Nuestro "Probar cámara" suma algo que BetterHelp no tiene en esa pantalla. |
 | **Recomendación antes de la sesión** | "Find a comfy seat and settle in" y qué hacer si el terapeuta se demora | No aparece | Podríamos sumar una línea de acompañamiento, en voseo: "Buscá un lugar tranquilo. Si la Lic. Quiroga se demora, escribile." |
 | **Zona horaria** | "8:45am PST", "MON 17 · PST" | "hora de Argentina" | **Coincide.** Es importante para la reserva entre países (una de las heurísticas de la auditoría). |

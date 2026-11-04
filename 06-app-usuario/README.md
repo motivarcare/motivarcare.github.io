@@ -100,18 +100,14 @@ El design system (`04-design-system`) es la **fuente única** de las decisiones 
 
 ## Qué hacen otras plataformas
 
-Antes de armar la propuesta, revisamos cómo resuelven la pantalla principal del paciente cuatro plataformas de terapia online: qué muestran, alrededor de qué organizan la experiencia, cuántos componentes usan y cómo hablan. Cada una tiene su análisis completo, con capturas y una comparación con nuestro mockup.
+La propuesta se apoya en un relevamiento de cómo resuelven la pantalla principal del paciente cuatro plataformas de terapia online. El relevamiento, con la tabla comparativa y un análisis por plataforma, está en el frente [01 · Investigación](/01-investigacion/):
 
-| Plataforma | Mercado y modelo | Eje de la pantalla principal | Fortalezas | Debilidades | Análisis |
-|---|---|---|---|---|---|
-| **BetterHelp** | EE. UU. y otros países · suscripción semanal | **La conversación con el terapeuta** (la pestaña "Therapy" es el chat) | Pocos componentes. Un aviso de sesión con un único botón. Tono cálido que acompaña ("Find a comfy seat and settle in"). Diario privado por defecto. Siempre ofrece una salida ("Request another time slot"). | No tiene una Home que resuma. La información del sistema se pierde entre los mensajes. Muchas notificaciones, y recordatorios por SMS que dicen "therapy". | [Ver el análisis](/06-app-usuario/investigacion/res-betterhelp/) |
-| **Mindly** | Europa del Este y Latinoamérica · sesión suelta o planes desde 4 sesiones, en dólares o euros | **La agenda** ("Mis sesiones") | Es el competidor más directo. Une el pedido de la persona con el profesional ("Encaja con tu solicitud"). Agrupa los horarios por franja y aclara la zona horaria. Permite la reserva semanal o única. Manda tres recordatorios. | Pone el estado de la suscripción primero. No saluda ni acompaña. Usa recursos de presión comercial ("Súper especialista", "5 sesiones reservadas en 3 días"). No tiene herramientas entre sesiones. | [Ver el análisis](/06-app-usuario/investigacion/res-mindlyspace/) |
-| **Clearly** | España, Reino Unido e Irlanda · cada profesional define su precio | **Los terapeutas** ("Mis terapeutas", una tarjeta por cada uno) | La tarjeta reúne a la persona, los datos para confiar y la próxima sesión. Propone la siguiente reserva. La ayuda humana tiene nombre y está siempre a mano. Pregunta el presupuesto en el cuestionario. | Mezcla usted y tú. Repite el precio en el Inicio. Reseñas con quejas por cobros poco claros. La videollamada es externa (Google Meet). | [Ver el análisis](/06-app-usuario/investigacion/res-clearly/) |
-| **Talkspace** | EE. UU. · seguro médico o suscripción | **El equipo de apoyo** (una Home con saludo, profesionales y recursos) | Es el más parecido a nuestro Inicio. Saluda ("We're so glad you're here"). Profesional y sesión en la misma tarjeta. Preguntas para preparar la sesión. Tono que normaliza lo clínico. Plan B técnico en la videollamada. | Ofrece sumar servicios desde el Inicio (aunque con buen tono). El contenido del destino "Journey" no queda claro a simple vista. Solo funciona en EE. UU. | [Ver el análisis](/06-app-usuario/investigacion/res-talkspace/) |
+- [BetterHelp](/01-investigacion/competencia/res-betterhelp/): la conversación con el terapeuta como pantalla principal.
+- [Mindly](/01-investigacion/competencia/res-mindlyspace/): la agenda de sesiones como pantalla principal.
+- [Clearly](/01-investigacion/competencia/res-clearly/): una tarjeta por terapeuta, con la próxima sesión adentro.
+- [Talkspace](/01-investigacion/competencia/res-talkspace/): una Home con saludo, equipo de apoyo y recursos.
 
-**Lo que se repite en las cuatro:** la sesión que está por empezar va arriba, con un solo botón fuerte. La zona horaria se aclara siempre. La navegación tiene cuatro o cinco destinos, con texto visible. Ninguna, salvo Talkspace, saluda ni acompaña entre sesiones desde la pantalla principal, y ahí está la oportunidad de MotivarCare.
-
-**Lo que cambia es el eje.** Cada plataforma organiza la experiencia alrededor de algo distinto: la sesión (Mindly), el profesional (Clearly y Talkspace), la conversación (BetterHelp) o el proceso entre sesiones (Talkspace con "Journey" y BetterHelp con "Wellness"). Esos cuatro ejes dan origen a las familias de la propuesta.
+Cada plataforma organiza la experiencia alrededor de un eje distinto, y esos cuatro ejes dan origen a las familias de la propuesta.
 
 ## Propuesta (versión preliminar)
 
