@@ -16,7 +16,7 @@ complementarios:
 proximos_pasos:
   - "Relevar las pantallas y funciones de la app actual del paciente, y el estado de su API."
   - "Decidir con el equipo el camino de la migración (sección \"Cómo migrar\")."
-  - "Revisar los mockups hechos de las familias 1 y 2."
+  - "Revisar los mockups hechos de las familias 1, 2 y 3."
   - "Elegir qué familias se desarrollan primero y completar sus pantallas."
   - "Definir con el equipo: paquetes que se ofrecen, cómo se elige al profesional, si se mantiene el chat y qué rubros podría sumar MotivarCare."
   - "Sumar al design system los componentes nuevos de la app (navegación, tarjeta de sesión, opciones de pago, pasos, escala de ánimo)."
@@ -34,8 +34,8 @@ tarjetas:
     enlace: /app-usuario/propuesta/agenda/
     boton: Ver la familia
   - titulo: "3 · Equipo de apoyo y múltiples profesionales"
-    etiqueta: "Eje: más de un profesional a la vez"
-    frase: "¿Quiénes me acompañan? Un equipo que trabaja junto, o varios profesionales en paralelo, cada uno por su lado."
+    etiqueta: "Eje: más control para la persona"
+    frase: "¿Con quiénes quiero trabajar y en qué? La agenda con todos tus profesionales, tu valoración de cada sesión y el foco que elegís."
     imagen: /img/app-usuario/familia-equipo.jpg
     enlace: /app-usuario/propuesta/equipo/
     boton: Ver la familia

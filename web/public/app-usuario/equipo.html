@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Portal del paciente · Familia 3 · Equipo de apoyo</title><link rel="icon" href="../landing/img/logo.svg" type="image/svg+xml">
+<style>
+/* =========================================================================
+   MotivarCare · Nuevo portal del paciente · Primer mockup (noviembre 2026)
+   Usa los tokens y las fuentes del design system (04-design-system), tomados
+   de la propuesta de landing (../landing/).
+   ========================================================================= */
+@font-face { font-family: 'Fraunces'; font-weight: 100 900; font-display: block;
+  src: url('../landing/fonts/fraunces-latin-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-weight: 100 900; font-display: block;
+  src: url('../landing/fonts/fraunces-latin-ext-full-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+A720-A7FF; }
+@font-face { font-family: 'Manrope'; font-weight: 200 800; font-display: block;
+  src: url('../landing/fonts/manrope-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Manrope'; font-weight: 200 800; font-display: block;
+  src: url('../landing/fonts/manrope-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+A720-A7FF; }
+
+:root {
+  --crema: #f5f3eb; --superficie: #ffffff; --tinta: #1b2a23; --tinta-suave: #5d6a63; --tinta-tenue: #8a958f; --linea: #e2dfd3;
+  --bosque: #1e4033; --bosque-2: #2a5543; --verde-medio: #2f6b51; --bosque-claro: #eaf1ec;
+  --salvia: #d6e7dc; --salvia-fuerte: #9fc9ae; --menta: #e7f1ea; --lima: #e6edc4; --lima-fuerte: #c8d98a; --lima-suave: #f2f5e0;
+  --amarillo: #f5c33b; --amarillo-suave: #fbe9b0;
+  /* Escala de ánimo: de muy mal (bosque casi negro) a muy bien (verde vivo), con amarillo en el medio */
+  --animo-1: #1e4033; --animo-2: #2f6b51; --animo-3: #f5c33b; --animo-4: #a9cf54; --animo-5: #4fa86a;
+  --e1: #1e4033; --e2: #2f6b51; --e3: #5e9677; --e4: #8dba9e; --e5: #b7cf95;
+  --rg: 24px; --rm: 18px; --rc: 10px;
+  --serif: 'Fraunces', Georgia, serif; --sans: 'Manrope', system-ui, sans-serif;
+  --sombra: 0 30px 60px -28px rgba(20, 41, 31, .45);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: #e9e6da; font-family: var(--sans); color: var(--tinta); padding: 48px 24px 80px; }
+.lamina { max-width: 1440px; margin: 0 auto 56px; }
+.lamina > h2 { font: 600 13px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); margin-bottom: 14px; }
+.fila-tel { display: flex; gap: 40px; flex-wrap: wrap; }
+.fila-tel > div { flex: 0 0 auto; }
+
+/* ---------- Marcos ---------- */
+.marco { position: relative; overflow: hidden; background: var(--crema); font-size: 16px; line-height: 1.5; }
+.marco.esc { width: 1440px; height: 1024px; display: grid; grid-template-columns: 252px 1fr; }
+.marco.tel { width: 390px; height: 844px; display: flex; flex-direction: column; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico.chico { width: 18px; height: 18px; }
+
+/* ---------- Tipografía ---------- */
+.t-fecha { font: 700 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--verde-medio); }
+.t1 { font: 500 42px/1.08 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); letter-spacing: -.01em; }
+.t1 em, .t2 em { font-style: italic; color: var(--bosque-2); }
+.t2 { font: 500 30px/1.12 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.t3 { font: 560 22px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.bajada { font-size: 18px; color: var(--tinta-suave); }
+.peq { font-size: 14px; font-weight: 500; color: var(--tinta-suave); }
+.tenue { font-size: 13px; color: var(--tinta-tenue); }
+.etiqueta { display: inline-flex; align-items: center; gap: 8px; background: var(--lima); color: var(--bosque); font: 700 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 7px 12px 7px 10px; border-radius: 99px; }
+.etiqueta::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--amarillo); }
+
+/* ---------- Botones ---------- */
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 99px; font: 700 15px/1 var(--sans); text-decoration: none; white-space: nowrap; border: 1px solid transparent; }
+.boton.primario { background: var(--amarillo); color: var(--bosque); }
+.boton.bosque { background: var(--bosque); color: var(--bosque-claro); }
+.boton.contorno { background: var(--superficie); color: var(--bosque); border-color: var(--linea); }
+.boton.texto { background: none; color: var(--verde-medio); padding: 0 6px; }
+.boton.grande { height: 52px; padding: 0 28px; font-size: 16px; }
+.boton.ancho { width: 100%; }
+.boton-icono { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--superficie); border: 1px solid var(--linea); color: var(--bosque); position: relative; }
+.boton-icono .punto { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--amarillo); border: 2px solid var(--superficie); box-sizing: content-box; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta { border-radius: var(--rg); padding: 26px; background: var(--superficie); border: 1px solid var(--linea); }
+.tarjeta.menta { background: var(--menta); border-color: transparent; }
+.tarjeta.salvia { background: var(--salvia); border-color: transparent; }
+.tarjeta.lima { background: var(--lima-suave); border-color: transparent; }
+.tarjeta.bosque { background: var(--bosque); border-color: transparent; color: var(--bosque-claro); }
+.tarjeta.punteada { background: transparent; border: 1.5px dashed var(--salvia-fuerte); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 700 12.5px/1 var(--sans); padding: 7px 11px; border-radius: 99px; background: var(--menta); color: var(--bosque); white-space: nowrap; }
+.chip.lima { background: var(--lima); }
+.chip.amarillo { background: var(--amarillo-suave); }
+.chip.contorno { background: transparent; border: 1px solid var(--linea); color: var(--tinta-suave); }
+.chip .late { width: 8px; height: 8px; border-radius: 50%; background: var(--verde-medio); box-shadow: 0 0 0 4px rgba(47,107,81,.18); }
+.avatar { border-radius: 50%; object-fit: cover; flex: none; filter: saturate(.85); }
+.pais { display: inline-flex; align-items: center; gap: 4px; }
+.pais .ico { width: 15px; height: 15px; }
+.estrella { color: var(--amarillo); }
+
+/* ---------- Navegación de escritorio ---------- */
+.lateral { border-right: 1px solid var(--linea); padding: 26px 18px; display: flex; flex-direction: column; gap: 6px; background: var(--crema); }
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 13px; letter-spacing: .16em; color: var(--bosque); padding: 0 10px 26px; }
+.marca img { width: 32px; }
+.nav-item { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 14px; font-weight: 600; font-size: 15.5px; color: var(--tinta-suave); text-decoration: none; }
+.nav-item.activo { background: var(--salvia); color: var(--bosque); font-weight: 700; }
+.nav-item .contador { margin-left: auto; font-size: 12px; font-weight: 800; background: var(--amarillo); color: var(--bosque); border-radius: 99px; padding: 3px 8px; }
+.lateral .pie { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+.apoyo { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: var(--tinta-suave); padding: 14px; border-radius: 14px; border: 1px solid var(--linea); }
+.apoyo b { color: var(--bosque); display: block; font-size: 13.5px; }
+.apoyo .ico { color: var(--verde-medio); margin-top: 1px; }
+
+.principal { overflow: hidden; display: flex; flex-direction: column; }
+.barra { display: flex; align-items: center; gap: 12px; padding: 18px 48px 0; }
+.barra .espacio { flex: 1; }
+.cuenta { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px 0 5px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); font-weight: 700; font-size: 14.5px; color: var(--bosque); }
+.cuenta .inicial { width: 34px; height: 34px; border-radius: 50%; background: var(--lima); display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+.contenido { padding: 0 48px 40px; }
+
+/* ---------- Inicio: sesión ---------- */
+.saludo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.grilla-inicio { display: grid; grid-template-columns: 1.55fr 1fr; gap: 20px; }
+.sesion { position: relative; overflow: hidden; padding: 30px 32px; display: flex; flex-direction: column; gap: 18px; min-height: 286px; }
+.sesion .mancha { position: absolute; right: -70px; top: -60px; width: 330px; opacity: .75; }
+.sesion .cabeza { display: flex; justify-content: space-between; align-items: center; position: relative; }
+.sesion .cuando { font: 500 38px/1.08 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); position: relative; }
+.sesion .cuando small { display: block; font: 600 16px/1.5 var(--sans); color: var(--tinta-suave); margin-top: 8px; }
+.con { display: flex; align-items: center; gap: 14px; position: relative; }
+.con b { display: block; color: var(--bosque); font-size: 16px; }
+.con .anillo { width: 58px; height: 58px; border-radius: 50%; padding: 3px; border: 2px solid var(--bosque); background: var(--salvia); }
+.con .anillo img { width: 100%; height: 100%; }
+.acciones { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; position: relative; margin-top: auto; }
+.nota { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: var(--tinta-suave); }
+.nota i { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--amarillo-suave); color: var(--bosque); font: italic 700 12px/20px var(--serif); text-align: center; }
+
+.columna { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.pro { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+.pro .fila { display: flex; gap: 14px; align-items: center; }
+.pro .fila b { display: block; font-size: 16.5px; color: var(--bosque); }
+.pro .datos { display: flex; gap: 12px; font-size: 13.5px; color: var(--tinta-suave); margin-top: 3px; }
+.pro .botones { display: flex; gap: 10px; }
+.creditos { display: flex; align-items: center; gap: 18px; padding: 22px 24px; }
+.creditos .numero { font: 500 44px/1 var(--serif); color: var(--bosque); }
+.creditos .texto { flex: 1; min-width: 0; }
+.creditos .texto b { display: block; color: var(--bosque); font-size: 15.5px; }
+.puntos { display: flex; gap: 6px; margin-top: 8px; }
+.puntos span { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--bosque); background: var(--salvia); }
+.puntos span.usada { background: var(--bosque); }
+.puntos span.libre { background: transparent; border-style: dashed; border-color: var(--salvia-fuerte); }
+
+.entre { margin-top: 24px; }
+.entre .cabeza { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.grilla-entre { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 20px; }
+.animo { display: flex; flex-direction: column; gap: 16px; }
+.opciones-animo { display: flex; gap: 8px; }
+.opciones-animo span { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 10px; border-radius: 14px; background: var(--superficie); font-size: 12.5px; font-weight: 700; color: var(--tinta-suave); }
+.opciones-animo .cara { width: 34px; height: 34px; display: block; }
+.tel .opciones-animo .cara { width: 30px; height: 30px; }
+.privado { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--verde-medio); }
+.privado .ico { width: 16px; height: 16px; }
+.grafico { display: flex; flex-direction: column; gap: 12px; }
+.grafico svg { width: 100%; height: auto; display: block; }
+.recurso { display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; }
+.icono-mancha { position: relative; width: 58px; height: 58px; display: grid; place-items: center; color: var(--crema); }
+.icono-mancha svg.blob { position: absolute; inset: 0; width: 100%; height: 100%; }
+.icono-mancha .ico { position: relative; width: 26px; height: 26px; }
+.enlace { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14.5px; color: var(--verde-medio); text-decoration: none; }
+.enlace .ico { width: 16px; height: 16px; }
+
+/* ---------- Maca ---------- */
+.maca { position: absolute; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 20px 0 8px; border-radius: 99px; background: var(--superficie); border: 1.5px dashed var(--bosque); box-shadow: var(--sombra); font-weight: 700; font-size: 14.5px; color: var(--bosque); }
+.maca img { width: 40px; height: 40px; border-radius: 50%; background: var(--menta); padding: 3px; }
+.esc .maca { right: 40px; bottom: 32px; }
+.maca.redonda { width: 54px; height: 54px; padding: 0; justify-content: center; }
+.maca.redonda img { width: 44px; height: 44px; }
+
+/* ---------- Teléfono ---------- */
+.estado-tel { height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; font-weight: 700; font-size: 15px; color: var(--tinta); flex: none; }
+.estado-tel .senal { display: flex; gap: 3px; align-items: flex-end; }
+.estado-tel .senal i { width: 4px; background: var(--tinta); border-radius: 1px; }
+.cabecera-tel { display: flex; align-items: center; gap: 10px; padding: 6px 18px 10px; flex: none; }
+.cabecera-tel .marca { padding: 0; font-size: 12px; }
+.cabecera-tel .marca img { width: 28px; }
+.cabecera-tel .espacio { flex: 1; }
+.cabecera-tel .boton-icono { width: 42px; height: 42px; }
+.cabecera-tel .inicial { width: 42px; height: 42px; border-radius: 50%; background: var(--lima); display: grid; place-items: center; font-weight: 800; font-size: 15px; color: var(--bosque); border: 1px solid var(--linea); }
+.cuerpo-tel { flex: 1; overflow: hidden; padding: 8px 18px 0; display: flex; flex-direction: column; gap: 14px; }
+.tel .t1 { font-size: 32px; }
+.tel .bajada { font-size: 16px; }
+.tel .sesion { min-height: 0; padding: 22px; gap: 14px; }
+.tel .sesion .cuando { font-size: 28px; }
+.tel .sesion .cuando small { font-size: 14px; margin-top: 6px; }
+.tel .sesion .mancha { width: 220px; right: -60px; top: -50px; }
+.tel .con .anillo { width: 48px; height: 48px; }
+.tel .tarjeta { padding: 18px; border-radius: 20px; }
+.nav-tel { flex: none; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 6px 26px; background: var(--superficie); border-top: 1px solid var(--linea); }
+.nav-tel a { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 700; color: var(--tinta-tenue); text-decoration: none; padding-top: 4px; }
+.nav-tel a .ico { width: 24px; height: 24px; }
+.nav-tel a .pastilla { width: 56px; height: 30px; border-radius: 99px; display: grid; place-items: center; }
+.nav-tel a.activo { color: var(--bosque); }
+.nav-tel a.activo .pastilla { background: var(--salvia); }
+.tel .maca { right: 16px; bottom: 96px; }
+
+/* ---------- Horarios, vacíos y primera vez ---------- */
+.horarios { display: flex; gap: 8px; flex-wrap: wrap; position: relative; }
+.horario { display: flex; flex-direction: column; line-height: 1.25; padding: 10px 14px; border-radius: 12px; border: 1.5px dashed var(--bosque); background: rgba(255,255,255,.55); font-weight: 800; font-size: 14.5px; color: var(--bosque); }
+.horario small { font-weight: 600; font-size: 12px; color: var(--tinta-suave); }
+.horario.mas { border-style: solid; border-color: transparent; background: none; color: var(--verde-medio); justify-content: center; font-weight: 700; }
+.tel .horarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tel .horario { padding: 9px 10px; font-size: 14px; }
+.vacio { border: 1.5px dashed var(--salvia-fuerte); border-radius: 14px; height: 96px; display: grid; place-items: center; text-align: center; font-size: 13px; color: var(--tinta-tenue); padding: 0 18px; }
+.lista-simple { display: flex; flex-direction: column; gap: 10px; }
+.lista-simple li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--tinta-suave); list-style: none; }
+.lista-simple li .tilde { flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--salvia); color: var(--bosque); display: grid; place-items: center; margin-top: 1px; }
+.lista-simple li .tilde .ico { width: 13px; height: 13px; stroke-width: 2.6; }
+ul.lista-simple { padding: 0; }
+.sugeridos-esc { display: flex; flex-direction: column; gap: 4px; padding: 22px 24px; }
+.sugeridos-esc .fila-pro { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--linea); }
+.sugeridos-esc .fila-pro:last-of-type { border-bottom: 0; }
+.sugeridos-esc .fila-pro b { display: block; color: var(--bosque); font-size: 15px; }
+.sugeridos-esc .fila-pro .info { flex: 1; }
+
+/* ---------- Encabezados de variante ---------- */
+.variante { max-width: 1440px; margin: 0 auto 28px; padding-top: 12px; }
+.variante h1 { font: 500 34px/1.1 var(--serif); color: var(--bosque); }
+.variante p { font-size: 16px; color: var(--tinta-suave); max-width: 820px; margin-top: 8px; }
+.variante.b { border-top: 2px dashed var(--salvia-fuerte); padding-top: 40px; margin-top: 24px; }
+
+/* ---------- Mensajería (variante B) ---------- */
+.marco.esc.chat { grid-template-columns: 252px 1fr 330px; }
+.conv { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid var(--linea); background: var(--crema); }
+.conv-cab { display: flex; align-items: center; gap: 14px; padding: 18px 32px; border-bottom: 1px solid var(--linea); background: var(--superficie); flex: none; }
+.conv-cab b { display: block; color: var(--bosque); font-size: 17px; }
+.conv-cab .espacio { flex: 1; }
+.en-linea { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--tinta-suave); }
+.hilo { flex: 1; overflow: hidden; padding: 22px 32px 10px; display: flex; flex-direction: column; gap: 12px; justify-content: flex-end; }
+.dia-sep { align-self: center; font: 700 11.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); padding: 6px 12px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); margin: 6px 0; }
+.msg { max-width: 64%; display: flex; flex-direction: column; gap: 4px; }
+.msg .burbuja { padding: 12px 16px; border-radius: 18px; font-size: 15px; line-height: 1.5; }
+.msg .hora { font-size: 11.5px; color: var(--tinta-tenue); padding: 0 6px; }
+.msg.pro { align-self: flex-start; }
+.msg.pro .burbuja { background: var(--superficie); border: 1px solid var(--linea); border-bottom-left-radius: 6px; }
+.msg.yo { align-self: flex-end; align-items: flex-end; }
+.msg.yo .burbuja { background: var(--salvia); color: var(--tinta); border-bottom-right-radius: 6px; }
+.adjunto { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 16px; background: var(--lima-suave); border: 1px solid var(--linea); min-width: 280px; }
+.adjunto b { display: block; color: var(--bosque); font-size: 14.5px; }
+.adjunto .peq { font-size: 13px; }
+.adjunto .icono-mancha { width: 44px; height: 44px; flex: none; }
+.adjunto .icono-mancha .ico { width: 20px; height: 20px; }
+.aviso-sesion { align-self: center; display: flex; gap: 12px; align-items: center; padding: 10px 16px; border-radius: 16px; border: 1.5px dashed var(--bosque); background: var(--superficie); font-size: 14px; color: var(--tinta-suave); }
+.aviso-sesion b { color: var(--bosque); }
+.redactor { flex: none; padding: 12px 32px 18px; display: flex; flex-direction: column; gap: 10px; }
+.campo { display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 18px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); }
+.campo span.ph { flex: 1; color: var(--tinta-tenue); font-size: 15px; }
+.campo .accion { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--verde-medio); }
+.campo .enviar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--bosque); color: var(--bosque-claro); }
+.no-urgencias { display: flex; gap: 8px; align-items: center; justify-content: center; font-size: 12.5px; color: var(--tinta-tenue); }
+.no-urgencias a { color: var(--verde-medio); font-weight: 700; text-decoration: none; }
+.panel { padding: 22px 22px; display: flex; flex-direction: column; gap: 16px; overflow: hidden; background: var(--crema); }
+.panel .tarjeta { padding: 20px; border-radius: 20px; }
+.panel h3 { font: 700 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-tenue); margin-bottom: 12px; }
+.panel .item-comp { display: flex; gap: 10px; align-items: center; padding: 8px 0; font-size: 14px; color: var(--tinta); }
+.panel .item-comp .ico { color: var(--verde-medio); }
+.tel .hilo { padding: 14px 14px 8px; gap: 10px; }
+.tel .msg { max-width: 80%; }
+.tel .msg .burbuja { font-size: 14.5px; padding: 10px 14px; }
+.tel .adjunto { min-width: 0; padding: 10px 12px; }
+.tel .redactor { padding: 8px 14px 10px; gap: 6px; }
+.tel .conv-cab { padding: 6px 14px 10px; gap: 10px; border-bottom: 1px solid var(--linea); background: var(--crema); }
+.tel .conv-cab b { font-size: 15.5px; }
+.tel .no-urgencias { font-size: 11.5px; }
+.preview-msg { display: flex; flex-direction: column; gap: 12px; padding: 22px 24px; }
+.preview-msg .burbuja { background: var(--crema); border: 1px solid var(--linea); border-radius: 16px; border-bottom-left-radius: 6px; padding: 12px 14px; font-size: 14.5px; }
+
+/* ---------- Sin profesional ---------- */
+.pasos { display: flex; flex-direction: column; gap: 12px; margin: 4px 0 2px; }
+.paso { display: flex; gap: 12px; align-items: center; font-size: 15px; font-weight: 600; }
+.paso .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 13.5px; flex: none; }
+.bosque .paso .num { background: var(--amarillo); color: var(--bosque); }
+.bosque .paso.pendiente { color: rgba(234,241,236,.62); }
+.bosque .paso.pendiente .num { background: transparent; border: 1.5px dashed rgba(234,241,236,.5); color: rgba(234,241,236,.75); }
+.sugeridos { display: flex; flex-direction: column; gap: 10px; }
+.mini-pro { display: flex; gap: 12px; align-items: center; padding: 14px; border-radius: 18px; background: var(--superficie); border: 1px solid var(--linea); }
+.mini-pro .info { flex: 1; min-width: 0; }
+.mini-pro b { display: block; color: var(--bosque); font-size: 15px; }
+.mini-pro .peq { font-size: 13px; }
+.mini-pro .meta { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+
+/* ---------- Reserva ---------- */
+.reserva { display: flex; flex-direction: column; }
+.marco.esc.reserva { display: flex; }
+.cab-reserva { display: flex; align-items: center; gap: 24px; padding: 22px 48px; border-bottom: 1px solid var(--linea); }
+.cab-reserva .marca { padding: 0; }
+.cab-reserva .espacio { flex: 1; }
+.stepper { display: flex; align-items: center; gap: 10px; }
+.stepper .s { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 700; color: var(--bosque); }
+.stepper .s .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+.stepper .s.hecho .num { background: var(--bosque); color: var(--crema); }
+.stepper .s.actual .num { background: var(--amarillo); color: var(--bosque); }
+.stepper .s.pendiente { color: var(--tinta-tenue); }
+.stepper .s.pendiente .num { border: 1.5px dashed var(--tinta-tenue); color: var(--tinta-tenue); }
+.stepper .raya { width: 36px; height: 2px; background: var(--bosque); border-radius: 2px; }
+.stepper .raya.pend { background: none; border-top: 2px dashed var(--linea); height: 0; }
+.cuerpo-reserva { flex: 1; display: grid; grid-template-columns: 1fr 420px; gap: 48px; padding: 44px 120px 0; align-content: start; }
+.opciones { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.opcion { display: flex; gap: 18px; align-items: flex-start; padding: 22px 24px; border-radius: var(--rm); background: var(--superficie); border: 1px solid var(--linea); }
+.opcion.elegida { border: 2px solid var(--bosque); background: var(--superficie); box-shadow: 0 0 0 4px var(--menta); }
+.radio { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--tinta-tenue); flex: none; margin-top: 2px; display: grid; place-items: center; }
+.elegida .radio { border-color: var(--bosque); }
+.elegida .radio::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--bosque); }
+.opcion .info { flex: 1; }
+.opcion .titulo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; color: var(--bosque); }
+.opcion .precio { text-align: right; }
+.opcion .precio b { display: block; font: 600 24px/1.1 var(--serif); color: var(--bosque); white-space: nowrap; }
+.opcion .precio small { font-size: 13px; color: var(--tinta-suave); white-space: nowrap; }
+.resumen { padding: 26px; display: flex; flex-direction: column; gap: 18px; }
+.resumen .linea { height: 1px; background: var(--linea); }
+.resumen .item { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--tinta-suave); }
+.resumen .item .ico { color: var(--verde-medio); margin-top: 1px; }
+.resumen .item b { color: var(--tinta); font-weight: 700; }
+.resumen .fila { display: flex; justify-content: space-between; font-size: 14.5px; color: var(--tinta-suave); }
+.resumen .total { display: flex; justify-content: space-between; align-items: baseline; }
+.resumen .total span { font-weight: 800; color: var(--bosque); font-size: 15px; }
+.resumen .total b { font: 600 30px/1 var(--serif); color: var(--bosque); }
+.tel .opcion { padding: 16px; gap: 14px; }
+.tel .opcion .titulo { font-size: 15.5px; }
+.tel .opcion .precio b { font-size: 20px; }
+.barra-pago { flex: none; padding: 14px 18px 30px; background: var(--superficie); border-top: 1px solid var(--linea); display: flex; flex-direction: column; gap: 10px; }
+.barra-pago .total { display: flex; justify-content: space-between; align-items: baseline; }
+.barra-pago .total span { font-weight: 700; color: var(--tinta-suave); font-size: 14px; }
+.barra-pago .total b { font: 600 24px/1 var(--serif); color: var(--bosque); }
+
+/* ===== Familia 3 · Equipo de apoyo y múltiples profesionales ===== */
+.eq-grid { display: grid; grid-template-columns: 1fr 330px; gap: 20px; }
+.eq-cab { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; }
+.eq-hoy { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 20px 24px; }
+.eq-hoy .cuando { font: 500 30px/1.05 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.eq-hoy .cuando small { display: block; font: 500 14px/1.4 var(--sans); color: var(--tinta-suave); margin-top: 6px; }
+.eq-semana { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 14px; }
+.eq-dia { border-radius: 14px; background: rgba(255,255,255,.6); border: 1px solid var(--linea); padding: 9px 8px 10px; min-height: 104px; display: flex; flex-direction: column; gap: 5px; }
+.eq-dia .d { font: 700 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); }
+.eq-dia .n { font: 600 18px/1 var(--serif); color: var(--bosque); }
+.eq-dia.hoy { background: var(--superficie); border: 2px solid var(--bosque); }
+.eq-ev { display: flex; align-items: center; gap: 5px; padding: 4px 6px 4px 4px; border-radius: 9px; font-size: 11.5px; font-weight: 800; color: var(--bosque); line-height: 1.2; }
+.eq-ev img, .eq-ev .ini { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex: none; }
+.eq-ev.v { background: var(--salvia); } .eq-ev.a { background: var(--lima); } .eq-ev.t { background: var(--amarillo-suave); }
+.eq-ev.otro { background: var(--menta); font-weight: 700; }
+.eq-titulo { font: 600 19px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.eq-prota { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.eq-card { padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+.eq-card .sub { font-size: 13.5px; color: var(--tinta-suave); margin-top: -6px; }
+.eq-escala { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.eq-escala span { text-align: center; padding: 9px 2px; border-radius: 12px; background: var(--superficie); border: 1.5px solid var(--linea); font-size: 12px; font-weight: 700; color: var(--tinta-suave); }
+.eq-escala span.sel { border-color: var(--bosque); color: var(--bosque); background: var(--amarillo-suave); }
+.eq-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.eq-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 99px; background: var(--superficie); border: 1.5px solid var(--linea); font-size: 13px; font-weight: 700; color: var(--tinta-suave); }
+.eq-chip.on { border-color: var(--bosque); color: var(--bosque); background: var(--salvia); }
+.eq-chip.on::before { content: '✓'; font-size: 12px; }
+.eq-card .pie-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: auto; }
+.eq-lado { display: flex; flex-direction: column; gap: 10px; }
+.eq-pro { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; border-radius: 18px; }
+.eq-pro .fila { display: flex; gap: 10px; align-items: center; }
+.eq-pro .fila b { display: block; font-size: 14.5px; color: var(--bosque); line-height: 1.25; }
+.eq-pro .serv { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; color: var(--bosque); }
+.eq-pro .datos { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--tinta-suave); }
+.eq-pro .datos b { display: inline; font-size: 12.5px; }
+.eq-pro.marca-v { border-left: 5px solid var(--salvia-fuerte); } .eq-pro.marca-a { border-left: 5px solid var(--lima-fuerte); } .eq-pro.marca-t { border-left: 5px solid var(--amarillo); }
+.eq-sumar { border: 1.5px dashed var(--salvia-fuerte); border-radius: 18px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; color: var(--bosque); }
+.eq-sumar i { width: 34px; height: 34px; border-radius: 50%; border: 1.5px dashed var(--verde-medio); display: grid; place-items: center; font-style: normal; font-size: 20px; color: var(--verde-medio); }
+.ini { display: grid; place-items: center; background: var(--lima); color: var(--bosque); font-weight: 800; font-size: 13px; border-radius: 50%; flex: none; }
+/* panel */
+.eq-velo { position: absolute; inset: 0; background: rgba(27,42,35,.32); z-index: 5; }
+.eq-panel { position: absolute; top: 0; right: 0; bottom: 0; width: 540px; background: var(--crema); z-index: 6; box-shadow: -30px 0 60px -30px rgba(20,41,31,.5); padding: 28px 30px; display: flex; flex-direction: column; gap: 14px; }
+.eq-panel h2 { font: 500 28px/1.1 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.eq-panel .cerrar { position: absolute; top: 24px; right: 24px; }
+.eq-orden { font-size: 13px; color: var(--tinta-suave); display: flex; gap: 8px; align-items: center; }
+.eq-cand { background: var(--superficie); border: 1px solid var(--linea); border-radius: 20px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.eq-cand .fila { display: flex; gap: 12px; align-items: center; }
+.eq-cand .fila b { display: block; font-size: 16px; color: var(--bosque); }
+.eq-cand .afin { margin-left: auto; text-align: right; font-size: 12px; color: var(--tinta-suave); line-height: 1.2; }
+.eq-cand .afin strong { display: block; font: 600 22px/1 var(--serif); color: var(--bosque); }
+.eq-cand .linea { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--tinta-suave); }
+.eq-cand .linea b { color: var(--bosque); }
+.eq-cand .acc { display: flex; gap: 8px; align-items: center; }
+.eq-cand.top { border: 2px solid var(--bosque); }
+.eq-motivo { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 16px; background: var(--amarillo-suave); font-size: 13.5px; color: var(--bosque); line-height: 1.45; }
+/* teléfono */
+.eq-avs { display: flex; gap: 10px; align-items: center; }
+.eq-avs .av { position: relative; }
+.eq-avs .av img, .eq-avs .av .ini { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2.5px solid var(--superficie); box-shadow: 0 0 0 2px var(--salvia-fuerte); }
+.eq-avs .av.a img { box-shadow: 0 0 0 2px var(--lima-fuerte); } .eq-avs .av.t img { box-shadow: 0 0 0 2px var(--amarillo); }
+.eq-avs .mas { width: 44px; height: 44px; border-radius: 50%; border: 1.5px dashed var(--verde-medio); display: grid; place-items: center; color: var(--verde-medio); font-size: 20px; }
+.eq-lista-tel { display: flex; flex-direction: column; gap: 8px; }
+.eq-item-tel { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 14px; background: var(--superficie); border: 1px solid var(--linea); font-size: 13px; color: var(--tinta-suave); }
+.eq-item-tel img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.eq-item-tel b { display: block; font-size: 14px; color: var(--bosque); }
+.eq-item-tel .h { margin-left: auto; font-weight: 800; color: var(--bosque); font-size: 13.5px; text-align: right; }
+.eq-hoja { position: absolute; left: 0; right: 0; bottom: 0; top: 150px; background: var(--crema); border-radius: 26px 26px 0 0; z-index: 6; padding: 12px 18px 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 -20px 50px -20px rgba(20,41,31,.45); }
+.eq-hoja .tirador { width: 44px; height: 5px; border-radius: 9px; background: var(--neutro); align-self: center; }
+.eq-hoja h2 { font: 500 23px/1.12 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.nav-tel.cuatro { grid-template-columns: repeat(4, 1fr); }
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6h-6v6H5.5A1.5 1.5 0 0 1 4 19z"/></symbol>
+  <symbol id="i-sesiones" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/><circle cx="12" cy="15" r="1.6"/></symbol>
+  <symbol id="i-profesional" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5c.8-4 3.9-6.3 7.5-6.3s6.7 2.3 7.5 6.3"/></symbol>
+  <symbol id="i-diario" viewBox="0 0 24 24"><path d="M6 3.5h10.5A2.5 2.5 0 0 1 19 6v14.5H7.5A2.5 2.5 0 0 1 5 18V4.5a1 1 0 0 1 1-1z"/><path d="M5 18a2.5 2.5 0 0 1 2.5-2.5H19M9 8h6M9 11.5h4"/></symbol>
+  <symbol id="i-bienestar" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13.5 14-14-.3 9-5.8 14-14 14z"/><path d="M5 19c3-3.5 6-6 9.5-8"/></symbol>
+  <symbol id="i-campana" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-abajo" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6.5" width="12.5" height="11" rx="2.5"/><path d="m15.5 10.5 5-3v9l-5-3"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10h-9l-4.5 4v-4H4.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+  <symbol id="i-candado" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-respira" viewBox="0 0 24 24"><path d="M3.5 9.5h10a2.5 2.5 0 1 0-2.5-2.5M3.5 14h14a2.5 2.5 0 1 1-2.5 2.5"/></symbol>
+  <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol>
+  <symbol id="i-ayuda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.5a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2-2.4 3.5"/><circle cx="12" cy="17" r=".6"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.3a10 10 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2C10.6 19 5 13.4 4.5 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-atras" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M19 11.5 12 18.5a4.5 4.5 0 0 1-6.4-6.4l7.4-7.4a3 3 0 0 1 4.2 4.2l-7.4 7.4a1.5 1.5 0 0 1-2.1-2.1l6.7-6.7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></symbol>
+  <symbol id="i-enviar" viewBox="0 0 24 24"><path d="M4.5 12 19.5 4.5 15.5 19.5l-3.5-6z"/><path d="m12 13.5 7.5-9"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+</svg>
+<section class="lamina"><h2>Familia 3 · Inicio en escritorio · tu agenda con varios profesionales</h2><div class="marco esc" id="equipo-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-sesiones"/></svg>Mi agenda</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Profesionales<span class="contador">3</span></a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra"><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span><span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span></div>
+    <div class="contenido">
+      <div class="eq-cab"><div class="saludo" style="margin:0"><span class="t-fecha">Miércoles 4 de noviembre</span><h1 class="t1">Tu <em>agenda</em></h1><p class="bajada">Esta semana tenés 2 sesiones con 2 profesionales.</p></div></div>
+      <div class="eq-grid">
+        <div>
+          <article class="tarjeta salvia eq-hoy">
+            <div><span class="chip" style="background:var(--superficie)"><span class="late"></span>Empieza en 8 minutos</span><div class="cuando" style="margin-top:10px">Hoy, 18:00 con Valeria<small>Terapia individual · 50 min · hora de Argentina (GMT-3)</small></div></div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><a class="boton primario"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a><a class="enlace">Probar cámara</a></div>
+          </article>
+          <div class="eq-semana"><div class="eq-dia"><span class="d">Lun</span><span class="n">2</span><span class="eq-ev t"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">Tomás 19:00 ✓</span></div><div class="eq-dia"><span class="d">Mar</span><span class="n">3</span><span class="eq-ev otro">Respiración ✓</span></div><div class="eq-dia hoy"><span class="d">Hoy</span><span class="n">4</span><span class="eq-ev v"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Valeria 18:00</span></div><div class="eq-dia"><span class="d">Jue</span><span class="n">5</span><span class="eq-ev otro">Ejercicio</span></div><div class="eq-dia"><span class="d">Vie</span><span class="n">6</span><span class="eq-ev a"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt="">Andrés 10:00</span></div><div class="eq-dia"><span class="d">Sáb</span><span class="n">7</span></div><div class="eq-dia"><span class="d">Dom</span><span class="n">8</span></div></div>
+          <div class="eq-prota"><article class="tarjeta eq-card" style="background:var(--lima-suave);border-color:transparent">
+  <span class="t-fecha">Tu opinión cuenta</span>
+  <h3 class="eq-titulo">¿Cómo te fue con Tomás el lunes?</h3>
+  <p class="sub">Solo lo ve el equipo de MotivarCare, no el profesional.</p>
+  <div class="eq-escala"><span>Nada bien</span><span class="sel">No mucho</span><span>Más o menos</span><span>Bien</span><span>Muy bien</span></div>
+  <div class="eq-chips"><span class="eq-chip">Me escuchó</span><span class="eq-chip">Me dio herramientas</span><span class="eq-chip on">No conectamos</span></div>
+  <div class="pie-card"><span class="tenue">Podés seguir con Tomás o probar con otra persona.</span><a class="boton contorno">Ver otros profesionales</a></div>
+</article><article class="tarjeta salvia eq-card">
+  <span class="t-fecha">Tu terapia, a tu manera</span>
+  <h3 class="eq-titulo">¿En qué querés hacer foco ahora?</h3>
+  <p class="sub">Elegí uno o más temas. Te mostramos quiénes trabajan mejor con eso.</p>
+  <div class="eq-chips"><span class="eq-chip on">Ansiedad</span><span class="eq-chip on">Vínculos y pareja</span><span class="eq-chip">Autoestima</span><span class="eq-chip">Estrés laboral</span><span class="eq-chip">Duelo</span><span class="eq-chip">Sueño</span></div>
+  <div class="pie-card"><span class="tenue">Ya trabajás ansiedad con Valeria.</span><a class="boton primario">Ver profesionales para esto</a></div>
+</article></div>
+        </div>
+        <div class="eq-lado">
+  <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="eq-titulo">Tus profesionales</h2><span class="tenue">3</span></div>
+  <article class="tarjeta eq-pro marca-v"><div class="fila"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="44" height="44" alt=""><div><b>Lic. Valeria Quiroga</b><span class="serv" style="background:var(--salvia)">Terapia individual</span></div></div><div class="datos"><span>Próxima: <b>hoy 18:00</b></span><span><b>3</b> disponibles</span></div></article>
+  <article class="tarjeta eq-pro marca-a"><div class="fila"><img class="avatar" src="../landing/img/profesionales/andres-salvatierra.jpg" width="44" height="44" alt=""><div><b>Dr. Andrés Salvatierra</b><span class="serv" style="background:var(--lima)">Psiquiatría</span></div></div><div class="datos"><span>Próxima: <b>vie 6, 10:00</b></span><span><b>1</b> disponible</span></div></article>
+  <article class="tarjeta eq-pro marca-t"><div class="fila"><img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" width="44" height="44" alt=""><div><b>Lic. Tomás Benítez</b><span class="serv" style="background:var(--amarillo-suave)">Vínculos y pareja</span></div></div><div class="datos"><span>Última: <b>lun 2</b></span><span><b>0</b> disponibles · <a class="enlace" style="font-size:12.5px">Renovar</a></span></div></article>
+  <div class="eq-sumar"><i>+</i>Sumar un profesional</div>
+  <span class="tenue" style="font-size:12.5px">Cada profesional tiene sus propias sesiones, su precio y su paquete.</span>
+</div>
+      </div>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+  
+</div></section>
+<section class="lamina"><h2>Familia 3 · Inicio en escritorio · panel para elegir otro profesional</h2><div class="marco esc" id="equipo-panel-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-sesiones"/></svg>Mi agenda</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Profesionales<span class="contador">3</span></a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra"><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span><span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span></div>
+    <div class="contenido">
+      <div class="eq-cab"><div class="saludo" style="margin:0"><span class="t-fecha">Miércoles 4 de noviembre</span><h1 class="t1">Tu <em>agenda</em></h1><p class="bajada">Esta semana tenés 2 sesiones con 2 profesionales.</p></div></div>
+      <div class="eq-grid">
+        <div>
+          <article class="tarjeta salvia eq-hoy">
+            <div><span class="chip" style="background:var(--superficie)"><span class="late"></span>Empieza en 8 minutos</span><div class="cuando" style="margin-top:10px">Hoy, 18:00 con Valeria<small>Terapia individual · 50 min · hora de Argentina (GMT-3)</small></div></div>
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end"><a class="boton primario"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a><a class="enlace">Probar cámara</a></div>
+          </article>
+          <div class="eq-semana"><div class="eq-dia"><span class="d">Lun</span><span class="n">2</span><span class="eq-ev t"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">Tomás 19:00 ✓</span></div><div class="eq-dia"><span class="d">Mar</span><span class="n">3</span><span class="eq-ev otro">Respiración ✓</span></div><div class="eq-dia hoy"><span class="d">Hoy</span><span class="n">4</span><span class="eq-ev v"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Valeria 18:00</span></div><div class="eq-dia"><span class="d">Jue</span><span class="n">5</span><span class="eq-ev otro">Ejercicio</span></div><div class="eq-dia"><span class="d">Vie</span><span class="n">6</span><span class="eq-ev a"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt="">Andrés 10:00</span></div><div class="eq-dia"><span class="d">Sáb</span><span class="n">7</span></div><div class="eq-dia"><span class="d">Dom</span><span class="n">8</span></div></div>
+          <div class="eq-prota"><article class="tarjeta eq-card" style="background:var(--lima-suave);border-color:transparent">
+  <span class="t-fecha">Tu opinión cuenta</span>
+  <h3 class="eq-titulo">¿Cómo te fue con Tomás el lunes?</h3>
+  <p class="sub">Solo lo ve el equipo de MotivarCare, no el profesional.</p>
+  <div class="eq-escala"><span>Nada bien</span><span class="sel">No mucho</span><span>Más o menos</span><span>Bien</span><span>Muy bien</span></div>
+  <div class="eq-chips"><span class="eq-chip">Me escuchó</span><span class="eq-chip">Me dio herramientas</span><span class="eq-chip on">No conectamos</span></div>
+  <div class="pie-card"><span class="tenue">Podés seguir con Tomás o probar con otra persona.</span><a class="boton contorno">Ver otros profesionales</a></div>
+</article><article class="tarjeta salvia eq-card">
+  <span class="t-fecha">Tu terapia, a tu manera</span>
+  <h3 class="eq-titulo">¿En qué querés hacer foco ahora?</h3>
+  <p class="sub">Elegí uno o más temas. Te mostramos quiénes trabajan mejor con eso.</p>
+  <div class="eq-chips"><span class="eq-chip on">Ansiedad</span><span class="eq-chip on">Vínculos y pareja</span><span class="eq-chip">Autoestima</span><span class="eq-chip">Estrés laboral</span><span class="eq-chip">Duelo</span><span class="eq-chip">Sueño</span></div>
+  <div class="pie-card"><span class="tenue">Ya trabajás ansiedad con Valeria.</span><a class="boton primario">Ver profesionales para esto</a></div>
+</article></div>
+        </div>
+        <div class="eq-lado">
+  <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="eq-titulo">Tus profesionales</h2><span class="tenue">3</span></div>
+  <article class="tarjeta eq-pro marca-v"><div class="fila"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="44" height="44" alt=""><div><b>Lic. Valeria Quiroga</b><span class="serv" style="background:var(--salvia)">Terapia individual</span></div></div><div class="datos"><span>Próxima: <b>hoy 18:00</b></span><span><b>3</b> disponibles</span></div></article>
+  <article class="tarjeta eq-pro marca-a"><div class="fila"><img class="avatar" src="../landing/img/profesionales/andres-salvatierra.jpg" width="44" height="44" alt=""><div><b>Dr. Andrés Salvatierra</b><span class="serv" style="background:var(--lima)">Psiquiatría</span></div></div><div class="datos"><span>Próxima: <b>vie 6, 10:00</b></span><span><b>1</b> disponible</span></div></article>
+  <article class="tarjeta eq-pro marca-t"><div class="fila"><img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" width="44" height="44" alt=""><div><b>Lic. Tomás Benítez</b><span class="serv" style="background:var(--amarillo-suave)">Vínculos y pareja</span></div></div><div class="datos"><span>Última: <b>lun 2</b></span><span><b>0</b> disponibles · <a class="enlace" style="font-size:12.5px">Renovar</a></span></div></article>
+  <div class="eq-sumar"><i>+</i>Sumar un profesional</div>
+  <span class="tenue" style="font-size:12.5px">Cada profesional tiene sus propias sesiones, su precio y su paquete.</span>
+</div>
+      </div>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+  <div class="eq-velo"></div>
+<aside class="eq-panel">
+  <span class="boton-icono cerrar"><svg class="ico"><use href="#i-cerrar"/></svg></span>
+  <span class="t-fecha">Elegir otro profesional</span>
+  <h2>Profesionales para<br>vínculos y pareja</h2>
+  <div class="eq-motivo"><svg class="ico chico" style="color:var(--bosque)"><use href="#i-corazon"/></svg><span>Nos contaste que con Tomás no terminaron de conectar. Pasa, y está bien probar con otra persona. Tomás no se entera de tu respuesta.</span></div>
+  <div class="eq-chips"><span class="eq-chip on">Vínculos y pareja</span><span class="eq-chip">+ Ansiedad</span><span class="eq-chip">Mujer</span><span class="eq-chip">Por la tarde</span></div>
+  <div class="eq-orden"><svg class="ico chico"><use href="#i-check"/></svg>Ordenados por afinidad con tu foco y por la valoración de otros pacientes</div>
+  <article class="eq-cand top">
+    <div class="fila"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="52" height="52" alt=""><div><b>Lic. Mónica Aranda</b><span class="peq">Vínculos, duelo y cambios · México</span></div><div class="afin"><strong>94 %</strong>afinidad</div></div>
+    <div class="linea"><span><b>4,9</b> de 5 · 212 valoraciones</span><span><b>$48.000</b> la sesión</span><span>Libre: <b>jue 5, 19:00</b></span></div>
+    <div class="acc"><a class="boton primario" style="height:40px">Reservar primera sesión</a><a class="enlace">Ver perfil</a></div>
+  </article>
+  <article class="eq-cand">
+    <div class="fila"><span class="ini" style="width:52px;height:52px;font-size:16px">PR</span><div><b>Lic. Paula Ríos</b><span class="peq">Terapia de pareja · Uruguay</span></div><div class="afin"><strong>89 %</strong>afinidad</div></div>
+    <div class="linea"><span><b>4,8</b> de 5 · 97 valoraciones</span><span><b>$40.000</b> la sesión</span><span>Libre: <b>vie 6, 18:00</b></span></div>
+    <div class="acc"><a class="boton contorno" style="height:40px">Reservar primera sesión</a><a class="enlace">Ver perfil</a></div>
+  </article>
+  <article class="eq-cand">
+    <div class="fila"><span class="ini" style="width:52px;height:52px;font-size:16px;background:var(--salvia)">JM</span><div><b>Lic. Julián Mora</b><span class="peq">Vínculos y autoestima · Argentina</span></div><div class="afin"><strong>86 %</strong>afinidad</div></div>
+    <div class="linea"><span><b>4,7</b> de 5 · 154 valoraciones</span><span><b>$36.000</b> la sesión</span><span>Libre: <b>lun 9, 20:00</b></span></div>
+  </article>
+  <span class="tenue" style="font-size:12.5px;margin-top:auto">Sumar un profesional no cambia lo que tenés con Valeria ni con Andrés. Cada uno conserva sus sesiones y su paquete.</span>
+</aside>
+</div></section>
+<section class="lamina"><h2>Familia 3 · Inicio en el teléfono</h2><div class="fila-tel"><div><div class="marco tel" id="equipo-telefono">
+  <div class="estado-tel"><span>17:52</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel"><div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span><span class="inicial">G</span></div>
+  <div class="cuerpo-tel" style="gap:12px">
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Miércoles 4 de noviembre</span><h1 class="t1">Tu <em>agenda</em></h1></div>
+    <div class="eq-avs"><span class="av"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span><span class="av a"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""></span><span class="av t"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""></span><span class="mas">+</span><span class="tenue" style="margin-left:4px">Tus 3 profesionales</span></div>
+    <div class="tarjeta salvia" style="padding:16px;display:flex;flex-direction:column;gap:10px">
+      <span class="chip" style="background:var(--superficie);align-self:flex-start"><span class="late"></span>Empieza en 8 minutos</span>
+      <span style="font:500 24px/1.1 var(--serif);color:var(--bosque)">Hoy, 18:00 con Valeria</span>
+      <a class="boton primario" style="width:100%"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
+    </div>
+    <div class="eq-lista-tel">
+      <div class="eq-item-tel"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><div><b>Dr. Andrés Salvatierra</b>Psiquiatría</div><span class="h">Vie 6<br>10:00</span></div>
+    </div>
+    <div class="tarjeta" style="padding:14px 16px;background:var(--lima-suave);border-color:transparent;display:flex;flex-direction:column;gap:8px">
+      <b style="color:var(--bosque);font-size:15px">¿Cómo te fue con Tomás el lunes?</b>
+      <div class="eq-escala" style="gap:4px"><span style="font-size:10.5px">Nada</span><span class="sel" style="font-size:10.5px">No mucho</span><span style="font-size:10.5px">Más o menos</span><span style="font-size:10.5px">Bien</span><span style="font-size:10.5px">Muy bien</span></div>
+    </div>
+    <div class="tarjeta salvia" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;margin-right:62px">
+      <b style="color:var(--bosque);font-size:15px">¿En qué querés hacer foco?</b>
+      <div class="eq-chips"><span class="eq-chip on">Ansiedad</span><span class="eq-chip on">Vínculos</span><span class="eq-chip">Autoestima</span></div>
+    </div>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel cuatro">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Agenda</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesionales</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+  
+</div></div><div><div class="marco tel" id="equipo-panel-telefono">
+  <div class="estado-tel"><span>17:52</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel"><div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg><span class="punto"></span></span><span class="inicial">G</span></div>
+  <div class="cuerpo-tel" style="gap:12px">
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Miércoles 4 de noviembre</span><h1 class="t1">Tu <em>agenda</em></h1></div>
+    <div class="eq-avs"><span class="av"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span><span class="av a"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""></span><span class="av t"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""></span><span class="mas">+</span><span class="tenue" style="margin-left:4px">Tus 3 profesionales</span></div>
+    <div class="tarjeta salvia" style="padding:16px;display:flex;flex-direction:column;gap:10px">
+      <span class="chip" style="background:var(--superficie);align-self:flex-start"><span class="late"></span>Empieza en 8 minutos</span>
+      <span style="font:500 24px/1.1 var(--serif);color:var(--bosque)">Hoy, 18:00 con Valeria</span>
+      <a class="boton primario" style="width:100%"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
+    </div>
+    <div class="eq-lista-tel">
+      <div class="eq-item-tel"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><div><b>Dr. Andrés Salvatierra</b>Psiquiatría</div><span class="h">Vie 6<br>10:00</span></div>
+    </div>
+    <div class="tarjeta" style="padding:14px 16px;background:var(--lima-suave);border-color:transparent;display:flex;flex-direction:column;gap:8px">
+      <b style="color:var(--bosque);font-size:15px">¿Cómo te fue con Tomás el lunes?</b>
+      <div class="eq-escala" style="gap:4px"><span style="font-size:10.5px">Nada</span><span class="sel" style="font-size:10.5px">No mucho</span><span style="font-size:10.5px">Más o menos</span><span style="font-size:10.5px">Bien</span><span style="font-size:10.5px">Muy bien</span></div>
+    </div>
+    <div class="tarjeta salvia" style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;margin-right:62px">
+      <b style="color:var(--bosque);font-size:15px">¿En qué querés hacer foco?</b>
+      <div class="eq-chips"><span class="eq-chip on">Ansiedad</span><span class="eq-chip on">Vínculos</span><span class="eq-chip">Autoestima</span></div>
+    </div>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel cuatro">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Agenda</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesionales</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+  <div class="eq-velo"></div>
+<div class="eq-hoja">
+  <span class="tirador"></span>
+  <span class="t-fecha">Elegir otro profesional</span>
+  <h2>Para vínculos y pareja</h2>
+  <div class="eq-motivo" style="font-size:12.5px;padding:10px 12px">Está bien probar con otra persona. Tomás no se entera de tu respuesta.</div>
+  <span class="tenue" style="font-size:12px">Por afinidad con tu foco y valoración de otros pacientes</span>
+  <article class="eq-cand top" style="padding:14px">
+    <div class="fila"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="44" height="44" alt=""><div><b style="font-size:15px">Lic. Mónica Aranda</b><span class="tenue">4,9 · 212 valoraciones</span></div><div class="afin"><strong style="font-size:19px">94 %</strong>afinidad</div></div>
+    <div class="linea" style="font-size:12.5px"><span><b>$48.000</b> la sesión</span><span>Libre: <b>jue 5, 19:00</b></span></div>
+    <a class="boton primario" style="height:40px">Reservar primera sesión</a>
+  </article>
+  <article class="eq-cand" style="padding:14px">
+    <div class="fila"><span class="ini" style="width:44px;height:44px">PR</span><div><b style="font-size:15px">Lic. Paula Ríos</b><span class="tenue">4,8 · 97 valoraciones</span></div><div class="afin"><strong style="font-size:19px">89 %</strong>afinidad</div></div>
+    <div class="linea" style="font-size:12.5px"><span><b>$40.000</b> la sesión</span><span>Libre: <b>vie 6, 18:00</b></span></div>
+  </article>
+</div>
+</div></div></div></section>
+</body></html>
