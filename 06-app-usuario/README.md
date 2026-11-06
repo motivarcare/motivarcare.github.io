@@ -29,7 +29,7 @@ tarjetas:
     boton: Ver la familia
   - titulo: "2 · La agenda y la planificación de sesiones"
     etiqueta: "Eje: la sesión"
-    frase: "¿Qué tengo que hacer ahora y qué viene después? El Inicio se ordena alrededor de las sesiones: prepararse, entrar y planificar las siguientes."
+    frase: "¿Qué tengo que hacer ahora y qué viene después? La agenda con tu profesional es la pantalla principal y ordena toda la experiencia."
     imagen: /img/app-usuario/familia-agenda.jpg
     enlace: /app-usuario/propuesta/agenda/
     boton: Ver la familia
