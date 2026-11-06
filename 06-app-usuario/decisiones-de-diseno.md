@@ -6,9 +6,9 @@ resumen: "Las decisiones de diseño que valen para todas las familias de la prop
 
 # Decisiones de diseño de los mockups
 
-Los mockups de las cuatro familias comparten el mismo design system, las mismas reglas de producto y estas decisiones. Cada una responde a un hallazgo de la auditoría UX (`05-auditoria`) o a un principio del design system (`04-design-system`).
+Los mockups de todas las familias comparten el mismo design system, las mismas reglas de producto y estas decisiones. Cada una responde a un hallazgo de la auditoría UX (`05-auditoria`) o a un principio del design system (`04-design-system`).
 
-- **Dónde están:** las pantallas de cada familia se ven en su página (por ejemplo, [la familia 1](/app-usuario/propuesta/sesion/)). Todas juntas, en tamaño real, en [el mockup completo](/app-usuario/index.html). Las capturas están en `06-app-usuario/mockups/`.
+- **Dónde están:** las pantallas de cada familia se ven en su página (por ejemplo, [la familia 1](/app-usuario/propuesta/relacion/)). Todas juntas, en tamaño real, en [el mockup completo](/app-usuario/index.html). Las capturas están en `06-app-usuario/mockups/`.
 - **Tamaños:** escritorio de 1440 × 1024 y teléfono de 390 × 844, los marcos estándar de Figma.
 - **Datos:** los profesionales, los precios y las fechas son ficticios, los mismos que usa la propuesta de landing.
 
@@ -32,11 +32,11 @@ Los mockups de las cuatro familias comparten el mismo design system, las mismas 
 | Cada opción de pago, el desglose y el total nombran al profesional, y el resumen arranca con "Reservás y pagás con". Antes de elegir profesional no se muestran paquetes, solo que cada profesional define su precio | Paquetes vendidos sin profesional definido y asignación automática al comprar (caso 03, H23; caso 04, H11 y H12); lineamiento "Precios y paquetes claros" del frente 06 |
 | La reserva se ve igual de clara en escritorio (página con resumen al costado) y en el teléfono (total y botón fijos abajo) | Ventanas del flujo de compra con patrones distintos (caso 04, H9 y H10) |
 
-## Dos navegaciones según la familia
+## Las dos variantes de la familia 1
 
-Las familias 2 y 3 se diferencian, sobre todo, en dónde vive la conversación con el profesional.
+La familia 1 (la relación con el profesional) tiene dos variantes, que se diferencian sobre todo en dónde vive la conversación con el profesional.
 
-| | Familia 2 · chat dentro de "Mi profesional" | Familia 3 · "Mensajes" en el centro |
+| | Variante A · chat dentro de "Mi profesional" | Variante B · "Mensajes" en el centro |
 |---|---|---|
 | Navegación | Inicio, Sesiones, Mi profesional, Diario, Bienestar | Inicio, Mensajes, Sesiones, Diario, Bienestar |
 | Dónde está el chat | Dentro de "Mi profesional", junto al perfil | Es un destino propio: una sola conversación, siempre con tu profesional |

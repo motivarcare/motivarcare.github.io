@@ -16,34 +16,34 @@ complementarios:
 proximos_pasos:
   - "Relevar las pantallas y funciones de la app actual del paciente, y el estado de su API."
   - "Decidir con el equipo el camino de la migración (sección \"Cómo migrar\")."
-  - "Revisar los mockups hechos de las familias 1, 2 y 3."
+  - "Revisar los mockups hechos de las familias 1 y 2."
   - "Elegir qué familias se desarrollan primero y completar sus pantallas."
-  - "Definir con el equipo: paquetes que se ofrecen, cómo se elige al profesional y si se mantiene el chat con el profesional."
+  - "Definir con el equipo: paquetes que se ofrecen, cómo se elige al profesional, si se mantiene el chat y qué rubros podría sumar MotivarCare."
   - "Sumar al design system los componentes nuevos de la app (navegación, tarjeta de sesión, opciones de pago, pasos, escala de ánimo)."
 tarjetas:
-  - titulo: "1 · La sesión, en su momento"
+  - titulo: "1 · La relación con el profesional"
+    etiqueta: "Eje: el vínculo con quien te atiende"
+    frase: "¿Con quién hago terapia y cómo seguimos en contacto? Quién es el profesional, por qué se eligió y cómo se conversa entre sesiones. Tiene dos variantes."
+    imagen: /img/app-usuario/familia-relacion.jpg
+    enlace: /app-usuario/propuesta/relacion/
+    boton: Ver la familia
+  - titulo: "2 · La agenda y la planificación de sesiones"
     etiqueta: "Eje: la sesión"
-    frase: "¿Qué tengo que hacer ahora? El Inicio cambia según el momento: prepara antes, acompaña la espera y propone la siguiente reserva."
-    imagen: /img/app-usuario/familia-sesion.jpg
-    enlace: /app-usuario/propuesta/sesion/
+    frase: "¿Qué tengo que hacer ahora y qué viene después? El Inicio se ordena alrededor de las sesiones: prepararse, entrar y planificar las siguientes."
+    imagen: /img/app-usuario/familia-agenda.jpg
+    enlace: /app-usuario/propuesta/agenda/
     boton: Ver la familia
-  - titulo: "2 · Tu profesional, en el centro"
-    etiqueta: "Eje: la persona que te atiende"
-    frase: "¿Con quién estoy haciendo terapia? La tarjeta del profesional reúne quién es, por qué se eligió y la próxima sesión."
-    imagen: /img/app-usuario/familia-profesional.jpg
-    enlace: /app-usuario/propuesta/profesional/
+  - titulo: "3 · Equipo de apoyo y múltiples profesionales"
+    etiqueta: "Eje: más de un profesional a la vez"
+    frase: "¿Quiénes me acompañan? Un equipo que trabaja junto, o varios profesionales en paralelo, cada uno por su lado."
+    imagen: /img/app-usuario/familia-equipo.jpg
+    enlace: /app-usuario/propuesta/equipo/
     boton: Ver la familia
-  - titulo: "3 · La conversación como hilo"
-    etiqueta: "Eje: el intercambio entre sesiones"
-    frase: "¿Qué me dijo y qué le quiero contar? La conversación con el profesional es el centro, con un límite claro para las urgencias."
-    imagen: /img/app-usuario/familia-conversacion.jpg
-    enlace: /app-usuario/propuesta/conversacion/
-    boton: Ver la familia
-  - titulo: "4 · Acompañamiento entre sesiones"
-    etiqueta: "Eje: el proceso de la persona"
-    frase: "¿Cómo vengo y cómo me preparo? El ánimo, la evolución y las preguntas para la próxima sesión, todo privado por defecto."
-    imagen: /img/app-usuario/familia-acompanamiento.jpg
-    enlace: /app-usuario/propuesta/acompanamiento/
+  - titulo: "4 · Múltiples rubros"
+    etiqueta: "Eje: servicios independientes"
+    frase: "¿Qué servicios tengo? Servicios clínicos y de bienestar de distintos rubros, cada uno por su cuenta y sin seguimiento cruzado."
+    imagen: /img/app-usuario/familia-rubros.jpg
+    enlace: /app-usuario/propuesta/rubros/
     boton: Ver la familia
 ---
 
@@ -104,7 +104,7 @@ La propuesta se apoya en un relevamiento de cómo resuelven la pantalla principa
 - [Clearly](/01-investigacion/competencia/res-clearly/): una tarjeta por terapeuta, con la próxima sesión adentro.
 - [Talkspace](/01-investigacion/competencia/res-talkspace/): una Home con saludo, equipo de apoyo y recursos.
 
-Cada plataforma organiza la experiencia alrededor de un eje distinto, y esos cuatro ejes dan origen a las familias de la propuesta.
+Cada plataforma organiza la experiencia alrededor de un eje distinto: la conversación, la agenda, el profesional o el equipo de apoyo. Esos ejes, junto con las posibilidades de crecimiento de MotivarCare, dan origen a las familias de la propuesta.
 
 ## Cómo migrar
 
@@ -135,7 +135,7 @@ Esta recomendación es provisoria: depende de lo que muestre el relevamiento de 
 
 ## Propuesta: cuatro familias
 
-Versión preliminar, noviembre de 2026. Cada familia toma uno de los ejes que encontramos al revisar otras plataformas y lo lleva al Inicio, a la navegación y a los flujos principales. No son productos distintos: todas usan el mismo design system, cumplen las mismas reglas de producto y resuelven los mismos hallazgos de la auditoría. Lo que cambia es **qué se pone en primer plano**. Sirven para comparar enfoques con el equipo antes de elegir uno o combinarlos.
+Versión preliminar, noviembre de 2026. Cada familia pone el foco en un aspecto distinto de la experiencia y lo lleva al Inicio, a la navegación y a los flujos principales. Las dos primeras parten del portal de hoy (un profesional por persona); las otras dos piensan cómo crecería si la persona tuviera más de un profesional o varios servicios. No son productos distintos: todas usan el mismo design system, cumplen las mismas reglas de producto y resuelven los mismos hallazgos de la auditoría. Lo que cambia es **qué se pone en primer plano**. Sirven para comparar enfoques con el equipo antes de elegir uno o combinarlos.
 
 La página de cada familia explica su enfoque y muestra sus mockups: los que ya están hechos y los que faltan.
 
@@ -148,6 +148,7 @@ Algunos flujos no dependen del eje y se diseñan una sola vez:
 - **Primeros pasos:** el cuestionario (con una pregunta de presupuesto en rangos), los profesionales sugeridos con su compatibilidad y la primera reserva.
 - **Reserva y pago:** un recorrido de cuatro pasos, con el monto exacto y el profesional nombrado en cada opción.
 - **Pedido de cambio de profesional:** con un motivo para elegir y el aviso del saldo que se pierde.
+- **Acompañamiento entre sesiones:** el registro del ánimo, el diario y los ejercicios, privados por defecto. Cada familia los ubica a su manera, pero funcionan igual en todas.
 - **Líneas de apoyo y Maca:** siempre en el mismo lugar.
 
 Las decisiones de diseño que comparten todas las familias, y qué hallazgo de la auditoría resuelve cada una, están en `06-app-usuario/decisiones-de-diseno.md`.
