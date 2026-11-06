@@ -397,6 +397,58 @@ ul.lista-simple { padding: 0; }
 .ag-fila.hoy .cuando { font: 500 28px/1.05 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
 .ag-mini { font-size: 12.5px; font-weight: 700; color: var(--verde-medio); white-space: nowrap; }
 .nav-tel.cuatro { grid-template-columns: repeat(4, 1fr); }
+.el-grid { display: grid; grid-template-columns: 270px 1fr; gap: 22px; }
+.el-contaste { padding: 20px; display: flex; flex-direction: column; gap: 12px; align-self: start; }
+.el-contaste h3 { font: 700 15px/1.3 var(--sans); color: var(--bosque); }
+.el-contaste .grupo { display: flex; flex-direction: column; gap: 6px; }
+.el-contaste .grupo small { font: 700 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); }
+.el-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.el-tags span { font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--salvia); border-radius: 99px; padding: 5px 10px; }
+.el-barra { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.el-barra b { font-size: 15px; color: var(--bosque); }
+.el-orden { display: inline-flex; padding: 4px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); margin-left: auto; }
+.el-orden span { padding: 7px 14px; border-radius: 99px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); white-space: nowrap; }
+.el-orden span.on { background: var(--bosque); color: var(--crema); }
+.el-lista { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-height: 772px; overflow: hidden; padding-top: 12px; }
+.el-lista::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: linear-gradient(rgba(245,243,235,0), var(--crema)); pointer-events: none; }
+.el-scroll { position: absolute; right: -14px; top: 0; width: 5px; height: 760px; border-radius: 9px; background: var(--linea); }
+.el-scroll i { display: block; width: 5px; height: 220px; border-radius: 9px; background: var(--salvia-fuerte); }
+.tarjeta-pro { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 14px; align-items: start; background: var(--superficie); border: 1.5px solid var(--linea); border-radius: 20px; padding: 16px 18px 16px 16px; box-shadow: 0 18px 36px -26px rgba(20,41,31,.45); position: relative; }
+.tarjeta-pro.mejor { border: 2px solid var(--bosque); }
+.tarjeta-pro .mejor-et { position: absolute; top: -11px; left: 16px; background: var(--amarillo); color: var(--bosque); font: 700 11px/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px; border-radius: 99px; }
+.avatar-pro.ini { display: grid; place-items: center; background: var(--lima); color: var(--bosque); font-weight: 800; }
+.avatar-pro { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--salvia); display: block; }
+.tarjeta-pro .info { display: grid; gap: 3px; min-width: 0; }
+.tarjeta-pro .nombre { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tarjeta-pro .nombre b { font-family: var(--serif); font-weight: 500; font-size: 18px; color: var(--bosque); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.compat { flex: none; font-size: 12px; font-weight: 800; color: var(--bosque); background: var(--salvia); border-radius: 99px; padding: 4px 9px; }
+.valoracion { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--tinta-suave); }
+.valoracion b { color: var(--bosque); font-size: 13px; }
+.estrellas { position: relative; display: inline-block; font-size: 13px; line-height: 1; letter-spacing: 1px; }
+.estrellas i { font-style: normal; display: block; }
+.estrellas i:first-child { color: var(--linea); }
+.estrellas i:last-child { position: absolute; inset: 0 auto 0 0; width: var(--v); overflow: hidden; color: var(--amarillo); }
+.valoracion .pais { display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; }
+.valoracion .pais svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+.tarjeta-pro .exp { font-size: 12.5px; font-weight: 700; color: var(--bosque); }
+.tarjeta-pro .esp { font-size: 12.5px; color: var(--tinta-suave); }
+.datos-pro { display: flex; gap: 12px; align-items: baseline; margin-top: 4px; }
+.datos-pro .precio { font-weight: 800; font-size: 15px; color: var(--bosque); }
+.datos-pro .sesiones { font-size: 12.5px; color: var(--tinta-tenue); }
+.tarjeta-pro .bio { margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: var(--tinta-suave); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.encaja { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.encaja span { font-size: 11.5px; font-weight: 700; color: var(--verde-medio); border: 1px solid var(--salvia-fuerte); border-radius: 99px; padding: 3px 8px; }
+.pie-pro { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--linea); }
+.pie-pro .boton { height: 38px; padding: 0 16px; font-size: 14px; }
+.tel .tarjeta-pro { grid-template-columns: 48px minmax(0,1fr); gap: 12px; padding: 14px; }
+.tel .avatar-pro { width: 48px; height: 48px; }
+.tel .tarjeta-pro .nombre b { font-size: 16px; }
+.el-lista-tel { position: relative; display: flex; flex-direction: column; gap: 12px; flex: 1; overflow: hidden; padding-top: 10px; }
+.el-lista-tel::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 70px; background: linear-gradient(rgba(245,243,235,0), var(--crema)); }
+.tel .el-orden { margin-left: 0; }
+.tel .el-tags span { font-size: 11.5px; padding: 5px 8px; white-space: nowrap; }
+.tel .el-orden span { padding: 6px 12px; font-size: 12.5px; }
+
 .ag-saldo { display: flex; align-items: center; gap: 12px; padding: 8px 16px 8px 14px; border-radius: 16px; background: var(--menta); }
 .ag-saldo .numero { font: 500 32px/1 var(--serif); color: var(--bosque); }
 .ag-saldo b { display: block; font-size: 14px; color: var(--bosque); line-height: 1.2; }
@@ -480,8 +532,8 @@ ul.lista-simple { padding: 0; }
   <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
 </svg>
 <section class="lamina">
-<h2>Familia 2 · Inicio en escritorio · todavía sin profesional</h2>
-<div class="marco esc" id="agenda-nuevo-escritorio">
+<h2>Familia 2 · Elegí a tu profesional en escritorio · por compatibilidad</h2>
+<div class="marco esc" id="agenda-elegir-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-sesiones"/></svg>Mi agenda</a>
@@ -494,55 +546,84 @@ ul.lista-simple { padding: 0; }
     </div>
   </aside>
   <main class="principal">
-    <div class="barra">
-      <span class="espacio"></span>
-      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
-      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
-    </div>
+    <div class="barra"><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span><span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span></div>
     <div class="contenido">
-      <div class="ag-cab">
-        <div class="saludo" style="margin:0">
-          <span class="t-fecha">Miércoles 4 de noviembre</span>
-          <h1 class="t1">Tu <em>agenda</em></h1>
-          <p class="bajada">Todavía no tenés sesiones. Empezá eligiendo cuándo podés y con quién.</p>
+      <div class="saludo" style="margin-bottom:16px"><span class="t-fecha">Paso 2 de 4 · Tu primera sesión</span><h1 class="t1">Elegí a tu <em>profesional</em></h1><p class="bajada">Los ordenamos según lo que nos contaste. Elegí con calma: podés ver el perfil y los horarios de cada uno.</p></div>
+      <div class="el-grid">
+        <aside class="tarjeta el-contaste">
+          <h3>Lo que nos contaste</h3>
+          <div class="grupo"><small>Querés trabajar</small><div class="el-tags"><span>Ansiedad</span><span>Estrés laboral</span></div></div>
+          <div class="grupo"><small>Tu experiencia</small><div class="el-tags"><span>Primera vez en terapia</span></div></div>
+          <div class="grupo"><small>Preferís</small><div class="el-tags"><span>Por videollamada</span><span>De tarde</span></div></div>
+          <div class="grupo"><small>Tu presupuesto</small><div class="el-tags"><span>Hasta $50.000 por sesión</span></div></div>
+          <a class="enlace" style="font-size:13.5px">Cambiar mis respuestas</a>
+          <p class="tenue" style="font-size:12.5px;border-top:1px solid var(--linea);padding-top:12px">La compatibilidad compara tus respuestas con la experiencia y el enfoque de cada profesional. El precio es el de una sesión; los paquetes tienen descuento.</p>
+        </aside>
+        <div>
+          <div class="el-barra"><b>6 profesionales para vos</b><span class="tenue">Todos con matrícula verificada</span>
+            <span class="el-orden"><span class="on">Compatibilidad</span><span>Precio: menor a mayor</span></span></div>
+          <div style="position:relative"><div class="el-lista"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 98%"><i>★★★★★</i><i>★★★★★</i></span><b>4,9</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span></div>
+    <span class="exp">9 años de experiencia</span><span class="esp">Psicóloga clínica · Ansiedad y estrés</span>
+    <div class="datos-pro"><span class="precio">Desde $42.000</span><span class="sesiones">640 sesiones</span></div>
+    <p class="bio">Acompaño procesos de ansiedad y estrés laboral desde la terapia cognitivo-conductual, con herramientas para el día a día.</p>
+    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span></div>
+    <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
+    <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
+    <p class="bio">Trabajo con adultos jóvenes en vínculos, identidad y cambios de etapa, desde un enfoque sistémico.</p>
+    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Mónica Aranda</b><span class="compat">85 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chile</span></div>
+    <span class="exp">22 años de experiencia</span><span class="esp">Psicóloga · Duelo y vínculos</span>
+    <div class="datos-pro"><span class="precio">Desde $55.000</span><span class="sesiones">1.150 sesiones</span></div>
+    <p class="bio">Más de veinte años acompañando duelos, separaciones y crisis vitales desde el psicoanálisis.</p>
+    <div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/andres-salvatierra.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Andrés Salvatierra</b><span class="compat">80 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 92%"><i>★★★★★</i><i>★★★★★</i></span><b>4,6</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>México</span></div>
+    <span class="exp">15 años de experiencia</span><span class="esp">Psicólogo · Parejas y familias</span>
+    <div class="datos-pro"><span class="precio">Desde $48.000</span><span class="sesiones">860 sesiones</span></div>
+    <p class="bio">Acompaño a parejas y personas en momentos de cambio, con foco en la comunicación y los acuerdos.</p>
+    <div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Paula Ríos</b><span class="compat">79 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 96%"><i>★★★★★</i><i>★★★★★</i></span><b>4,8</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Uruguay</span></div>
+    <span class="exp">7 años de experiencia</span><span class="esp">Psicóloga · Ansiedad y autoestima</span>
+    <div class="datos-pro"><span class="precio">Desde $40.000</span><span class="sesiones">390 sesiones</span></div>
+    <p class="bio">Trabajo con ansiedad y autoestima desde la terapia de aceptación y compromiso.</p>
+    <div class="encaja"><span>✓ Ansiedad</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">JM</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Julián Mora</b><span class="compat">76 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span></div>
+    <span class="exp">11 años de experiencia</span><span class="esp">Psicólogo · Vínculos y autoestima</span>
+    <div class="datos-pro"><span class="precio">Desde $36.000</span><span class="sesiones">520 sesiones</span></div>
+    <p class="bio">Acompaño a adultos en vínculos y autoestima, con un enfoque integrativo.</p>
+    <div class="encaja"><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article></div><span class="el-scroll"><i></i></span></div>
         </div>
-        <div class="ag-saldo vacio-saldo"><span class="numero" style="color:var(--tinta-tenue)">0</span><div><b>sesiones disponibles</b><span class="tenue">Cada profesional define su precio</span></div></div>
-      </div>
-
-      <article class="tarjeta ag-recorrido">
-        <div class="ag-rec-cab"><h2>Tu camino a la primera sesión</h2><span class="peq">Paso 2 de 4</span></div>
-        <div class="ag-pista cuatro">
-          <div class="ag-nodo hecha"><span class="ag-punto"><svg class="ico"><use href="#i-check"/></svg></span><b>Contaste qué buscás</b><small>Cuestionario completo</small></div>
-          <div class="ag-nodo hoy"><span class="ag-punto"><svg class="ico"><use href="#i-sesiones"/></svg></span><b>Elegí cuándo y con quién</b><small>Ahora</small><span class="ag-sel"></span></div>
-          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-candado"/></svg></span><b>Reservá y pagá</b><small>Con el monto exacto a la vista</small></div>
-          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-video"/></svg></span><b>Tu primera sesión</b><small>50 min por videollamada</small></div>
-        </div>
-      </article>
-
-      <div class="ag-elegir">
-        <article class="tarjeta ag-libres">
-          <div style="display:flex;justify-content:space-between;align-items:baseline"><h2>Horarios libres de tus profesionales sugeridos</h2><span class="tenue">Hora de Argentina (GMT-3)</span></div>
-          <div class="ag-filtros">
-            <span class="ag-filtro solo on">Todos</span>
-            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="28" height="28" alt="">Valeria <small>92 %</small></span>
-            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" width="28" height="28" alt="">Tomás <small>88 %</small></span>
-            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="28" height="28" alt="">Mónica <small>85 %</small></span>
-            <span class="ag-filtro solo" style="margin-left:auto">Franja: todas</span>
-          </div>
-          <div class="ag-cal"><div class="col"><div class="dia"><span>Jue</span><b>5</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot sel"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Vie</span><b>6</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">17:00</span></div><div class="col"><div class="dia"><span>Sáb</span><b>7</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">11:00</span></div><div class="col"><div class="dia"><span>Dom</span><b>8</b></div><span class='nada'>Sin horarios</span></div><div class="col"><div class="dia"><span>Lun</span><b>9</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">8:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">20:00</span></div><div class="col"><div class="dia"><span>Mar</span><b>10</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Mié</span><b>11</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span></div></div>
-        </article>
-        <article class="tarjeta salvia ag-eleccion">
-          <span class="t-fecha">Tu elección</span>
-          <div class="quien"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="56" height="56" alt=""><div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Argentina</span></div></div>
-          <div><span class="tenue">Encaja con lo que contaste</span><div class="ag-encaja" style="margin-top:6px"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez en terapia</span></div></div>
-          <div><div class="ag-dato"><span>Cuándo</span><b>Jueves 5, 18:00</b></div><div class="ag-dato"><span>Sesión</span><b>50 min · $42.000</b></div></div>
-          <a class="boton primario">Seguir con este horario</a>
-          <span class="tenue" style="font-size:12.5px">En el paso siguiente elegís una sesión o un paquete con Valeria, y ves el monto exacto antes de pagar.</span>
-        </article>
-      </div>
-      <div class="ag-detalle" style="grid-template-columns:1fr 1fr;margin-right:230px">
-        <article class="tarjeta ag-col" style="flex-direction:row;align-items:center;gap:16px"><span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-corazon"/></svg></span><div><h3>¿Es tu primera vez en terapia?</h3><span class="peq">Te contamos cómo es una primera sesión y qué podés esperar.</span><br><a class="enlace" style="margin-top:6px">Leer más</a></div></article>
-        <article class="tarjeta ag-col"><h3>Mientras tanto, ¿cómo estás hoy?</h3><div style="display:flex;align-items:center;gap:14px"><span class="ag-animo"><i style="background:#1E4033"></i><i style="background:#2F6B51"></i><i style="background:#F5C33B"></i><i style="background:#A9CF54"></i><i style="background:#4FA86A"></i></span><span class="privado" style="font-size:12.5px"><svg class="ico chico"><use href="#i-candado"/></svg>Solo lo ves vos</span></div></article>
       </div>
     </div>
   </main>
@@ -550,36 +631,45 @@ ul.lista-simple { padding: 0; }
 </div>
 </section>
 <section class="lamina">
-<h2>Familia 2 · Inicio en el teléfono · todavía sin profesional</h2>
-<div class="fila-tel"><div>
-<div class="marco tel" id="agenda-nuevo-telefono">
+<h2>Familia 2 · Elegí a tu profesional en el teléfono · por compatibilidad y por precio</h2>
+<div class="fila-tel"><div><div class="marco tel" id="agenda-elegir-telefono">
   <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
-  <div class="cabecera-tel">
-    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
-    <span class="espacio"></span>
-    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
-    <span class="inicial">G</span>
+  <div class="cabecera-tel"><div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span><span class="inicial">G</span></div>
+  <div class="cuerpo-tel" style="gap:10px">
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 2 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
+    <div class="el-tags" style="flex-wrap:nowrap"><span>Ansiedad</span><span>Estrés laboral</span><span>Hasta $50.000</span><span style="background:transparent;border:1.5px dashed var(--salvia-fuerte)">Cambiar</span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between"><span class="tenue">6 profesionales</span><span class="el-orden"><span class="on">Compatibilidad</span><span class="">Precio</span></span></div>
+    <div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 98%"><i>★★★★★</i><i>★★★★★</i></span><b>4,9</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span></div>
+    <span class="exp">9 años de experiencia</span><span class="esp">Psicóloga clínica · Ansiedad y estrés</span>
+    <div class="datos-pro"><span class="precio">Desde $42.000</span><span class="sesiones">640 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div>
   </div>
-  <div class="cuerpo-tel" style="gap:12px">
-    <div class="saludo" style="margin:0;gap:4px">
-      <span class="t-fecha">Noviembre</span>
-      <h1 class="t1">Tu <em>agenda</em></h1>
-      <p class="bajada" style="font-size:14.5px">Elegí cuándo podés y con quién empezar.</p>
-    </div>
-    <div class="ag-pasos-tel"><span class="hecha"><i>✓</i>Contaste qué buscás</span><span class="ahora"><i>2</i>Elegí cuándo y con quién</span><span><i>3</i>Reservá y pagá</span><span><i>4</i>Primera sesión</span></div>
-    <div class="ag-tira">
-      <span>J<b>5</b><i class="on"></i></span><span>V<b>6</b><i class="on"></i></span><span>S<b>7</b><i class="on"></i></span><span>D<b>8</b><i></i></span><span>L<b>9</b><i class="on"></i></span><span>M<b>10</b><i class="on"></i></span><span>M<b>11</b><i class="on"></i></span>
-    </div>
-    <span class="t-fecha" style="margin-top:2px">Jueves 5 · hora de Argentina</span>
-    <div class="ag-pro-slots">
-      <div class="fila"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="36" height="36" alt=""><div><b>Lic. Valeria Quiroga</b><span class="tenue">Ansiedad · 92 % compatible</span></div><span class="precio">$42.000</span></div>
-      <div class="slots"><span>10:00</span><span class="sel">18:00</span></div>
-    </div>
-    <div class="ag-pro-slots">
-      <div class="fila"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="36" height="36" alt=""><div><b>Lic. Mónica Aranda</b><span class="tenue">Duelo y cambios · 85 %</span></div><span class="precio">$48.000</span></div>
-      <div class="slots"><span>19:00</span></div>
-    </div>
-    <a class="boton primario" style="width:calc(100% - 64px)">Seguir: jue 5, 18:00 con Valeria</a>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span></div>
+    <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
+    <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Mónica Aranda</b><span class="compat">85 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chile</span></div>
+    <span class="exp">22 años de experiencia</span><span class="esp">Psicóloga · Duelo y vínculos</span>
+    <div class="datos-pro"><span class="precio">Desde $55.000</span><span class="sesiones">1.150 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article></div>
   </div>
   <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
   <nav class="nav-tel cuatro">
@@ -588,8 +678,53 @@ ul.lista-simple { padding: 0; }
     <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
     <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
   </nav>
-</div>
-</div></div>
+</div></div><div><div class="marco tel" id="agenda-elegir-precio-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel"><div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div><span class="espacio"></span><span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span><span class="inicial">G</span></div>
+  <div class="cuerpo-tel" style="gap:10px">
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 2 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
+    <div class="el-tags" style="flex-wrap:nowrap"><span>Ansiedad</span><span>Estrés laboral</span><span>Hasta $50.000</span><span style="background:transparent;border:1.5px dashed var(--salvia-fuerte)">Cambiar</span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between"><span class="tenue">6 profesionales</span><span class="el-orden"><span class="">Compatibilidad</span><span class="on">Precio</span></span></div>
+    <div class="el-lista-tel"><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">JM</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Julián Mora</b><span class="compat">76 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span></div>
+    <span class="exp">11 años de experiencia</span><span class="esp">Psicólogo · Vínculos y autoestima</span>
+    <div class="datos-pro"><span class="precio">Desde $36.000</span><span class="sesiones">520 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span></div>
+    <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
+    <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Paula Ríos</b><span class="compat">79 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 96%"><i>★★★★★</i><i>★★★★★</i></span><b>4,8</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Uruguay</span></div>
+    <span class="exp">7 años de experiencia</span><span class="esp">Psicóloga · Ansiedad y autoestima</span>
+    <div class="datos-pro"><span class="precio">Desde $40.000</span><span class="sesiones">390 sesiones</span></div>
+    
+    <div class="encaja"><span>✓ Ansiedad</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+  </div>
+</article></div>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel cuatro">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Agenda</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div></div></div>
 </section>
 <section class="lamina">
 <h2>Familia 2 · Inicio en escritorio · la agenda manda (con profesional, sesión hoy)</h2>
@@ -702,6 +837,118 @@ ul.lista-simple { padding: 0; }
       <div class="ag-fila reservada"><span><b>Mié 11 nov · Sesión 4</b>Reservada · 18:00</span><span class="ag-mini">Detalle</span></div>
       <div class="ag-fila pend" style="margin-right:64px"><span><b>Fin de tu paquete</b>Renovar 4 sesiones con Valeria</span></div>
     </div>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel cuatro">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Agenda</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div></div>
+</section>
+<section class="lamina">
+<h2>Familia 2 · Inicio en escritorio · todavía sin profesional</h2>
+<div class="marco esc" id="agenda-nuevo-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-sesiones"/></svg>Mi agenda</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Mi profesional</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="ag-cab">
+        <div class="saludo" style="margin:0">
+          <span class="t-fecha">Miércoles 4 de noviembre</span>
+          <h1 class="t1">Tu <em>agenda</em></h1>
+          <p class="bajada">Todavía no tenés sesiones. Empezá eligiendo cuándo podés y con quién.</p>
+        </div>
+        <div class="ag-saldo vacio-saldo"><span class="numero" style="color:var(--tinta-tenue)">0</span><div><b>sesiones disponibles</b><span class="tenue">Cada profesional define su precio</span></div></div>
+      </div>
+
+      <article class="tarjeta ag-recorrido">
+        <div class="ag-rec-cab"><h2>Tu camino a la primera sesión</h2><span class="peq">Paso 2 de 4</span></div>
+        <div class="ag-pista cuatro">
+          <div class="ag-nodo hecha"><span class="ag-punto"><svg class="ico"><use href="#i-check"/></svg></span><b>Contaste qué buscás</b><small>Cuestionario completo</small></div>
+          <div class="ag-nodo hoy"><span class="ag-punto"><svg class="ico"><use href="#i-sesiones"/></svg></span><b>Elegí cuándo y con quién</b><small>Ahora</small><span class="ag-sel"></span></div>
+          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-candado"/></svg></span><b>Reservá y pagá</b><small>Con el monto exacto a la vista</small></div>
+          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-video"/></svg></span><b>Tu primera sesión</b><small>50 min por videollamada</small></div>
+        </div>
+      </article>
+
+      <div class="ag-elegir">
+        <article class="tarjeta ag-libres">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><h2>Horarios libres de tus profesionales sugeridos</h2><span class="tenue">Hora de Argentina (GMT-3)</span></div>
+          <div class="ag-filtros">
+            <span class="ag-filtro solo on">Todos</span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="28" height="28" alt="">Valeria <small>92 %</small></span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" width="28" height="28" alt="">Tomás <small>88 %</small></span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="28" height="28" alt="">Mónica <small>85 %</small></span>
+            <span class="ag-filtro solo" style="margin-left:auto">Franja: todas</span>
+          </div>
+          <div class="ag-cal"><div class="col"><div class="dia"><span>Jue</span><b>5</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot sel"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Vie</span><b>6</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">17:00</span></div><div class="col"><div class="dia"><span>Sáb</span><b>7</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">11:00</span></div><div class="col"><div class="dia"><span>Dom</span><b>8</b></div><span class='nada'>Sin horarios</span></div><div class="col"><div class="dia"><span>Lun</span><b>9</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">8:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">20:00</span></div><div class="col"><div class="dia"><span>Mar</span><b>10</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Mié</span><b>11</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span></div></div>
+        </article>
+        <article class="tarjeta salvia ag-eleccion">
+          <span class="t-fecha">Tu elección</span>
+          <div class="quien"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="56" height="56" alt=""><div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Argentina</span></div></div>
+          <div><span class="tenue">Encaja con lo que contaste</span><div class="ag-encaja" style="margin-top:6px"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez en terapia</span></div></div>
+          <div><div class="ag-dato"><span>Cuándo</span><b>Jueves 5, 18:00</b></div><div class="ag-dato"><span>Sesión</span><b>50 min · $42.000</b></div></div>
+          <a class="boton primario">Seguir con este horario</a>
+          <span class="tenue" style="font-size:12.5px">En el paso siguiente elegís una sesión o un paquete con Valeria, y ves el monto exacto antes de pagar.</span>
+        </article>
+      </div>
+      <div class="ag-detalle" style="grid-template-columns:1fr 1fr;margin-right:230px">
+        <article class="tarjeta ag-col" style="flex-direction:row;align-items:center;gap:16px"><span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-corazon"/></svg></span><div><h3>¿Es tu primera vez en terapia?</h3><span class="peq">Te contamos cómo es una primera sesión y qué podés esperar.</span><br><a class="enlace" style="margin-top:6px">Leer más</a></div></article>
+        <article class="tarjeta ag-col"><h3>Mientras tanto, ¿cómo estás hoy?</h3><div style="display:flex;align-items:center;gap:14px"><span class="ag-animo"><i style="background:#1E4033"></i><i style="background:#2F6B51"></i><i style="background:#F5C33B"></i><i style="background:#A9CF54"></i><i style="background:#4FA86A"></i></span><span class="privado" style="font-size:12.5px"><svg class="ico chico"><use href="#i-candado"/></svg>Solo lo ves vos</span></div></article>
+      </div>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+<section class="lamina">
+<h2>Familia 2 · Inicio en el teléfono · todavía sin profesional</h2>
+<div class="fila-tel"><div>
+<div class="marco tel" id="agenda-nuevo-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel" style="gap:12px">
+    <div class="saludo" style="margin:0;gap:4px">
+      <span class="t-fecha">Noviembre</span>
+      <h1 class="t1">Tu <em>agenda</em></h1>
+      <p class="bajada" style="font-size:14.5px">Elegí cuándo podés y con quién empezar.</p>
+    </div>
+    <div class="ag-pasos-tel"><span class="hecha"><i>✓</i>Contaste qué buscás</span><span class="ahora"><i>2</i>Elegí cuándo y con quién</span><span><i>3</i>Reservá y pagá</span><span><i>4</i>Primera sesión</span></div>
+    <div class="ag-tira">
+      <span>J<b>5</b><i class="on"></i></span><span>V<b>6</b><i class="on"></i></span><span>S<b>7</b><i class="on"></i></span><span>D<b>8</b><i></i></span><span>L<b>9</b><i class="on"></i></span><span>M<b>10</b><i class="on"></i></span><span>M<b>11</b><i class="on"></i></span>
+    </div>
+    <span class="t-fecha" style="margin-top:2px">Jueves 5 · hora de Argentina</span>
+    <div class="ag-pro-slots">
+      <div class="fila"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="36" height="36" alt=""><div><b>Lic. Valeria Quiroga</b><span class="tenue">Ansiedad · 92 % compatible</span></div><span class="precio">$42.000</span></div>
+      <div class="slots"><span>10:00</span><span class="sel">18:00</span></div>
+    </div>
+    <div class="ag-pro-slots">
+      <div class="fila"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="36" height="36" alt=""><div><b>Lic. Mónica Aranda</b><span class="tenue">Duelo y cambios · 85 %</span></div><span class="precio">$48.000</span></div>
+      <div class="slots"><span>19:00</span></div>
+    </div>
+    <a class="boton primario" style="width:calc(100% - 64px)">Seguir: jue 5, 18:00 con Valeria</a>
   </div>
   <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
   <nav class="nav-tel cuatro">
