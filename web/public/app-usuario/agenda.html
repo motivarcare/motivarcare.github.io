@@ -397,7 +397,7 @@ ul.lista-simple { padding: 0; }
 .ag-fila.hoy .cuando { font: 500 28px/1.05 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
 .ag-mini { font-size: 12.5px; font-weight: 700; color: var(--verde-medio); white-space: nowrap; }
 .nav-tel.cuatro { grid-template-columns: repeat(4, 1fr); }
-.el-grid { display: grid; grid-template-columns: 270px 1fr; gap: 22px; }
+.el-grid { display: grid; grid-template-columns: minmax(0,1fr) 290px; gap: 28px; }
 .el-contaste { padding: 20px; display: flex; flex-direction: column; gap: 12px; align-self: start; }
 .el-contaste h3 { font: 700 15px/1.3 var(--sans); color: var(--bosque); }
 .el-contaste .grupo { display: flex; flex-direction: column; gap: 6px; }
@@ -409,7 +409,7 @@ ul.lista-simple { padding: 0; }
 .el-orden { display: inline-flex; padding: 4px; border-radius: 99px; background: var(--superficie); border: 1px solid var(--linea); margin-left: auto; }
 .el-orden span { padding: 7px 14px; border-radius: 99px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); white-space: nowrap; }
 .el-orden span.on { background: var(--bosque); color: var(--crema); }
-.el-lista { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-height: 772px; overflow: hidden; padding-top: 12px; }
+.el-lista { position: relative; display: grid; grid-template-columns: 1fr; gap: 14px; max-height: 772px; overflow: hidden; padding-top: 12px; }
 .el-lista::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: linear-gradient(rgba(245,243,235,0), var(--crema)); pointer-events: none; }
 .el-scroll { position: absolute; right: -14px; top: 0; width: 5px; height: 760px; border-radius: 9px; background: var(--linea); }
 .el-scroll i { display: block; width: 5px; height: 220px; border-radius: 9px; background: var(--salvia-fuerte); }
@@ -440,6 +440,13 @@ ul.lista-simple { padding: 0; }
 .encaja span { font-size: 11.5px; font-weight: 700; color: var(--verde-medio); border: 1px solid var(--salvia-fuerte); border-radius: 99px; padding: 3px 8px; }
 .pie-pro { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--linea); }
 .pie-pro .boton { height: 38px; padding: 0 16px; font-size: 14px; }
+.el-lista .tarjeta-pro { grid-template-columns: 76px minmax(0,1fr); gap: 18px; padding: 20px 22px; }
+.el-lista .avatar-pro { width: 76px; height: 76px; }
+.el-lista .tarjeta-pro .nombre b { font-size: 20px; }
+.el-lista .tarjeta-pro .bio { -webkit-line-clamp: 3; max-width: 640px; font-size: 13.5px; }
+.el-lista .pie-pro { border-top: 0; padding-top: 0; margin-top: -2px; justify-content: flex-end; gap: 18px; }
+.el-lista .encaja-fila { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: 6px; }
+.el-lista .encaja-fila .encaja { margin-top: 0; }
 .tel .tarjeta-pro { grid-template-columns: 48px minmax(0,1fr); gap: 12px; padding: 14px; }
 .tel .avatar-pro { width: 48px; height: 48px; }
 .tel .tarjeta-pro .nombre b { font-size: 16px; }
@@ -550,15 +557,6 @@ ul.lista-simple { padding: 0; }
     <div class="contenido">
       <div class="saludo" style="margin-bottom:16px"><span class="t-fecha">Paso 2 de 4 · Tu primera sesión</span><h1 class="t1">Elegí a tu <em>profesional</em></h1><p class="bajada">Los ordenamos según lo que nos contaste. Elegí con calma: podés ver el perfil y los horarios de cada uno.</p></div>
       <div class="el-grid">
-        <aside class="tarjeta el-contaste">
-          <h3>Lo que nos contaste</h3>
-          <div class="grupo"><small>Querés trabajar</small><div class="el-tags"><span>Ansiedad</span><span>Estrés laboral</span></div></div>
-          <div class="grupo"><small>Tu experiencia</small><div class="el-tags"><span>Primera vez en terapia</span></div></div>
-          <div class="grupo"><small>Preferís</small><div class="el-tags"><span>Por videollamada</span><span>De tarde</span></div></div>
-          <div class="grupo"><small>Tu presupuesto</small><div class="el-tags"><span>Hasta $50.000 por sesión</span></div></div>
-          <a class="enlace" style="font-size:13.5px">Cambiar mis respuestas</a>
-          <p class="tenue" style="font-size:12.5px;border-top:1px solid var(--linea);padding-top:12px">La compatibilidad compara tus respuestas con la experiencia y el enfoque de cada profesional. El precio es el de una sesión; los paquetes tienen descuento.</p>
-        </aside>
         <div>
           <div class="el-barra"><b>6 profesionales para vos</b><span class="tenue">Todos con matrícula verificada</span>
             <span class="el-orden"><span class="on">Compatibilidad</span><span>Precio: menor a mayor</span></span></div>
@@ -569,8 +567,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">9 años de experiencia</span><span class="esp">Psicóloga clínica · Ansiedad y estrés</span>
     <div class="datos-pro"><span class="precio">Desde $42.000</span><span class="sesiones">640 sesiones</span></div>
     <p class="bio">Acompaño procesos de ansiedad y estrés laboral desde la terapia cognitivo-conductual, con herramientas para el día a día.</p>
-    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -579,8 +577,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
     <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
     <p class="bio">Trabajo con adultos jóvenes en vínculos, identidad y cambios de etapa, desde un enfoque sistémico.</p>
-    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -589,8 +587,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">22 años de experiencia</span><span class="esp">Psicóloga · Duelo y vínculos</span>
     <div class="datos-pro"><span class="precio">Desde $55.000</span><span class="sesiones">1.150 sesiones</span></div>
     <p class="bio">Más de veinte años acompañando duelos, separaciones y crisis vitales desde el psicoanálisis.</p>
-    <div class="encaja"><span>✓ Estrés laboral</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/andres-salvatierra.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -599,8 +597,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">15 años de experiencia</span><span class="esp">Psicólogo · Parejas y familias</span>
     <div class="datos-pro"><span class="precio">Desde $48.000</span><span class="sesiones">860 sesiones</span></div>
     <p class="bio">Acompaño a parejas y personas en momentos de cambio, con foco en la comunicación y los acuerdos.</p>
-    <div class="encaja"><span>✓ Estrés laboral</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
   <div class="info">
@@ -609,8 +607,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">7 años de experiencia</span><span class="esp">Psicóloga · Ansiedad y autoestima</span>
     <div class="datos-pro"><span class="precio">Desde $40.000</span><span class="sesiones">390 sesiones</span></div>
     <p class="bio">Trabajo con ansiedad y autoestima desde la terapia de aceptación y compromiso.</p>
-    <div class="encaja"><span>✓ Ansiedad</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">JM</span>
   <div class="info">
@@ -619,11 +617,20 @@ ul.lista-simple { padding: 0; }
     <span class="exp">11 años de experiencia</span><span class="esp">Psicólogo · Vínculos y autoestima</span>
     <div class="datos-pro"><span class="precio">Desde $36.000</span><span class="sesiones">520 sesiones</span></div>
     <p class="bio">Acompaño a adultos en vínculos y autoestima, con un enfoque integrativo.</p>
-    <div class="encaja"><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article></div><span class="el-scroll"><i></i></span></div>
         </div>
+        <aside class="tarjeta el-contaste">
+          <h3>Lo que nos contaste</h3>
+          <div class="grupo"><small>Querés trabajar</small><div class="el-tags"><span>Ansiedad</span><span>Estrés laboral</span></div></div>
+          <div class="grupo"><small>Tu experiencia</small><div class="el-tags"><span>Primera vez en terapia</span></div></div>
+          <div class="grupo"><small>Preferís</small><div class="el-tags"><span>Por videollamada</span><span>De tarde</span></div></div>
+          <div class="grupo"><small>Tu presupuesto</small><div class="el-tags"><span>Hasta $50.000 por sesión</span></div></div>
+          <a class="enlace" style="font-size:13.5px">Cambiar mis respuestas</a>
+          <p class="tenue" style="font-size:12.5px;border-top:1px solid var(--linea);padding-top:12px">La compatibilidad compara tus respuestas con la experiencia y el enfoque de cada profesional. El precio es el de una sesión; los paquetes tienen descuento.</p>
+        </aside>
       </div>
     </div>
   </main>
@@ -646,8 +653,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">9 años de experiencia</span><span class="esp">Psicóloga clínica · Ansiedad y estrés</span>
     <div class="datos-pro"><span class="precio">Desde $42.000</span><span class="sesiones">640 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -656,8 +663,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
     <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -666,8 +673,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">22 años de experiencia</span><span class="esp">Psicóloga · Duelo y vínculos</span>
     <div class="datos-pro"><span class="precio">Desde $55.000</span><span class="sesiones">1.150 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Estrés laboral</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Estrés laboral</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article></div>
   </div>
@@ -692,8 +699,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">11 años de experiencia</span><span class="esp">Psicólogo · Vínculos y autoestima</span>
     <div class="datos-pro"><span class="precio">Desde $36.000</span><span class="sesiones">520 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -702,8 +709,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">4 años de experiencia</span><span class="esp">Psicólogo · Adultos jóvenes</span>
     <div class="datos-pro"><span class="precio">Desde $38.000</span><span class="sesiones">210 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span><span>✓ Primera vez</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
   <div class="info">
@@ -712,8 +719,8 @@ ul.lista-simple { padding: 0; }
     <span class="exp">7 años de experiencia</span><span class="esp">Psicóloga · Ansiedad y autoestima</span>
     <div class="datos-pro"><span class="precio">Desde $40.000</span><span class="sesiones">390 sesiones</span></div>
     
-    <div class="encaja"><span>✓ Ansiedad</span></div>
-    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div>
+    <div class="encaja-fila"><div class="encaja"><span>✓ Ansiedad</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
 </article></div>
   </div>
