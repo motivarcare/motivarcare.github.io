@@ -86,6 +86,7 @@ ul.pendientes li::before { background: transparent; border: 1.5px dashed var(--n
 footer { font-size: 13px; color: var(--tinta-tenue); padding: 0 0 40px; }
 .hechas { display: grid; gap: 22px; }
 .hecha { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 0.75fr) minmax(0, 1.15fr); gap: 18px; align-items: start; padding: 22px; border-radius: 24px; background: var(--superficie); border: 1px solid var(--linea); }
+.hecha.sin-tel { grid-template-columns: minmax(0, 2.85fr) minmax(0, 1.15fr); }
 .hecha figure { margin: 0; }
 .hecha img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--linea); background: var(--crema); }
 .hecha figcaption { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-tenue); margin-top: 8px; }
