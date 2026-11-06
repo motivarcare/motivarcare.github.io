@@ -397,6 +397,58 @@ ul.lista-simple { padding: 0; }
 .ag-fila.hoy .cuando { font: 500 28px/1.05 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
 .ag-mini { font-size: 12.5px; font-weight: 700; color: var(--verde-medio); white-space: nowrap; }
 .nav-tel.cuatro { grid-template-columns: repeat(4, 1fr); }
+.ag-saldo { display: flex; align-items: center; gap: 12px; padding: 8px 16px 8px 14px; border-radius: 16px; background: var(--menta); }
+.ag-saldo .numero { font: 500 32px/1 var(--serif); color: var(--bosque); }
+.ag-saldo b { display: block; font-size: 14px; color: var(--bosque); line-height: 1.2; }
+.ag-saldo .puntos { margin-top: 5px; gap: 5px; }
+.ag-saldo .puntos span { width: 14px; height: 14px; }
+.ag-saldo.vacio-saldo { background: transparent; border: 1.5px dashed var(--salvia-fuerte); }
+.ag-saldo-tel { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 14px; background: var(--menta); font-size: 13px; color: var(--tinta-suave); }
+.ag-saldo-tel b { color: var(--bosque); font-size: 14px; }
+.ag-saldo-tel .puntos { margin: 0; gap: 4px; }
+.ag-saldo-tel .puntos span { width: 12px; height: 12px; }
+.ag-pista.cuatro { grid-template-columns: repeat(4, 1fr); }
+.ag-pista.cuatro::before { left: 12.5%; right: 62.5%; }
+.ag-pista.cuatro::after { left: 37.5%; right: 12.5%; }
+.ag-elegir { display: grid; grid-template-columns: 1.75fr 1fr; gap: 18px; margin-top: 18px; }
+.ag-libres { padding: 22px 24px; }
+.ag-libres h2 { font: 600 19px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.ag-filtros { display: flex; gap: 8px; margin: 14px 0 16px; flex-wrap: wrap; }
+.ag-filtro { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px 0 5px; border-radius: 99px; border: 1px solid var(--linea); background: var(--superficie); font-size: 13.5px; font-weight: 700; color: var(--bosque); }
+.ag-filtro.solo { padding: 0 14px; }
+.ag-filtro.on { background: var(--bosque); color: var(--crema); border-color: var(--bosque); }
+.ag-filtro small { font-weight: 600; color: var(--verde-medio); }
+.ag-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.ag-cal .col { display: flex; flex-direction: column; gap: 6px; }
+.ag-cal .dia { text-align: center; padding-bottom: 6px; border-bottom: 1px solid var(--linea); margin-bottom: 2px; }
+.ag-cal .dia span { display: block; font: 700 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); }
+.ag-cal .dia b { font: 600 19px/1.3 var(--serif); color: var(--bosque); }
+.ag-slot { display: flex; align-items: center; gap: 6px; padding: 5px 7px 5px 5px; border-radius: 99px; border: 1.5px dashed var(--bosque); background: rgba(255,255,255,.6); font-size: 13px; font-weight: 800; color: var(--bosque); }
+.ag-slot img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+.ag-slot.sel { background: var(--bosque); color: var(--crema); border-style: solid; box-shadow: 0 0 0 4px rgba(245,195,59,.45); }
+.ag-cal .nada { font-size: 12px; color: var(--tinta-tenue); text-align: center; padding-top: 6px; }
+.ag-eleccion { padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+.ag-eleccion .quien { display: flex; gap: 12px; align-items: center; }
+.ag-eleccion .quien b { display: block; font-size: 17px; color: var(--bosque); }
+.ag-encaja { display: flex; flex-wrap: wrap; gap: 6px; }
+.ag-encaja span { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 700; color: var(--bosque); background: var(--superficie); border-radius: 99px; padding: 5px 10px; }
+.ag-dato { display: flex; justify-content: space-between; font-size: 14px; color: var(--tinta-suave); padding: 8px 0; border-top: 1px solid rgba(30,64,51,.12); }
+.ag-dato b { color: var(--bosque); }
+.ag-pasos-tel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; position: relative; }
+.ag-pasos-tel span { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 700; color: var(--tinta-suave); text-align: center; line-height: 1.2; }
+.ag-pasos-tel i { width: 22px; height: 22px; border-radius: 50%; border: 2px dashed var(--verde-medio); background: var(--crema); display: grid; place-items: center; font-style: normal; font-size: 11px; color: var(--bosque); }
+.ag-pasos-tel .hecha i { background: var(--bosque); border: 2px solid var(--bosque); color: var(--crema); }
+.ag-pasos-tel .ahora i { background: var(--amarillo); border: 2px solid var(--bosque); }
+.ag-pasos-tel .ahora { color: var(--bosque); }
+.ag-pro-slots { border-radius: 16px; background: var(--superficie); border: 1px solid var(--linea); padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.ag-pro-slots .fila { display: flex; align-items: center; gap: 10px; }
+.ag-pro-slots .fila b { display: block; font-size: 14.5px; color: var(--bosque); }
+.ag-pro-slots .fila .tenue { font-size: 12.5px; }
+.ag-pro-slots .precio { margin-left: auto; font-weight: 800; font-size: 14px; color: var(--bosque); }
+.ag-pro-slots .slots { display: flex; gap: 6px; flex-wrap: wrap; }
+.ag-pro-slots .slots span { padding: 6px 11px; border-radius: 99px; border: 1.5px dashed var(--bosque); font-weight: 800; font-size: 13px; color: var(--bosque); }
+.ag-pro-slots .slots span.sel { background: var(--bosque); color: var(--crema); border-style: solid; }
+
 </style>
 </head>
 <body>
@@ -428,6 +480,118 @@ ul.lista-simple { padding: 0; }
   <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.4-3 7.8-7 9-4-1.2-7-4.6-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
 </svg>
 <section class="lamina">
+<h2>Familia 2 · Inicio en escritorio · todavía sin profesional</h2>
+<div class="marco esc" id="agenda-nuevo-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-sesiones"/></svg>Mi agenda</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-profesional"/></svg>Mi profesional</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="ag-cab">
+        <div class="saludo" style="margin:0">
+          <span class="t-fecha">Miércoles 4 de noviembre</span>
+          <h1 class="t1">Tu <em>agenda</em></h1>
+          <p class="bajada">Todavía no tenés sesiones. Empezá eligiendo cuándo podés y con quién.</p>
+        </div>
+        <div class="ag-saldo vacio-saldo"><span class="numero" style="color:var(--tinta-tenue)">0</span><div><b>sesiones disponibles</b><span class="tenue">Cada profesional define su precio</span></div></div>
+      </div>
+
+      <article class="tarjeta ag-recorrido">
+        <div class="ag-rec-cab"><h2>Tu camino a la primera sesión</h2><span class="peq">Paso 2 de 4</span></div>
+        <div class="ag-pista cuatro">
+          <div class="ag-nodo hecha"><span class="ag-punto"><svg class="ico"><use href="#i-check"/></svg></span><b>Contaste qué buscás</b><small>Cuestionario completo</small></div>
+          <div class="ag-nodo hoy"><span class="ag-punto"><svg class="ico"><use href="#i-sesiones"/></svg></span><b>Elegí cuándo y con quién</b><small>Ahora</small><span class="ag-sel"></span></div>
+          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-candado"/></svg></span><b>Reservá y pagá</b><small>Con el monto exacto a la vista</small></div>
+          <div class="ag-nodo pend"><span class="ag-punto"><svg class="ico"><use href="#i-video"/></svg></span><b>Tu primera sesión</b><small>50 min por videollamada</small></div>
+        </div>
+      </article>
+
+      <div class="ag-elegir">
+        <article class="tarjeta ag-libres">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><h2>Horarios libres de tus profesionales sugeridos</h2><span class="tenue">Hora de Argentina (GMT-3)</span></div>
+          <div class="ag-filtros">
+            <span class="ag-filtro solo on">Todos</span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="28" height="28" alt="">Valeria <small>92 %</small></span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" width="28" height="28" alt="">Tomás <small>88 %</small></span>
+            <span class="ag-filtro"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="28" height="28" alt="">Mónica <small>85 %</small></span>
+            <span class="ag-filtro solo" style="margin-left:auto">Franja: todas</span>
+          </div>
+          <div class="ag-cal"><div class="col"><div class="dia"><span>Jue</span><b>5</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot sel"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Vie</span><b>6</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">17:00</span></div><div class="col"><div class="dia"><span>Sáb</span><b>7</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">11:00</span></div><div class="col"><div class="dia"><span>Dom</span><b>8</b></div><span class='nada'>Sin horarios</span></div><div class="col"><div class="dia"><span>Lun</span><b>9</b></div><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">8:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">20:00</span></div><div class="col"><div class="dia"><span>Mar</span><b>10</b></div><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">10:00</span><span class="ag-slot"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt="">19:00</span></div><div class="col"><div class="dia"><span>Mié</span><b>11</b></div><span class="ag-slot"><img src="../landing/img/profesionales/monica-aranda.jpg" alt="">9:00</span><span class="ag-slot"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span></div></div>
+        </article>
+        <article class="tarjeta salvia ag-eleccion">
+          <span class="t-fecha">Tu elección</span>
+          <div class="quien"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="56" height="56" alt=""><div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Argentina</span></div></div>
+          <div><span class="tenue">Encaja con lo que contaste</span><div class="ag-encaja" style="margin-top:6px"><span>✓ Ansiedad</span><span>✓ Estrés laboral</span><span>✓ Primera vez en terapia</span></div></div>
+          <div><div class="ag-dato"><span>Cuándo</span><b>Jueves 5, 18:00</b></div><div class="ag-dato"><span>Sesión</span><b>50 min · $42.000</b></div></div>
+          <a class="boton primario">Seguir con este horario</a>
+          <span class="tenue" style="font-size:12.5px">En el paso siguiente elegís una sesión o un paquete con Valeria, y ves el monto exacto antes de pagar.</span>
+        </article>
+      </div>
+      <div class="ag-detalle" style="grid-template-columns:1fr 1fr;margin-right:230px">
+        <article class="tarjeta ag-col" style="flex-direction:row;align-items:center;gap:16px"><span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-corazon"/></svg></span><div><h3>¿Es tu primera vez en terapia?</h3><span class="peq">Te contamos cómo es una primera sesión y qué podés esperar.</span><br><a class="enlace" style="margin-top:6px">Leer más</a></div></article>
+        <article class="tarjeta ag-col"><h3>Mientras tanto, ¿cómo estás hoy?</h3><div style="display:flex;align-items:center;gap:14px"><span class="ag-animo"><i style="background:#1E4033"></i><i style="background:#2F6B51"></i><i style="background:#F5C33B"></i><i style="background:#A9CF54"></i><i style="background:#4FA86A"></i></span><span class="privado" style="font-size:12.5px"><svg class="ico chico"><use href="#i-candado"/></svg>Solo lo ves vos</span></div></article>
+      </div>
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+<section class="lamina">
+<h2>Familia 2 · Inicio en el teléfono · todavía sin profesional</h2>
+<div class="fila-tel"><div>
+<div class="marco tel" id="agenda-nuevo-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel" style="gap:12px">
+    <div class="saludo" style="margin:0;gap:4px">
+      <span class="t-fecha">Noviembre</span>
+      <h1 class="t1">Tu <em>agenda</em></h1>
+      <p class="bajada" style="font-size:14.5px">Elegí cuándo podés y con quién empezar.</p>
+    </div>
+    <div class="ag-pasos-tel"><span class="hecha"><i>✓</i>Contaste qué buscás</span><span class="ahora"><i>2</i>Elegí cuándo y con quién</span><span><i>3</i>Reservá y pagá</span><span><i>4</i>Primera sesión</span></div>
+    <div class="ag-tira">
+      <span>J<b>5</b><i class="on"></i></span><span>V<b>6</b><i class="on"></i></span><span>S<b>7</b><i class="on"></i></span><span>D<b>8</b><i></i></span><span>L<b>9</b><i class="on"></i></span><span>M<b>10</b><i class="on"></i></span><span>M<b>11</b><i class="on"></i></span>
+    </div>
+    <span class="t-fecha" style="margin-top:2px">Jueves 5 · hora de Argentina</span>
+    <div class="ag-pro-slots">
+      <div class="fila"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="36" height="36" alt=""><div><b>Lic. Valeria Quiroga</b><span class="tenue">Ansiedad · 92 % compatible</span></div><span class="precio">$42.000</span></div>
+      <div class="slots"><span>10:00</span><span class="sel">18:00</span></div>
+    </div>
+    <div class="ag-pro-slots">
+      <div class="fila"><img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" width="36" height="36" alt=""><div><b>Lic. Mónica Aranda</b><span class="tenue">Duelo y cambios · 85 %</span></div><span class="precio">$48.000</span></div>
+      <div class="slots"><span>19:00</span></div>
+    </div>
+    <a class="boton primario" style="width:calc(100% - 64px)">Seguir: jue 5, 18:00 con Valeria</a>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel cuatro">
+    <a class="activo"><span class="pastilla"><svg class="ico"><use href="#i-sesiones"/></svg></span>Agenda</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-profesional"/></svg></span>Profesional</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div></div>
+</section>
+<section class="lamina">
 <h2>Familia 2 · Inicio en escritorio · la agenda manda (con profesional, sesión hoy)</h2>
 <div class="marco esc" id="agenda-escritorio">
   <aside class="lateral">
@@ -458,7 +622,7 @@ ul.lista-simple { padding: 0; }
       </div>
 
       <article class="tarjeta ag-recorrido">
-        <div class="ag-rec-cab"><h2>Tu paquete de 4 sesiones con Valeria</h2><span class="peq">2 realizadas · hoy la tercera · 1 reservada</span></div>
+        <div class="ag-rec-cab" style="align-items:center"><div><h2>Tu paquete de 4 sesiones con Valeria</h2><span class="peq">2 realizadas · hoy la tercera · 1 reservada</span></div><div class="ag-saldo"><span class="numero">2</span><div><b>sesiones disponibles</b><div class="puntos"><span class="usada"></span><span class="usada"></span><span></span><span></span></div></div><a class="enlace" style="margin-left:8px">Renovar</a></div></div>
         <div class="ag-pista">
           <div class="ag-nodo hecha"><span class="ag-punto"><svg class="ico"><use href="#i-check"/></svg></span><b>Mié 22 oct</b><small>Sesión 1 · realizada</small></div>
           <div class="ag-nodo hecha"><span class="ag-punto"><svg class="ico"><use href="#i-check"/></svg></span><b>Mié 29 oct</b><small>Sesión 2 · realizada</small></div>
@@ -523,6 +687,7 @@ ul.lista-simple { padding: 0; }
       <h1 class="t1">Tu <em>agenda</em></h1>
       <span class="ag-tel-pro"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" width="28" height="28" alt=""><span>Con <b>Lic. Valeria Quiroga</b> · miércoles 18:00</span></span>
     </div>
+    <div class="ag-saldo-tel"><b>2 sesiones disponibles</b><div class="puntos"><span class="usada"></span><span class="usada"></span><span></span><span></span></div><a class="enlace" style="margin-left:auto;font-size:13px">Renovar</a></div>
     <div class="ag-tira">
       <span>L<b>2</b><i class="on"></i></span><span>M<b>3</b><i class="on"></i></span><span class="hoy">HOY<b>4</b><i class="ses"></i></span><span>J<b>5</b><i class="on"></i></span><span>V<b>6</b><i></i></span><span>S<b>7</b><i></i></span><span>D<b>8</b><i></i></span>
     </div>
@@ -533,7 +698,6 @@ ul.lista-simple { padding: 0; }
         <span class="cuando">Hoy, 18:00</span>
         <span class="tenue" style="margin-top:-6px">Sesión 3 de 4 · 50 min · hora de Argentina</span>
         <a class="boton primario" style="width:100%"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
-        <span class="ag-pregunta" style="background:var(--superficie)">¿Qué te gustaría contarle hoy a Valeria?</span>
       </div>
       <div class="ag-fila reservada"><span><b>Mié 11 nov · Sesión 4</b>Reservada · 18:00</span><span class="ag-mini">Detalle</span></div>
       <div class="ag-fila pend" style="margin-right:64px"><span><b>Fin de tu paquete</b>Renovar 4 sesiones con Valeria</span></div>
