@@ -480,6 +480,13 @@ ul.lista-simple { padding: 0; }
 .tel-pro .disponibles { margin-top: 6px; padding-top: 16px; }
 .tel-pro .botones { margin-top: 12px; }
 .eq-expandir { text-decoration: none; }
+
+/* Mockup 2: horarios libres en la agenda */
+.eq-ev.libre { background: transparent; border: 1.5px dashed var(--bosque); font-weight: 700; white-space: nowrap; }
+.sem-tel .marcas { display: flex; gap: 3px; }
+.sem-tel .m.l, .ley-tel i.l { width: 10px; height: 10px; border-radius: 50%; border: 1.5px dashed var(--bosque); display: inline-block; margin-top: 5px; }
+.ley-tel i.l { margin-top: 0; }
+.columna-izq .eq-dia { gap: 4px; }
 </style>
 </head>
 <body>
@@ -652,6 +659,155 @@ ul.lista-simple { padding: 0; }
   <nav class="nav-tel">
     <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
     <a><span class="pastilla" style="position:relative"><span style="position:absolute;top:2px;right:12px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--amarillo);color:var(--bosque);font:800 11px/18px var(--sans);text-align:center">1</span><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="lamina">
+<h2>2 · Inicio en escritorio · profesional asignado, sin turnos reservados</h2>
+<p class="nota-r2">Misma estructura que el mockup 1. La tarjeta verde invita a reservar con los próximos horarios libres de Valeria, que también aparecen punteados en la agenda de la semana. La tarjeta del profesional se muestra sin mensaje sin leer.</p>
+<div class="marco esc" id="r2-2-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-chat"/></svg>Mensajes</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo">
+        <span class="t-fecha">Miércoles 4 de noviembre</span>
+        <h1 class="t1">Hola, <em>Gastón.</em></h1>
+        <p class="bajada">Tenés 2 sesiones disponibles con Valeria. Reservá la próxima cuando quieras.</p>
+      </div>
+      <div class="grilla-inicio">
+        <div class="columna-izq">
+        <article class="tarjeta salvia sesion">
+          <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="380" cy="150" r="14" fill="#F5C33B"/></svg>
+          <div class="cabeza"><span class="chip" style="background:var(--superficie)">Sin sesiones reservadas</span></div>
+          <div class="cuando" style="font-size:34px">Reservá tu próxima sesión<small>Próximos horarios libres de Valeria, en tu hora (Argentina, GMT-3)</small></div>
+          <div class="horarios">
+            <span class="horario">18:00<small>Hoy, mié 4</small></span>
+            <span class="horario">13:00<small>Jue 5</small></span>
+            <span class="horario">18:30<small>Jue 5</small></span>
+            <span class="horario">09:00<small>Vie 6</small></span>
+            <span class="horario mas">Ver más horarios</span>
+          </div>
+          <div class="acciones">
+            <a class="boton primario grande"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
+            <span class="peq" style="color:var(--bosque)">Usás 1 de tus 2 sesiones disponibles con Valeria</span>
+          </div>
+        </article>
+          <div class="eq-cal"><div class="eq-cal-cab"><h2 class="eq-titulo"><span class="solo-semana">Esta semana</span><span class="solo-mes">Noviembre 2026</span></h2><span class="rango solo-semana">2 al 8 de noviembre</span><span class="flechas"><span>‹</span><span>›</span></span><a class="eq-expandir" href="#sesiones" title="Lleva a la página de Sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="eq-semana"><div class="eq-dia"><span class="d">Lun</span><span class="n">2</span><span class="eq-ev otro">Respiración ✓</span></div><div class="eq-dia"><span class="d">Mar</span><span class="n">3</span><span class="eq-ev otro">Diario ✓</span></div><div class="eq-dia hoy"><span class="d">Hoy</span><span class="n">4</span><span class="eq-ev libre">Libre 18:00</span></div><div class="eq-dia"><span class="d">Jue</span><span class="n">5</span><span class="eq-ev otro">Ejercicio</span><span class="eq-ev libre">2 libres</span></div><div class="eq-dia"><span class="d">Vie</span><span class="n">6</span><span class="eq-ev libre">Libre 09:00</span></div><div class="eq-dia"><span class="d">Sáb</span><span class="n">7</span><span class="eq-ev otro">Respiración</span></div><div class="eq-dia"><span class="d">Dom</span><span class="n">8</span></div></div></div>
+          <section class="entre r2">
+            <div class="cabeza"><h2 class="t3">Entre sesiones</h2></div>
+            <div class="grilla-entre r2">
+          <article class="tarjeta menta clima">
+            <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+            <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+          <article class="tarjeta lima recurso">
+            <span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-respira"/></svg></span>
+            <div><span class="tenue">Para tu día · 3 min</span><b style="display:block;color:var(--bosque);font-size:16.5px">Respiración para bajar el ritmo</b></div>
+            <a class="enlace">Empezar<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+            </div>
+          </section>
+        </div>
+        <article class="tarjeta pro2">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
+            <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
+            <div>
+              <span class="tenue">Tu profesional</span>
+              <b>Lic. Valeria Quiroga</b>
+              <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
+            </div>
+          </div>
+          <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
+          <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
+          <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+
+<section class="lamina">
+<h2>2 · Inicio en el teléfono · profesional asignado, sin turnos reservados</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel largo" id="r2-2-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:4px">
+      <span class="t-fecha">Miércoles 4 de noviembre</span>
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+    </div>
+    <article class="tarjeta salvia sesion r2">
+      <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="330" cy="200" r="15" fill="#F5C33B"/></svg>
+      <div class="cabeza"><span class="chip" style="background:var(--superficie)">Sin sesiones reservadas</span></div>
+      <div class="cuando" style="font-size:26px">Reservá tu próxima sesión<small>Horarios libres de Valeria · hora de Argentina</small></div>
+      <div class="horarios">
+        <span class="horario">18:00<small>Hoy</small></span>
+        <span class="horario">13:00<small>Jue 5</small></span>
+        <span class="horario">09:00<small>Vie 6</small></span>
+      </div>
+      <a class="boton primario grande ancho" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
+      <a class="boton texto" style="height:24px;position:relative;align-self:center">Ver más horarios</a>
+    </article>
+    <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><a class="eq-expandir" href="#sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><span class="marcas"><span class="m p"></span></span></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="marcas"><span class="m p"></span></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><span class="marcas"><span class="m l"></span></span></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="marcas"><span class="m p"></span><span class="m l"></span></span></div><div class="dt"><span class="d">V</span><span class="n">6</span><span class="marcas"><span class="m l"></span></span></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="marcas"><span class="m p"></span></span></div><div class="dt"><span class="d">D</span><span class="n">8</span><span class="marcas"></span></div></div><div class="ley-tel"><span><i class="l"></i>Horario libre de Valeria</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
+    <article class="tarjeta pro2 tel-pro">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
+        <div>
+          <span class="tenue">Tu profesional</span>
+          <b>Lic. Valeria Quiroga</b>
+          <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
+        </div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
+      <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
+      <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
+    </article>
+    <article class="tarjeta menta clima" style="gap:12px">
+            <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+            <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>

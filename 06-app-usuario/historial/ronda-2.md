@@ -16,7 +16,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | # | Mockup | Estado |
 |---|---|---|
 | 1 | Inicio · profesional asignado, con turno para la próxima sesión | Segunda versión (escritorio y teléfono) |
-| 2 | Inicio · profesional asignado, sin turnos reservados | Pendiente |
+| 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
 | 3 | Inicio · sin profesional asignado | Pendiente |
 | 4 | Inicio · con más de un profesional asignado | Pendiente |
 
@@ -39,6 +39,21 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     </ul>
     <p>Las sesiones disponibles pasan a la tarjeta del profesional. En "Entre sesiones", el registro del día usa el clima ("¿Cómo está tu día?") y lleva adentro el acceso al diario. En el teléfono, la pantalla se recorre con scroll: la sesión, la semana, el profesional y el registro del día.</p>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-1-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/02-inicio-sin-turnos-escritorio.jpg" alt="Inicio con profesional asignado y sin turnos reservados, en escritorio" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/02-inicio-sin-turnos-telefono.jpg" alt="Inicio con profesional asignado y sin turnos reservados, en el teléfono" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 2 · primera versión</span>
+    <h3>Inicio · profesional asignado, sin turnos reservados</h3>
+    <p>Misma estructura que el mockup 1. Lo que cambia es el próximo paso:</p>
+    <ul>
+      <li>La tarjeta verde invita a reservar: "Reservá tu próxima sesión", con los próximos horarios libres de Valeria y "Reservar sesión" como único botón amarillo.</li>
+      <li>Los horarios libres también aparecen punteados en la agenda de la semana.</li>
+      <li>La tarjeta del profesional se ve sin mensaje sin leer, la variante sin ese apartado.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-2-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -90,3 +105,13 @@ Otros cambios respecto del B3:
 - **"Ver perfil"** sube a un botón chico en la esquina superior derecha de la tarjeta.
 - Más orden y aire: una línea divisoria antes del mensaje ("Te escribió ayer…") y otra antes de las sesiones disponibles, y más separación vertical antes del mensaje, antes de las sesiones y, un poco más, antes de los botones.
 - Sobre la agenda de la semana, **"Ver el mes" pasa a "Ver sesiones"** y lleva a la página de Sesiones, en lugar de abrir el mes completo en el Inicio.
+
+## 2 · Inicio con profesional asignado y sin turnos reservados
+
+Parte del mockup 1, con todos sus ajustes, y cambia lo que depende de no tener una sesión reservada:
+
+- **Saludo:** "Tenés 2 sesiones disponibles con Valeria. Reservá la próxima cuando quieras."
+- **Tarjeta verde:** la etiqueta "Sin sesiones reservadas" y el título "Reservá tu próxima sesión". Debajo, los próximos horarios libres de Valeria en tu hora (con borde punteado, porque son pendientes) y "Ver más horarios". El botón amarillo es "Reservar sesión", y al lado se aclara que usa una de las sesiones disponibles con Valeria. En el teléfono se ven tres horarios, el botón a todo el ancho y "Ver más horarios" debajo.
+- **Agenda de la semana:** no hay sesiones; los horarios libres de Valeria aparecen punteados en sus días ("Libre 18:00"; si hay más de uno en un día, "2 libres"). En el teléfono, cada horario libre es un círculo punteado, con su leyenda.
+- **Tarjeta del profesional:** igual que en el mockup 1, pero sin mensaje sin leer, para mostrar cómo queda sin ese apartado. Sin mensajes nuevos, "Mensajes" tampoco lleva contador en la navegación.
+- **Entre sesiones:** igual, con un ejercicio pensado para el día y no para antes de una sesión.
