@@ -655,6 +655,14 @@ ul.lista-simple { padding: 0; }
 .tel .pie-pro { margin-top: 0; padding-top: 8px; }
 .tel .datos-pro .sesiones { display: none; }
 .tel .datos-pro .precio { font-size: 14.5px; white-space: nowrap; }
+
+/* Mockup 5: accesos directos para dar prioridad a una especialidad */
+.atajos-esp { display: flex; align-items: center; gap: 8px; margin: -2px 0 14px; flex-wrap: wrap; }
+.atajo { font-size: 12.5px; font-weight: 700; padding: 5px 11px; border-radius: 99px; border: 1px solid var(--linea); background: var(--superficie); color: var(--bosque); white-space: nowrap; }
+.atajo.on { background: var(--amarillo-suave); border-color: var(--bosque); }
+.atajo.otra { border-style: dashed; border-color: var(--salvia-fuerte); color: var(--verde-medio); }
+.tel-atajos { margin: 0; gap: 6px; flex-wrap: nowrap; }
+.tel-atajos .atajo { font-size: 12px; padding: 4px 9px; }
 </style>
 </head>
 <body>
@@ -1368,8 +1376,8 @@ ul.lista-simple { padding: 0; }
 
 
 <section class="lamina">
-<h2>5 · Elegí a tu terapeuta en escritorio · ordenado por una especialidad</h2>
-<p class="nota-r2">Parte de la elección de la familia 2. Suma el orden por especialidad (por defecto, según todas tus respuestas; si elegís una, sus terapeutas aparecen primero, sin ocultar a los demás) y el filtro "Mostrar", hoy solo con terapeutas. Acá, la especialidad elegida es Ansiedad y el menú está abierto.</p>
+<h2>5 · Elegí a tu terapeuta en escritorio · compatibilidad con prioridad a una especialidad</h2>
+<p class="nota-r2">Parte de la elección de la familia 2. El orden combina compatibilidad y especialidad en un solo criterio: por defecto, según todas tus respuestas; si se da prioridad a una especialidad, sus terapeutas aparecen primero, sin ocultar a los demás. El precio ordena a todos por igual. Suma el filtro "Mostrar", hoy solo con terapeutas. Acá, la prioridad es Ansiedad y el menú está abierto.</p>
 <div class="marco esc" id="r2-5-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
@@ -1396,11 +1404,11 @@ ul.lista-simple { padding: 0; }
           <div class="el-barra r2">
             <span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Mostrar: <b>Terapeutas</b><svg class="ico chico"><use href="#i-abajo"/></svg></span>
             <span class="tenue">6 terapeutas · todos con matrícula verificada</span>
-            <span class="orden-wrap"><span class="et-orden">Ordenar por</span><span class="el-orden"><span>Compatibilidad</span><span>Precio</span><span class="on">Especialidad: Ansiedad<svg class="ico chico cl"><use href="#i-abajo"/></svg></span></span>
+            <span class="orden-wrap"><span class="et-orden">Ordenar por</span><span class="el-orden"><span class="on">Compatibilidad · Ansiedad primero<svg class="ico chico cl"><use href="#i-abajo"/></svg></span><span>Precio</span></span>
               <div class="menu-esp">
-                <span class="menu-tit">Ordenar por especialidad</span>
-                <span class="op-esp"><i class="radio"></i><span><b>Todas, según tus respuestas</b><small>Tiene en cuenta todo lo que nos contaste</small></span></span>
-                <span class="sep-esp">De tus respuestas</span>
+                <span class="menu-tit">Ordenar por compatibilidad</span>
+                <span class="op-esp"><i class="radio"></i><span><b>Según todas tus respuestas</b><small>Tiene en cuenta todo lo que nos contaste</small></span></span>
+                <span class="sep-esp">Dando prioridad a una especialidad · de tus respuestas</span>
                 <span class="op-esp on"><i class="radio"></i><b>Ansiedad</b></span>
                 <span class="op-esp"><i class="radio"></i><b>Estrés laboral</b></span>
                 <span class="sep-esp">Otras especialidades</span>
@@ -1408,10 +1416,11 @@ ul.lista-simple { padding: 0; }
                 <span class="op-esp"><i class="radio"></i>Depresión</span>
                 <span class="op-esp"><i class="radio"></i>Duelo</span>
                 <span class="op-esp"><i class="radio"></i>Vínculos y pareja</span>
-                <span class="nota-esp">No es un filtro: los terapeutas de esa especialidad aparecen primero y los demás siguen en la lista.</span>
+                <span class="nota-esp">No es un filtro: los terapeutas de esa especialidad aparecen primero y los demás siguen en la lista. Al ordenar por precio, no se tiene en cuenta.</span>
               </div>
             </span>
           </div>
+          <div class="atajos-esp"><span class="et-orden">Dar prioridad a:</span><span class="atajo on">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
           <div style="position:relative"><div class="el-lista"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
   <div class="info">
     <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
@@ -1495,7 +1504,8 @@ ul.lista-simple { padding: 0; }
     <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>terapeuta</em></h1></div>
     <div class="el-tags" style="flex-wrap:nowrap"><span>Ansiedad</span><span>Estrés laboral</span><span>Hasta $50.000</span><span style="background:transparent;border:1.5px dashed var(--salvia-fuerte)">Cambiar</span></div>
     <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 6h16M7 12h10M10 18h4"/></svg><b>Terapeutas</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><span class="tenue">6 para vos</span></div>
-    <div class="fila-ctl"><span class="et-orden">Ordenar</span><span class="el-orden"><span class="on">Compatibilidad</span><span>Precio</span><span>Especialidad<svg class="ico chico"><use href="#i-abajo"/></svg></span></span></div>
+    <div class="fila-ctl"><span class="et-orden">Ordenar</span><span class="el-orden"><span class="on">Compatibilidad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
+    <div class="atajos-esp tel-atajos"><span class="et-orden">Prioridad:</span><span class="atajo">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
     <div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
   <div class="info">
     <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>

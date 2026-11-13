@@ -19,7 +19,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
 | 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
-| 5 | Elegí a tu terapeuta · orden por especialidad y filtro de profesionales | Primera versión (escritorio y teléfono) |
+| 5 | Elegí a tu terapeuta · compatibilidad con prioridad a una especialidad y filtro de profesionales | Segunda versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -92,11 +92,11 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
   <figure><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-escritorio.jpg" alt="Elegí a tu terapeuta en escritorio, ordenado por la especialidad Ansiedad, con el menú abierto" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-telefono.jpg" alt="Elegí a tu terapeuta en el teléfono, en el orden por defecto" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
   <div class="texto">
-    <span class="chip-estado">Mockup 5 · primera versión</span>
+    <span class="chip-estado">Mockup 5 · segunda versión</span>
     <h3>Elegí a tu terapeuta</h3>
     <p>Parte de la elección de la familia 2 y mantiene el panel "Lo que nos contaste", con "Cambiar mis respuestas". Suma:</p>
     <ul>
-      <li>El orden por <strong>especialidad</strong>, junto a compatibilidad y precio: por defecto, según todas tus respuestas; si elegís una, sus terapeutas van primero. No es un filtro.</li>
+      <li>Dos criterios de orden: <strong>compatibilidad</strong> (por defecto, según todas tus respuestas, o dando prioridad a una especialidad, cuyos terapeutas van primero, sin filtrar) y <strong>precio</strong>.</li>
       <li>El filtro <strong>"Mostrar"</strong>, hoy solo con terapeutas, preparado para otros profesionales.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
@@ -193,11 +193,13 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #1](/06-app-usuario/historial/ronda-1/)), con la navegación de esta ronda. Es el paso 1 de la primera sesión, al que se llega desde "Ver terapeutas" en el Inicio sin profesional (mockup 3).
 
 - **"Lo que nos contaste"** se mantiene a la derecha: las respuestas del cuestionario agrupadas (qué querés trabajar, tu experiencia, tus preferencias y tu presupuesto) y "Cambiar mis respuestas". En el teléfono, las respuestas van arriba como pills, con "Cambiar".
-- **Ordenar por:** Compatibilidad, Precio y **Especialidad**, en un mismo control.
-  - **Por defecto, la especialidad es libre:** ordena según todas las respuestas del cuestionario ("Todas, según tus respuestas").
-  - **Si la persona elige una especialidad**, los terapeutas que la trabajan aparecen primero, ordenados por compatibilidad, y debajo, con el separador "Otros terapeutas para vos", los demás. **No es un filtro**: nadie desaparece de la lista; es una compatibilidad manual. El menú lo aclara al pie.
-  - El menú de especialidades muestra primero las de tus respuestas y después las demás.
-  - En el escritorio se ve el orden por "Especialidad: Ansiedad" con el menú abierto; en el teléfono, el orden por defecto.
+- **Ordenar por: Compatibilidad ▾ · Precio.** La especialidad no es un criterio aparte: es una forma de la compatibilidad.
+  - **Por defecto**, la compatibilidad tiene en cuenta todas las respuestas del cuestionario ("Según todas tus respuestas").
+  - **Dando prioridad a una especialidad** (desde el menú de "Compatibilidad"), los terapeutas que la trabajan aparecen primero, ordenados por compatibilidad, y debajo, con el separador "Otros terapeutas para vos", los demás. **No es un filtro**: nadie desaparece de la lista. El control lo dice ("Compatibilidad · Ansiedad primero") y el porcentaje de cada tarjeta no cambia.
+  - El menú muestra primero las especialidades de tus respuestas y después las demás.
+  - **Accesos directos:** debajo de la barra, "Dar prioridad a:" con las especialidades de tus respuestas y "Otra…", que abre el mismo menú. Hacen visible la opción sin abrir el menú.
+  - **Al ordenar por precio**, la prioridad de especialidad no se tiene en cuenta: el precio ordena a todos por igual, para que cada criterio sea simple y predecible.
+  - En el escritorio se ve "Compatibilidad · Ansiedad primero" con el menú abierto; en el teléfono, el orden por defecto con los accesos directos.
 - **Filtro "Mostrar":** a la izquierda, "Mostrar: Terapeutas". En esta etapa es la única opción, pero queda preparado para sumar otras categorías de profesionales (por ejemplo, nutricionistas).
 - **Tarjetas de los terapeutas,** con las reglas de esta ronda:
   - La profesión en su propia línea ("Psicóloga clínica") y las especialidades en pills, en una sola línea. Las que coinciden con tus respuestas llevan "✓" y fondo salvia; la especialidad elegida para ordenar se resalta en amarillo suave con borde.
@@ -222,3 +224,7 @@ En los mockups:
 - Con más de un terapeuta, **el principal va siempre primero**. Cada pastilla avisa con el ícono de sesión y la cantidad de sesiones futuras reservadas, y con el ícono del chat y la cantidad de mensajes sin leer.
 - **En esta fase solo hay psicólogos.** "Profesionales" queda como término general para las categorías que se sumen más adelante (por ejemplo, nutricionistas). En el mockup 3, los textos pasan a "Encontrá a tu terapeuta", "Elegí a tu terapeuta" y "Ver terapeutas".
 - En la agenda de la semana de escritorio, cada sesión muestra solo el nombre y el horario, sin la foto, que dejaba el día muy apretado. En el teléfono, donde hay menos espacio, cada día lleva solo la foto del terapeuta.
+
+### Compatibilidad y especialidad, un solo criterio (13/11)
+
+En la primera versión del mockup 5, "Especialidad" era un tercer criterio de orden. En su estado por defecto ("todas, según tus respuestas") ordenaba igual que la compatibilidad, así que se combinaron: **la prioridad a una especialidad es una opción dentro de "Compatibilidad"**, con accesos directos debajo de la barra. Al ordenar por precio, la prioridad no se tiene en cuenta.
