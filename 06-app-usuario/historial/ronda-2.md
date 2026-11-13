@@ -308,7 +308,7 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
 </article>
 </div>
 
-- **"Tus respuestas" a pantalla completa (teléfono).** Muestra lo mismo que el panel "Lo que nos contaste" del escritorio: la misma tarjeta blanca sobre fondo crema, con las respuestas agrupadas, el enlace "Cambiar mis respuestas" y la aclaración sobre la compatibilidad y el precio. No se edita ahí: es para ver, y el enlace lleva al cuestionario. Se cierra con la cruz y no tiene botón abajo. Por eso el botón "Tus respuestas" lleva un ícono de portapapeles con renglones (ver) en lugar del lápiz (editar).
+- **"Tus respuestas" a pantalla completa (teléfono).** Muestra lo mismo que el panel "Lo que nos contaste" del escritorio, pero a pantalla completa con fondo blanco y sin tarjeta, igual que los menús de filtro y orden, para que se pueda recorrer con scroll: las respuestas agrupadas, el enlace "Cambiar mis respuestas" y la aclaración sobre la compatibilidad y el precio. No se edita ahí: es para ver, y el enlace lleva al cuestionario. Se cierra con la cruz y no tiene botón abajo. Por eso el botón "Tus respuestas" lleva un ícono de portapapeles con renglones (ver) en lugar del lápiz (editar).
 
 - **En el teléfono, sin la fila de pills** de "Lo que nos contaste": no entraban todas y ocupaban lugar. Al lado del filtro va el botón "**Tus respuestas**" (con un ícono de portapapeles), que abre el resumen, con el enlace para cambiarlas. Debajo, "Ordenar por" y la cantidad de terapeutas.
 
