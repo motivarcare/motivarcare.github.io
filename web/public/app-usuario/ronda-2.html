@@ -831,6 +831,12 @@ ul.lista-simple { padding: 0; }
 .pro2 .botones .boton.texto { padding: 0 6px; }
 .pro2-cab { padding-right: 0; }
 .ver-abajo { align-self: flex-start; padding: 0 !important; height: 32px; }
+
+/* Ficha del profesional: línea arriba de los botones y "Ver perfil" arriba a la derecha */
+.pro2 .botones { padding-top: 16px; border-top: 1px solid var(--linea); }
+.pro2-cab { padding-right: 96px; }
+.tel-pro .pro2-cab { padding-right: 88px; }
+.multi .pro2-cab { padding-right: 96px; }
 </style>
 </head>
 <body>
@@ -932,7 +938,7 @@ ul.lista-simple { padding: 0; }
         </div>
         <div class="columna-der">
         <article class="tarjeta pro2">
-          <div class="pro2-cab">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
               <span class="tenue">Tu terapeuta</span>
@@ -944,7 +950,7 @@ ul.lista-simple { padding: 0; }
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div><a class="boton contorno comprar-mas">Comprar más sesiones</a></div>
-          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
         </article>
           <div class="complementar">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -1000,7 +1006,7 @@ ul.lista-simple { padding: 0; }
     </article>
     <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><a class="eq-expandir" href="#sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><span class="m p"></span></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="m p"></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><img class="m" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="m p"></span></div><div class="dt"><span class="d">V</span><span class="n">6</span></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="m p"></span></div><div class="dt"><span class="d">D</span><span class="n">8</span></div></div><div class="ley-tel"><span><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Sesión con Valeria</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu terapeuta</span>
@@ -1012,7 +1018,7 @@ ul.lista-simple { padding: 0; }
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div><a class="boton contorno comprar-mas">Comprar más sesiones</a></div>
-      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
     </article>
     <div class="complementar tel-comp">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -1118,7 +1124,7 @@ ul.lista-simple { padding: 0; }
         </div>
         <div class="columna-der">
         <article class="tarjeta pro2">
-          <div class="pro2-cab">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
               <span class="tenue">Tu terapeuta</span>
@@ -1129,7 +1135,7 @@ ul.lista-simple { padding: 0; }
           <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>1</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i class="u"></i><i></i></span></div><a class="boton bosque comprar-mas">Comprar más sesiones</a></div>
-          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
         </article>
           <div class="complementar">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -1190,7 +1196,7 @@ ul.lista-simple { padding: 0; }
     </article>
     <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><a class="eq-expandir" href="#sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><span class="marcas"><span class="m p"></span></span></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="marcas"><span class="m p"></span></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><span class="marcas"><span class="m l"></span></span></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="marcas"><span class="m p"></span><span class="m l"></span></span></div><div class="dt"><span class="d">V</span><span class="n">6</span><span class="marcas"><span class="m l"></span></span></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="marcas"><span class="m p"></span></span></div><div class="dt"><span class="d">D</span><span class="n">8</span><span class="marcas"></span></div></div><div class="ley-tel"><span><i class="l"></i>Horario libre de Valeria</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu terapeuta</span>
@@ -1201,7 +1207,7 @@ ul.lista-simple { padding: 0; }
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>1</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i class="u"></i><i></i></span></div><a class="boton bosque comprar-mas">Comprar más sesiones</a></div>
-      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
     </article>
     <div class="complementar tel-comp">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -1486,7 +1492,7 @@ ul.lista-simple { padding: 0; }
               <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
-          <div class="pro2-cab">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
               <span class="tenue">Tu terapeuta</span>
@@ -1498,7 +1504,7 @@ ul.lista-simple { padding: 0; }
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div><a class="boton contorno comprar-mas">Comprar más sesiones</a></div>
-          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
         </article>
           <div class="complementar">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -1562,7 +1568,7 @@ ul.lista-simple { padding: 0; }
               <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu terapeuta</span>
@@ -1574,7 +1580,7 @@ ul.lista-simple { padding: 0; }
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div><a class="boton contorno comprar-mas">Comprar más sesiones</a></div>
-      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Contanos cómo te va</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton primario">Contanos cómo te va</a></div>
     </article>
     <div class="complementar tel-comp">
             <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
@@ -2108,7 +2114,7 @@ ul.lista-simple { padding: 0; }
         </div>
         <div class="columna-der">
           <article class="tarjeta pro2">
-          <div class="pro2-cab">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
               <span class="tenue">Tu terapeuta</span>
@@ -2119,7 +2125,7 @@ ul.lista-simple { padding: 0; }
           <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           
-        <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min. El enlace te llega por mail y queda en Sesiones.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div><a class="boton texto ver-abajo">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+        <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min. El enlace te llega por mail y queda en Sesiones.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
           </article>
           <div class="tarjeta reservar-box">
             <span class="et-franja" style="width:auto;color:var(--verde-medio)">Tu sesión</span>
@@ -2156,7 +2162,7 @@ ul.lista-simple { padding: 0; }
           <div class="nota ctx-nota"><i>i</i><span>Te recomendamos reservar una sola sesión como <b>encuentro inicial</b>, para conocerse con Valeria. Si se sienten a gusto, después pueden seguir con un paquete.</span></div>
         </article>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Reservás con</span>
@@ -2166,7 +2172,7 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       
-    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div><a class="boton texto ver-abajo">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
     </article>
     <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
     <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div></div>
@@ -2202,7 +2208,7 @@ ul.lista-simple { padding: 0; }
           <div class="ctx-linea cambio"><span class="et-franja" style="width:auto">Estás cambiando</span><b>Viernes 6 de noviembre, 10:00</b></div>
         </article>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu terapeuta</span>
@@ -2212,7 +2218,7 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       
-    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div><a class="boton texto ver-abajo">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
     </article>
     <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
     <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario actual">10:00<small>La que cambiás</small></span><span class="horario">17:00</span></div></div></div>
@@ -2248,7 +2254,7 @@ ul.lista-simple { padding: 0; }
           <div class="ctx-linea cambio" style="border-top:0;padding-top:0"><span class="et-franja" style="width:auto">Estás cambiando</span><b>Hoy, miércoles 4 de noviembre, 18:00</b></div>
         </article>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu terapeuta</span>
@@ -2258,7 +2264,7 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       
-    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div><a class="boton texto ver-abajo">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
     </article>
     <article class="tarjeta aviso-24">
       <span class="icono-aviso"><svg class="ico"><use href="#i-reloj"/></svg></span>
