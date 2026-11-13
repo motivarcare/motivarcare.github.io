@@ -487,6 +487,30 @@ ul.lista-simple { padding: 0; }
 .sem-tel .m.l, .ley-tel i.l { width: 10px; height: 10px; border-radius: 50%; border: 1.5px dashed var(--bosque); display: inline-block; margin-top: 5px; }
 .ley-tel i.l { margin-top: 0; }
 .columna-izq .eq-dia { gap: 4px; }
+
+/* Mockup 3: primeros pasos y sugeridos */
+.pasos.r2 { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.pasos.r2 .paso { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--bosque); }
+.pasos.r2 .num { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 800; flex: none; }
+.pasos.r2 .actual .num { background: var(--amarillo); color: var(--bosque); }
+.pasos.r2 .pendiente { color: var(--tinta-suave); font-weight: 500; }
+.pasos.r2 .pendiente .num { border: 1.5px dashed var(--salvia-fuerte); color: var(--tinta-suave); background: rgba(255,255,255,.5); }
+.tel-pasos .paso { font-size: 14px; }
+.sugeridos2 { display: flex; flex-direction: column; gap: 0; padding: 22px 24px; min-width: 0; }
+.sug-cab { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.sug-cab b { display: block; font: 560 20px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.sug { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-top: 1px solid var(--linea); min-width: 0; }
+.sug-cab + .sug { border-top: 0; }
+.sug-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.sug-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.sug-top b { font-size: 15.5px; color: var(--bosque); }
+.sug .peq { font-size: 13px; }
+.sug-precio { font-size: 13px; color: var(--tinta-suave); }
+.sug-precio b { color: var(--bosque); }
+.sug .chip { font-size: 12px; padding: 6px 10px; }
+.tel-sug { padding: 16px 16px 6px; }
+.tel-sug .sug-cab b { font-size: 18px; }
+.tel-sug .sug-top { flex-direction: column; align-items: flex-start; gap: 6px; }
 </style>
 </head>
 <body>
@@ -797,6 +821,175 @@ ul.lista-simple { padding: 0; }
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
+    </article>
+    <article class="tarjeta menta clima" style="gap:12px">
+            <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+            <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+  </div>
+  <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="lamina">
+<h2>3 · Inicio en escritorio · sin profesional asignado</h2>
+<p class="nota-r2">Para quien todavía no eligió profesional. La tarjeta verde guía los primeros pasos y la columna de la derecha muestra los sugeridos, con los mismos datos que la tarjeta del profesional. Todavía no hay agenda, así que no se muestra la semana.</p>
+<div class="marco esc" id="r2-3-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-chat"/></svg>Mensajes</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo">
+        <span class="t-fecha">Te damos la bienvenida</span>
+        <h1 class="t1">Hola, <em>Gastón.</em></h1>
+        <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
+      </div>
+      <div class="grilla-inicio">
+        <div class="columna-izq">
+        <article class="tarjeta salvia sesion">
+          <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="380" cy="150" r="14" fill="#F5C33B"/></svg>
+          <div class="cabeza"><span class="chip" style="background:var(--superficie)">Primeros pasos</span></div>
+          <div class="cuando" style="font-size:34px">Encontrá a tu profesional<small>Te sugerimos profesionales según lo que contaste en el cuestionario.</small></div>
+          <div class="pasos r2">
+            <div class="paso actual"><span class="num">1</span>Elegí a tu profesional</div>
+            <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
+            <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
+            <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
+          </div>
+          <div class="acciones">
+            <a class="boton primario grande">Ver profesionales<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+            <span class="peq" style="color:var(--bosque)">Cada profesional define su precio. Sin suscripción.</span>
+          </div>
+        </article>
+                    <section class="entre r2">
+            <div class="cabeza"><h2 class="t3">Mientras tanto</h2></div>
+            <div class="grilla-entre r2">
+          <article class="tarjeta menta clima">
+            <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+            <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
+            <span class="privado"><svg class="ico"><use href="#i-candado"/></svg>Solo lo ves vos, salvo que elijas compartirlo</span>
+          </article>
+          <article class="tarjeta lima recurso">
+            <span class="icono-mancha"><svg class="blob" viewBox="0 0 100 100"><path d="M82 64c-6 18-26 28-44 24S8 68 10 48 28 12 50 12s38 34 32 52z" fill="#2F6B51" opacity=".85"/></svg><svg class="ico"><use href="#i-respira"/></svg></span>
+            <div><span class="tenue">Para empezar · 3 min</span><b style="display:block;color:var(--bosque);font-size:16.5px">Respiración para bajar la ansiedad</b></div>
+            <a class="enlace">Empezar<svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+            </div>
+          </section>
+        </div>
+        <article class="tarjeta sugeridos2">
+          <div class="sug-cab"><div><b>Sugeridos para vos</b><span class="tenue">Según tu cuestionario</span></div><a class="ver-perfil" style="position:static">Ver todos<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+          <div class="sug">
+              <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
+              <div class="sug-info">
+                <div class="sug-top"><b>Lic. Valeria Quiroga</b><span class="chip lima">92 % compatible</span></div>
+                <span class="peq">Psicóloga clínica · <span class="estrella">★</span> 4,9 · Argentina</span>
+                <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
+                <span class="sug-precio">Sesión de 50 min · <b>$42.000 ARS</b></span>
+              </div>
+            </div><div class="sug">
+              <img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="52" height="52">
+              <div class="sug-info">
+                <div class="sug-top"><b>Lic. Tomás Benítez</b><span class="chip lima">88 % compatible</span></div>
+                <span class="peq">Psicólogo · <span class="estrella">★</span> 4,8 · Colombia</span>
+                <div class="pills"><span class="chip">Vínculos y pareja</span><span class="chip">Autoestima</span><span class="chip">Terapia sistémica</span></div>
+                <span class="sug-precio">Sesión de 50 min · <b>$38.000 ARS</b></span>
+              </div>
+            </div><div class="sug">
+              <img class="avatar" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="52" height="52">
+              <div class="sug-info">
+                <div class="sug-top"><b>Lic. Mónica Aranda</b><span class="chip lima">85 % compatible</span></div>
+                <span class="peq">Psicóloga · <span class="estrella">★</span> 4,9 · México</span>
+                <div class="pills"><span class="chip">Duelo</span><span class="chip">Cambios de vida</span><span class="chip">Ansiedad</span></div>
+                <span class="sug-precio">Sesión de 50 min · <b>$48.000 ARS</b></span>
+              </div>
+            </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+  <span class="maca"><img src="../landing/img/maca.svg" alt="">Hablar con Maca</span>
+</div>
+</section>
+
+<section class="lamina">
+<h2>3 · Inicio en el teléfono · sin profesional asignado</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel largo" id="r2-3-telefono">
+  <div class="estado-tel"><span>10:24</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel">
+    <div class="saludo" style="margin-bottom:4px">
+      <span class="t-fecha">Te damos la bienvenida</span>
+      <h1 class="t1">Hola, <em>Gastón.</em></h1>
+      <p class="bajada">Empecemos por encontrar a la persona que te va a acompañar.</p>
+    </div>
+    <article class="tarjeta salvia sesion r2">
+      <svg class="mancha" viewBox="0 0 500 520" aria-hidden="true"><path d="M438.7 372.7 C410.4 424.2 340.8 463.3 284.5 475.3 C228.1 487.3 140.1 482.6 100.4 444.8 C60.7 407.0 42.8 312.5 46.0 248.6 C49.2 184.7 76.7 94.1 119.7 61.4 C162.7 28.6 248.1 34.5 303.8 52.0 C359.6 69.4 431.7 112.8 454.2 166.3 C476.7 219.7 467.0 321.2 438.7 372.7Z" fill="#E7F1EA"/><circle cx="330" cy="200" r="15" fill="#F5C33B"/></svg>
+      <div class="cabeza"><span class="chip" style="background:var(--superficie)">Primeros pasos</span></div>
+      <div class="cuando" style="font-size:26px">Encontrá a tu profesional</div>
+      <div class="pasos r2 tel-pasos">
+            <div class="paso actual"><span class="num">1</span>Elegí a tu profesional</div>
+            <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
+            <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
+            <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
+          </div>
+      <a class="boton primario grande ancho" style="position:relative">Ver profesionales</a>
+      <span class="peq" style="position:relative;text-align:center;color:var(--bosque);font-size:13px">Cada profesional define su precio. Sin suscripción.</span>
+    </article>
+        <article class="tarjeta sugeridos2 tel-sug">
+      <div class="sug-cab"><div><b>Sugeridos para vos</b><span class="tenue">Según tu cuestionario</span></div><a class="ver-perfil" style="position:static">Ver todos<svg class="ico"><use href="#i-flecha"/></svg></a></div>
+      <div class="sug">
+              <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+              <div class="sug-info">
+                <div class="sug-top"><b>Lic. Valeria Quiroga</b><span class="chip lima">92 % compatible</span></div>
+                <span class="peq">Psicóloga clínica · <span class="estrella">★</span> 4,9 · Argentina</span>
+                <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
+                <span class="sug-precio">Sesión de 50 min · <b>$42.000 ARS</b></span>
+              </div>
+            </div>
+      <div class="sug">
+              <img class="avatar" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="48" height="48">
+              <div class="sug-info">
+                <div class="sug-top"><b>Lic. Tomás Benítez</b><span class="chip lima">88 % compatible</span></div>
+                <span class="peq">Psicólogo · <span class="estrella">★</span> 4,8 · Colombia</span>
+                <div class="pills"><span class="chip">Vínculos y pareja</span><span class="chip">Autoestima</span><span class="chip">Terapia sistémica</span></div>
+                <span class="sug-precio">Sesión de 50 min · <b>$38.000 ARS</b></span>
+              </div>
+            </div>
     </article>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>

@@ -17,7 +17,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 |---|---|---|
 | 1 | Inicio · profesional asignado, con turno para la próxima sesión | Segunda versión (escritorio y teléfono) |
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
-| 3 | Inicio · sin profesional asignado | Pendiente |
+| 3 | Inicio · sin profesional asignado | Primera versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Pendiente |
 
 ## Mockups
@@ -54,6 +54,21 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>La tarjeta del profesional se ve sin mensaje sin leer, la variante sin ese apartado.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-2-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/03-inicio-sin-profesional-escritorio.jpg" alt="Inicio sin profesional asignado, en escritorio" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/03-inicio-sin-profesional-telefono.jpg" alt="Inicio sin profesional asignado, en el teléfono" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 3 · primera versión</span>
+    <h3>Inicio · sin profesional asignado</h3>
+    <p>Para quien todavía no eligió profesional:</p>
+    <ul>
+      <li>La tarjeta verde guía los primeros pasos (los cuatro de la primera sesión) y lleva a "Ver profesionales".</li>
+      <li>A la derecha, "Sugeridos para vos", con los mismos datos que la tarjeta del profesional, su compatibilidad y su precio.</li>
+      <li>Sin agenda: todavía no hay sesiones.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-3-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -115,3 +130,13 @@ Parte del mockup 1, con todos sus ajustes, y cambia lo que depende de no tener u
 - **Agenda de la semana:** no hay sesiones; los horarios libres de Valeria aparecen punteados en sus días ("Libre 18:00"; si hay más de uno en un día, "2 libres"). En el teléfono, cada horario libre es un círculo punteado, con su leyenda.
 - **Tarjeta del profesional:** igual que en el mockup 1, pero sin mensaje sin leer, para mostrar cómo queda sin ese apartado. Sin mensajes nuevos, "Mensajes" tampoco lleva contador en la navegación.
 - **Entre sesiones:** igual, con un ejercicio pensado para el día y no para antes de una sesión.
+
+## 3 · Inicio sin profesional asignado
+
+Para quien se registró y todavía no eligió profesional. Mantiene la estructura de los mockups 1 y 2, y cambia el contenido:
+
+- **Saludo:** "Te damos la bienvenida" y "Empecemos por encontrar a la persona que te va a acompañar".
+- **Tarjeta verde:** la etiqueta "Primeros pasos", el título "Encontrá a tu profesional" y los cuatro pasos de la primera sesión (el primero, en amarillo; los demás, punteados porque están pendientes). El botón amarillo es "Ver profesionales", y debajo se aclara que cada profesional define su precio y que no hay suscripción. No se muestra ningún precio ni paquete suelto: todavía no hay un profesional elegido.
+- **Sugeridos para vos** (columna de la derecha): tres profesionales según el cuestionario, con los mismos datos y el mismo formato que la tarjeta del profesional (profesión, calificación, país y especialidades en una sola línea), más su compatibilidad y el precio de su sesión. "Ver todos" va arriba a la derecha, como "Ver perfil". En el teléfono se ven dos, con la compatibilidad debajo del nombre.
+- **Sin agenda de la semana:** todavía no hay sesiones ni horarios con un profesional.
+- **"Mientras tanto"** (en lugar de "Entre sesiones"): el registro del día y un ejercicio para empezar.
