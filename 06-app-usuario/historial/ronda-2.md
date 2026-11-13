@@ -37,7 +37,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>Sus sesiones: la última, la próxima y las disponibles.</li>
       <li>"Escribile" (botón de contorno, abre el chat) y "Ver perfil".</li>
     </ul>
-    <p>Las sesiones disponibles pasan a la tarjeta del profesional. En el teléfono, la pantalla se recorre con scroll: la sesión, la semana, el profesional y el registro del ánimo.</p>
+    <p>Las sesiones disponibles pasan a la tarjeta del profesional. En "Entre sesiones", el registro del día usa el clima ("¿Cómo está tu día?") y lleva adentro el acceso al diario. En el teléfono, la pantalla se recorre con scroll: la sesión, la semana, el profesional y el registro del día.</p>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-1-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
@@ -75,3 +75,9 @@ Otros cambios respecto del B3:
 - **Una sola profesión, igual en todas las tarjetas.** La profesión ("Psicóloga clínica") es la misma en la tarjeta de la sesión, en las credenciales y en el perfil. Las especialidades van solo en las pills, nunca en la línea de la profesión. Antes, la tarjeta de la sesión decía "Psicóloga clínica · Ansiedad y estrés", y no coincidía con la tarjeta del profesional.
 - **Las credenciales empiezan por la profesión:** "Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia".
 - **Pills en una sola línea**, con el corte "…" en la última que no entra completa.
+
+### Ajustes del 13/11: "¿Cómo está tu día?"
+
+- El registro rápido del ánimo ("¿Cómo estás hoy?", con caras) se reemplaza por **"¿Cómo está tu día?"**, la alternativa del clima explorada en la [Ronda #1](/06-app-usuario/historial/ronda-1/#materiales-complementarios): Tormenta, Lluvia, Nublado, Algo de sol y Despejado, con íconos de línea sobre círculos crema y el sol en amarillo. Le saca peso a la pregunta: el día está nublado, no la persona.
+- **"Ir al diario" pasa adentro de la tarjeta**, junto al título, en lugar de ir al lado del título "Entre sesiones".
+- En el Inicio no hay ninguna opción elegida: es el registro de hoy, todavía sin hacer.
