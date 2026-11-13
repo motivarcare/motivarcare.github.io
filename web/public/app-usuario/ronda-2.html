@@ -325,7 +325,8 @@ ul.lista-simple { padding: 0; }
 
 /* ---------- Ronda 2: tarjeta del profesional ---------- */
 .lamina > p.nota-r2 { font-size: 15px; color: var(--tinta-suave); max-width: 900px; margin: -6px 0 16px; }
-.esc .grilla-inicio { align-items: start; }
+.esc .grilla-inicio { align-items: start; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+.pro2, .pills { min-width: 0; }
 .columna-izq { display: flex; flex-direction: column; min-width: 0; }
 .entre.r2 { margin-top: 24px; }
 .grilla-entre.r2 { grid-template-columns: 1.75fr 1fr; }
@@ -337,7 +338,9 @@ ul.lista-simple { padding: 0; }
 .pro2-cab b { font-size: 17px; color: var(--bosque); }
 .pro2 .califica { display: inline-flex; align-items: center; gap: 4px; font-size: 13.5px; font-weight: 600; color: var(--tinta-suave); }
 .pro2 .califica .sep { color: var(--tinta-tenue); }
-.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pills { display: flex; flex-wrap: nowrap; gap: 6px; overflow: hidden; }
+.pills .chip { flex: none; }
+.pills .chip.corta { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .credenciales { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: var(--tinta-suave); }
 .credenciales .ico { width: 17px; height: 17px; color: var(--verde-medio); margin-top: 1px; }
 .no-leido { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 14px; background: var(--lima-suave); border-left: 3px solid var(--amarillo); }
@@ -504,7 +507,7 @@ ul.lista-simple { padding: 0; }
           <div class="cuando">Hoy, 18:00<small>Videollamada de 50 min · hora de Argentina (GMT-3)</small></div>
           <div class="con">
             <span class="anillo"><img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></span>
-            <div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica · Ansiedad y estrés</span></div>
+            <div><b>Lic. Valeria Quiroga</b><span class="peq">Psicóloga clínica</span></div>
           </div>
           <div class="acciones">
             <a class="boton primario grande"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
@@ -540,8 +543,8 @@ ul.lista-simple { padding: 0; }
               <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
             </div>
           </div>
-          <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
-          <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga (UBA) · Matrícula verificada · 9 años de experiencia</p>
+          <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
+          <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
           <div class="sesiones3">
             <div><span class="et">Última</span><b>Jue 29/10</b><span class="tenue">18:00</span></div>
@@ -592,8 +595,8 @@ ul.lista-simple { padding: 0; }
           <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
         </div>
       </div>
-      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
-      <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga (UBA) · Matrícula verificada · 9 años de experiencia</p>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
+      <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
       <div class="sesiones3">
         <div><span class="et">Última</span><b>Jue 29/10</b></div>
@@ -623,5 +626,22 @@ ul.lista-simple { padding: 0; }
 </div>
 </section>
 
+<script>
+// Especialidades en una sola línea: se muestran las pills que entran; la última que no entra completa se corta con "…"
+function ajustarPills(){
+  document.querySelectorAll('.pills').forEach(function(p){
+    var W = p.clientWidth, x = 0, gap = 6, lleno = false;
+    Array.prototype.forEach.call(p.children, function(c, i){
+      c.style.display = ''; c.style.maxWidth = ''; c.classList.remove('corta');
+      if (lleno) { c.style.display = 'none'; return; }
+      var inicio = x + (i ? gap : 0), w = c.offsetWidth;
+      if (inicio + w <= W) { x = inicio + w; return; }
+      if (W - inicio >= 56) { c.classList.add('corta'); c.style.maxWidth = (W - inicio) + 'px'; } else { c.style.display = 'none'; }
+      lleno = true;
+    });
+  });
+}
+document.fonts.ready.then(ajustarPills); window.addEventListener('resize', ajustarPills);
+</script>
 </body>
 </html>

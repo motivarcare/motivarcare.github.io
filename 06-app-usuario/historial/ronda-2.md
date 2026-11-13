@@ -32,7 +32,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <p>Toma como base el Inicio B3 de la <a href="/06-app-usuario/historial/ronda-1/">Ronda #1</a>. La sesión de hoy lleva "Entrar a la sesión" y "Reprogramar", y debajo vuelve la agenda de la semana. La tarjeta del profesional reúne:</p>
     <ul>
       <li>Avatar, nombre y "★ 4,9 · Argentina".</li>
-      <li>Especialidades en pills y una línea con sus credenciales.</li>
+      <li>Especialidades en pills, en una sola línea, y una línea con sus credenciales.</li>
       <li>El último mensaje sin leer, en una nota sutil, <strong>solo si hay uno</strong>.</li>
       <li>Sus sesiones: la última, la próxima y las disponibles.</li>
       <li>"Escribile" (botón de contorno, abre el chat) y "Ver perfil".</li>
@@ -48,8 +48,8 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 Toma como base el Inicio B3 de la [Ronda #1](/06-app-usuario/historial/ronda-1/) (variante B, con "Mensajes" en la navegación), en escritorio, y su par B4 en el teléfono. La tarjeta de la sesión, con "Entrar a la sesión", sigue igual. Lo que cambia es **la tarjeta del profesional**, a la derecha, que ahora reúne todo lo que la persona necesita saber de quien la atiende:
 
 - **Avatar, nombre y un resumen de la calificación y el país:** "★ 4,9 · Argentina".
-- **Especialidades en pills:** Ansiedad, Estrés laboral y Terapia cognitivo-conductual.
-- **Una línea con sus credenciales:** "Psicóloga (UBA) · Matrícula verificada · 9 años de experiencia", con el ícono del escudo.
+- **Especialidades en pills, en una sola línea:** se muestran las que entran; si la última no entra completa, se corta con "…" (en el mockup, "Terapia cognitivo-cond…"), y las demás quedan para el perfil.
+- **Una línea con sus credenciales:** "Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia", con el ícono del escudo.
 - **El último mensaje sin leer**, en una nota sutil (círculo amarillo suave con la "i" y el texto: "Te escribió ayer: …"). **Solo aparece si hay un mensaje sin leer**; si no, la tarjeta pasa directo a las sesiones.
 - **Las sesiones con ese profesional:** la última, la próxima (destacada en menta) y las disponibles del paquete ("3 de 4", con los puntos del design system).
 - **"Escribile"** (botón de contorno, que abre el chat) y **"Ver perfil"** (enlace). Escribirle no compite con la sesión: el amarillo queda reservado para "Entrar a la sesión", el único botón principal de la pantalla.
@@ -69,3 +69,9 @@ Otros cambios respecto del B3:
 - "Escribile" deja de ser un botón verde y pasa a botón de contorno; "Ver perfil" queda como enlace.
 - "Reprogramar" reemplaza a "Ver detalle" en la tarjeta de la sesión.
 - Vuelve la agenda de la semana debajo de la sesión.
+
+### Ajustes del 13/11: datos del profesional coherentes
+
+- **Una sola profesión, igual en todas las tarjetas.** La profesión ("Psicóloga clínica") es la misma en la tarjeta de la sesión, en las credenciales y en el perfil. Las especialidades van solo en las pills, nunca en la línea de la profesión. Antes, la tarjeta de la sesión decía "Psicóloga clínica · Ansiedad y estrés", y no coincidía con la tarjeta del profesional.
+- **Las credenciales empiezan por la profesión:** "Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia".
+- **Pills en una sola línea**, con el corte "…" en la última que no entra completa.
