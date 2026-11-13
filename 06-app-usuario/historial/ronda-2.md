@@ -18,7 +18,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 1 | Inicio · profesional asignado, con turno para la próxima sesión | Segunda versión (escritorio y teléfono) |
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
 | 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
-| 4 | Inicio · con más de un profesional asignado | Pendiente |
+| 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -69,6 +69,21 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>Abajo, "¿Es tu primera vez en terapia?" y un ejercicio. Sin agenda: todavía no hay sesiones.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-3-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/04-inicio-varios-profesionales-escritorio.jpg" alt="Inicio con más de un profesional asignado, en escritorio" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/04-inicio-varios-profesionales-telefono.jpg" alt="Inicio con más de un profesional asignado, en el teléfono" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 4 · primera versión</span>
+    <h3>Inicio · con más de un profesional asignado</h3>
+    <p>Misma estructura que el mockup 1, con tres profesionales:</p>
+    <ul>
+      <li>La tarjeta verde muestra la sesión más próxima, sea con quien sea.</li>
+      <li>La agenda de la semana reúne las sesiones con todos, cada profesional con su foto y su color.</li>
+      <li>La tarjeta de la derecha suma un selector con la foto de cada profesional: se ve uno por vez, con los mismos datos que en el mockup 1.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-4-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -146,6 +161,16 @@ Para quien se registró y todavía no eligió profesional. Mantiene la estructur
 - **La tarjeta de los primeros pasos pasa a verde oscuro (bosque)**, como en la propuesta de la Ronda #1. Así el Inicio de quien todavía no tiene profesional se distingue a primera vista del de quien ya lo tiene, que usa la tarjeta salvia.
 - **"¿Es tu primera vez en terapia?" reemplaza a "¿Cómo está tu día?"** en "Mientras tanto". En este momento del recorrido orienta más: quien todavía no eligió profesional necesita confianza para dar el primer paso ("No hace falta tener todo claro para empezar", "La primera sesión es para conocerse", la sugerencia de reservar un encuentro inicial y "Qué esperar de la primera sesión"). El diario sigue disponible desde la navegación y suma más valor cuando ya hay un proceso en marcha.
 - En "¿Es tu primera vez en terapia?", el segundo punto pasa a ser: "Te sugerimos que reserves un **encuentro inicial** con un profesional. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado." Reemplaza a "Si no te sentís a gusto, podés pedir un cambio de profesional", que en este momento (sin profesional elegido) no correspondía.
+
+## 4 · Inicio con más de un profesional asignado
+
+Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de trabajar con varios profesionales a la vez. En el ejemplo, Gastón hace terapia individual con Valeria, tiene un seguimiento de psiquiatría con Andrés y trabaja vínculos con Tomás.
+
+- **Saludo:** "Esta semana tenés 3 sesiones con 3 profesionales. La próxima, con Valeria, empieza en unos minutos."
+- **Tarjeta verde:** la sesión más próxima, sea con quien sea. Es igual a la del mockup 1, con el nombre del profesional de esa sesión.
+- **Agenda de la semana:** reúne las sesiones con todos los profesionales, cada uno con su foto y un color propio (salvia para Valeria, lima para Andrés y amarillo suave para Tomás, los colores categóricos del design system). En el teléfono, cada día lleva la foto del profesional con quien hay sesión.
+- **Tarjeta del profesional con selector:** arriba, "Tus profesionales · 3" y una pastilla con la foto y el nombre de cada uno. Se ve un profesional por vez, con los mismos datos y el mismo orden que en el mockup 1. Por defecto se abre el de la próxima sesión. Un punto amarillo sobre la foto avisa que ese profesional dejó un mensaje sin leer. Sobre el nombre, el servicio ("Terapia individual", "Psiquiatría"…) ayuda a distinguirlos. Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
+- **Entre sesiones:** igual que en el mockup 1.
 
 ## Decisiones de la ronda
 
