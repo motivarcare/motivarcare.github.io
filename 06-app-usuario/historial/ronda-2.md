@@ -20,7 +20,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
 | 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
-| 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad, y desde "Para complementar tu proceso" | Tercera versión (escritorio y teléfono) |
+| 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Tercera versión (escritorio y teléfono) |
 | 7 | Contratación · elegí tu paquete | Primera versión (escritorio y teléfono) |
 | 8 | Reserva · elegí día y horario (primera sesión, próxima sesión o reprogramar) | Cuarta versión (escritorio y teléfono) |
 
@@ -118,22 +118,6 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>El filtro <strong>"Filtrar"</strong>, por tipo de terapia y enfoque, que por defecto dice "Según tus preferencias".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-escritorio">Ver en tamaño real →</a>
-  </div>
-</article>
-<article class="hecha">
-  <figure><img src="/img/app-usuario/ronda-2/06-elegir-desde-complementar-escritorio.jpg" alt="Elegí a tu profesional en escritorio, al que se llega desde Para complementar tu proceso con Mindfulness y relajación elegida" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
-  <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-desde-complementar-telefono.jpg" alt="Elegí a tu profesional en el teléfono, con el menú de orden abierto a pantalla completa" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
-  <div class="texto">
-    <span class="chip-estado">Mockup 6 · desde el cross-selling</span>
-    <h3>Elegí a tu profesional · desde "Para complementar tu proceso"</h3>
-    <p>El mismo Buscador de profesionales, abierto desde el Inicio con los criterios ya cargados. En el ejemplo, la persona tocó "Mindfulness y relajación":</p>
-    <ul>
-      <li>"Volver al inicio", "Para complementar tu proceso" y el título "Sumá un terapeuta". Valeria no aparece en la lista.</li>
-      <li>"Ordenar por" dice "Mindfulness y relajación".</li>
-      <li>A la derecha, "Lo que buscás": lo elegido, tu terapeuta actual y tus respuestas.</li>
-      <li>En el teléfono, el menú de orden ocupa toda la pantalla, se recorre con scroll y se cierra con "Listo".</li>
-    </ul>
-    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-complementar-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 <article class="hecha">
@@ -287,7 +271,7 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
   - "Lo que nos contaste" suma el grupo "Tipo y enfoque" (Terapia individual, Cognitivo-conductual).
   - A diferencia del orden, el filtro sí saca de la lista a quienes no coinciden; la nota del menú lo aclara y remite a "Ordenar por" para dar prioridad a una especialidad.
 - **Desde el cross-selling:** "Terapia de pareja" abre el buscador con ese tipo en "Filtrar"; una especialidad, con ella en "Ordenar por"; "Ver otros enfoques", con el menú de "Filtrar" abierto en el enfoque.
-- **Nueva variante del mockup 6:** el buscador abierto desde "Mindfulness y relajación". Cambia el encabezado ("Volver al inicio", "Para complementar tu proceso", "Sumá un terapeuta"), la lista no incluye al terapeuta actual y el panel de la derecha pasa a ser "Lo que buscás", con lo elegido, el terapeuta actual y la aclaración de que cada terapeuta se contrata por separado, empezando con un encuentro inicial.
+- **Desde el cross-selling** se llega al mismo Buscador de profesionales, con el mismo título y el mismo panel "Lo que nos contaste": solo cambian los criterios que vienen cargados.
 - **Mockup 5:** con el menú de "Filtrar" abierto, para mostrar sus opciones.
 - **Sin el filtro por rubro.** Se saca "Mostrar: Terapeutas": por ahora no va a haber muchos profesionales de otros rubros y ocupaba un lugar innecesario. Así, "Filtrar" y "Ordenar por" entran en una sola fila en el escritorio.
 - **Sin "Limpiar"**: se probó al lado de los controles, pero no había espacio. Para volver al estado inicial, cada menú tiene arriba su opción por defecto ("Según tus preferencias" y "Según todas tus respuestas").
@@ -297,12 +281,12 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
 <div class="hechas">
 <article class="hecha tels3">
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-filtro-pantalla-completa-telefono.jpg" alt="Menú Filtrar por tipo y enfoque a pantalla completa en el teléfono" loading="lazy"><figcaption>Filtrar · 390 × 844</figcaption></figure>
-  <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-desde-complementar-telefono.jpg" alt="Menú Ordenar por compatibilidad a pantalla completa en el teléfono" loading="lazy"><figcaption>Ordenar por · 390 × 844</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-orden-pantalla-completa-telefono.jpg" alt="Menú Ordenar por compatibilidad a pantalla completa en el teléfono" loading="lazy"><figcaption>Ordenar por · 390 × 844</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-tus-respuestas-telefono.jpg" alt="Lo que nos contaste a pantalla completa en el teléfono" loading="lazy"><figcaption>Tus respuestas · 390 × 844</figcaption></figure>
   <div class="texto">
     <span class="chip-estado">Mockups 5 y 6 · teléfono</span>
     <h3>Filtrar, Ordenar por y Tus respuestas, a pantalla completa</h3>
-    <p>El filtro, la primera vez (mockup 5); el orden, desde "Para complementar tu proceso" con "Mindfulness y relajación" elegida (mockup 6), y "Tus respuestas" (mockup 5).</p>
+    <p>El filtro, la primera vez (mockup 5); el orden, con "Ansiedad" elegida (mockup 6), y "Tus respuestas" (mockup 5).</p>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-filtro-telefono">Ver en tamaño real →</a>
   </div>
 </article>
