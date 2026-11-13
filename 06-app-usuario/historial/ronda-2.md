@@ -17,7 +17,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 |---|---|---|
 | 1 | Inicio · profesional asignado, con turno para la próxima sesión | Segunda versión (escritorio y teléfono) |
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
-| 3 | Inicio · sin profesional asignado | Primera versión (escritorio y teléfono) |
+| 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Pendiente |
 
 ## Mockups
@@ -60,13 +60,13 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
   <figure><img src="/img/app-usuario/ronda-2/03-inicio-sin-profesional-escritorio.jpg" alt="Inicio sin profesional asignado, en escritorio" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/03-inicio-sin-profesional-telefono.jpg" alt="Inicio sin profesional asignado, en el teléfono" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
   <div class="texto">
-    <span class="chip-estado">Mockup 3 · primera versión</span>
+    <span class="chip-estado">Mockup 3 · segunda versión</span>
     <h3>Inicio · sin profesional asignado</h3>
     <p>Para quien todavía no eligió profesional:</p>
     <ul>
-      <li>La tarjeta verde guía los primeros pasos (los cuatro de la primera sesión) y lleva a "Ver profesionales".</li>
+      <li>La tarjeta verde oscura guía los primeros pasos (los cuatro de la primera sesión) y lleva a "Ver profesionales".</li>
       <li>A la derecha, "Sugeridos para vos", con los mismos datos que la tarjeta del profesional, su compatibilidad y su precio.</li>
-      <li>Sin agenda: todavía no hay sesiones.</li>
+      <li>Abajo, "¿Es tu primera vez en terapia?" y un ejercicio. Sin agenda: todavía no hay sesiones.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-3-escritorio">Ver en tamaño real →</a>
   </div>
@@ -136,7 +136,12 @@ Parte del mockup 1, con todos sus ajustes, y cambia lo que depende de no tener u
 Para quien se registró y todavía no eligió profesional. Mantiene la estructura de los mockups 1 y 2, y cambia el contenido:
 
 - **Saludo:** "Te damos la bienvenida" y "Empecemos por encontrar a la persona que te va a acompañar".
-- **Tarjeta verde:** la etiqueta "Primeros pasos", el título "Encontrá a tu profesional" y los cuatro pasos de la primera sesión (el primero, en amarillo; los demás, punteados porque están pendientes). El botón amarillo es "Ver profesionales", y debajo se aclara que cada profesional define su precio y que no hay suscripción. No se muestra ningún precio ni paquete suelto: todavía no hay un profesional elegido.
+- **Tarjeta verde oscura (bosque):** la etiqueta "Primeros pasos", el título "Encontrá a tu profesional" y los cuatro pasos de la primera sesión (el primero, en amarillo; los demás, punteados porque están pendientes). El botón amarillo es "Ver profesionales", y debajo se aclara que cada profesional define su precio y que no hay suscripción. No se muestra ningún precio ni paquete suelto: todavía no hay un profesional elegido.
 - **Sugeridos para vos** (columna de la derecha): tres profesionales según el cuestionario, con los mismos datos y el mismo formato que la tarjeta del profesional (profesión, calificación, país y especialidades en una sola línea), más su compatibilidad y el precio de su sesión. "Ver todos" va arriba a la derecha, como "Ver perfil". En el teléfono se ven dos, con la compatibilidad debajo del nombre.
 - **Sin agenda de la semana:** todavía no hay sesiones ni horarios con un profesional.
-- **"Mientras tanto"** (en lugar de "Entre sesiones"): el registro del día y un ejercicio para empezar.
+- **"Mientras tanto"** (en lugar de "Entre sesiones"): "¿Es tu primera vez en terapia?" y un ejercicio para empezar.
+
+### Ajustes del 13/11 al mockup 3
+
+- **La tarjeta de los primeros pasos pasa a verde oscuro (bosque)**, como en la propuesta de la Ronda #1. Así el Inicio de quien todavía no tiene profesional se distingue a primera vista del de quien ya lo tiene, que usa la tarjeta salvia.
+- **"¿Es tu primera vez en terapia?" reemplaza a "¿Cómo está tu día?"** en "Mientras tanto". En este momento del recorrido orienta más: quien todavía no eligió profesional necesita confianza para dar el primer paso ("No hace falta tener todo claro para empezar", "La primera sesión es para conocerse", la posibilidad de pedir un cambio de profesional y "Qué esperar de la primera sesión"). El diario sigue disponible desde la navegación y suma más valor cuando ya hay un proceso en marcha.
