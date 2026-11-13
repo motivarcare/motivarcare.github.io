@@ -684,6 +684,38 @@ ul.lista-simple { padding: 0; }
 .r7tel > * { flex: none; }
 .marco.tel.largo .barra-pago.fija { position: absolute; left: 0; right: 0; bottom: 0; }
 .marco.tel.largo .r7tel { padding-bottom: 200px; }
+
+/* Mockup 8: reserva de día y horario */
+.sem-res { display: flex; align-items: baseline; gap: 10px; margin: 24px 0 10px; }
+.dias-res { display: flex; gap: 8px; align-items: stretch; }
+.dia-res { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; border-radius: 14px; background: var(--superficie); border: 1px solid var(--linea); }
+.dia-res b { font: 700 11px/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-tenue); }
+.dia-res > span { font: 600 18px/1.1 var(--serif); color: var(--bosque); }
+.dia-res small { font-size: 11px; color: var(--verde-medio); font-weight: 700; }
+.dia-res.on { background: var(--bosque); border-color: var(--bosque); }
+.dia-res.on b, .dia-res.on small { color: var(--lima-fuerte); }
+.dia-res.on > span { color: var(--crema); }
+.flecha-res { width: 36px; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--linea); background: var(--superficie); color: var(--bosque); font-weight: 800; font-size: 18px; }
+.dia-elegido { font: 560 20px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); margin: 22px 0 6px; }
+.franja { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+.et-franja { font: 700 11px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-tenue); width: 76px; flex: none; }
+.horas-res { display: flex; gap: 8px; flex-wrap: wrap; }
+.hora-res { padding: 9px 16px; border-radius: 12px; border: 1.5px dashed var(--bosque); background: rgba(255,255,255,.55); font-weight: 800; font-size: 14.5px; color: var(--bosque); }
+.hora-res.on { background: var(--bosque); color: var(--crema); border-style: solid; }
+.frecuencia { display: flex; align-items: center; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.frecuencia .tenue { flex-basis: 100%; }
+.tu-sesion { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px; border-radius: 14px; background: var(--menta); }
+.tu-sesion .et-franja { width: auto; color: var(--verde-medio); }
+.tu-sesion b { color: var(--bosque); font-size: 16px; }
+.dias-tel .dias-res { gap: 5px; }
+.dias-tel .dia-res { padding: 8px 2px; }
+.dias-tel .dia-res > span { font-size: 16px; }
+.dias-tel .dia-res small { font-size: 10px; }
+.dias-tel .flecha-res { width: 28px; }
+.tel .dia-elegido { font-size: 17px; margin: 6px 0 0; }
+.tel .franja { gap: 10px; padding: 10px 0; }
+.tel .et-franja { width: 62px; font-size: 10px; }
+.tel .hora-res { padding: 8px 12px; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -1846,6 +1878,82 @@ ul.lista-simple { padding: 0; }
   <div class="barra-pago fija">
     <div class="total"><span>Total · encuentro inicial</span><b>$42.000 <small style="font:700 12px var(--sans)">ARS</small></b></div>
     <a class="boton primario grande ancho">Continuar al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="lamina">
+<h2>8 · Reserva en escritorio · después del pago</h2>
+<p class="nota-r2">Se llega desde "Ver más horarios" o "Reservar sesión" en el Inicio, o después de pagar. Con sesiones ya pagadas, el botón amarillo dice "Reservar sesión" y aclara cuántas sesiones disponibles se usan. La ficha del terapeuta está siempre a la vista.</p>
+<div class="marco esc reserva" id="r2-8-escritorio">
+  <header class="cab-reserva">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+  </header>
+  <div class="cuerpo-reserva r7">
+    <div>
+      <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+      <h1 class="t1" style="font-size:42px;margin-top:14px">Elegí día y <em>horario.</em></h1>
+      <p class="bajada" style="margin-top:10px">Horarios libres de Valeria, en tu hora (Argentina, GMT-3).</p>
+      <div class="sem-res"><span class="t3" style="font-size:18px">Noviembre</span><span class="tenue">4 al 11</span></div>
+      <div class="dias-res"><span class="dia-res"><b>Hoy</b><span>4</span><small>2 libres</small></span><span class="dia-res on"><b>Jue</b><span>5</span><small>4 libres</small></span><span class="dia-res"><b>Vie</b><span>6</span><small>3 libres</small></span><span class="dia-res"><b>Sáb</b><span>7</span><small>1 libre</small></span><span class="dia-res"><b>Lun</b><span>9</span><small>5 libres</small></span><span class="dia-res"><b>Mar</b><span>10</span><small>4 libres</small></span><span class="dia-res"><b>Mié</b><span>11</span><small>3 libres</small></span><span class="flecha-res">›</span></div>
+      <div class="dia-elegido">Jueves 5 de noviembre</div>
+      <div class="franja"><span class="et-franja">Mañana</span><div class="horas-res"><span class="hora-res">09:00</span><span class="hora-res">10:00</span><span class="hora-res">11:30</span></div></div><div class="franja"><span class="et-franja">Tarde</span><div class="horas-res"><span class="hora-res">13:00</span><span class="hora-res">15:00</span><span class="hora-res">17:00</span></div></div><div class="franja"><span class="et-franja">Noche</span><div class="horas-res"><span class="hora-res on">18:30</span><span class="hora-res">20:00</span></div></div>
+      <div class="frecuencia"><span class="et-orden">Reservar</span><span class="el-orden"><span class="on">Solo esta vez</span><span>Todas las semanas</span></span><span class="tenue">Con "Todas las semanas" se reserva el mismo horario con tus sesiones disponibles.</span></div>
+    </div>
+    <aside class="tarjeta resumen r7">
+      <span class="t-fecha" style="margin-bottom:-6px">Reservás con</span>
+      <div class="con">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="56" height="56">
+        <div><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div>
+      <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
+      <div class="linea"></div>
+      <div class="tu-sesion"><span class="et-franja">Tu sesión</span><b>Jueves 5 de noviembre, 18:30</b><span class="peq">Hora de Argentina (GMT-3) · videollamada de 50 min</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>El enlace te llega por mail y queda en Sesiones.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div>
+      <div class="linea"></div>
+      <a class="boton primario grande ancho"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
+      <span class="privado" style="justify-content:center;font-weight:600;color:var(--bosque)">Usás 1 de tus 2 sesiones disponibles con Valeria</span>
+    </aside>
+  </div>
+</div>
+</section>
+
+<section class="lamina">
+<h2>8 · Reserva en el teléfono · antes del pago</h2>
+<p class="nota-r2">Si la persona elige el horario antes de pagar, el botón amarillo dice "Reservar y proceder al pago" y la barra muestra el horario elegido y el precio.</p>
+<div class="fila-tel">
+<div>
+<div class="marco tel largo" id="r2-8-telefono">
+  <div class="estado-tel"><span>10:33</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel" style="padding-bottom:4px">
+    <a class="volver-tel"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+    <span class="espacio"></span>
+  </div>
+  <div class="cuerpo-tel r7tel" style="padding-top:8px">
+    <h1 class="t1" style="font-size:30px">Elegí día y <em>horario.</em></h1>
+    <div class="tarjeta resumen-tel">
+      <span class="t-fecha">Reservás con</span>
+      <div class="con">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+        <div><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div>
+    </div>
+    <span class="peq">Horarios libres en tu hora (Argentina, GMT-3)</span>
+    <div class="dias-tel"><div class="dias-res"><span class="dia-res"><b>Hoy</b><span>4</span><small>2 libres</small></span><span class="dia-res on"><b>Jue</b><span>5</span><small>4 libres</small></span><span class="dia-res"><b>Vie</b><span>6</span><small>3 libres</small></span><span class="dia-res"><b>Sáb</b><span>7</span><small>1 libre</small></span><span class="dia-res"><b>Lun</b><span>9</span><small>5 libres</small></span><span class="flecha-res">›</span></div></div>
+    <div class="dia-elegido">Jueves 5 de noviembre</div>
+    <div class="franja"><span class="et-franja">Mañana</span><div class="horas-res"><span class="hora-res">09:00</span><span class="hora-res">10:00</span><span class="hora-res">11:30</span></div></div><div class="franja"><span class="et-franja">Tarde</span><div class="horas-res"><span class="hora-res">13:00</span><span class="hora-res">15:00</span><span class="hora-res">17:00</span></div></div><div class="franja"><span class="et-franja">Noche</span><div class="horas-res"><span class="hora-res on">18:30</span><span class="hora-res">20:00</span></div></div>
+    <div class="nota"><i>i</i><span>Videollamada de 50 min. Podés reprogramar sin costo hasta 24 h antes.</span></div>
+  </div>
+  <div class="barra-pago fija">
+    <div class="total"><span>Jue 5, 18:30 · encuentro inicial</span><b>$42.000 <small style="font:700 12px var(--sans)">ARS</small></b></div>
+    <a class="boton primario grande ancho">Reservar y proceder al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
   </div>
 </div>
 </div>

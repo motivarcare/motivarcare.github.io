@@ -22,6 +22,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
 | 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Segunda versión (escritorio y teléfono) |
 | 7 | Contratación · elegí tu paquete | Primera versión (escritorio y teléfono) |
+| 8 | Reserva · elegí día y horario (antes o después del pago) | Primera versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -131,6 +132,21 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>El panel del terapeuta, siempre visible, con su calificación, país, especialidades y las aclaraciones del servicio, sin turno reservado.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-7-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/08-reservar-horario-escritorio.jpg" alt="Reserva de día y horario en escritorio, después del pago" loading="lazy"><figcaption>Escritorio · después del pago</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/08-reservar-horario-telefono.jpg" alt="Reserva de día y horario en el teléfono, antes del pago" loading="lazy"><figcaption>Teléfono · antes del pago</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 8 · primera versión</span>
+    <h3>Reserva · elegí día y horario</h3>
+    <p>La pantalla de "Ver más horarios". Se usa antes o después de pagar, y solo cambia el botón amarillo:</p>
+    <ul>
+      <li><strong>Después del pago</strong> (escritorio): "Reservar sesión", con "Usás 1 de tus 2 sesiones disponibles con Valeria".</li>
+      <li><strong>Antes del pago</strong> (teléfono): "Reservar y proceder al pago", con el horario y el precio.</li>
+      <li>La ficha del terapeuta está siempre a la vista.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-8-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -248,6 +264,18 @@ Se llega desde "Ver paquetes" en la elección de profesional (mockups 5 y 6). Pa
 - **Opciones:** el **encuentro inicial (1 sesión)**, con la etiqueta "Recomendado para empezar" y elegido por defecto, porque es la primera vez con Valeria (ver la decisión del encuentro inicial). Debajo, los paquetes de 4 y 8 sesiones con su ahorro y su precio por sesión, y "Usar un código de descuento". Una nota explica que lo pagado por un paquete se usa solo con ese terapeuta.
 - **Panel del terapeuta, siempre visible:** "Contratás con", la foto, el nombre, "★ 4,9 · Argentina", las especialidades en pills (una sola línea) y las credenciales. No muestra un turno reservado. Mantiene las aclaraciones del servicio: la videollamada de 50 minutos, que el día y el horario se eligen cuando la persona quiera (antes o después de pagar) y que se puede reprogramar sin costo hasta 24 h antes. Después, el desglose, el total y "Continuar al pago" (el único botón amarillo), con "Es el monto exacto que vas a ver en el pago".
 - **En el teléfono:** "Volver" arriba, el panel del terapeuta compacto antes de las opciones y el total con "Continuar al pago" fijos abajo.
+
+## 8 · Reserva: elegí día y horario
+
+Es la pantalla que se abre con "Ver más horarios" o "Reservar sesión" en el Inicio (mockup 2), y también antes o después de contratar (mockup 7). Sigue la estructura del mockup 7: sin navegación lateral, con "Volver" arriba y la **ficha del terapeuta siempre a la vista**, para que no haya dudas de con quién se reserva.
+
+- **Días:** una fila con los próximos días ("Hoy", jueves 5, viernes 6…) y cuántos horarios libres tiene cada uno, con una flecha para ver más. El día elegido va en verde bosque.
+- **Horarios:** los del día elegido, agrupados por franja (mañana, tarde y noche) y en tu hora. Los libres van con borde punteado; el elegido, en verde bosque.
+- **Frecuencia** (escritorio): "Solo esta vez" o "Todas las semanas". Con "Todas las semanas" se reserva el mismo horario con las sesiones disponibles.
+- **Ficha del terapeuta:** "Reservás con", la foto, el nombre, "★ 4,9 · Argentina", las especialidades y las credenciales. Debajo, "Tu sesión" con el día y la hora elegidos, y las aclaraciones del servicio (el enlace de la videollamada y la reprogramación sin costo hasta 24 h antes).
+- **El botón amarillo cambia según el momento:**
+  - **Después del pago:** "**Reservar sesión**", con "Usás 1 de tus 2 sesiones disponibles con Valeria" (se ve en el escritorio).
+  - **Antes del pago:** "**Reservar y proceder al pago**", y la barra muestra el horario elegido y el precio del encuentro inicial (se ve en el teléfono). Después de reservar, sigue la contratación (mockup 7).
 
 ## Decisiones de la ronda
 
