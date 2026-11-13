@@ -219,7 +219,8 @@ Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #
 - **Tarjetas de los terapeutas,** con las reglas de esta ronda:
   - La profesión en su propia línea ("Psicóloga clínica") y las especialidades en pills, en una sola línea. Las que coinciden con tus respuestas llevan "✓" y fondo salvia; la especialidad elegida para ordenar se resalta en amarillo suave con borde.
   - El precio es el del **encuentro inicial** ("Encuentro inicial · $42.000"), y el panel aclara que los paquetes se eligen después, con el terapeuta elegido.
-  - "La que más encaja" marca a la primera, que lleva el único botón amarillo ("Elegir").
+  - "La que más encaja" marca a la primera, que lleva el único botón amarillo.
+  - Cada tarjeta tiene el enlace **"Ver perfil y horarios"** y el botón **"Ver paquetes"** (en lugar de "Elegir"), para alentar a contratar y pagar lo antes posible en el recorrido. Ver paquetes lleva a las opciones de ese terapeuta; como es la primera sesión, ahí se recomienda el encuentro inicial.
 
 ## Decisiones de la ronda
 
@@ -246,3 +247,4 @@ En la primera versión del mockup 5, "Especialidad" era un tercer criterio de or
 - El título pasa a "Elegí a tu profesional": "Terapeutas" ya está elegido en el filtro "Mostrar", que por ahora no tiene otras opciones.
 - Se suma el **mockup 5**, el mismo listado como se ve la primera vez (sin orden ni filtro cambiados). El de la prioridad a una especialidad pasa a ser el **mockup 6**.
 - **Sin accesos directos.** Se sacan las pills "Dar prioridad a:" de los mockups 5 y 6: duplicaban el menú, y "Otra…" solo volvía a abrirlo. El menú de "Compatibilidad" es el único lugar para dar prioridad a una especialidad. Con una especialidad elegida, el control dice su nombre ("Ansiedad"); al volver a "Según todas tus respuestas", vuelve a decir "Compatibilidad".
+- En las tarjetas de los terapeutas, el botón "Elegir" pasa a ser **"Ver paquetes"**, junto al enlace "Ver perfil y horarios", para alentar a contratar y pagar lo antes posible.
