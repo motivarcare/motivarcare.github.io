@@ -788,6 +788,16 @@ ul.lista-simple { padding: 0; }
 .tel-ctx .ctx-linea.cambio b { font-size: 17px; }
 .ctx-linea .puntos4 i.u { background: var(--bosque); }
 .ctx-linea .puntos4 i { border-color: var(--bosque); }
+
+/* Mockup 8: aclaraciones en la tarjeta del terapeuta y aviso de menos de 24 h */
+.aclaraciones { display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 1px solid var(--linea); }
+.aclaraciones .item { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--tinta-suave); }
+.aclaraciones .item .ico { color: var(--verde-medio); margin-top: 1px; }
+.tel-pro .aclaraciones .item { font-size: 13px; align-items: center; }
+.aviso-24 { display: flex; flex-direction: column; gap: 10px; padding: 20px; border-color: var(--amarillo); background: var(--superficie); }
+.aviso-24 b { font: 560 19px/1.25 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.aviso-24 p { font-size: 14px; color: var(--tinta-suave); margin: 0; }
+.icono-aviso { width: 40px; height: 40px; border-radius: 50%; background: var(--amarillo-suave); color: var(--bosque); display: grid; place-items: center; }
 </style>
 </head>
 <body>
@@ -1985,7 +1995,7 @@ ul.lista-simple { padding: 0; }
         <div class="columna-izq">
           <article class="tarjeta salvia ctx-reserva">
           <h1 class="t1 ctx-t">Reservá tu próxima <em>sesión</em></h1>
-          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-reloj"/></svg>Sesiones de 50 min por videollamada</span></div>
+          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span></div>
           <div class="ctx-linea"><span class="puntos4"><i class="u"></i><i class="u"></i><i class="u"></i><i></i></span><span>Te queda <b>1 sesión</b> del paquete de 4 con Valeria.</span><a class="boton contorno chico-b">Comprar más sesiones</a></div>
         </article>
           <span class="peq" style="margin:18px 0 0;color:var(--bosque)">Horarios libres de Valeria, en tu hora (Argentina, GMT-3)</span>
@@ -2004,14 +2014,14 @@ ul.lista-simple { padding: 0; }
           <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           
-        </article>
+        <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min. El enlace te llega por mail y queda en Sesiones.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
+          </article>
           <div class="tarjeta reservar-box">
             <span class="et-franja" style="width:auto;color:var(--verde-medio)">Tu sesión</span>
             <b class="cuando-box">Jueves 5 de noviembre, 18:30</b>
             <span class="peq">Hora de Argentina (GMT-3) · 50 min</span>
             <a class="boton primario grande ancho"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
             <span class="peq" style="text-align:center;color:var(--bosque);font-weight:600">Usás tu última sesión disponible con Valeria</span>
-            <span class="peq" style="text-align:center">Podés reprogramar sin costo hasta 24 h antes.</span>
           </div>
         </div>
       </div>
@@ -2021,8 +2031,8 @@ ul.lista-simple { padding: 0; }
 </section>
 
 <section class="lamina">
-<h2>8 · Reserva en el teléfono · caso 1: primera sesión (sin pagar) · caso 3: reprogramar</h2>
-<p class="nota-r2">Primera sesión con ese terapeuta, antes de pagar (izquierda): la tarjeta verde recomienda el encuentro inicial y el botón es "Reservar y proceder al pago". Reprogramación (derecha): la tarjeta verde muestra la sesión que se cambia y el botón es "Reprogramar sesión".</p>
+<h2>8 · Reserva en el teléfono · caso 1: primera sesión (sin pagar) · caso 3: reprogramar · reprogramar con menos de 24 h</h2>
+<p class="nota-r2">Primera sesión con ese terapeuta, antes de pagar (izquierda): la tarjeta verde recomienda el encuentro inicial y el botón es "Reservar y proceder al pago". Reprogramación (centro): la tarjeta verde muestra la sesión que se cambia y el botón es "Reprogramar sesión". Si faltan menos de 24 h (derecha), en lugar de los horarios se explica que no se puede reprogramar y se ofrece escribir a soporte.</p>
 <div class="fila-tel">
 <div>
 <div class="marco tel largo" id="r2-8-telefono">
@@ -2037,7 +2047,7 @@ ul.lista-simple { padding: 0; }
     <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
     <article class="tarjeta salvia ctx-reserva tel-ctx">
           <h1 class="t1 ctx-t">Reservá tu <em>sesión</em></h1>
-          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-reloj"/></svg>Sesiones de 50 min por videollamada</span></div>
+          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span></div>
           <div class="nota ctx-nota"><i>i</i><span>Te recomendamos reservar una sola sesión como <b>encuentro inicial</b>, para conocerse con Valeria. Si se sienten a gusto, después pueden seguir con un paquete.</span></div>
         </article>
     <article class="tarjeta pro2 tel-pro">
@@ -2051,6 +2061,7 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
     </article>
     <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
     <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div></div>
@@ -2082,7 +2093,7 @@ ul.lista-simple { padding: 0; }
     <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
     <article class="tarjeta salvia ctx-reserva tel-ctx">
           <h1 class="t1 ctx-t">Reprogramá tu <em>sesión</em></h1>
-          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-reloj"/></svg>Sesiones de 50 min por videollamada</span></div>
+          <div class="ctx-datos"><span class="chip" style="background:var(--superficie)"><svg class="ico chico"><use href="#i-sesiones"/></svg>18 horarios libres en noviembre</span></div>
           <div class="ctx-linea cambio"><span class="et-franja" style="width:auto">Estás cambiando</span><b>Viernes 6 de noviembre, 10:00</b></div>
         </article>
     <article class="tarjeta pro2 tel-pro">
@@ -2096,6 +2107,7 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
     </article>
     <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
     <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario actual">10:00<small>La que cambiás</small></span><span class="horario">17:00</span></div></div></div>
@@ -2105,6 +2117,52 @@ ul.lista-simple { padding: 0; }
     <a class="boton primario grande ancho">Reprogramar sesión<svg class="ico chico"><use href="#i-flecha"/></svg></a>
     <span class="peq" style="text-align:center;color:var(--bosque);font-weight:600">Sin costo: faltan más de 24 h para tu sesión</span>
   </div>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+<div>
+<div class="marco tel largo" id="r2-8-sin-reprogramar-telefono">
+  <div class="estado-tel"><span>14:20</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel r8tel">
+    <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+    <article class="tarjeta salvia ctx-reserva tel-ctx">
+          <h1 class="t1 ctx-t">Reprogramá tu <em>sesión</em></h1>
+          
+          <div class="ctx-linea cambio" style="border-top:0;padding-top:0"><span class="et-franja" style="width:auto">Estás cambiando</span><b>Hoy, miércoles 4 de noviembre, 18:00</b></div>
+        </article>
+    <article class="tarjeta pro2 tel-pro">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
+        <div>
+          <span class="tenue">Tu terapeuta</span>
+          <b>Lic. Valeria Quiroga</b>
+          <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
+        </div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
+      
+    <div class="aclaraciones"><div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div><div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div></div>
+    </article>
+    <article class="tarjeta aviso-24">
+      <span class="icono-aviso"><svg class="ico"><use href="#i-reloj"/></svg></span>
+      <b>Esta sesión ya no se puede reprogramar</b>
+      <p>Faltan menos de 24 h para tu sesión con Valeria. Los cambios se pueden hacer hasta 24 h antes.</p>
+      <p>Ante cualquier consulta, escribinos a soporte.</p>
+      <a class="boton contorno ancho"><svg class="ico chico"><use href="#i-chat"/></svg>Escribir a soporte</a>
+    </article>
+    </div>
   <nav class="nav-tel">
     <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
