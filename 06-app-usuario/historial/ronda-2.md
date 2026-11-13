@@ -322,8 +322,14 @@ En la primera versión del mockup 5, "Especialidad" era un tercer criterio de or
 
 El espacio "Sumar profesional" de los mockups 1, 2 y 4 se convierte en un **widget de recomendaciones**, "**Para complementar tu proceso**", debajo de la tarjeta del terapeuta. Sirve para iniciar una nueva búsqueda o sumar profesionales sin sentirse como una venta:
 
-- **Especialidades sugeridas** "según lo que nos contaste": dos o tres que complementan lo que la persona ya trabaja, nunca las mismas (en el ejemplo, "Mindfulness y relajación", "Sueño y descanso" y "Autoestima", porque con Valeria ya trabaja ansiedad y estrés laboral). Cada una lleva a "Elegí a tu profesional" con los filtros ya cargados: "Mostrar: Terapeutas" y esa especialidad como prioridad en "Compatibilidad".
-- **Otros profesionales:** otras categorías, como Nutrición y Psicopedagogía, marcadas como **"Próximamente"** mientras en esta fase solo haya psicólogos. Cuando estén disponibles, llevan a "Elegí a tu profesional" con "Mostrar" en esa categoría.
+Las sugerencias se ordenan en cuatro niveles, de lo más cercano a lo más amplio:
+
+1. **Modalidad complementaria.** Lo primero que se pregunta en el cuestionario es si la persona quiere terapia individual o de pareja, y son complementarias. Por eso la primera pill, en **amarillo**, ofrece la otra: si hace terapia individual, "**Terapia de pareja**"; si hace terapia de pareja, "Terapia individual".
+2. **Especialidades o motivos de consulta**, "según lo que nos contaste": dos o tres que complementan lo que ya trabaja, nunca las mismas (en el ejemplo, "Mindfulness y relajación", "Sueño y descanso" y "Autoestima", porque con Valeria ya trabaja ansiedad y estrés laboral). Van como pills menta.
+3. **Otro enfoque.** El enfoque terapéutico es el método con el que trabaja el terapeuta: cognitivo-conductual (TCC), psicodinámico o psicoanalítico, humanista, sistémico o familiar, entre otros. Se llama "**enfoque**" para no confundirlo con el tipo de terapia (individual o de pareja). No va como pills: es un apartado que dice con qué enfoque trabaja hoy ("Hoy trabajás con terapia cognitivo-conductual") y pregunta si quiere conocer otros, con "Ver otros enfoques".
+4. **Otros profesionales:** otras categorías, como Nutrición y Psicopedagogía, marcadas como **"Próximamente"** mientras en esta fase solo haya psicólogos.
+
+Cada opción lleva a "Elegí a tu profesional" con los filtros ya cargados: la modalidad, la especialidad como prioridad en "Compatibilidad", el enfoque o la categoría en "Mostrar". La elección de profesional (mockups 5 y 6) todavía no tiene la modalidad ni el enfoque entre sus criterios: hay que sumarlos.
 - **"Buscar otro profesional"**, al final, para buscar sin sugerencias.
 - Mantiene el borde punteado (lo que todavía está por sumar) y no usa amarillo, para no competir con la sesión.
 - **No aparece en el mockup 3** (sin terapeuta): ahí no hay nada que complementar, y la acción principal ya es "Ver terapeutas".
