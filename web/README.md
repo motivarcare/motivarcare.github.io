@@ -84,6 +84,8 @@ tarjetas:
 
 La grilla va debajo de la cabecera. Para ubicarla en otro lugar del texto, se escribe `<div data-tarjetas></div>` en una línea propia del README, donde tiene que aparecer. En GitHub esa línea no se ve.
 
+Los demás `.md` de un frente (los documentos) también aceptan el campo `tarjetas` en su encabezado, con la misma marca para ubicarlas en el texto. En la parte del texto que va después de la marca, las imágenes tienen que usar rutas de `web/public/` (por ejemplo, `/img/...`), no rutas relativas.
+
 ### Encabezado de la portada
 
 ```yaml

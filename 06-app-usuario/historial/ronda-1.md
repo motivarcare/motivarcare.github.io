@@ -1,0 +1,146 @@
+---
+titulo: "Ronda #1 de propuestas (sem. 02/11)"
+estado: en-revision
+resumen: "Primera ronda: lineamientos de la migración, caminos posibles y exploración de cuatro familias de propuestas para el Inicio y la navegación del portal del paciente."
+tarjetas:
+  - titulo: "1 · La relación con el profesional"
+    etiqueta: "Eje: el vínculo con quien te atiende"
+    frase: "¿Con quién hago terapia y cómo seguimos en contacto? Quién es el profesional, por qué se eligió y cómo se conversa entre sesiones. Tiene dos variantes."
+    imagen: /img/app-usuario/familia-relacion.jpg
+    enlace: /app-usuario/propuesta/relacion/
+    boton: Ver la familia
+  - titulo: "2 · La agenda y la planificación de sesiones"
+    etiqueta: "Eje: la sesión"
+    frase: "¿Qué tengo que hacer ahora y qué viene después? La agenda con tu profesional es la pantalla principal y ordena toda la experiencia."
+    imagen: /img/app-usuario/familia-agenda.jpg
+    enlace: /app-usuario/propuesta/agenda/
+    boton: Ver la familia
+  - titulo: "3 · Equipo de apoyo y múltiples profesionales"
+    etiqueta: "Eje: más control para la persona"
+    frase: "¿Con quiénes quiero trabajar y en qué? La agenda con todos tus profesionales, tu valoración de cada sesión y el foco que elegís."
+    imagen: /img/app-usuario/familia-equipo.jpg
+    enlace: /app-usuario/propuesta/equipo/
+    boton: Ver la familia
+  - titulo: "4 · Múltiples rubros"
+    etiqueta: "Eje: servicios independientes"
+    frase: "¿Qué servicios tengo? Servicios clínicos y de bienestar de distintos rubros, cada uno por su cuenta y sin seguimiento cruzado."
+    imagen: /img/app-usuario/familia-rubros.jpg
+    enlace: /app-usuario/propuesta/rubros/
+    boton: Ver la familia
+---
+
+# Ronda #1 de propuestas (sem. 02/11)
+
+Primera ronda de trabajo sobre el nuevo portal del paciente, en la semana del 2 de noviembre de 2026. Se fijaron los lineamientos de la migración, se compararon los caminos posibles y se exploraron **cuatro familias de propuestas**, cada una con un eje distinto para el Inicio y la navegación.
+
+Esta página conserva la ronda tal como quedó, como registro. Las rondas siguientes están en la [página del frente](/06-app-usuario/).
+
+## Lineamientos que se mantienen en toda la migración
+
+- **Una sola identidad, coherente en todo el producto.** El nuevo design system le da a la app la misma voz visual que la landing: colores, tipografías, formas y componentes pensados para la calma, la cercanía y la confianza, que son los valores del producto. Cada pantalla se arma con las mismas piezas, así que la experiencia se siente igual de un extremo al otro.
+- **La interfaz acompaña, no protagoniza.** Lo importante es la terapia y la relación con el profesional. Cada pantalla muestra solo lo necesario para el paso que la persona tiene por delante (reservar, prepararse, entrar a la sesión), sin elementos que compitan por su atención ni información repetida.
+- **Criterios de la landing** (`08-landing-page/README.md`, sección "Criterios"), aplicados a la app:
+  1. **Credibilidad antes que promesa:** datos verificables del servicio (matrícula verificada, duración de las sesiones, precios claros, sin suscripción) en lugar de afirmaciones que no se pueden respaldar.
+  2. **Calma visual y seguridad:** fondo crema, un solo acento amarillo por bloque, pocas animaciones, nada de emojis, y estado final sin animaciones con "reducir movimiento". La información sobre crisis está siempre a mano, sin alarmar ni dominar la experiencia; dentro de la app puede tener más presencia que en la landing.
+  3. **Hablarle a quien busca ayuda, no a "un usuario":** textos que invitan y no asustan, sin lenguaje interno o técnico.
+  4. **Lo humano primero; la IA, en su lugar:** Maca se presenta como apoyo, con un límite claro respecto de la terapia ("sólido = humano; punteado = IA").
+  5. **Un solo tratamiento: voseo** rioplatense amable ("Reservá", "Contanos").
+- **Precios y paquetes claros, siempre con nombre y apellido.** Cada sesión y cada paquete corresponden a un profesional, y el portal lo muestra así en todo momento: la persona sabe con quién va a hacer sus sesiones, cuánto cuesta cada opción y qué incluye antes de pagar. Las opciones de pago nombran al profesional ("4 sesiones con Valeria"), el resumen arranca con "Reservás y pagás con" y las sesiones disponibles aparecen siempre junto a su nombre. Por eso no hay paquetes presentados por sí solos, separados de quien atiende.
+- **Hallazgos de la auditoría:** los casos de la app del paciente (`05-auditoria/bitacora-auditoria-ux/`, casos 02 a 06 y 10) son la lista de lo que el portal nuevo tiene que resolver.
+
+## Por qué migrar
+
+La migración es una oportunidad para que el portal del paciente esté a la altura de lo que MotivarCare ofrece y de la identidad que ya se definió en otros frentes. Estas son las razones principales:
+
+1. **Llevar los lineamientos a la experiencia diaria.** El objetivo es un portal ordenado y sin redundancias, donde la persona encuentre enseguida lo que necesita para coordinar y vivir sus sesiones, con calma y con confianza. La interfaz queda en segundo plano para que el centro sea la terapia.
+2. **Simplificar la estructura.** Hoy conviven dos Inicios, los menús cambian según el tamaño de la pantalla y hay accesos que se repiten. La investigación de otras plataformas (`01-investigacion`) muestra lo contrario: pantallas de inicio simples, que no abruman con opciones, y menús de cuatro o cinco destinos, sin sobrecarga. Una sola estructura, igual en todos los dispositivos, hace que la persona se oriente sin esfuerzo.
+3. **Reforzar la confianza en los momentos clave.** La auditoría marcó algunos puntos sensibles, como que el monto que se cobra coincida siempre con el que se muestra, que la persona elija a su profesional y que el diario sea privado por defecto. Cuidarlos desde el diseño es clave en salud mental, donde la confianza es la condición para empezar y sostener un tratamiento.
+4. **Construir sobre un sistema común.** Las pantallas actuales se armaron sin un design system compartido y con otra identidad (violeta, Inter y Plus Jakarta Sans). Pasar al sistema de MotivarCare da coherencia y hace más simple mantener y sumar funciones.
+5. **Acompañar el cambio de marca.** La landing ya usa la identidad nueva. Si el portal la adopta, la persona encuentra el mismo tono, la misma paleta y el mismo trato desde que conoce MotivarCare hasta que hace su sesión.
+6. **Preparar el portal del profesional.** El portal del profesional (`07-app-profesional`) se va a migrar con el mismo sistema, así que lo que se defina acá se reutiliza allá.
+
+El detalle de los hallazgos está en el frente `05-auditoria`.
+
+## El papel del design system
+
+![Lámina del design system: la paleta de verdes con el acento amarillo, las tipografías Fraunces y Manrope, una tarjeta de sesión, botones, estados y el botón punteado de Maca](/img/app-usuario/design-system.jpg)
+
+<p class="pie">Algunas piezas del design system (frente 04) aplicadas al portal del paciente.</p>
+
+El design system (`04-design-system`) es la **fuente única** de las decisiones visuales y de los componentes. En la migración cumple tres funciones:
+
+1. **Reúne todo en un solo lugar.** Los componentes, las tipografías, la paleta de colores, la iconografía y los lineamientos de uso están definidos en un único lugar, desde donde los pueden consultar y usar los diseñadores, los desarrolladores y también las herramientas de IA que se usen en el desarrollo. Cuando la app necesita algo nuevo (por ejemplo, la tarjeta de sesión o la escala de ánimo), se suma ahí, y así la landing y el portal del profesional lo reciben igual.
+2. **Se traduce en tokens.** Una colección de tokens completa y robusta define con claridad el valor de cada atributo de los componentes: colores, tipografías, espaciados, radios, sombras y movimiento. Así nada queda escrito a mano en el código, cambiar un valor se hace en un solo lugar y el sistema es más fácil de mantener y de hacer crecer. La propuesta de landing (`web/public/landing/`) ya aplica esos valores y sirve de ejemplo.
+3. **Lleva los principios.** "Calma antes que estímulo", "lo humano primero" y "sólido es lo que existe; punteado es lo provisorio" se aplican a cada pantalla, no solo a los colores.
+
+## Qué hacen otras plataformas
+
+![Las cuatro plataformas relevadas: BetterHelp, Mindly, Clearly y Talkspace, cada una con una captura de su pantalla principal y su eje](/img/app-usuario/otras-plataformas.jpg)
+
+La propuesta se apoya en un relevamiento de cómo resuelven la pantalla principal del paciente cuatro plataformas de terapia online. El relevamiento, con la tabla comparativa y un análisis por plataforma, está en el frente [01 · Investigación](/01-investigacion/):
+
+- [BetterHelp](/01-investigacion/competencia/res-betterhelp/): la conversación con el terapeuta como pantalla principal.
+- [Mindly](/01-investigacion/competencia/res-mindlyspace/): la agenda de sesiones como pantalla principal.
+- [Clearly](/01-investigacion/competencia/res-clearly/): una tarjeta por terapeuta, con la próxima sesión adentro.
+- [Talkspace](/01-investigacion/competencia/res-talkspace/): una Home con saludo, equipo de apoyo y recursos.
+
+Cada plataforma organiza la experiencia alrededor de un eje distinto: la conversación, la agenda, el profesional o el equipo de apoyo. Esos ejes, junto con las posibilidades de crecimiento de MotivarCare, dan origen a las familias de la propuesta.
+
+## Cómo migrar
+
+![Diagrama de los tres caminos: A, migración directa, que repinta la interfaz y mantiene la API y los datos; B, reimplementación del frontend, con una interfaz nueva sobre los datos actuales y la API en revisión según la propuesta de diseño (recomendación preliminar); y C, reimplementación completa, que rehace todo](/img/app-usuario/caminos-migracion.jpg)
+
+### Tres caminos posibles
+
+| | **A · Migración directa** | **B · Reimplementación del frontend** | **C · Reimplementación completa** |
+|---|---|---|---|
+| **Qué es** | Se mantiene la app actual (React, servida desde Railway) y se le aplica el design system pantalla por pantalla: colores, tipografías, componentes y textos. | Se construye un frontend nuevo sobre la API y los datos actuales. Las pantallas y los flujos se rediseñan. En principio, la API y las reglas del producto no se modifican, pero eso depende de la propuesta de diseño que se acuerde: puede requerir ajustes. | Se rehace todo: el frontend, la API y el modelo de datos. |
+| **Ventajas** | Es lo más rápido para cambiar el aspecto. Tiene menos riesgo técnico y no toca los datos ni los pagos. | Permite corregir la estructura (navegación, flujos y estados) y usar el design system desde el origen. Los datos, los pagos y las cuentas siguen donde están. Se puede hacer por partes. | Es libertad total. Permite corregir reglas de negocio que hoy están en el backend (por ejemplo, cómo se asignan los profesionales o cómo se cobran los paquetes). |
+| **Desventajas** | Hereda los problemas de estructura que marcó la auditoría. El resultado tiene la cara nueva y la lógica vieja. Es probable que cada pantalla necesite más trabajo del previsto, porque el código no se pensó con componentes compartidos. | Requiere conocer bien la API actual y lo que ya hace. Si la API tiene huecos, hay que completarlos. Durante un tiempo conviven dos frontends. | Es el camino más largo, caro y riesgoso: implica migrar datos de pacientes, historiales y pagos. Durante el desarrollo, la app actual sigue con sus problemas. |
+| **Cuándo conviene** | Si el objetivo inmediato es solo unificar la marca. | Si la API actual es razonable y el problema está en la experiencia. | Si el backend tiene problemas graves que impiden las reglas del producto. |
+
+### Recomendación preliminar
+
+**Camino B, por partes.** Por lo que vimos en la auditoría, los problemas principales están en la experiencia (navegación, flujos, textos y estados) y en algunas reglas que se ven en la interfaz, más que en la infraestructura. Un frontend nuevo permite construir con el design system desde el principio, sin pagar el costo de rehacer datos y pagos.
+
+La migración se haría por flujos. Empieza por la estructura y por lo esencial para tomar una sesión, y deja para el final las funciones secundarias:
+
+1. **Inicio y navegación**, porque son la estructura de todo lo demás (caso 03).
+2. **Reserva y pago**, porque tocan la confianza y el dinero (caso 04).
+3. **Registro e ingreso** (caso 02). Un cuestionario inicial claro y breve es la base para sugerir a los profesionales que mejor se ajustan a cada persona, y es la primera experiencia que tiene con el portal.
+4. **Cuenta y datos personales** (caso 06). La persona tiene que poder ver, corregir y decidir sobre sus datos, y saber con claridad quién accede a su información: es una parte central de la confianza en un servicio de salud.
+5. **Diario y bienestar** (caso 05). Son funciones secundarias, pero se integran al estilo nuevo y al recorrido de la persona como parte de su proceso, y no como un catálogo aislado de recursos sin curar.
+
+Esta recomendación es provisoria: depende de lo que muestre el relevamiento de la API. Si el relevamiento encuentra que reglas como "nada se paga sin un profesional definido" no se pueden cumplir con el backend actual, hay que revisar el camino.
+
+## Propuesta: cuatro familias
+
+Versión preliminar, noviembre de 2026. Cada familia pone el foco en un aspecto distinto de la experiencia y lo lleva al Inicio, a la navegación y a los flujos principales. Las dos primeras parten del portal de hoy (un profesional por persona); las otras dos piensan cómo crecería si la persona tuviera más de un profesional o varios servicios. No son productos distintos: todas usan el mismo design system, cumplen las mismas reglas de producto y resuelven los mismos hallazgos de la auditoría. Lo que cambia es **qué se pone en primer plano**. Sirven para comparar enfoques con el equipo antes de elegir uno o combinarlos.
+
+La página de cada familia explica su enfoque y muestra sus mockups: los que ya están hechos y los que faltan.
+
+<div data-tarjetas></div>
+
+### Flujos comunes a todas las familias
+
+Algunos flujos no dependen del eje y se diseñan una sola vez:
+
+- **Primeros pasos:** el cuestionario (con una pregunta de presupuesto en rangos), los profesionales sugeridos con su compatibilidad y la primera reserva.
+- **Reserva y pago:** un recorrido de cuatro pasos, con el monto exacto y el profesional nombrado en cada opción.
+- **Pedido de cambio de profesional:** con un motivo para elegir y el aviso del saldo que se pierde.
+- **Acompañamiento entre sesiones:** el registro del ánimo, el diario y los ejercicios, privados por defecto. Cada familia los ubica a su manera, pero funcionan igual en todas.
+- **Líneas de apoyo y Maca:** siempre en el mismo lugar.
+
+Las decisiones de diseño que comparten todas las familias, y qué hallazgo de la auditoría resuelve cada una, están en `06-app-usuario/decisiones-de-diseno.md`.
+
+## Materiales complementarios
+
+Exploraciones puntuales hechas durante la ronda:
+
+- **Alternativas para "¿Cómo estás hoy?"**
+
+  ![Alternativas para el registro rápido del ánimo](/img/app-usuario/exploraciones/animo-alternativas.jpg)
+
+- **Iconografía: íconos en uso y propuesta para los ejercicios**
+
+  ![Íconos en uso y propuesta de íconos para los ejercicios](/img/app-usuario/exploraciones/iconografia.jpg)
