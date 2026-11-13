@@ -100,7 +100,8 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <p>Cómo se ve al llegar, sin cambiar nada:</p>
     <ul>
       <li>"Filtrar: Según tus preferencias", con el menú abierto: el tipo de terapia y el enfoque.</li>
-      <li>"Ordenar por: Compatibilidad", con "Según todas tus respuestas" elegido, y "Limpiar" apagado porque no hay nada que limpiar.</li>
+      <li>"Ordenar por: Compatibilidad", con "Según todas tus respuestas" elegido. Debajo, la cantidad de terapeutas.</li>
+      <li>En el teléfono, "Tus respuestas" al lado del filtro, en lugar de las pills.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
   </div>
@@ -115,7 +116,6 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <ul>
       <li>Dos criterios de orden: <strong>compatibilidad</strong> y <strong>precio</strong>. Al elegir una especialidad en el menú de compatibilidad, el control pasa a decir su nombre ("Ansiedad") y sus terapeutas van primero, sin filtrar.</li>
       <li>El filtro <strong>"Filtrar"</strong>, por tipo de terapia y enfoque, que por defecto dice "Según tus preferencias".</li>
-      <li>"<strong>Limpiar</strong>", que vuelve el filtro y el orden a su estado inicial.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-escritorio">Ver en tamaño real →</a>
   </div>
@@ -129,9 +129,9 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <p>El mismo Buscador de profesionales, abierto desde el Inicio con los criterios ya cargados. En el ejemplo, la persona tocó "Mindfulness y relajación":</p>
     <ul>
       <li>"Volver al inicio", "Para complementar tu proceso" y el título "Sumá un terapeuta". Valeria no aparece en la lista.</li>
-      <li>"Ordenar por" dice "Mindfulness y relajación" y "Limpiar" está activo.</li>
+      <li>"Ordenar por" dice "Mindfulness y relajación".</li>
       <li>A la derecha, "Lo que buscás": lo elegido, tu terapeuta actual y tus respuestas.</li>
-      <li>En el teléfono, el menú de orden se abre como hoja desde abajo, con "Limpiar" y "Listo".</li>
+      <li>En el teléfono, el menú de orden se abre como hoja desde abajo, con "Listo".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-complementar-escritorio">Ver en tamaño real →</a>
   </div>
@@ -256,7 +256,7 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 
 Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #1](/06-app-usuario/historial/ronda-1/)), con la navegación de esta ronda. Es el paso 1 de la primera sesión, al que se llega desde "Ver terapeutas" en el Inicio sin profesional (mockup 3). El título es "Elegí a tu profesional"; por ahora todos son terapeutas (el filtro por rubro se sacó el 14/11). Son dos mockups del mismo listado: el **5**, como se ve la primera vez, sin cambiar el orden ni el filtro, y el **6**, con prioridad a una especialidad.
 
-- **"Lo que nos contaste"** se mantiene a la derecha: las respuestas del cuestionario agrupadas (qué querés trabajar, tu experiencia, tus preferencias y tu presupuesto) y "Cambiar mis respuestas". En el teléfono, las respuestas van arriba como pills, con "Cambiar".
+- **"Lo que nos contaste"** se mantiene a la derecha: las respuestas del cuestionario agrupadas (qué querés trabajar, tu experiencia, tus preferencias y tu presupuesto) y "Cambiar mis respuestas". En el teléfono no se muestran como pills (no entraban todas y ocupaban lugar): al lado del filtro está el botón "**Tus respuestas**", que abre el resumen y permite cambiarlas.
 - **Ordenar por: Compatibilidad ▾ · Precio.** La especialidad no es un criterio aparte: es una forma de la compatibilidad, y **el menú de "Compatibilidad" es el único lugar para elegirla**.
   - **Por defecto**, el control dice "Compatibilidad" y dentro del menú está elegido "Según todas tus respuestas".
   - **Si la persona elige una especialidad** en el menú (solo una), el control deja de decir "Compatibilidad" y pasa a decir el nombre de la especialidad ("Ansiedad"). No hace falta aclarar "primero": la etiqueta de la izquierda ya dice "Ordenar por", no "Filtrar". Los terapeutas que la trabajan aparecen primero, ordenados por compatibilidad, y debajo, con el separador "Otros terapeutas para vos", los demás. Nadie desaparece de la lista y el porcentaje de cada tarjeta no cambia.
@@ -265,7 +265,7 @@ Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #
   - **Al ordenar por precio**, la especialidad elegida no se tiene en cuenta: el precio ordena a todos por igual.
   - **Mockup 5:** el estado por defecto (en el escritorio, con el menú de "Filtrar" abierto). **Mockup 6:** con "Ansiedad" elegida; en el escritorio, con el menú de orden abierto.
 - **Filtro "Filtrar":** a la izquierda de "Ordenar por", en la misma fila, con el mismo comportamiento que "Ordenar por" (ver los ajustes del 14/11).
-- **"Limpiar"**, en la misma barra, vuelve el filtro y el orden a su estado inicial. Está apagado (gris) cuando no hay nada que limpiar; en el teléfono es solo el ícono.
+- **La cantidad de terapeutas** ("6 terapeutas · todos con matrícula verificada") va debajo de los controles, justo arriba de las tarjetas.
 - **Tarjetas de los terapeutas,** con las reglas de esta ronda:
   - La profesión en su propia línea ("Psicóloga clínica") y las especialidades en pills, en una sola línea. Las que coinciden con tus respuestas llevan "✓" y fondo salvia; la especialidad elegida para ordenar se resalta en amarillo suave con borde.
   - El precio es el del **encuentro inicial** ("Encuentro inicial · $42.000"), y el panel aclara que los paquetes se eligen después, con el terapeuta elegido.
@@ -286,11 +286,13 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
   - Se elige **una sola opción**, y es la que muestra el control cerrado (por ejemplo, "Terapia de pareja").
   - "Lo que nos contaste" suma el grupo "Tipo y enfoque" (Terapia individual, Cognitivo-conductual).
   - A diferencia del orden, el filtro sí saca de la lista a quienes no coinciden; la nota del menú lo aclara y remite a "Ordenar por" para dar prioridad a una especialidad.
-- **"Limpiar"**, con un ícono de flecha circular, vuelve el filtro y el orden a su estado inicial.
 - **Desde el cross-selling:** "Terapia de pareja" abre el buscador con ese tipo en "Filtrar"; una especialidad, con ella en "Ordenar por"; "Ver otros enfoques", con el menú de "Filtrar" abierto en el enfoque.
 - **Nueva variante del mockup 6:** el buscador abierto desde "Mindfulness y relajación". Cambia el encabezado ("Volver al inicio", "Para complementar tu proceso", "Sumá un terapeuta"), la lista no incluye al terapeuta actual y el panel de la derecha pasa a ser "Lo que buscás", con lo elegido, el terapeuta actual y la aclaración de que cada terapeuta se contrata por separado, empezando con un encuentro inicial.
 - **Mockup 5:** con el menú de "Filtrar" abierto, para mostrar sus opciones.
-- **Sin el filtro por rubro.** Se saca "Mostrar: Terapeutas": por ahora no va a haber muchos profesionales de otros rubros y ocupaba un lugar innecesario. Así, "Filtrar", "Ordenar por", la cantidad de terapeutas y "Limpiar" entran en una sola fila en el escritorio.
+- **Sin el filtro por rubro.** Se saca "Mostrar: Terapeutas": por ahora no va a haber muchos profesionales de otros rubros y ocupaba un lugar innecesario. Así, "Filtrar" y "Ordenar por" entran en una sola fila en el escritorio.
+- **Sin "Limpiar"**: se probó al lado de los controles, pero no había espacio. Para volver al estado inicial, cada menú tiene arriba su opción por defecto ("Según tus preferencias" y "Según todas tus respuestas").
+- **La cantidad de terapeutas** pasa debajo de los controles, justo arriba de las tarjetas.
+- **En el teléfono, sin la fila de pills** de "Lo que nos contaste": no entraban todas y ocupaban lugar. Al lado del filtro va el botón "**Tus respuestas**" (con un lápiz), que abre el resumen y permite cambiarlas. Debajo, "Ordenar por" y la cantidad de terapeutas.
 
 ## 7 · Contratación: elegí tu paquete
 
@@ -335,7 +337,7 @@ Una de las decisiones de esta ronda es trabajar con **pocos componentes, robusto
 | [![Cabecera guía](/img/app-usuario/ronda-2/componentes/cabecera-guia.jpg)](/img/app-usuario/ronda-2/componentes/cabecera-guia.jpg) | **Cabecera guía** | Encabezar el Inicio con una tarjeta verde salvia que dice lo que la persona tiene que hacer ahora, con un único botón amarillo. Responde siempre "¿qué tengo que hacer ahora?". | Inicio con profesional (mockups 1, 2 y 4). | Sesión por empezar ("Entrar a la sesión", "Reprogramar"); sin turnos (próximos horarios libres y "Reservar sesión"). |
 | [![Primeros pasos](/img/app-usuario/ronda-2/componentes/primeros-pasos.jpg)](/img/app-usuario/ronda-2/componentes/primeros-pasos.jpg) | **Primeros pasos** | Guiar al usuario nuevo hacia su primera sesión: una tarjeta verde bosque con los cuatro pasos (el actual en amarillo, los pendientes punteados), "Ver terapeutas" y la aclaración de precios. | Inicio sin profesional (mockup 3). | — |
 | [![Ficha del profesional](/img/app-usuario/ronda-2/componentes/ficha-profesional.jpg)](/img/app-usuario/ronda-2/componentes/ficha-profesional.jpg) | **Ficha del profesional** | Decir siempre con quién se hace, se paga o se reserva: foto, nombre, calificación y país, especialidades, credenciales y acciones. En esta fase todos son terapeutas (en pantalla dice "Tu terapeuta"). | Inicio (mockups 1, 2 y 4), Buscador de profesionales (mockups 5 y 6), contratación (mockup 7) y reserva (mockup 8). | Completa (con el mensaje sin leer y las sesiones disponibles, con "Comprar más sesiones" cuando ya se usó la mitad del paquete, en verde bosque si queda 1 o ninguna; abajo, separados por una línea, "Escribile" y "Contanos cómo te va", de contorno con un corazón verde bosque; "Ver perfil" arriba a la derecha); con **selector de profesionales** (pastillas con avisos de sesiones y mensajes, el principal primero); resumida (dentro del Resumen de contratación); compacta (teléfono); **resultado de búsqueda** (en el Buscador de profesionales, con las especialidades que coinciden, el precio del encuentro inicial, "Ver perfil y horarios" y "Ver paquetes"). |
-| [![Buscador de profesionales](/img/app-usuario/ronda-2/componentes/buscador-profesionales.jpg)](/img/app-usuario/ronda-2/componentes/buscador-profesionales.jpg) | **Buscador de profesionales** | Encontrar y elegir un profesional: la lista de fichas (resultados de búsqueda), el orden por compatibilidad (con prioridad a una especialidad) o por precio, el filtro por tipo de terapia y enfoque ("Según tus preferencias" por defecto), "Limpiar" y el panel "Lo que nos contaste", con "Cambiar mis respuestas". | Elección de profesional (mockups 5 y 6), desde "Ver terapeutas" (mockup 3) o desde el Cross-selling de profesionales, con los filtros cargados. | Por defecto ("Compatibilidad", según todas tus respuestas) o con una especialidad elegida (el control dice su nombre); abierto desde el cross-selling ("Sumá un terapeuta", sin el terapeuta actual, con "Lo que buscás"); menús desplegables (escritorio) u hoja desde abajo (teléfono); escritorio (panel a la derecha) y teléfono (respuestas como pills). |
+| [![Buscador de profesionales](/img/app-usuario/ronda-2/componentes/buscador-profesionales.jpg)](/img/app-usuario/ronda-2/componentes/buscador-profesionales.jpg) | **Buscador de profesionales** | Encontrar y elegir un profesional: la lista de fichas (resultados de búsqueda), el orden por compatibilidad (con prioridad a una especialidad) o por precio, el filtro por tipo de terapia y enfoque ("Según tus preferencias" por defecto) y el panel "Lo que nos contaste", con "Cambiar mis respuestas". | Elección de profesional (mockups 5 y 6), desde "Ver terapeutas" (mockup 3) o desde el Cross-selling de profesionales, con los filtros cargados. | Por defecto ("Compatibilidad", según todas tus respuestas) o con una especialidad elegida (el control dice su nombre); abierto desde el cross-selling ("Sumá un terapeuta", sin el terapeuta actual, con "Lo que buscás"); menús desplegables (escritorio) u hoja desde abajo (teléfono); escritorio (panel a la derecha) y teléfono ("Tus respuestas" al lado del filtro). |
 | [![Selector de paquetes](/img/app-usuario/ronda-2/componentes/selector-paquetes.jpg)](/img/app-usuario/ronda-2/componentes/selector-paquetes.jpg) | **Selector de paquetes** | Elegir qué contratar con un profesional: el encuentro inicial o un paquete, con su precio, su ahorro y el precio por sesión, y la opción de usar un código de descuento. | Contratación (mockup 7), desde "Ver paquetes" o "Comprar más sesiones". | Primera vez con ese profesional (el encuentro inicial recomendado y elegido por defecto) o ya con sesiones previas (los paquetes primero). |
 | [![Resumen de contratación](/img/app-usuario/ronda-2/componentes/resumen-contratacion.jpg)](/img/app-usuario/ronda-2/componentes/resumen-contratacion.jpg) | **Resumen de contratación** | Responder, junto a la acción, con quién, qué y cuánto: contiene la Ficha del profesional (variante resumida), las aclaraciones del servicio (videollamada de 50 minutos y reprogramación sin costo hasta 24 h antes), el desglose y el total, y el botón amarillo con su aclaración. | Contratación (mockup 7) y reserva (mockup 8). | **Contratación** (desglose, total y "Continuar al pago", con "Es el monto exacto que vas a ver en el pago"); **reserva** ("Tu sesión" con el día y la hora elegidos, y "Reservar sesión", "Reservar y proceder al pago" o "Reprogramar sesión"); columna derecha (escritorio) o barra fija (teléfono). |
 | [![Agenda semanal resumida](/img/app-usuario/ronda-2/componentes/agenda-semanal.jpg)](/img/app-usuario/ronda-2/componentes/agenda-semanal.jpg) | **Agenda semanal resumida** | Mostrar de un vistazo la semana: sesiones, horarios libres, ejercicios y diario, con "Ver sesiones" para ir a la página de Sesiones. | Inicio con profesional (mockups 1, 2 y 4). | Un profesional o varios (cada uno con su color); con sesiones o con horarios libres punteados; escritorio (nombre y horario en cada día) y teléfono (foto o punto). |
