@@ -324,10 +324,10 @@ El espacio "Sumar profesional" de los mockups 1, 2 y 4 se convierte en un **widg
 
 Las sugerencias se ordenan en cuatro niveles, de lo más cercano a lo más amplio:
 
-1. **Modalidad complementaria.** Lo primero que se pregunta en el cuestionario es si la persona quiere terapia individual o de pareja, y son complementarias. Por eso la primera pill, en **amarillo**, ofrece la otra: si hace terapia individual, "**Terapia de pareja**"; si hace terapia de pareja, "Terapia individual".
+1. **Modalidad complementaria.** Lo primero que se pregunta en el cuestionario es si la persona quiere terapia individual o de pareja, y son complementarias. Por eso la primera pill, en un **verde más oscuro (salvia fuerte)** que las demás, ofrece la otra. No usa amarillo, para que no se confunda con un botón principal: si hace terapia individual, "**Terapia de pareja**"; si hace terapia de pareja, "Terapia individual".
 2. **Especialidades o motivos de consulta**, "según lo que nos contaste": dos o tres que complementan lo que ya trabaja, nunca las mismas (en el ejemplo, "Mindfulness y relajación", "Sueño y descanso" y "Autoestima", porque con Valeria ya trabaja ansiedad y estrés laboral). Van como pills menta.
 3. **Otro enfoque.** El enfoque terapéutico es el método con el que trabaja el terapeuta: cognitivo-conductual (TCC), psicodinámico o psicoanalítico, humanista, sistémico o familiar, entre otros. Se llama "**enfoque**" para no confundirlo con el tipo de terapia (individual o de pareja). No va como pills: es un apartado que dice con qué enfoque trabaja hoy ("Hoy trabajás con terapia cognitivo-conductual") y pregunta si quiere conocer otros, con "Ver otros enfoques".
-4. **Otros profesionales:** otras categorías, como Nutrición y Psicopedagogía, marcadas como **"Próximamente"** mientras en esta fase solo haya psicólogos.
+4. **Otros profesionales:** otras categorías, como Nutrición y Psicopedagogía, en pills con **contorno punteado** y la aclaración **"Próximamente"**, mientras en esta fase solo haya psicólogos.
 
 Cada opción lleva a "Elegí a tu profesional" con los filtros ya cargados: la modalidad, la especialidad como prioridad en "Compatibilidad", el enfoque o la categoría en "Mostrar". La elección de profesional (mockups 5 y 6) todavía no tiene la modalidad ni el enfoque entre sus criterios: hay que sumarlos.
 - **"Buscar otro profesional"**, al final, para buscar sin sugerencias.
