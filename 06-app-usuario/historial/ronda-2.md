@@ -22,7 +22,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
 | 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Segunda versión (escritorio y teléfono) |
 | 7 | Contratación · elegí tu paquete | Primera versión (escritorio y teléfono) |
-| 8 | Reserva · elegí día y horario (antes o después del pago) | Segunda versión (escritorio y teléfono) |
+| 8 | Reserva · elegí día y horario (reservar, reservar y pagar, o reprogramar) | Tercera versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -135,16 +135,16 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
   </div>
 </article>
 <article class="hecha">
-  <figure><img src="/img/app-usuario/ronda-2/08-reservar-horario-escritorio.jpg" alt="Reserva de día y horario en escritorio, después del pago" loading="lazy"><figcaption>Escritorio · después del pago</figcaption></figure>
-  <figure class="tel"><img src="/img/app-usuario/ronda-2/08-reservar-horario-telefono.jpg" alt="Reserva de día y horario en el teléfono, antes del pago" loading="lazy"><figcaption>Teléfono · antes del pago</figcaption></figure>
+  <figure><img src="/img/app-usuario/ronda-2/08-reservar-horario-escritorio.jpg" alt="Reserva de día y horario en escritorio, con el botón Reservar sesión" loading="lazy"><figcaption>Escritorio · Reservar sesión</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/08-reservar-horario-telefono.jpg" alt="Reserva de día y horario en el teléfono, con el botón Reservar y proceder al pago" loading="lazy"><figcaption>Teléfono · Reservar y pagar</figcaption></figure>
   <div class="texto">
-    <span class="chip-estado">Mockup 8 · segunda versión</span>
+    <span class="chip-estado">Mockup 8 · tercera versión</span>
     <h3>Reserva · elegí día y horario</h3>
-    <p>La pantalla de "Ver más horarios", con la estructura del mockup 2 expandida: los días se recorren con scroll y cada uno muestra sus horarios libres debajo. Se reserva una sesión por vez. Se usa antes o después de pagar, y cambia el botón amarillo:</p>
+    <p>Arriba, la tarjeta verde con el terapeuta. Debajo, los días (con su mes) y sus horarios libres, que se recorren con el scroll de la página. El botón va en una barra fija abajo y cambia según desde dónde se llega:</p>
     <ul>
-      <li><strong>Después del pago</strong> (escritorio): "Reservar sesión", con "Usás 1 de tus 2 sesiones disponibles con Valeria".</li>
-      <li><strong>Antes del pago</strong> (teléfono): "Reservar y proceder al pago", con el horario y el precio.</li>
-      <li>La ficha del terapeuta está siempre a la vista.</li>
+      <li>"Reservar sesión", si ya pagó.</li>
+      <li>"Reservar y proceder al pago", si todavía no pagó.</li>
+      <li>"Reprogramar sesión", si viene de "Reprogramar".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-8-escritorio">Ver en tamaño real →</a>
   </div>
@@ -267,15 +267,23 @@ Se llega desde "Ver paquetes" en la elección de profesional (mockups 5 y 6). Pa
 
 ## 8 · Reserva: elegí día y horario
 
-Es la pantalla que se abre con "Ver más horarios" o "Reservar sesión" en el Inicio (mockup 2), y también antes o después de contratar (mockup 7). **Mantiene la estructura del mockup 2**, con la navegación, expandida para mostrar más días y horarios:
+Una sola pantalla para elegir día y horario con un terapeuta, con la navegación del Inicio. Se abre desde cuatro lugares:
 
-- **"Volver al inicio"** arriba y el título "Reservá tu próxima sesión", con la aclaración de que los horarios están en tu hora.
-- **La tarjeta verde se expande en una lista que se recorre con scroll.** Cada día es un encabezado de sección ("Hoy, miércoles 4", "Jueves 5"…, con la cantidad de horarios) y debajo van sus horarios libres, con borde punteado. No hace falta tocar cada día para ver sus horarios. El horario elegido va en verde bosque.
-- **Una sesión por vez:** por ahora se reserva un solo horario (sin reservas semanales ni múltiples).
-- **Columna derecha:** la tarjeta del terapeuta (con sus especialidades, credenciales y sesiones disponibles), para que no haya dudas de con quién se reserva, y debajo **"Tu sesión"** con el día y la hora elegidos y el botón amarillo, siempre a la vista mientras se recorren los días.
-- **El botón amarillo cambia según el momento:**
-  - **Después del pago:** "**Reservar sesión**", con "Usás 1 de tus 2 sesiones disponibles con Valeria" (se ve en el escritorio).
-  - **Antes del pago:** "**Reservar y proceder al pago**", con el horario elegido y el precio del encuentro inicial en una barra fija sobre la navegación (se ve en el teléfono). La tarjeta dice "Reservás con", porque todavía no es su terapeuta. Después de reservar, sigue la contratación (mockup 7).
+| Desde | Situación | Botón amarillo |
+|---|---|---|
+| Después del pago (mockup 7), sin día y horario elegidos | Ya pagó | **Reservar sesión** |
+| La elección de profesional (mockups 5 y 6) | Todavía no pagó | **Reservar y proceder al pago** |
+| "Ver más horarios" en el Inicio (mockup 2) | Tiene sesiones disponibles | **Reservar sesión** |
+| "Reprogramar" en el Inicio (mockup 1) | Ya tiene la sesión reservada | **Reprogramar sesión** |
+
+- **"Volver"** arriba, y el título según el caso ("Reservá tu próxima sesión", "Reprogramá tu sesión").
+- **Tarjeta verde arriba, con el terapeuta:** foto, nombre, "★ 4,9 · Argentina", especialidades y credenciales, para que no haya dudas de con quién se reserva. Suma el contexto del caso: las sesiones disponibles, o "Tu sesión actual" al reprogramar. La etiqueta es "Tu terapeuta", o "Reservás con" si todavía no contrató.
+- **Los días, fuera de cualquier tarjeta:** cada día es un encabezado de sección con el día y el mes ("Jueves 5 de noviembre", con la cantidad de horarios), y debajo sus horarios libres, con borde punteado. Se recorren con el scroll de la página. El horario elegido va en verde bosque; al reprogramar, la sesión actual se ve en salvia, con "Tu sesión actual".
+- **Una sesión por vez.**
+- **Barra fija abajo** con la sesión elegida y el botón amarillo, siempre a la vista:
+  - **Reservar sesión** (escritorio): "Tu sesión: jueves 5 de noviembre, 18:30" y "Usás 1 de tus 2 sesiones disponibles con Valeria".
+  - **Reservar y proceder al pago** (teléfono): el horario y el precio del encuentro inicial. Después sigue la contratación (mockup 7).
+  - **Reprogramar sesión** (teléfono): la nueva fecha y si el cambio es sin costo (faltan más de 24 h para la sesión actual). Con menos de 24 h, ahí habría que avisar que el cambio no es sin costo.
 
 ## Decisiones de la ronda
 
@@ -304,3 +312,4 @@ En la primera versión del mockup 5, "Especialidad" era un tercer criterio de or
 - **Sin accesos directos.** Se sacan las pills "Dar prioridad a:" de los mockups 5 y 6: duplicaban el menú, y "Otra…" solo volvía a abrirlo. El menú de "Compatibilidad" es el único lugar para dar prioridad a una especialidad. Con una especialidad elegida, el control dice su nombre ("Ansiedad"); al volver a "Según todas tus respuestas", vuelve a decir "Compatibilidad".
 - En las tarjetas de los terapeutas, el botón "Elegir" pasa a ser **"Ver paquetes"**, junto al enlace "Ver perfil y horarios", para alentar a contratar y pagar lo antes posible.
 - **Mockup 8, segunda versión:** en lugar de elegir un día por vez, la reserva mantiene la estructura del mockup 2 y los días se recorren con scroll, cada uno con sus horarios debajo. Se reserva una sesión por vez (se saca "Todas las semanas").
+- **Mockup 8, tercera versión:** la tarjeta verde pasa arriba con los datos del terapeuta; los días (con su mes) y sus horarios quedan fuera de cualquier tarjeta y se recorren con el scroll de la página; el botón va en una barra fija abajo. Se suman los tres botones según el caso: "Reservar sesión", "Reservar y proceder al pago" y "Reprogramar sesión".

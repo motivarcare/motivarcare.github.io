@@ -739,6 +739,35 @@ ul.lista-simple { padding: 0; }
 .tel-lista .horarios { display: flex; flex-wrap: wrap; gap: 8px; }
 .tel-lista .horario { min-width: 70px; padding: 10px 12px; font-size: 14.5px; }
 .marco.tel.largo .barra-pago.sobre-nav { position: absolute; left: 0; right: 0; bottom: 78px; border-bottom: 1px solid var(--linea); }
+
+/* Mockup 8 (v3): terapeuta arriba, días sueltos y barra fija con el botón */
+.contenido.r8 { padding-bottom: 120px; }
+.pro-arriba { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 28px; align-items: center; padding: 22px 26px; }
+.pa-izq { display: flex; gap: 14px; align-items: center; }
+.pa-datos { display: flex; flex-direction: column; gap: 2px; }
+.pa-datos b { font-size: 17px; color: var(--bosque); }
+.pa-der { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pa-der .credenciales { margin: 0; }
+.pa-extra { font-size: 13.5px; color: var(--bosque); }
+.pa-extra b { font-weight: 800; }
+.pro-arriba .chip { background: rgba(255,255,255,.7); }
+.lista-dias { display: flex; flex-direction: column; margin-top: 8px; }
+.lista-dias .dia-sec { padding: 18px 0; border-bottom: 1px solid var(--linea); }
+.lista-dias .dia-cab { justify-content: flex-start; gap: 12px; }
+.lista-dias .horario { min-width: 84px; align-items: center; font-size: 15px; padding: 12px 16px; }
+.lista-dias .horario.elegido { background: var(--bosque); color: var(--crema); border-style: solid; }
+.lista-dias .horario.actual { background: var(--salvia); border-style: solid; border-color: transparent; align-items: center; }
+.lista-dias .horario.actual small { font-size: 11px; }
+.barra-reserva { position: absolute; left: 252px; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 48px; background: var(--superficie); border-top: 1px solid var(--linea); box-shadow: 0 -12px 30px -24px rgba(20,41,31,.4); }
+.barra-reserva > div:first-child { display: flex; flex-direction: column; gap: 2px; }
+.barra-reserva b { font: 500 21px/1.2 var(--serif); color: var(--bosque); }
+.barra-reserva .cta { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.barra-reserva .cta .peq { color: var(--bosque); font-weight: 600; font-size: 13px; }
+.tel-arriba { grid-template-columns: 1fr; gap: 10px; padding: 16px; }
+.tel .lista-dias .dia-cab b { font-size: 16px; }
+.tel .lista-dias .horarios { display: flex; flex-wrap: wrap; gap: 8px; }
+.tel .lista-dias .horario { min-width: 70px; padding: 10px 12px; font-size: 14.5px; }
+.marco.tel.largo .r8tel { padding-bottom: 300px; }
 </style>
 </head>
 <body>
@@ -1909,8 +1938,8 @@ ul.lista-simple { padding: 0; }
 
 
 <section class="lamina">
-<h2>8 · Reserva en escritorio · después del pago</h2>
-<p class="nota-r2">La pantalla de "Ver más horarios": la estructura del mockup 2, con la lista de horarios expandida. Los días se recorren con scroll; cada día es un encabezado con sus horarios libres punteados debajo. Se reserva una sesión por vez. Con sesiones ya pagadas, el botón dice "Reservar sesión" y aclara cuántas se usan.</p>
+<h2>8 · Reserva en escritorio · "Reservar sesión" (ya pagó)</h2>
+<p class="nota-r2">Arriba, la tarjeta verde con el terapeuta. Debajo, los días con su mes, que se recorren con el scroll de la página, cada uno con sus horarios libres punteados. El botón va en una barra fija abajo, con la sesión elegida. Se reserva una sesión por vez.</p>
 <div class="marco esc" id="r2-8-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
@@ -1930,46 +1959,29 @@ ul.lista-simple { padding: 0; }
       <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
       <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
     </div>
-    <div class="contenido">
-      <a class="enlace volver" style="margin-bottom:10px"><svg class="ico chico"><use href="#i-atras"/></svg>Volver al inicio</a>
+    <div class="contenido r8">
+      <a class="enlace volver" style="margin-bottom:10px"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
       <div class="saludo" style="margin-bottom:18px"><h1 class="t1">Reservá tu próxima <em>sesión</em></h1><p class="bajada">Horarios libres de Valeria, en tu hora (Argentina, GMT-3). Elegí uno.</p></div>
-      <div class="grilla-inicio">
-        <article class="tarjeta salvia lista-horarios">
-          <div class="lista-scroll"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Sábado 7</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">10:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Lunes 9</b><span class="tenue">4 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">13:00</span><span class="horario">15:00</span><span class="horario">18:30</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Martes 10</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">10:00</span><span class="horario">17:00</span><span class="horario">20:00</span></div></div></div>
-          <span class="barra-scroll"><i></i></span>
-        </article>
-        <div class="columna-der">
-          <article class="tarjeta pro2">
-          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
-            <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
-            <div>
-              <span class="tenue">Tu terapeuta</span>
-              <b>Lic. Valeria Quiroga</b>
-              <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
-            </div>
-          </div>
-          <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
-          <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
-          <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
-          
-        </article>
-          <div class="tarjeta reservar-box">
-            <span class="et-franja" style="width:auto;color:var(--verde-medio)">Tu sesión</span>
-            <b class="cuando-box">Jueves 5 de noviembre, 18:30</b>
-            <span class="peq">Hora de Argentina (GMT-3) · videollamada de 50 min</span>
-            <a class="boton primario grande ancho"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a>
-            <span class="peq" style="text-align:center;color:var(--bosque);font-weight:600">Usás 1 de tus 2 sesiones disponibles con Valeria</span>
-          </div>
+      <article class="tarjeta salvia pro-arriba">
+        <div class="pa-izq">
+          <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
+          <div class="pa-datos"><span class="tenue">Tu terapeuta</span><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
         </div>
-      </div>
+        <div class="pa-der"><div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div><p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p><span class="pa-extra"><b>2</b> sesiones disponibles con Valeria</span></div>
+      </article>
+      <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Sábado 7 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">10:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Lunes 9 de noviembre</b><span class="tenue">4 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">13:00</span><span class="horario">15:00</span><span class="horario">18:30</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Martes 10 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">10:00</span><span class="horario">17:00</span><span class="horario">20:00</span></div></div></div>
+    </div>
+    <div class="barra-reserva">
+      <div><span class="et-franja" style="width:auto;color:var(--verde-medio)">Tu sesión</span><b>Jueves 5 de noviembre, 18:30</b><span class="peq">Hora de Argentina · videollamada de 50 min · podés reprogramar sin costo hasta 24 h antes</span></div>
+      <div class="cta"><a class="boton primario grande"><svg class="ico"><use href="#i-sesiones"/></svg>Reservar sesión</a><span class="peq">Usás 1 de tus 2 sesiones disponibles con Valeria</span></div>
     </div>
   </main>
 </div>
 </section>
 
 <section class="lamina">
-<h2>8 · Reserva en el teléfono · antes del pago</h2>
-<p class="nota-r2">Antes de pagar, el botón dice "Reservar y proceder al pago" y la barra muestra el horario elegido y el precio.</p>
+<h2>8 · Reserva en el teléfono · "Reservar y proceder al pago" y "Reprogramar sesión"</h2>
+<p class="nota-r2">La misma pantalla, desde la elección de profesional antes de pagar (izquierda) y desde "Reprogramar" en el Inicio (derecha). Solo cambian el título, el contexto de la tarjeta y el botón amarillo.</p>
 <div class="fila-tel">
 <div>
 <div class="marco tel largo" id="r2-8-telefono">
@@ -1983,26 +1995,56 @@ ul.lista-simple { padding: 0; }
   <div class="cuerpo-tel r8tel">
     <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
     <h1 class="t1" style="font-size:28px">Reservá tu <em>sesión</em></h1>
-    <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
-        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
-        <div>
-          <span class="tenue">Reservás con</span>
-          <b>Lic. Valeria Quiroga</b>
-          <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
+    <article class="tarjeta salvia pro-arriba tel-arriba">
+        <div class="pa-izq">
+          <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+          <div class="pa-datos"><span class="tenue">Reservás con</span><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
         </div>
-      </div>
-      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
-      
-    </article>
-    <article class="tarjeta salvia lista-horarios tel-lista">
-      <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
-      <div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Sábado 7</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">10:00</span></div></div>
-    </article>
+        <div class="pa-der"><div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div></div>
+      </article>
+    <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
+    <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario">10:00</span><span class="horario">17:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Sábado 7 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">10:00</span></div></div></div>
   </div>
   <div class="barra-pago fija sobre-nav">
     <div class="total"><span>Jue 5, 18:30 · encuentro inicial</span><b>$42.000 <small style="font:700 12px var(--sans)">ARS</small></b></div>
     <a class="boton primario grande ancho">Reservar y proceder al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+    
+  </div>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+<div>
+<div class="marco tel largo" id="r2-8-reprogramar-telefono">
+  <div class="estado-tel"><span>11:10</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel r8tel">
+    <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+    <h1 class="t1" style="font-size:28px">Reprogramá tu <em>sesión</em></h1>
+    <article class="tarjeta salvia pro-arriba tel-arriba">
+        <div class="pa-izq">
+          <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+          <div class="pa-datos"><span class="tenue">Tu terapeuta</span><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
+        </div>
+        <div class="pa-der"><div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div><span class="pa-extra">Tu sesión actual: <b>viernes 6, 10:00</b></span></div>
+      </article>
+    <span class="peq" style="color:var(--bosque)">Horarios libres en tu hora (Argentina)</span>
+    <div class="lista-dias"><div class="dia-sec"><div class="dia-cab"><b>Hoy, miércoles 4 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">18:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Jueves 5 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">13:00</span><span class="horario elegido">18:30</span><span class="horario">20:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Viernes 6 de noviembre</b><span class="tenue">3 horarios</span></div><div class="horarios"><span class="horario">09:00</span><span class="horario actual">10:00<small>Tu sesión actual</small></span><span class="horario">17:00</span></div></div><div class="dia-sec"><div class="dia-cab"><b>Sábado 7 de noviembre</b><span class="tenue">1 horario</span></div><div class="horarios"><span class="horario">10:00</span></div></div></div>
+  </div>
+  <div class="barra-pago fija sobre-nav">
+    <div class="total"><span>Nueva fecha: jue 5 de noviembre, 18:30</span></div>
+    <a class="boton primario grande ancho">Reprogramar sesión<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+    <span class="peq" style="text-align:center;color:var(--bosque);font-weight:600">Sin costo: faltan más de 24 h para tu sesión actual</span>
   </div>
   <nav class="nav-tel">
     <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
