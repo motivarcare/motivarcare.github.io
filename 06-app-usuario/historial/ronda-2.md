@@ -57,7 +57,7 @@ Toma como base el Inicio B3 de la [Ronda #1](/06-app-usuario/historial/ronda-1/)
 Otros cambios respecto del B3:
 
 - En la tarjeta de la sesión, **"Reprogramar"** reemplaza a "Ver detalle", y "Probar cámara" queda como enlace.
-- Debajo de la sesión vuelve **la agenda de la semana** de la familia 3 (Ronda #1), con un solo profesional: la sesión de hoy con su foto, los ejercicios y el diario de cada día, y "Ver el mes" para abrir el mes completo (con "+ Reservar" en el próximo horario libre). En el teléfono es una versión compacta: cada día lleva la foto de Valeria si hay sesión o un punto si hay ejercicios.
+- Debajo de la sesión vuelve **la agenda de la semana** de la familia 3 (Ronda #1), con un solo profesional: la sesión de hoy con su foto, los ejercicios y el diario de cada día, y **"Ver sesiones"**, que lleva a la página de Sesiones. En el teléfono es una versión compacta: cada día lleva la foto de Valeria si hay sesión o un punto si hay ejercicios.
 
 - La tarjeta de sesiones disponibles, que iba aparte, ahora es parte de la tarjeta del profesional: las sesiones siempre se muestran junto a su nombre.
 - "Entre sesiones" pasa a la columna de la izquierda, debajo de la sesión, con el registro del ánimo y el ejercicio sugerido. El gráfico "Tu semana" queda en el Diario, para que la pantalla no crezca de más y Maca tenga libre su esquina.
@@ -89,3 +89,4 @@ Otros cambios respecto del B3:
 - Los botones pasan a ser **"Escribile"** y **"Comprar más sesiones"**. La compra queda atada al profesional de la tarjeta, como piden las reglas de producto.
 - **"Ver perfil"** sube a un botón chico en la esquina superior derecha de la tarjeta.
 - Más orden y aire: una línea divisoria antes del mensaje ("Te escribió ayer…") y otra antes de las sesiones disponibles, y más separación vertical antes del mensaje, antes de las sesiones y, un poco más, antes de los botones.
+- Sobre la agenda de la semana, **"Ver el mes" pasa a "Ver sesiones"** y lleva a la página de Sesiones, en lugar de abrir el mes completo en el Inicio.
