@@ -81,8 +81,8 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <ul>
       <li>La tarjeta verde muestra la sesión más próxima, sea con quien sea.</li>
       <li>La agenda de la semana reúne las sesiones con todos, cada profesional con su foto y su color.</li>
-      <li>La tarjeta de la derecha suma un selector con la foto de cada terapeuta: primero el principal, y avisos de sesión próxima o mensaje en los demás.</li>
-      <li>Debajo, "Sumar un terapeuta".</li>
+      <li>La tarjeta de la derecha suma un selector con la foto de cada terapeuta: primero el principal, cada uno con sus sesiones reservadas y sus mensajes sin leer.</li>
+      <li>Debajo, "Sumar profesional".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-4-escritorio">Ver en tamaño real →</a>
   </div>
@@ -170,7 +170,7 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 - **Saludo:** "Esta semana tenés 3 sesiones con 3 terapeutas. La próxima, con Valeria, empieza en unos minutos."
 - **Tarjeta verde:** la sesión más próxima, sea con quien sea. Es igual a la del mockup 1, con el nombre del profesional de esa sesión.
 - **Agenda de la semana:** reúne las sesiones con todos los profesionales, cada uno con su foto y un color propio (salvia para Valeria, lima para Andrés y amarillo suave para Tomás, los colores categóricos del design system). En el teléfono, cada día lleva la foto del profesional con quien hay sesión.
-- **Tarjeta del terapeuta con selector:** arriba, "Tus terapeutas · 3" y una pastilla con la foto y el nombre de cada uno. **El terapeuta principal va siempre primero** y es el que se abre por defecto; después van los demás. Se ve uno por vez, con los mismos datos y el mismo orden que en el mockup 1. Si otro terapeuta tiene una sesión próxima o dejó un mensaje sin leer, su pastilla lo avisa: "Vie 10:00" con el ícono del calendario (Andrés) o el ícono del chat con la cantidad de mensajes, en amarillo (Tomás). Sobre el nombre del principal dice "Tu terapeuta". Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
+- **Tarjeta del terapeuta con selector:** arriba, "Tus terapeutas · 3" y una pastilla con la foto y el nombre de cada uno. **El terapeuta principal va siempre primero** y es el que se abre por defecto; después van los demás. Se ve uno por vez, con los mismos datos y el mismo orden que en el mockup 1. Cada pastilla avisa con dos indicadores simples: el ícono de sesión con la cantidad de sesiones futuras reservadas (en menta) y el ícono del chat con la cantidad de mensajes sin leer (en amarillo). En el ejemplo, Valeria tiene 1 sesión (la de hoy) y 1 mensaje, Andrés 1 sesión y Tomás 1 mensaje. Sobre el nombre del principal dice "Tu terapeuta". Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
 - **Entre sesiones:** igual que en el mockup 1.
 
 ## Decisiones de la ronda
@@ -187,6 +187,6 @@ En los mockups:
 ### Tu terapeuta, otros terapeutas y profesionales (13/11)
 
 - **"Tu terapeuta"** es el profesional principal del usuario, con quien se alienta a sostener el tratamiento. Reemplaza a "Tu profesional" en todos los mockups.
-- El usuario puede **contratar sesiones (o paquetes) con otros terapeutas**. Debajo de la tarjeta del terapeuta hay un espacio punteado, **"Sumar un terapeuta"**, con la aclaración "Cada terapeuta tiene sus propias sesiones, su precio y su paquete". Está en los mockups 1, 2 y 4.
-- Con más de un terapeuta, **el principal va siempre primero**, y las pastillas de los demás avisan si hay una sesión próxima o un mensaje sin leer.
+- El usuario puede **contratar sesiones (o paquetes) con otros terapeutas o profesionales**. Debajo de la tarjeta del terapeuta hay un espacio punteado con la pregunta "¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?" y la acción **"Sumar profesional"** (porque puede sumar un terapeuta de otra especialidad o, más adelante, otro tipo de profesional, como un nutricionista). Debajo, la aclaración "Cada profesional tiene sus propias sesiones, su precio y su paquete". Está en los mockups 1, 2 y 4.
+- Con más de un terapeuta, **el principal va siempre primero**. Cada pastilla avisa con el ícono de sesión y la cantidad de sesiones futuras reservadas, y con el ícono del chat y la cantidad de mensajes sin leer.
 - **En esta fase solo hay psicólogos.** "Profesionales" queda como término general para las categorías que se sumen más adelante (por ejemplo, nutricionistas). En el mockup 3, los textos pasan a "Encontrá a tu terapeuta", "Elegí a tu terapeuta" y "Ver terapeutas".

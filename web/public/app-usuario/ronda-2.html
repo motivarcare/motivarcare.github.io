@@ -551,6 +551,12 @@ ul.lista-simple { padding: 0; }
 .sumar-terapeuta .mas { width: 30px; height: 30px; border-radius: 50%; border: 1.5px dashed var(--bosque); display: grid; place-items: center; font-size: 18px; font-weight: 600; line-height: 1; }
 .sumar-terapeuta p { font-size: 13px; color: var(--tinta-tenue); margin-top: 8px; }
 .tel-sumar .sumar { padding: 14px 16px; }
+
+/* Sumar profesional: pregunta y acción dentro del recuadro punteado */
+.sumar-terapeuta .sumar { flex-direction: column; align-items: flex-start; gap: 10px; }
+.sumar-terapeuta .sumar .pregunta { font-size: 13.5px; font-weight: 500; color: var(--tinta-suave); margin: 0; line-height: 1.4; }
+.sumar-terapeuta .accion { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; color: var(--bosque); text-decoration: none; }
+.tab-pro .aviso + .aviso { margin-left: -4px; }
 </style>
 </head>
 <body>
@@ -667,8 +673,11 @@ ul.lista-simple { padding: 0; }
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
           <div class="sumar-terapeuta">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
         </div>
       </div>
@@ -720,8 +729,11 @@ ul.lista-simple { padding: 0; }
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
     <div class="sumar-terapeuta tel-sumar">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
@@ -822,8 +834,11 @@ ul.lista-simple { padding: 0; }
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
           <div class="sumar-terapeuta">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
         </div>
       </div>
@@ -879,8 +894,11 @@ ul.lista-simple { padding: 0; }
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
     <div class="sumar-terapeuta tel-sumar">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
@@ -1141,9 +1159,9 @@ ul.lista-simple { padding: 0; }
           <div class="selector-pro">
             <span class="et-sel">Tus terapeutas · 3</span>
             <div class="tabs-pro">
-              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="Sesión el viernes a las 10:00"><svg class="ico"><use href="#i-sesiones"/></svg>Vie 10:00</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="Mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
+              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span><span class="aviso ses" title="1 sesión reservada"><svg class="ico"><use href="#i-sesiones"/></svg>1</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="1 sesión reservada"><svg class="ico"><use href="#i-sesiones"/></svg>1</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
           <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
@@ -1161,8 +1179,11 @@ ul.lista-simple { padding: 0; }
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
           <div class="sumar-terapeuta">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
         </div>
       </div>
@@ -1202,9 +1223,9 @@ ul.lista-simple { padding: 0; }
       <div class="selector-pro">
             <span class="et-sel">Tus terapeutas · 3</span>
             <div class="tabs-pro">
-              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="Sesión el viernes a las 10:00"><svg class="ico"><use href="#i-sesiones"/></svg>Vie 10:00</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="Mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
+              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span><span class="aviso ses" title="1 sesión reservada"><svg class="ico"><use href="#i-sesiones"/></svg>1</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="1 sesión reservada"><svg class="ico"><use href="#i-sesiones"/></svg>1</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="1 mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
       <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
@@ -1222,8 +1243,11 @@ ul.lista-simple { padding: 0; }
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
     <div class="sumar-terapeuta tel-sumar">
-            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
-            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="sumar">
+              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
+              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+            </div>
+            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
