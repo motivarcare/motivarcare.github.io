@@ -19,7 +19,8 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
 | 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
-| 5 | Elegí a tu terapeuta · compatibilidad con prioridad a una especialidad y filtro de profesionales | Segunda versión (escritorio y teléfono) |
+| 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
+| 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Segunda versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -89,17 +90,32 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
   </div>
 </article>
 <article class="hecha">
-  <figure><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-escritorio.jpg" alt="Elegí a tu terapeuta en escritorio, ordenado por la especialidad Ansiedad, con el menú abierto" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
-  <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-telefono.jpg" alt="Elegí a tu terapeuta en el teléfono, en el orden por defecto" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <figure><img src="/img/app-usuario/ronda-2/05-elegir-profesional-escritorio.jpg" alt="Elegí a tu profesional en escritorio, la primera vez" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-profesional-telefono.jpg" alt="Elegí a tu profesional en el teléfono, la primera vez" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
   <div class="texto">
-    <span class="chip-estado">Mockup 5 · segunda versión</span>
-    <h3>Elegí a tu terapeuta</h3>
+    <span class="chip-estado">Mockup 5 · primera versión</span>
+    <h3>Elegí a tu profesional · la primera vez</h3>
+    <p>Cómo se ve al llegar, sin cambiar nada:</p>
+    <ul>
+      <li>"Mostrar: Terapeutas", la única opción por ahora.</li>
+      <li>Ordenado por compatibilidad, según todas tus respuestas.</li>
+      <li>Los accesos directos para dar prioridad a una especialidad, visibles y sin ninguno elegido.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/06-elegir-prioridad-especialidad-escritorio.jpg" alt="Elegí a tu profesional en escritorio, con prioridad a Ansiedad y el menú de compatibilidad abierto" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-prioridad-especialidad-telefono.jpg" alt="Elegí a tu profesional en el teléfono, con prioridad a Ansiedad" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 6 · segunda versión</span>
+    <h3>Elegí a tu profesional · con prioridad a una especialidad</h3>
     <p>Parte de la elección de la familia 2 y mantiene el panel "Lo que nos contaste", con "Cambiar mis respuestas". Suma:</p>
     <ul>
       <li>Dos criterios de orden: <strong>compatibilidad</strong> (por defecto, según todas tus respuestas, o dando prioridad a una especialidad, cuyos terapeutas van primero, sin filtrar) y <strong>precio</strong>.</li>
       <li>El filtro <strong>"Mostrar"</strong>, hoy solo con terapeutas, preparado para otros profesionales.</li>
     </ul>
-    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -188,9 +204,9 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 - **Tarjeta del terapeuta con selector:** arriba, "Tus terapeutas · 3" y una pastilla con la foto y el nombre de cada uno. **El terapeuta principal va siempre primero** y es el que se abre por defecto; después van los demás. Se ve uno por vez, con los mismos datos y el mismo orden que en el mockup 1. Cada pastilla avisa con dos indicadores simples: el ícono de sesión con la cantidad de sesiones futuras reservadas (en menta) y el ícono del chat con la cantidad de mensajes sin leer (en amarillo). En el ejemplo, Valeria tiene 1 sesión (la de hoy) y 1 mensaje, Andrés 1 sesión y Tomás 1 mensaje. Sobre el nombre del principal dice "Tu terapeuta". Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
 - **Entre sesiones:** igual que en el mockup 1.
 
-## 5 · Elegí a tu terapeuta
+## 5 y 6 · Elegí a tu profesional
 
-Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #1](/06-app-usuario/historial/ronda-1/)), con la navegación de esta ronda. Es el paso 1 de la primera sesión, al que se llega desde "Ver terapeutas" en el Inicio sin profesional (mockup 3).
+Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #1](/06-app-usuario/historial/ronda-1/)), con la navegación de esta ronda. Es el paso 1 de la primera sesión, al que se llega desde "Ver terapeutas" en el Inicio sin profesional (mockup 3). El título es "Elegí a tu profesional": el tipo de profesional lo define el filtro "Mostrar", que por ahora solo tiene terapeutas. Son dos mockups del mismo listado: el **5**, como se ve la primera vez, sin cambiar el orden ni el filtro, y el **6**, con prioridad a una especialidad.
 
 - **"Lo que nos contaste"** se mantiene a la derecha: las respuestas del cuestionario agrupadas (qué querés trabajar, tu experiencia, tus preferencias y tu presupuesto) y "Cambiar mis respuestas". En el teléfono, las respuestas van arriba como pills, con "Cambiar".
 - **Ordenar por: Compatibilidad ▾ · Precio.** La especialidad no es un criterio aparte: es una forma de la compatibilidad.
@@ -199,7 +215,8 @@ Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #
   - El menú muestra primero las especialidades de tus respuestas y después las demás.
   - **Accesos directos:** debajo de la barra, "Dar prioridad a:" con las especialidades de tus respuestas y "Otra…", que abre el mismo menú. Hacen visible la opción sin abrir el menú.
   - **Al ordenar por precio**, la prioridad de especialidad no se tiene en cuenta: el precio ordena a todos por igual, para que cada criterio sea simple y predecible.
-  - En el escritorio se ve "Compatibilidad · Ansiedad primero" con el menú abierto; en el teléfono, el orden por defecto con los accesos directos.
+  - **Mockup 5:** "Compatibilidad" según todas tus respuestas y los accesos directos visibles, sin ninguno elegido. Se muestran desde la primera vez porque es cuando más ayudan a descubrir la opción.
+  - **Mockup 6:** "Compatibilidad · Ansiedad primero", con el menú abierto en el escritorio y el acceso directo "Ansiedad" marcado en el teléfono.
 - **Filtro "Mostrar":** a la izquierda, "Mostrar: Terapeutas". En esta etapa es la única opción, pero queda preparado para sumar otras categorías de profesionales (por ejemplo, nutricionistas).
 - **Tarjetas de los terapeutas,** con las reglas de esta ronda:
   - La profesión en su propia línea ("Psicóloga clínica") y las especialidades en pills, en una sola línea. Las que coinciden con tus respuestas llevan "✓" y fondo salvia; la especialidad elegida para ordenar se resalta en amarillo suave con borde.
@@ -228,3 +245,5 @@ En los mockups:
 ### Compatibilidad y especialidad, un solo criterio (13/11)
 
 En la primera versión del mockup 5, "Especialidad" era un tercer criterio de orden. En su estado por defecto ("todas, según tus respuestas") ordenaba igual que la compatibilidad, así que se combinaron: **la prioridad a una especialidad es una opción dentro de "Compatibilidad"**, con accesos directos debajo de la barra. Al ordenar por precio, la prioridad no se tiene en cuenta.
+- El título pasa a "Elegí a tu profesional": "Terapeutas" ya está elegido en el filtro "Mostrar", que por ahora no tiene otras opciones.
+- Se suma el **mockup 5**, el mismo listado como se ve la primera vez (sin orden ni filtro cambiados). El de la prioridad a una especialidad pasa a ser el **mockup 6**.

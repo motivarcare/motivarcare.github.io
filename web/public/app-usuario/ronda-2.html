@@ -663,6 +663,7 @@ ul.lista-simple { padding: 0; }
 .atajo.otra { border-style: dashed; border-color: var(--salvia-fuerte); color: var(--verde-medio); }
 .tel-atajos { margin: 0; gap: 6px; flex-wrap: nowrap; }
 .tel-atajos .atajo { font-size: 12px; padding: 4px 9px; }
+.tel .el-orden span.on { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -1376,8 +1377,8 @@ ul.lista-simple { padding: 0; }
 
 
 <section class="lamina">
-<h2>5 · Elegí a tu terapeuta en escritorio · compatibilidad con prioridad a una especialidad</h2>
-<p class="nota-r2">Parte de la elección de la familia 2. El orden combina compatibilidad y especialidad en un solo criterio: por defecto, según todas tus respuestas; si se da prioridad a una especialidad, sus terapeutas aparecen primero, sin ocultar a los demás. El precio ordena a todos por igual. Suma el filtro "Mostrar", hoy solo con terapeutas. Acá, la prioridad es Ansiedad y el menú está abierto.</p>
+<h2>5 · Elegí a tu profesional en escritorio · la primera vez</h2>
+<p class="nota-r2">Cómo se ve la primera vez, sin cambiar el orden ni el filtro: "Mostrar: Terapeutas" (la única opción por ahora), ordenado por compatibilidad según todas tus respuestas y con los accesos directos para dar prioridad a una especialidad, sin ninguno elegido.</p>
 <div class="marco esc" id="r2-5-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
@@ -1398,7 +1399,169 @@ ul.lista-simple { padding: 0; }
       <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
     </div>
     <div class="contenido">
-      <div class="saludo" style="margin-bottom:14px"><span class="t-fecha">Paso 1 de 4 · Tu primera sesión</span><h1 class="t1">Elegí a tu <em>terapeuta</em></h1><p class="bajada">Los ordenamos según lo que nos contaste. Elegí con calma: podés ver el perfil y los horarios de cada uno.</p></div>
+      <div class="saludo" style="margin-bottom:14px"><span class="t-fecha">Paso 1 de 4 · Tu primera sesión</span><h1 class="t1">Elegí a tu <em>profesional</em></h1><p class="bajada">Los ordenamos según lo que nos contaste. Elegí con calma: podés ver el perfil y los horarios de cada uno.</p></div>
+      <div class="el-grid">
+        <div>
+          <div class="el-barra r2">
+            <span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Mostrar: <b>Terapeutas</b><svg class="ico chico"><use href="#i-abajo"/></svg></span>
+            <span class="tenue">6 terapeutas · todos con matrícula verificada</span>
+            <span class="orden-wrap"><span class="et-orden">Ordenar por</span><span class="el-orden"><span class="on">Compatibilidad<svg class="ico chico cl"><use href="#i-abajo"/></svg></span><span>Precio</span></span>
+            </span>
+          </div>
+          <div class="atajos-esp"><span class="et-orden">Dar prioridad a:</span><span class="atajo">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
+          <div style="position:relative"><div class="el-lista"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 98%"><i>★★★★★</i><i>★★★★★</i></span><b>4,9</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span><span class="exp-l">· 9 años de experiencia</span></div>
+    <span class="esp">Psicóloga clínica</span>
+    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Terapia cognitivo-conductual</span></div>
+    <p class="bio">Acompaño procesos de ansiedad y estrés laboral desde la terapia cognitivo-conductual, con herramientas para el día a día.</p>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $42.000</span><span class="sesiones">640 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span><span class="exp-l">· 4 años de experiencia</span></div>
+    <span class="esp">Psicólogo</span>
+    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp">Vínculos</span><span class="pill-esp">Adultos jóvenes</span></div>
+    <p class="bio">Trabajo con adultos jóvenes en ansiedad, vínculos e identidad, desde un enfoque sistémico.</p>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $38.000</span><span class="sesiones">210 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Mónica Aranda</b><span class="compat">85 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chile</span><span class="exp-l">· 22 años de experiencia</span></div>
+    <span class="esp">Psicóloga</span>
+    <div class="pills"><span class="pill-esp">Duelo</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Vínculos</span></div>
+    <p class="bio">Más de veinte años acompañando duelos, separaciones y crisis vitales desde el psicoanálisis.</p>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $55.000</span><span class="sesiones">1.150 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/andres-salvatierra.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Andrés Salvatierra</b><span class="compat">80 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 92%"><i>★★★★★</i><i>★★★★★</i></span><b>4,6</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>México</span><span class="exp-l">· 15 años de experiencia</span></div>
+    <span class="esp">Psicólogo</span>
+    <div class="pills"><span class="pill-esp">Parejas y familias</span><span class="pill-esp coincide">✓ Estrés laboral</span></div>
+    <p class="bio">Acompaño a parejas y personas en momentos de cambio, con en la comunicación y los acuerdos.</p>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $48.000</span><span class="sesiones">860 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Paula Ríos</b><span class="compat">79 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 96%"><i>★★★★★</i><i>★★★★★</i></span><b>4,8</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Uruguay</span><span class="exp-l">· 7 años de experiencia</span></div>
+    <span class="esp">Psicóloga</span>
+    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp">Autoestima</span><span class="pill-esp">Terapia de aceptación y compromiso</span></div>
+    <p class="bio">Trabajo con ansiedad y autoestima desde la terapia de aceptación y compromiso.</p>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $40.000</span><span class="sesiones">390 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article></div><span class="el-scroll"><i></i></span></div>
+        </div>
+        <aside class="tarjeta el-contaste">
+          <h3>Lo que nos contaste</h3>
+          <div class="grupo"><small>Querés trabajar</small><div class="el-tags"><span>Ansiedad</span><span>Estrés laboral</span></div></div>
+          <div class="grupo"><small>Tu experiencia</small><div class="el-tags"><span>Primera vez en terapia</span></div></div>
+          <div class="grupo"><small>Preferís</small><div class="el-tags"><span>Por videollamada</span><span>De tarde</span></div></div>
+          <div class="grupo"><small>Tu presupuesto</small><div class="el-tags"><span>Hasta $50.000 por sesión</span></div></div>
+          <a class="enlace" style="font-size:13.5px">Cambiar mis respuestas</a>
+          <p class="tenue" style="font-size:12.5px;border-top:1px solid var(--linea);padding-top:12px">La compatibilidad compara tus respuestas con la experiencia y el enfoque de cada terapeuta. El precio es el de un encuentro inicial (una sesión); los paquetes se eligen después, con el terapeuta que elijas.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="lamina">
+<h2>5 · Elegí a tu profesional en el teléfono · la primera vez</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel" id="r2-5-telefono">
+  <div class="estado-tel"><span>10:26</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+    <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+    <span class="inicial">G</span>
+  </div>
+  <div class="cuerpo-tel" style="gap:10px">
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
+    <div class="el-tags" style="flex-wrap:nowrap"><span>Ansiedad</span><span>Estrés laboral</span><span>Hasta $50.000</span><span style="background:transparent;border:1.5px dashed var(--salvia-fuerte)">Cambiar</span></div>
+    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 6h16M7 12h10M10 18h4"/></svg><b>Terapeutas</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><span class="tenue">6 para vos</span></div>
+    <div class="fila-ctl"><span class="et-orden">Ordenar</span><span class="el-orden"><span class="on">Compatibilidad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
+    <div class="atajos-esp tel-atajos"><span class="et-orden">Prioridad:</span><span class="atajo">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
+    <div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 98%"><i>★★★★★</i><i>★★★★★</i></span><b>4,9</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span><span class="exp-l">· 9 años de experiencia</span></div>
+    <span class="esp">Psicóloga clínica</span>
+    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Terapia cognitivo-conductual</span></div>
+    
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $42.000</span><span class="sesiones">640 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/tomas-benitez.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span><span class="exp-l">· 4 años de experiencia</span></div>
+    <span class="esp">Psicólogo</span>
+    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp">Vínculos</span><span class="pill-esp">Adultos jóvenes</span></div>
+    
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $38.000</span><span class="sesiones">210 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
+  <div class="info">
+    <div class="nombre"><b>Lic. Mónica Aranda</b><span class="compat">85 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chile</span><span class="exp-l">· 22 años de experiencia</span></div>
+    <span class="esp">Psicóloga</span>
+    <div class="pills"><span class="pill-esp">Duelo</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Vínculos</span></div>
+    
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $55.000</span><span class="sesiones">1.150 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article></div>
+  </div>
+  <nav class="nav-tel">
+    <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
+    <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
+  </nav>
+</div>
+</div>
+</div>
+</section>
+
+<section class="lamina">
+<h2>6 · Elegí a tu profesional en escritorio · compatibilidad con prioridad a una especialidad</h2>
+<p class="nota-r2">El mismo listado con prioridad a Ansiedad, elegida desde el menú de "Compatibilidad" (abierto) o desde los accesos directos. Sus terapeutas aparecen primero y los demás siguen debajo; el precio ordena a todos por igual.</p>
+<div class="marco esc" id="r2-6-escritorio">
+  <aside class="lateral">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-chat"/></svg>Mensajes</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
+    <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
+    <div class="pie">
+      <a class="nav-item"><svg class="ico"><use href="#i-ayuda"/></svg>Ayuda</a>
+      <div class="apoyo"><svg class="ico chico"><use href="#i-tel"/></svg><div><b>Líneas de apoyo</b>Si necesitás hablar con alguien ahora, hay líneas gratuitas en tu país.</div></div>
+    </div>
+  </aside>
+  <main class="principal">
+    <div class="barra">
+      <span class="espacio"></span>
+      <span class="boton-icono"><svg class="ico"><use href="#i-campana"/></svg></span>
+      <span class="cuenta"><span class="inicial">G</span>Gastón<svg class="ico chico"><use href="#i-abajo"/></svg></span>
+    </div>
+    <div class="contenido">
+      <div class="saludo" style="margin-bottom:14px"><span class="t-fecha">Paso 1 de 4 · Tu primera sesión</span><h1 class="t1">Elegí a tu <em>profesional</em></h1><p class="bajada">Los ordenamos según lo que nos contaste. Elegí con calma: podés ver el perfil y los horarios de cada uno.</p></div>
       <div class="el-grid">
         <div>
           <div class="el-barra r2">
@@ -1489,10 +1652,10 @@ ul.lista-simple { padding: 0; }
 </section>
 
 <section class="lamina">
-<h2>5 · Elegí a tu terapeuta en el teléfono · orden por defecto</h2>
+<h2>6 · Elegí a tu profesional en el teléfono · con prioridad a una especialidad</h2>
 <div class="fila-tel">
 <div>
-<div class="marco tel" id="r2-5-telefono">
+<div class="marco tel" id="r2-6-telefono">
   <div class="estado-tel"><span>10:26</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
   <div class="cabecera-tel">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
@@ -1501,17 +1664,17 @@ ul.lista-simple { padding: 0; }
     <span class="inicial">G</span>
   </div>
   <div class="cuerpo-tel" style="gap:10px">
-    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>terapeuta</em></h1></div>
+    <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
     <div class="el-tags" style="flex-wrap:nowrap"><span>Ansiedad</span><span>Estrés laboral</span><span>Hasta $50.000</span><span style="background:transparent;border:1.5px dashed var(--salvia-fuerte)">Cambiar</span></div>
     <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 6h16M7 12h10M10 18h4"/></svg><b>Terapeutas</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><span class="tenue">6 para vos</span></div>
-    <div class="fila-ctl"><span class="et-orden">Ordenar</span><span class="el-orden"><span class="on">Compatibilidad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
-    <div class="atajos-esp tel-atajos"><span class="et-orden">Prioridad:</span><span class="atajo">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
+    <div class="fila-ctl"><span class="et-orden">Ordenar</span><span class="el-orden"><span class="on">Compat. · Ansiedad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
+    <div class="atajos-esp tel-atajos"><span class="et-orden">Prioridad:</span><span class="atajo on">Ansiedad</span><span class="atajo">Estrés laboral</span><span class="atajo otra">Otra…</span></div>
     <div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
   <div class="info">
     <div class="nombre"><b>Lic. Valeria Quiroga</b><span class="compat">92 %</span></div>
     <div class="valoracion"><span class="estrellas" style="--v: 98%"><i>★★★★★</i><i>★★★★★</i></span><b>4,9</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Argentina</span><span class="exp-l">· 9 años de experiencia</span></div>
     <span class="esp">Psicóloga clínica</span>
-    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Terapia cognitivo-conductual</span></div>
+    <div class="pills"><span class="pill-esp coincide foco">✓ Ansiedad</span><span class="pill-esp coincide">✓ Estrés laboral</span><span class="pill-esp">Terapia cognitivo-conductual</span></div>
     
     <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $42.000</span><span class="sesiones">640 sesiones</span></div>
     <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton primario">Elegir</a></div></div>
@@ -1521,12 +1684,21 @@ ul.lista-simple { padding: 0; }
     <div class="nombre"><b>Lic. Tomás Benítez</b><span class="compat">88 %</span></div>
     <div class="valoracion"><span class="estrellas" style="--v: 86%"><i>★★★★★</i><i>★★★★★</i></span><b>4,3</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Colombia</span><span class="exp-l">· 4 años de experiencia</span></div>
     <span class="esp">Psicólogo</span>
-    <div class="pills"><span class="pill-esp coincide">✓ Ansiedad</span><span class="pill-esp">Vínculos</span><span class="pill-esp">Adultos jóvenes</span></div>
+    <div class="pills"><span class="pill-esp coincide foco">✓ Ansiedad</span><span class="pill-esp">Vínculos</span><span class="pill-esp">Adultos jóvenes</span></div>
     
     <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $38.000</span><span class="sesiones">210 sesiones</span></div>
     <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
   </div>
-</article><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
+</article><article class="tarjeta-pro"><span class="avatar-pro ini" style="font-size:17px">PR</span>
+  <div class="info">
+    <div class="nombre"><b>Lic. Paula Ríos</b><span class="compat">79 %</span></div>
+    <div class="valoracion"><span class="estrellas" style="--v: 96%"><i>★★★★★</i><i>★★★★★</i></span><b>4,8</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Uruguay</span><span class="exp-l">· 7 años de experiencia</span></div>
+    <span class="esp">Psicóloga</span>
+    <div class="pills"><span class="pill-esp coincide foco">✓ Ansiedad</span><span class="pill-esp">Autoestima</span><span class="pill-esp">Terapia de aceptación y compromiso</span></div>
+    <div class="encaja-fila"><div class="datos-pro"><span class="precio">Encuentro inicial · $40.000</span><span class="sesiones">390 sesiones</span></div>
+    <div class="pie-pro"><a class="enlace" style="font-size:13.5px">Ver perfil y horarios</a><a class="boton contorno">Elegir</a></div></div>
+  </div>
+</article><div class="sep-lista">Otros terapeutas para vos</div><article class="tarjeta-pro"><img class="avatar-pro" src="../landing/img/profesionales/monica-aranda.jpg" alt="" width="60" height="60">
   <div class="info">
     <div class="nombre"><b>Lic. Mónica Aranda</b><span class="compat">85 %</span></div>
     <div class="valoracion"><span class="estrellas" style="--v: 94%"><i>★★★★★</i><i>★★★★★</i></span><b>4,7</b><span class="pais"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Chile</span><span class="exp-l">· 22 años de experiencia</span></div>
