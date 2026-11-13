@@ -798,6 +798,23 @@ ul.lista-simple { padding: 0; }
 .aviso-24 b { font: 560 19px/1.25 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
 .aviso-24 p { font-size: 14px; color: var(--tinta-suave); margin: 0; }
 .icono-aviso { width: 40px; height: 40px; border-radius: 50%; background: var(--amarillo-suave); color: var(--bosque); display: grid; place-items: center; }
+
+/* Widget "Para complementar tu proceso" */
+.complementar { display: flex; flex-direction: column; gap: 12px; padding: 18px 20px; border-radius: var(--rm); border: 1.5px dashed var(--salvia-fuerte); }
+.comp-cab { display: flex; flex-direction: column; gap: 2px; }
+.comp-cab b { font: 560 18px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.comp-esp { display: flex; flex-wrap: wrap; gap: 6px; }
+.esp-sug { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 99px; background: var(--menta); color: var(--bosque); font-size: 13px; font-weight: 700; text-decoration: none; }
+.esp-sug .ico { width: 14px; height: 14px; }
+.comp-otros { display: flex; flex-direction: column; gap: 6px; padding-top: 10px; border-top: 1px solid var(--linea); }
+.et-comp { font: 700 10.5px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-tenue); }
+.otro-rubro { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--tinta-tenue); font-weight: 600; }
+.otro-rubro .chip { font-size: 11px; padding: 4px 8px; }
+.comp-buscar { font-size: 13.5px; }
+.comp-buscar .ico { width: 14px; height: 14px; }
+.tel-comp { padding: 16px; }
+.marco.esc.largo { height: auto; min-height: 1024px; }
+.marco.esc.largo .contenido { padding-bottom: 110px; }
 </style>
 </head>
 <body>
@@ -839,7 +856,7 @@ ul.lista-simple { padding: 0; }
 <section class="lamina">
 <h2>1 · Inicio en escritorio · profesional asignado, con la próxima sesión reservada</h2>
 <p class="nota-r2">Toma como base el Inicio B3 de la Ronda #1. Cambia la tarjeta de la derecha: ahora reúne al profesional, el último mensaje sin leer (solo aparece si hay uno), sus sesiones y los accesos para escribirle y ver su perfil.</p>
-<div class="marco esc" id="r2-1-escritorio">
+<div class="marco esc largo" id="r2-1-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
@@ -913,12 +930,19 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
-          <div class="sumar-terapeuta">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+          <div class="complementar">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
         </div>
       </div>
@@ -969,12 +993,19 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
-    <div class="sumar-terapeuta tel-sumar">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+    <div class="complementar tel-comp">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
@@ -999,7 +1030,7 @@ ul.lista-simple { padding: 0; }
 <section class="lamina">
 <h2>2 · Inicio en escritorio · profesional asignado, sin turnos reservados</h2>
 <p class="nota-r2">Misma estructura que el mockup 1. La tarjeta verde invita a reservar con los próximos horarios libres de Valeria, que también aparecen punteados en la agenda de la semana. La tarjeta del profesional se muestra sin mensaje sin leer.</p>
-<div class="marco esc" id="r2-2-escritorio">
+<div class="marco esc largo" id="r2-2-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
@@ -1074,12 +1105,19 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
-          <div class="sumar-terapeuta">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+          <div class="complementar">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
         </div>
       </div>
@@ -1134,12 +1172,19 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
-    <div class="sumar-terapeuta tel-sumar">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+    <div class="complementar tel-comp">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
@@ -1337,7 +1382,7 @@ ul.lista-simple { padding: 0; }
 <section class="lamina">
 <h2>4 · Inicio en escritorio · con más de un profesional asignado</h2>
 <p class="nota-r2">La sesión más próxima manda en la tarjeta verde. La agenda de la semana muestra las sesiones con todos los profesionales, cada uno con su color. La tarjeta de la derecha suma un selector con la foto de cada profesional: se ve uno por vez, con los mismos datos que en el mockup 1.</p>
-<div class="marco esc" id="r2-4-escritorio">
+<div class="marco esc largo" id="r2-4-escritorio">
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
@@ -1419,12 +1464,19 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
-          <div class="sumar-terapeuta">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+          <div class="complementar">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
         </div>
       </div>
@@ -1483,12 +1535,19 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
-    <div class="sumar-terapeuta tel-sumar">
-            <div class="sumar">
-              <p class="pregunta">¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?</p>
-              <a class="accion"><span class="mas">+</span>Sumar profesional</a>
+    <div class="complementar tel-comp">
+            <div class="comp-cab"><b>Para complementar tu proceso</b><span class="tenue">Según lo que nos contaste</span></div>
+            <div class="comp-esp">
+              <a class="esp-sug">Mindfulness y relajación<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Sueño y descanso<svg class="ico"><use href="#i-flecha"/></svg></a>
+              <a class="esp-sug">Autoestima<svg class="ico"><use href="#i-flecha"/></svg></a>
             </div>
-            <p>Cada profesional tiene sus propias sesiones, su precio y su paquete.</p>
+            <div class="comp-otros">
+              <span class="et-comp">Otros profesionales</span>
+              <span class="otro-rubro"><span>Nutrición</span><span class="chip contorno">Próximamente</span></span>
+              <span class="otro-rubro"><span>Psicopedagogía</span><span class="chip contorno">Próximamente</span></span>
+            </div>
+            <a class="enlace comp-buscar">Buscar otro profesional<svg class="ico"><use href="#i-flecha"/></svg></a>
           </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>

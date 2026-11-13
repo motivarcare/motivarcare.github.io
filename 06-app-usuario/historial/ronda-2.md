@@ -86,7 +86,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>La tarjeta verde muestra la sesión más próxima, sea con quien sea.</li>
       <li>La agenda de la semana reúne las sesiones con todos, cada profesional con su foto y su color.</li>
       <li>La tarjeta de la derecha suma un selector con la foto de cada terapeuta: primero el principal, cada uno con sus sesiones reservadas y sus mensajes sin leer.</li>
-      <li>Debajo, "Sumar profesional".</li>
+      <li>Debajo, el widget "Para complementar tu proceso".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-4-escritorio">Ver en tamaño real →</a>
   </div>
@@ -317,3 +317,14 @@ En la primera versión del mockup 5, "Especialidad" era un tercer criterio de or
 - **Mockup 8, tercera versión:** la tarjeta verde pasa arriba con los datos del terapeuta; los días (con su mes) y sus horarios quedan fuera de cualquier tarjeta y se recorren con el scroll de la página; el botón va en una barra fija abajo. Se suman los tres botones según el caso: "Reservar sesión", "Reservar y proceder al pago" y "Reprogramar sesión".
 - **Mockup 8, cuarta versión:** vuelven a la derecha (en escritorio) la tarjeta blanca del terapeuta y el botón amarillo. Arriba de los días, una tarjeta verde salvia dice qué se está por hacer según el caso (primera sesión, próxima sesión o reprogramar), con los horarios libres del mes, la duración de las sesiones y el dato propio de cada caso (encuentro inicial, sesiones que quedan con "Comprar más sesiones", o la sesión que se cambia).
 - En la reserva (mockup 8), la duración de las sesiones sale de la tarjeta verde y vuelve, junto con la reprogramación sin costo hasta 24 h antes, a la tarjeta blanca del terapeuta, como en la contratación. Si se intenta reprogramar con menos de 24 h para la sesión, en lugar de los horarios se explica que no se puede y se ofrece escribir a soporte.
+
+### Para complementar tu proceso (13/11)
+
+El espacio "Sumar profesional" de los mockups 1, 2 y 4 se convierte en un **widget de recomendaciones**, "**Para complementar tu proceso**", debajo de la tarjeta del terapeuta. Sirve para iniciar una nueva búsqueda o sumar profesionales sin sentirse como una venta:
+
+- **Especialidades sugeridas** "según lo que nos contaste": dos o tres que complementan lo que la persona ya trabaja, nunca las mismas (en el ejemplo, "Mindfulness y relajación", "Sueño y descanso" y "Autoestima", porque con Valeria ya trabaja ansiedad y estrés laboral). Cada una lleva a "Elegí a tu profesional" con los filtros ya cargados: "Mostrar: Terapeutas" y esa especialidad como prioridad en "Compatibilidad".
+- **Otros profesionales:** otras categorías, como Nutrición y Psicopedagogía, marcadas como **"Próximamente"** mientras en esta fase solo haya psicólogos. Cuando estén disponibles, llevan a "Elegí a tu profesional" con "Mostrar" en esa categoría.
+- **"Buscar otro profesional"**, al final, para buscar sin sugerencias.
+- Mantiene el borde punteado (lo que todavía está por sumar) y no usa amarillo, para no competir con la sesión.
+- **No aparece en el mockup 3** (sin terapeuta): ahí no hay nada que complementar, y la acción principal ya es "Ver terapeutas".
+- Con el widget, los Inicios de escritorio de los mockups 1, 2 y 4 se muestran como pantalla completa, con su scroll, para que Maca no tape el contenido.
