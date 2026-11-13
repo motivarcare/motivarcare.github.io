@@ -539,6 +539,18 @@ ul.lista-simple { padding: 0; }
 .tel-pro.multi .tabs-pro { gap: 6px; }
 .tel-pro.multi .tab-pro { padding: 0 10px 0 4px; font-size: 12.5px; height: 38px; }
 .tel-pro.multi .tab-pro img { width: 30px; height: 30px; }
+
+/* Terapeutas: avisos en las pastillas y "Sumar un terapeuta" */
+.tab-pro .aviso { display: inline-flex; align-items: center; gap: 3px; margin-left: -2px; padding: 3px 7px; border-radius: 99px; font-size: 11px; font-weight: 800; color: var(--bosque); }
+.tab-pro .aviso .ico { width: 12px; height: 12px; }
+.tab-pro .aviso.ses { background: var(--menta); }
+.tab-pro .aviso.msj { background: var(--amarillo); }
+.tabs-pro { flex-wrap: wrap; }
+.columna-der { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sumar-terapeuta .sumar { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: var(--rm); border: 1.5px dashed var(--salvia-fuerte); font-weight: 700; font-size: 15px; color: var(--bosque); text-decoration: none; }
+.sumar-terapeuta .mas { width: 30px; height: 30px; border-radius: 50%; border: 1.5px dashed var(--bosque); display: grid; place-items: center; font-size: 18px; font-weight: 600; line-height: 1; }
+.sumar-terapeuta p { font-size: 13px; color: var(--tinta-tenue); margin-top: 8px; }
+.tel-sumar .sumar { padding: 14px 16px; }
 </style>
 </head>
 <body>
@@ -638,11 +650,12 @@ ul.lista-simple { padding: 0; }
             </div>
           </section>
         </div>
+        <div class="columna-der">
         <article class="tarjeta pro2">
           <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
-              <span class="tenue">Tu profesional</span>
+              <span class="tenue">Tu terapeuta</span>
               <b>Lic. Valeria Quiroga</b>
               <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
             </div>
@@ -653,6 +666,11 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
+          <div class="sumar-terapeuta">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -690,7 +708,7 @@ ul.lista-simple { padding: 0; }
       <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
-          <span class="tenue">Tu profesional</span>
+          <span class="tenue">Tu terapeuta</span>
           <b>Lic. Valeria Quiroga</b>
           <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
         </div>
@@ -701,6 +719,10 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
+    <div class="sumar-terapeuta tel-sumar">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
             <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
@@ -784,11 +806,12 @@ ul.lista-simple { padding: 0; }
             </div>
           </section>
         </div>
+        <div class="columna-der">
         <article class="tarjeta pro2">
           <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
-              <span class="tenue">Tu profesional</span>
+              <span class="tenue">Tu terapeuta</span>
               <b>Lic. Valeria Quiroga</b>
               <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
             </div>
@@ -798,6 +821,11 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
+          <div class="sumar-terapeuta">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -840,7 +868,7 @@ ul.lista-simple { padding: 0; }
       <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
-          <span class="tenue">Tu profesional</span>
+          <span class="tenue">Tu terapeuta</span>
           <b>Lic. Valeria Quiroga</b>
           <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
         </div>
@@ -850,6 +878,10 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
+    <div class="sumar-terapeuta tel-sumar">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
             <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
@@ -902,16 +934,16 @@ ul.lista-simple { padding: 0; }
         <div class="columna-izq">
         <article class="tarjeta bosque sesion primeros">
           <div class="cabeza"><span class="chip" style="background:var(--superficie)">Primeros pasos</span></div>
-          <div class="cuando" style="font-size:34px">Encontrá a tu profesional<small>Te sugerimos profesionales según lo que contaste en el cuestionario.</small></div>
+          <div class="cuando" style="font-size:34px">Encontrá a tu terapeuta<small>Te sugerimos profesionales según lo que contaste en el cuestionario.</small></div>
           <div class="pasos r2">
-            <div class="paso actual"><span class="num">1</span>Elegí a tu profesional</div>
+            <div class="paso actual"><span class="num">1</span>Elegí a tu terapeuta</div>
             <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
             <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
             <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
           </div>
           <div class="acciones">
-            <a class="boton primario grande">Ver profesionales<svg class="ico chico"><use href="#i-flecha"/></svg></a>
-            <span class="peq" style="color:var(--bosque)">Cada profesional define su precio. Sin suscripción.</span>
+            <a class="boton primario grande">Ver terapeutas<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+            <span class="peq" style="color:var(--bosque)">Cada terapeuta define su precio. Sin suscripción.</span>
           </div>
         </article>
                     <section class="entre r2">
@@ -921,7 +953,7 @@ ul.lista-simple { padding: 0; }
             <div><b style="color:var(--bosque);font-size:16.5px">¿Es tu primera vez en terapia?</b><p class="peq">No hace falta tener todo claro para empezar.</p></div>
             <ul class="lista-simple">
               <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span>La primera sesión es para conocerse.</li>
-              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span><span>Te sugerimos que reserves un <b style="color:var(--bosque)">encuentro inicial</b> con un profesional. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado.</span></li>
+              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span><span>Te sugerimos que reserves un <b style="color:var(--bosque)">encuentro inicial</b> con un terapeuta. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado.</span></li>
             </ul>
             <a class="enlace">Qué esperar de la primera sesión<svg class="ico"><use href="#i-flecha"/></svg></a>
           </article>
@@ -989,15 +1021,15 @@ ul.lista-simple { padding: 0; }
     </div>
     <article class="tarjeta bosque sesion primeros r2">
       <div class="cabeza"><span class="chip" style="background:var(--superficie)">Primeros pasos</span></div>
-      <div class="cuando" style="font-size:26px">Encontrá a tu profesional</div>
+      <div class="cuando" style="font-size:26px">Encontrá a tu terapeuta</div>
       <div class="pasos r2 tel-pasos">
-            <div class="paso actual"><span class="num">1</span>Elegí a tu profesional</div>
+            <div class="paso actual"><span class="num">1</span>Elegí a tu terapeuta</div>
             <div class="paso pendiente"><span class="num">2</span>Elegí un horario</div>
             <div class="paso pendiente"><span class="num">3</span>Elegí cómo pagar</div>
             <div class="paso pendiente"><span class="num">4</span>Confirmá la reserva</div>
           </div>
-      <a class="boton primario grande ancho" style="position:relative">Ver profesionales</a>
-      <span class="peq" style="position:relative;text-align:center;color:var(--bosque);font-size:13px">Cada profesional define su precio. Sin suscripción.</span>
+      <a class="boton primario grande ancho" style="position:relative">Ver terapeutas</a>
+      <span class="peq" style="position:relative;text-align:center;color:var(--bosque);font-size:13px">Cada terapeuta define su precio. Sin suscripción.</span>
     </article>
         <article class="tarjeta sugeridos2 tel-sug">
       <div class="sug-cab"><div><b>Sugeridos para vos</b><span class="tenue">Según tu cuestionario</span></div><a class="ver-perfil" style="position:static">Ver todos<svg class="ico"><use href="#i-flecha"/></svg></a></div>
@@ -1024,7 +1056,7 @@ ul.lista-simple { padding: 0; }
             <div><b style="color:var(--bosque);font-size:16.5px">¿Es tu primera vez en terapia?</b><p class="peq">No hace falta tener todo claro para empezar.</p></div>
             <ul class="lista-simple">
               <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span>La primera sesión es para conocerse.</li>
-              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span><span>Te sugerimos que reserves un <b style="color:var(--bosque)">encuentro inicial</b> con un profesional. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado.</span></li>
+              <li><span class="tilde"><svg class="ico"><use href="#i-check"/></svg></span><span>Te sugerimos que reserves un <b style="color:var(--bosque)">encuentro inicial</b> con un terapeuta. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado.</span></li>
             </ul>
             <a class="enlace">Qué esperar de la primera sesión<svg class="ico"><use href="#i-flecha"/></svg></a>
           </article>
@@ -1050,7 +1082,7 @@ ul.lista-simple { padding: 0; }
   <aside class="lateral">
     <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
     <a class="nav-item activo"><svg class="ico"><use href="#i-inicio"/></svg>Inicio</a>
-    <a class="nav-item"><svg class="ico"><use href="#i-chat"/></svg>Mensajes<span class="contador">1</span></a>
+    <a class="nav-item"><svg class="ico"><use href="#i-chat"/></svg>Mensajes<span class="contador">2</span></a>
     <a class="nav-item"><svg class="ico"><use href="#i-sesiones"/></svg>Sesiones</a>
     <a class="nav-item"><svg class="ico"><use href="#i-diario"/></svg>Diario</a>
     <a class="nav-item"><svg class="ico"><use href="#i-bienestar"/></svg>Bienestar</a>
@@ -1069,7 +1101,7 @@ ul.lista-simple { padding: 0; }
       <div class="saludo">
         <span class="t-fecha">Miércoles 4 de noviembre</span>
         <h1 class="t1">Hola, <em>Gastón.</em></h1>
-        <p class="bajada">Esta semana tenés 3 sesiones con 3 profesionales. La próxima, con Valeria, empieza en unos minutos.</p>
+        <p class="bajada">Esta semana tenés 3 sesiones con 3 terapeutas. La próxima, con Valeria, empieza en unos minutos.</p>
       </div>
       <div class="grilla-inicio">
         <div class="columna-izq">
@@ -1104,19 +1136,20 @@ ul.lista-simple { padding: 0; }
             </div>
           </section>
         </div>
+        <div class="columna-der">
         <article class="tarjeta pro2 multi">
           <div class="selector-pro">
-            <span class="et-sel">Tus profesionales · 3</span>
+            <span class="et-sel">Tus terapeutas · 3</span>
             <div class="tabs-pro">
-              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span><i class="nuevo"></i></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span></span>
+              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="Sesión el viernes a las 10:00"><svg class="ico"><use href="#i-sesiones"/></svg>Vie 10:00</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="Mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
           <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
-              <span class="tenue">Terapia individual</span>
+              <span class="tenue">Tu terapeuta</span>
               <b>Lic. Valeria Quiroga</b>
               <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
             </div>
@@ -1127,6 +1160,11 @@ ul.lista-simple { padding: 0; }
           <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
           <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
+          <div class="sumar-terapeuta">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1159,20 +1197,20 @@ ul.lista-simple { padding: 0; }
       <a class="boton primario grande ancho" style="position:relative"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
       <div style="display:flex;justify-content:space-between;position:relative"><a class="boton texto" style="height:28px">Reprogramar</a><a class="boton texto" style="height:28px">Probar cámara</a></div>
     </article>
-    <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><a class="eq-expandir" href="#sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><img class="m" src="../landing/img/profesionales/tomas-benitez.jpg" alt=""></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="m p"></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><img class="m" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="m p"></span></div><div class="dt"><span class="d">V</span><span class="n">6</span><img class="m" src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="m p"></span></div><div class="dt"><span class="d">D</span><span class="n">8</span></div></div><div class="ley-tel"><span>3 sesiones con 3 profesionales</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
+    <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><a class="eq-expandir" href="#sesiones">Ver sesiones<svg class="ico" style="width:14px;height:14px"><use href="#i-flecha"/></svg></a></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><img class="m" src="../landing/img/profesionales/tomas-benitez.jpg" alt=""></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="m p"></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><img class="m" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="m p"></span></div><div class="dt"><span class="d">V</span><span class="n">6</span><img class="m" src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="m p"></span></div><div class="dt"><span class="d">D</span><span class="n">8</span></div></div><div class="ley-tel"><span>3 sesiones con 3 terapeutas</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
     <article class="tarjeta pro2 tel-pro multi">
       <div class="selector-pro">
-            <span class="et-sel">Tus profesionales · 3</span>
+            <span class="et-sel">Tus terapeutas · 3</span>
             <div class="tabs-pro">
-              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span><i class="nuevo"></i></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span></span>
-              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span></span>
+              <span class="tab-pro activo"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""><span>Valeria</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/andres-salvatierra.jpg" alt=""><span>Andrés</span><span class="aviso ses" title="Sesión el viernes a las 10:00"><svg class="ico"><use href="#i-sesiones"/></svg>Vie 10:00</span></span>
+              <span class="tab-pro"><img src="../landing/img/profesionales/tomas-benitez.jpg" alt=""><span>Tomás</span><span class="aviso msj" title="Mensaje sin leer"><svg class="ico"><use href="#i-chat"/></svg>1</span></span>
             </div>
           </div>
       <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
-          <span class="tenue">Terapia individual</span>
+          <span class="tenue">Tu terapeuta</span>
           <b>Lic. Valeria Quiroga</b>
           <span class="califica"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span>
         </div>
@@ -1183,6 +1221,10 @@ ul.lista-simple { padding: 0; }
       <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
       <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
+    <div class="sumar-terapeuta tel-sumar">
+            <a class="sumar"><span class="mas">+</span>Sumar un terapeuta</a>
+            <p>Cada terapeuta tiene sus propias sesiones, su precio y su paquete.</p>
+          </div>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
             <div class="ops-clima"><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M12.6 15.6l-1.9 3.2h2.8l-1.9 3.4"/></svg></span>Tormenta</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(0,-2.5)"><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></g><path d="M9 17.6l-.9 2.6M12.4 17.6l-.9 2.6M15.8 17.6l-.9 2.6"/></svg></span>Lluvia</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 7.4a3.6 3.6 0 0 1 5.6 3.9"/><path d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Nublado</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="17.6" cy="6.2" r="3"/><path d="M17.6 1.6v.9M22.2 6.2h.9M20.9 2.9l.6-.6M14.3 2.9l-.6-.6"/><path class="tapa" d="M7.5 17.5h9.8a3.7 3.7 0 0 0 .3-7.4 5.2 5.2 0 0 0-10-1A4.2 4.2 0 0 0 7.5 17.5z"/></svg></span>Algo de sol</span><span class="op"><span class="ci"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sol" cx="12" cy="12" r="4.2"/><path d="M12 3.5v1.8M12 18.7v1.8M3.5 12h1.8M18.7 12h1.8M6 6l1.3 1.3M16.7 16.7L18 18M6 18l1.3-1.3M16.7 7.3L18 6"/></svg></span>Despejado</span></div>
@@ -1192,7 +1234,7 @@ ul.lista-simple { padding: 0; }
   <span class="maca redonda"><img src="../landing/img/maca.svg" alt="Hablar con Maca"></span>
   <nav class="nav-tel">
     <a class="activo"><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-inicio"/></svg></span>Inicio</a>
-    <a><span class="pastilla" style="position:relative"><span style="position:absolute;top:2px;right:12px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--amarillo);color:var(--bosque);font:800 11px/18px var(--sans);text-align:center">1</span><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
+    <a><span class="pastilla" style="position:relative"><span style="position:absolute;top:2px;right:12px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--amarillo);color:var(--bosque);font:800 11px/18px var(--sans);text-align:center">2</span><svg class="ico"><use href="#i-chat"/></svg></span>Mensajes</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-sesiones"/></svg></span>Sesiones</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
