@@ -137,7 +137,7 @@ Para quien se registró y todavía no eligió profesional. Mantiene la estructur
 
 - **Saludo:** "Te damos la bienvenida" y "Empecemos por encontrar a la persona que te va a acompañar".
 - **Tarjeta verde oscura (bosque):** la etiqueta "Primeros pasos", el título "Encontrá a tu profesional" y los cuatro pasos de la primera sesión (el primero, en amarillo; los demás, punteados porque están pendientes). El botón amarillo es "Ver profesionales", y debajo se aclara que cada profesional define su precio y que no hay suscripción. No se muestra ningún precio ni paquete suelto: todavía no hay un profesional elegido.
-- **Sugeridos para vos** (columna de la derecha): tres profesionales según el cuestionario, con los mismos datos y el mismo formato que la tarjeta del profesional (profesión, calificación, país y especialidades en una sola línea), más su compatibilidad y el precio de su sesión. "Ver todos" va arriba a la derecha, como "Ver perfil". En el teléfono se ven dos, con la compatibilidad debajo del nombre.
+- **Sugeridos para vos** (columna de la derecha): tres profesionales según el cuestionario, con los mismos datos y el mismo formato que la tarjeta del profesional (profesión, calificación, país y especialidades en una sola línea), más su compatibilidad y el precio de su encuentro inicial ("Encuentro inicial · 50 min · $42.000 ARS"). "Ver todos" va arriba a la derecha, como "Ver perfil". En el teléfono se ven dos, con la compatibilidad debajo del nombre.
 - **Sin agenda de la semana:** todavía no hay sesiones ni horarios con un profesional.
 - **"Mientras tanto"** (en lugar de "Entre sesiones"): "¿Es tu primera vez en terapia?" y un ejercicio para empezar.
 
@@ -146,3 +146,14 @@ Para quien se registró y todavía no eligió profesional. Mantiene la estructur
 - **La tarjeta de los primeros pasos pasa a verde oscuro (bosque)**, como en la propuesta de la Ronda #1. Así el Inicio de quien todavía no tiene profesional se distingue a primera vista del de quien ya lo tiene, que usa la tarjeta salvia.
 - **"¿Es tu primera vez en terapia?" reemplaza a "¿Cómo está tu día?"** en "Mientras tanto". En este momento del recorrido orienta más: quien todavía no eligió profesional necesita confianza para dar el primer paso ("No hace falta tener todo claro para empezar", "La primera sesión es para conocerse", la sugerencia de reservar un encuentro inicial y "Qué esperar de la primera sesión"). El diario sigue disponible desde la navegación y suma más valor cuando ya hay un proceso en marcha.
 - En "¿Es tu primera vez en terapia?", el segundo punto pasa a ser: "Te sugerimos que reserves un **encuentro inicial** con un profesional. Si no te sentís a gusto, podés probar con otro hasta dar con el adecuado." Reemplaza a "Si no te sentís a gusto, podés pedir un cambio de profesional", que en este momento (sin profesional elegido) no correspondía.
+
+## Decisiones de la ronda
+
+### Encuentro inicial (13/11)
+
+"Encuentro inicial" es el nombre de las primeras sesiones que un paciente contrata para encontrar a su profesional. El proceso es el mismo que el de cualquier sesión; lo que cambia es la recomendación. Al principio se sugiere reservar **un encuentro inicial (una sola sesión) en lugar de un paquete**, porque lo pagado por un paquete no se puede usar como crédito con otro profesional y obligaría a gestionar devoluciones. Si no hay afinidad, la persona prueba con otro profesional, con otro encuentro inicial. La regla quedó también en `contexto.md`.
+
+En los mockups:
+
+- **Mockup 3 (sin profesional):** la tarjeta "¿Es tu primera vez en terapia?" sugiere reservar un encuentro inicial, y los sugeridos muestran el precio como "Encuentro inicial · 50 min".
+- **Reserva y pago (pendiente):** el paso "Elegí cómo pagar" de la Ronda #1 destacaba el paquete de 4 sesiones ("Ahorrás $8.400"). Para quien todavía no tiene profesional, tiene que destacar el encuentro inicial y dejar los paquetes para cuando ya eligió con quién seguir.

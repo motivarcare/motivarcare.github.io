@@ -21,6 +21,7 @@ El primer frente que se abordó fue la **auditoría integral de UX** del portal 
   * Portal del profesional: `https://pro.motivarcare.com/`
 * **Regla de producto, sin excepciones:** las sesiones y los paquetes siempre están vinculados a un profesional. El portal del paciente nunca debe dar la sensación de vender paquetes por sí solos, y no hay forma de pagar nada sin que la persona tenga claro a qué profesional le está pagando. Aplica a todos los flujos y a todas las pantallas.
 * **Cambio de profesional:** por ahora solo lo hace el backoffice, a pedido del paciente. Las sesiones que queden de un paquete no se pueden usar con otro profesional ni transferir.
+* **Encuentro inicial:** es el nombre de las primeras sesiones que contrata un paciente para encontrar a su profesional. El proceso es el mismo que el de cualquier sesión. La diferencia es la recomendación: al principio se sugiere reservar un encuentro inicial (una sola sesión) en lugar de un paquete, porque lo pagado por un paquete no se puede usar como crédito con otro profesional y obligaría a gestionar devoluciones. Si no hay afinidad, la persona prueba con otro profesional con un nuevo encuentro inicial.
 * **Sensibilidad del dominio:** la salud mental y la telemedicina exigen niveles muy altos de **confianza, claridad, privacidad y reducción de fricción**. Quienes buscan atención suelen estar en un momento de vulnerabilidad emocional, así que cualquier confusión en las tarifas, la falta de verificación de los profesionales o una barrera técnica en el agendamiento dispara el abandono.
 
 ---
