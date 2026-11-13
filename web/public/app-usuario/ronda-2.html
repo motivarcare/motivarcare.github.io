@@ -452,6 +452,25 @@ ul.lista-simple { padding: 0; }
 .tel .ops-clima .ci { width: 38px; height: 38px; }
 .tel .ops-clima svg { width: 26px; height: 26px; }
 .tel .clima .privado { font-size: 12px; }
+
+/* Tarjeta del profesional: solo las sesiones disponibles y "Ver perfil" arriba */
+.pro2 { position: relative; }
+.pro2-cab { padding-right: 96px; }
+.ver-perfil { position: absolute; top: 18px; right: 18px; display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--linea); background: var(--superficie); font-size: 13px; font-weight: 700; color: var(--verde-medio); text-decoration: none; }
+.ver-perfil .ico { width: 14px; height: 14px; }
+.disponibles { display: flex; flex-direction: column; gap: 4px; padding-top: 12px; border-top: 1px solid var(--linea); }
+.disponibles .et { font: 700 11px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--verde-medio); }
+.fila-disp { display: flex; align-items: baseline; gap: 8px; font-size: 14px; color: var(--tinta-suave); }
+.fila-disp b { font: 600 26px/1 var(--serif); color: var(--bosque); }
+.puntos4 { display: inline-flex; gap: 5px; margin-left: auto; align-self: center; }
+.puntos4 i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px dashed var(--salvia-fuerte); }
+.puntos4 i.u { background: var(--salvia); border: 1.5px solid var(--bosque); }
+.pro2 .botones .boton { padding: 0 18px; }
+.tel-pro .ver-perfil { top: 14px; right: 14px; height: 30px; padding: 0 10px; font-size: 12.5px; }
+.tel-pro .pro2-cab { padding-right: 88px; }
+.tel-pro .fila-disp span { font-size: 13px; }
+.tel-pro .botones { flex-wrap: wrap; }
+.tel-pro .botones .boton { flex: 1; padding: 0 12px; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -552,7 +571,7 @@ ul.lista-simple { padding: 0; }
           </section>
         </div>
         <article class="tarjeta pro2">
-          <div class="pro2-cab">
+          <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
             <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="64" height="64">
             <div>
               <span class="tenue">Tu profesional</span>
@@ -563,12 +582,8 @@ ul.lista-simple { padding: 0; }
           <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
-          <div class="sesiones3">
-            <div><span class="et">Última</span><b>Jue 29/10</b><span class="tenue">18:00</span></div>
-            <div class="destacada"><span class="et">Próxima</span><b>Hoy</b><span class="tenue">18:00</span></div>
-            <div><span class="et">Disponibles</span><b>3 de 4</b><span class="puntos"><span class="usada"></span><span></span><span class="libre"></span><span class="libre"></span></span></div>
-          </div>
-          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
+          <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
         </article>
       </div>
 
@@ -604,7 +619,7 @@ ul.lista-simple { padding: 0; }
     </article>
     <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><button class="eq-expandir" type="button">Ver el mes<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><span class="m p"></span></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="m p"></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><img class="m" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="m p"></span></div><div class="dt"><span class="d">V</span><span class="n">6</span></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="m p"></span></div><div class="dt"><span class="d">D</span><span class="n">8</span></div></div><div class="ley-tel"><span><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Sesión con Valeria</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
     <article class="tarjeta pro2 tel-pro">
-      <div class="pro2-cab">
+      <div class="pro2-cab"><a class="ver-perfil">Ver perfil<svg class="ico"><use href="#i-flecha"/></svg></a>
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
         <div>
           <span class="tenue">Tu profesional</span>
@@ -615,12 +630,8 @@ ul.lista-simple { padding: 0; }
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span><span class="chip">Vínculos</span></div>
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
           <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
-      <div class="sesiones3">
-        <div><span class="et">Última</span><b>Jue 29/10</b></div>
-        <div class="destacada"><span class="et">Próxima</span><b>Hoy, 18:00</b></div>
-        <div><span class="et">Disponibles</span><b>3 de 4</b></div>
-      </div>
-      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
+      <div class="disponibles"><span class="et">Sesiones disponibles</span><div class="fila-disp"><b>2</b><span>del paquete de 4 con Valeria</span><span class="puntos4"><i class="u"></i><i class="u"></i><i></i><i></i></span></div></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton contorno">Comprar más sesiones</a></div>
     </article>
     <article class="tarjeta menta clima" style="gap:12px">
             <div class="cab-clima"><div><b>¿Cómo está tu día?</b></div><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>

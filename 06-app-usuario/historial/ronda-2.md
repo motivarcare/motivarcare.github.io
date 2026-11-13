@@ -34,8 +34,8 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>Avatar, nombre y "★ 4,9 · Argentina".</li>
       <li>Especialidades en pills, en una sola línea, y una línea con sus credenciales.</li>
       <li>El último mensaje sin leer, en una nota sutil, <strong>solo si hay uno</strong>.</li>
-      <li>Sus sesiones: la última, la próxima y las disponibles.</li>
-      <li>"Escribile" (botón de contorno, abre el chat) y "Ver perfil".</li>
+      <li>Las sesiones disponibles del paquete con ese profesional.</li>
+      <li>"Escribile" y "Comprar más sesiones", con "Ver perfil" arriba a la derecha.</li>
     </ul>
     <p>Las sesiones disponibles pasan a la tarjeta del profesional. En "Entre sesiones", el registro del día usa el clima ("¿Cómo está tu día?") y lleva adentro el acceso al diario. En el teléfono, la pantalla se recorre con scroll: la sesión, la semana, el profesional y el registro del día.</p>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-1-escritorio">Ver en tamaño real →</a>
@@ -51,8 +51,8 @@ Toma como base el Inicio B3 de la [Ronda #1](/06-app-usuario/historial/ronda-1/)
 - **Especialidades en pills, en una sola línea:** se muestran las que entran; si la última no entra completa, se corta con "…" (en el mockup, "Terapia cognitivo-cond…"), y las demás quedan para el perfil.
 - **Una línea con sus credenciales:** "Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia", con el ícono del escudo.
 - **El último mensaje sin leer**, en una nota sutil (círculo amarillo suave con la "i" y el texto: "Te escribió ayer: …"). **Solo aparece si hay un mensaje sin leer**; si no, la tarjeta pasa directo a las sesiones.
-- **Las sesiones con ese profesional:** la última, la próxima (destacada en menta) y las disponibles del paquete ("3 de 4", con los puntos del design system).
-- **"Escribile"** (botón de contorno, que abre el chat) y **"Ver perfil"** (enlace). Escribirle no compite con la sesión: el amarillo queda reservado para "Entrar a la sesión", el único botón principal de la pantalla.
+- **Las sesiones disponibles con ese profesional:** "2 del paquete de 4 con Valeria", con cuatro puntos (sólidos las usadas o reservadas, punteados las disponibles). La próxima sesión ya está en la tarjeta verde y la última, en la agenda de la semana o en Sesiones.
+- **"Escribile"** (abre el chat) y **"Comprar más sesiones"** (siempre con ese profesional), los dos de contorno. **"Ver perfil"** es un botón chico en la esquina superior derecha. Nada compite con la sesión: el amarillo queda reservado para "Entrar a la sesión", el único botón principal de la pantalla.
 
 Otros cambios respecto del B3:
 
@@ -81,3 +81,10 @@ Otros cambios respecto del B3:
 - El registro rápido del ánimo ("¿Cómo estás hoy?", con caras) se reemplaza por **"¿Cómo está tu día?"**, la alternativa del clima explorada en la [Ronda #1](/06-app-usuario/historial/ronda-1/#materiales-complementarios): Tormenta, Lluvia, Nublado, Algo de sol y Despejado, con íconos de línea sobre círculos crema y el sol en amarillo. Le saca peso a la pregunta: el día está nublado, no la persona.
 - **"Ir al diario" pasa adentro de la tarjeta**, junto al título, en lugar de ir al lado del título "Entre sesiones".
 - En el Inicio no hay ninguna opción elegida: es el registro de hoy, todavía sin hacer.
+
+### Ajustes del 13/11: la tarjeta del profesional, más liviana
+
+- El apartado de sesiones muestra **solo las sesiones disponibles**. La próxima sesión ya se ve en la tarjeta verde y la última, en la agenda de la semana o en la página de Sesiones, así que no se repiten.
+- Disponibles queda como "2 del paquete de 4 con Valeria". Antes decía "3 de 4" y contaba como disponible la sesión de hoy, que ya está reservada.
+- Los botones pasan a ser **"Escribile"** y **"Comprar más sesiones"**. La compra queda atada al profesional de la tarjeta, como piden las reglas de producto.
+- **"Ver perfil"** sube a un botón chico en la esquina superior derecha de la tarjeta.
