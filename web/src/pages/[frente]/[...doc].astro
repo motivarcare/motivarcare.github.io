@@ -24,6 +24,7 @@ const archivo = (entrada.filePath ?? '').replace(/^\.\.\//, '');
 const tarjetas = Array.isArray(entrada.data.tarjetas) ? entrada.data.tarjetas.map((t: any) => ({ frase: '', boton: 'Ver más', ...t })) : [];
 const html = entrada.rendered?.html ?? '';
 const MARCA = /<div data-tarjetas(?:="")?\s*><\/div>/;
+const anchoCompleto = entrada.data.ancho === 'completo';
 const partes = tarjetas.length > 0 && MARCA.test(html) ? html.split(MARCA) : null;
 ---
 <Base titulo={titulo} frenteActual={frente?.id}>
@@ -35,7 +36,7 @@ const partes = tarjetas.length > 0 && MARCA.test(html) ? html.split(MARCA) : nul
       <span>{titulo}</span>
     </nav>
 
-    <div class="doc">
+    <div class={anchoCompleto ? 'doc doc--ancho' : 'doc'}>
       <article class="prosa">
         {entrada.data.estado && <p><Estado estado={entrada.data.estado} /></p>}
         {partes ? (
@@ -52,7 +53,7 @@ const partes = tarjetas.length > 0 && MARCA.test(html) ? html.split(MARCA) : nul
         )}
       </article>
       <aside class="lateral">
-        {indice.length > 2 && (
+        {!anchoCompleto && indice.length > 2 && (
           <nav class="panel indice" aria-label="Contenido del documento">
             <p class="eyebrow">En este documento</p>
             <ul>
@@ -80,6 +81,11 @@ const partes = tarjetas.length > 0 && MARCA.test(html) ? html.split(MARCA) : nul
   .fuente code { display: block; font-size: 12px; word-break: break-all; color: var(--tinta-suave); margin: 10px 0; }
   .fuente .eyebrow { margin-bottom: 8px; }
   .fuente a { font-size: 13.5px; font-weight: 700; color: var(--verde-medio); text-decoration: none; }
+  /* Ancho completo: el texto usa todo el ancho (para tarjetas de mockups y tablas anchas) y el panel va debajo */
+  .doc.doc--ancho { display: block; }
+  .doc.doc--ancho .prosa { max-width: none; }
+  .doc--ancho .prosa > :global(:is(p, ul, ol, h1, h2, h3, h4, blockquote)) { max-width: var(--lectura); }
+  .doc--ancho .lateral { position: static; max-width: 360px; margin-top: 48px; }
   @media (max-width: 960px) {
     .doc { grid-template-columns: 1fr; }
     .lateral { position: static; max-height: none; order: -1; }

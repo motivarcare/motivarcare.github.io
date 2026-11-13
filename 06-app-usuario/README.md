@@ -23,9 +23,9 @@ Diseño del nuevo portal para pacientes (usuarios). El punto de partida es **mig
 
 ## Historial de propuestas
 
-Cada ronda de trabajo tiene su página, con los mockups, las exploraciones y las decisiones de esa semana. Las rondas anteriores quedan como registro: lo que se corrige o se decide se suma en la ronda siguiente.
+Cada ronda de trabajo tiene su página, con los mockups, las exploraciones y las decisiones de esa semana. La más reciente va primero. Las rondas anteriores quedan como registro: lo que se corrige o se decide se suma en la ronda siguiente.
 
 | Ronda | Semana | Descripción | Observaciones |
 |---|---|---|---|
+| [Ronda #2 de propuestas](/06-app-usuario/historial/ronda-2/) | 09/11 | Nuevo set de mockups que combina elementos de la **familia 2** (foco en la agenda y la sesión) con la posibilidad de **trabajar con más de un profesional en simultáneo**. Cuatro Inicios: con turno reservado, sin turnos, sin profesional y con más de un profesional. | En curso. Primer mockup, en escritorio y teléfono: el Inicio con turno reservado, con una nueva tarjeta del profesional. |
 | [Ronda #1 de propuestas](/06-app-usuario/historial/ronda-1/) | 02/11 | Lineamientos de la migración, por qué migrar, el papel del design system, el relevamiento de otras plataformas, los caminos posibles para migrar y la exploración de **cuatro familias de propuestas**: 1 · la relación con el profesional, 2 · la agenda y la planificación de sesiones, 3 · equipo de apoyo y múltiples profesionales, y 4 · múltiples rubros. | Familias 1, 2 y 3 con mockups en escritorio y teléfono; la familia 4 quedó planteada. Se fijaron las reglas de producto (nada se paga sin un profesional definido; el cambio de profesional lo hace el backoffice). En revisión con el cliente. |
-| [Ronda #2 de propuestas](/06-app-usuario/historial/ronda-2/) | 09/11 | Nuevo set de mockups que combina elementos de la **familia 2** (foco en la agenda y la sesión) con la posibilidad de **trabajar con más de un profesional en simultáneo**. Cuatro Inicios: con turno reservado, sin turnos, sin profesional y con más de un profesional. | En curso. Primer mockup: el Inicio con turno reservado, con una nueva tarjeta del profesional. |
