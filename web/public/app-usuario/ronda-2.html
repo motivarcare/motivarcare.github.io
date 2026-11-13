@@ -664,6 +664,26 @@ ul.lista-simple { padding: 0; }
 .tel-atajos { margin: 0; gap: 6px; flex-wrap: nowrap; }
 .tel-atajos .atajo { font-size: 12px; padding: 4px 9px; }
 .tel .el-orden span.on { white-space: nowrap; }
+
+/* Mockup 7: contratación */
+.cuerpo-reserva.r7 { padding-top: 36px; }
+.volver { display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; }
+.volver .ico { width: 18px; height: 18px; }
+.resumen.r7 { gap: 14px; min-width: 0; }
+.resumen.r7 .con > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.resumen.r7 .con b { font-size: 16.5px; color: var(--bosque); }
+.califica.r7 { display: inline-flex; align-items: center; gap: 4px; font-size: 13.5px; font-weight: 600; color: var(--tinta-suave); }
+.califica.r7 .sep { color: var(--tinta-tenue); }
+.resumen.r7 .credenciales { margin: 0; }
+.volver-tel { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px 0 10px; border-radius: 99px; border: 1px solid var(--linea); background: var(--superficie); font-size: 14px; font-weight: 700; color: var(--bosque); text-decoration: none; }
+.resumen-tel { padding: 16px; display: flex; flex-direction: column; gap: 10px; border-radius: 20px; min-width: 0; }
+.resumen-tel .con > div { display: flex; flex-direction: column; gap: 2px; }
+.resumen-tel .con b { font-size: 15.5px; color: var(--bosque); }
+.resumen-tel .item { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--tinta-suave); }
+.resumen-tel .item .ico { color: var(--verde-medio); width: 16px; height: 16px; }
+.r7tel > * { flex: none; }
+.marco.tel.largo .barra-pago.fija { position: absolute; left: 0; right: 0; bottom: 0; }
+.marco.tel.largo .r7tel { padding-bottom: 200px; }
 </style>
 </head>
 <body>
@@ -1713,6 +1733,120 @@ ul.lista-simple { padding: 0; }
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-diario"/></svg></span>Diario</a>
     <a><span class="pastilla" style="position:relative"><svg class="ico"><use href="#i-bienestar"/></svg></span>Bienestar</a>
   </nav>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="lamina">
+<h2>7 · Contratación en escritorio · elegí tu paquete</h2>
+<p class="nota-r2">Se llega desde "Ver paquetes". Sin navegación lateral ni pasos, para alentar a completar la compra; arriba, solo "Volver". El panel de la derecha muestra siempre con quién se contrata. Como es la primera vez con Valeria, la opción recomendada y elegida por defecto es el encuentro inicial.</p>
+<div class="marco esc reserva" id="r2-7-escritorio">
+  <header class="cab-reserva">
+    <div class="marca"><img src="../landing/img/logo.svg" alt="">MOTIVARCARE</div>
+    <span class="espacio"></span>
+  </header>
+  <div class="cuerpo-reserva r7">
+    <div>
+      <a class="enlace volver"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+      <h1 class="t1" style="font-size:42px;margin-top:14px">Elegí tu <em>paquete.</em></h1>
+      <p class="bajada" style="margin-top:10px">Sesiones con Valeria. Sin suscripción ni renovación automática.</p>
+      <div class="opciones">
+        <div class="opcion elegida">
+          <span class="radio"></span>
+          <div class="info"><div class="titulo">Encuentro inicial · 1 sesión <span class="chip amarillo">Recomendado para empezar</span></div><p class="peq">Una primera sesión para conocerse. Si seguís con Valeria, después podés sumar un paquete.</p></div>
+          <div class="precio"><b>$42.000</b><small>ARS</small></div>
+        </div>
+        <div class="opcion">
+          <span class="radio"></span>
+          <div class="info"><div class="titulo">Paquete de 4 sesiones <span class="chip lima">Ahorrás $8.400</span></div><p class="peq">$39.900 por sesión. Las sesiones son solo con Valeria.</p></div>
+          <div class="precio"><b>$159.600</b><small>ARS · 4 sesiones</small></div>
+        </div>
+        <div class="opcion">
+          <span class="radio"></span>
+          <div class="info"><div class="titulo">Paquete de 8 sesiones <span class="chip lima">Ahorrás $25.200</span></div><p class="peq">$38.850 por sesión. Las sesiones son solo con Valeria.</p></div>
+          <div class="precio"><b>$310.800</b><small>ARS · 8 sesiones</small></div>
+        </div>
+        <div class="opcion" style="background:transparent;border-style:dashed">
+          <span class="radio" style="border-style:dashed"></span>
+          <div class="info"><div class="titulo">Usar un código de descuento</div><p class="peq">Si tu empresa o tu obra social te dio uno.</p></div>
+        </div>
+      </div>
+      <div class="nota" style="margin-top:16px"><i>i</i><span>Lo que pagues por un paquete se usa solo con Valeria: no se puede pasar a otro terapeuta. Por eso, para empezar, te recomendamos el encuentro inicial.</span></div>
+    </div>
+    <aside class="tarjeta resumen r7">
+      <span class="t-fecha" style="margin-bottom:-6px">Contratás con</span>
+      <div class="con">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="56" height="56">
+        <div><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div>
+      <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga clínica (UBA) · Matrícula verificada · 9 años de experiencia</p>
+      <div class="linea"></div>
+      <div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min. El enlace te llega por mail y queda en Sesiones.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-sesiones"/></svg><span>El día y el horario los elegís cuando quieras, antes o después de pagar.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Podés reprogramar sin costo hasta 24 h antes.</span></div>
+      <div class="linea"></div>
+      <div class="fila"><span>Encuentro inicial con Lic. Valeria Quiroga</span><span>$42.000</span></div>
+      <div class="total"><span>Total a pagar ahora</span><b>$42.000 <small style="font:700 13px var(--sans)">ARS</small></b></div>
+      <a class="boton primario grande ancho">Continuar al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+      <span class="privado" style="justify-content:center;font-weight:500;color:var(--tinta-suave)"><svg class="ico"><use href="#i-escudo"/></svg>Es el monto exacto que vas a ver en el pago.</span>
+    </aside>
+  </div>
+</div>
+</section>
+
+<section class="lamina">
+<h2>7 · Contratación en el teléfono · elegí tu paquete</h2>
+<div class="fila-tel">
+<div>
+<div class="marco tel largo" id="r2-7-telefono">
+  <div class="estado-tel"><span>10:31</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div>
+  <div class="cabecera-tel" style="padding-bottom:4px">
+    <a class="volver-tel"><svg class="ico chico"><use href="#i-atras"/></svg>Volver</a>
+    <span class="espacio"></span>
+  </div>
+  <div class="cuerpo-tel r7tel" style="padding-top:8px">
+    <h1 class="t1" style="font-size:30px">Elegí tu <em>paquete.</em></h1>
+    <div class="tarjeta resumen-tel">
+      <span class="t-fecha">Contratás con</span>
+      <div class="con">
+        <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="48" height="48">
+        <div><b>Lic. Valeria Quiroga</b><span class="califica r7"><span class="estrella">★</span> 4,9 <span class="sep">·</span> <span class="pais"><svg class="ico"><use href="#i-pin"/></svg>Argentina</span></span></div>
+      </div>
+      <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span><span class="chip">Autoestima</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-video"/></svg><span>Videollamada de 50 min.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-sesiones"/></svg><span>Elegís el día y el horario cuando quieras.</span></div>
+      <div class="item"><svg class="ico chico"><use href="#i-reloj"/></svg><span>Reprogramás sin costo hasta 24 h antes.</span></div>
+    </div>
+    <div class="opciones" style="margin-top:2px;gap:10px">
+      <div class="opcion elegida">
+        <span class="radio"></span>
+        <div class="info"><div class="titulo">Encuentro inicial</div><p class="peq" style="font-size:13px">1 sesión para conocerse</p><span class="chip amarillo" style="margin-top:8px">Recomendado para empezar</span></div>
+        <div class="precio"><b>$42.000</b><small>ARS</small></div>
+      </div>
+      <div class="opcion">
+        <span class="radio"></span>
+        <div class="info"><div class="titulo">Paquete de 4</div><p class="peq" style="font-size:13px">$39.900 por sesión</p><span class="chip lima" style="margin-top:8px">Ahorrás $8.400</span></div>
+        <div class="precio"><b>$159.600</b><small>ARS</small></div>
+      </div>
+      <div class="opcion">
+        <span class="radio"></span>
+        <div class="info"><div class="titulo">Paquete de 8</div><p class="peq" style="font-size:13px">$38.850 por sesión</p><span class="chip lima" style="margin-top:8px">Ahorrás $25.200</span></div>
+        <div class="precio"><b>$310.800</b><small>ARS</small></div>
+      </div>
+    </div>
+    <div class="opcion" style="background:transparent;border-style:dashed;padding:14px 16px">
+      <span class="radio" style="border-style:dashed"></span>
+      <div class="info"><div class="titulo" style="font-size:15px">Usar un código de descuento</div></div>
+    </div>
+    <div class="nota"><i>i</i><span>Un paquete se usa solo con Valeria. Para empezar, te recomendamos el encuentro inicial.</span></div>
+  </div>
+  <div class="barra-pago fija">
+    <div class="total"><span>Total · encuentro inicial</span><b>$42.000 <small style="font:700 12px var(--sans)">ARS</small></b></div>
+    <a class="boton primario grande ancho">Continuar al pago<svg class="ico chico"><use href="#i-flecha"/></svg></a>
+  </div>
 </div>
 </div>
 </div>

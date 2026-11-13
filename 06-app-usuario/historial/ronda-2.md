@@ -21,6 +21,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
 | 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
 | 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Segunda versión (escritorio y teléfono) |
+| 7 | Contratación · elegí tu paquete | Primera versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -115,6 +116,21 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>El filtro <strong>"Mostrar"</strong>, hoy solo con terapeutas, preparado para otros profesionales.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-6-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/07-contratar-paquete-escritorio.jpg" alt="Contratación de un paquete en escritorio" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/07-contratar-paquete-telefono.jpg" alt="Contratación de un paquete en el teléfono" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 7 · primera versión</span>
+    <h3>Contratación · elegí tu paquete</h3>
+    <p>Se llega desde "Ver paquetes". Parte de la reserva de la Ronda #1, sin pasos ni navegación lateral:</p>
+    <ul>
+      <li>Arriba, solo "Volver".</li>
+      <li>El encuentro inicial, recomendado y elegido por defecto, y los paquetes de 4 y 8 sesiones.</li>
+      <li>El panel del terapeuta, siempre visible, con su calificación, país, especialidades y las aclaraciones del servicio, sin turno reservado.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-7-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -221,6 +237,17 @@ Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #
   - El precio es el del **encuentro inicial** ("Encuentro inicial · $42.000"), y el panel aclara que los paquetes se eligen después, con el terapeuta elegido.
   - "La que más encaja" marca a la primera, que lleva el único botón amarillo.
   - Cada tarjeta tiene el enlace **"Ver perfil y horarios"** y el botón **"Ver paquetes"** (en lugar de "Elegir"), para alentar a contratar y pagar lo antes posible en el recorrido. Ver paquetes lleva a las opciones de ese terapeuta; como es la primera sesión, ahí se recomienda el encuentro inicial.
+
+## 7 · Contratación: elegí tu paquete
+
+Se llega desde "Ver paquetes" en la elección de profesional (mockups 5 y 6). Parte de la reserva y el pago de la [Ronda #1](/06-app-usuario/historial/ronda-1/), con estos cambios:
+
+- **Sin pasos (stepper):** el orden puede variar. La persona puede contratar primero y reservar el día y el horario después, o al revés.
+- **Sin "Cambiar el horario" ni "Salir".** Arriba queda solo **"Volver"**, que lleva a la pantalla anterior.
+- **Sin navegación lateral**, para que la persona se concentre en completar la compra.
+- **Opciones:** el **encuentro inicial (1 sesión)**, con la etiqueta "Recomendado para empezar" y elegido por defecto, porque es la primera vez con Valeria (ver la decisión del encuentro inicial). Debajo, los paquetes de 4 y 8 sesiones con su ahorro y su precio por sesión, y "Usar un código de descuento". Una nota explica que lo pagado por un paquete se usa solo con ese terapeuta.
+- **Panel del terapeuta, siempre visible:** "Contratás con", la foto, el nombre, "★ 4,9 · Argentina", las especialidades en pills (una sola línea) y las credenciales. No muestra un turno reservado. Mantiene las aclaraciones del servicio: la videollamada de 50 minutos, que el día y el horario se eligen cuando la persona quiera (antes o después de pagar) y que se puede reprogramar sin costo hasta 24 h antes. Después, el desglose, el total y "Continuar al pago" (el único botón amarillo), con "Es el monto exacto que vas a ver en el pago".
+- **En el teléfono:** "Volver" arriba, el panel del terapeuta compacto antes de las opciones y el total con "Continuar al pago" fijos abajo.
 
 ## Decisiones de la ronda
 
