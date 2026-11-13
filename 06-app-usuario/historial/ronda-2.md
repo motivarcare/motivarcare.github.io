@@ -101,7 +101,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
     <ul>
       <li>"Filtrar: Según tus preferencias", con el menú abierto: el tipo de terapia y el enfoque.</li>
       <li>"Ordenar por: Compatibilidad", con "Según todas tus respuestas" elegido. Debajo, la cantidad de terapeutas.</li>
-      <li>En el teléfono, "Tus respuestas" al lado del filtro, en lugar de las pills.</li>
+      <li>En el teléfono, "Tus respuestas" al lado del filtro, en lugar de las pills. Abre "Lo que nos contaste" a pantalla completa.</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
   </div>
@@ -298,16 +298,19 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
 <article class="hecha">
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-filtro-pantalla-completa-telefono.jpg" alt="Menú Filtrar por tipo y enfoque a pantalla completa en el teléfono" loading="lazy"><figcaption>Filtrar · 390 × 844</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-desde-complementar-telefono.jpg" alt="Menú Ordenar por compatibilidad a pantalla completa en el teléfono" loading="lazy"><figcaption>Ordenar por · 390 × 844</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-tus-respuestas-telefono.jpg" alt="Lo que nos contaste a pantalla completa en el teléfono" loading="lazy"><figcaption>Tus respuestas · 390 × 844</figcaption></figure>
   <div class="texto">
     <span class="chip-estado">Mockups 5 y 6 · teléfono</span>
-    <h3>Filtrar y Ordenar por, a pantalla completa</h3>
-    <p>El filtro, la primera vez (mockup 5), y el orden, desde "Para complementar tu proceso" con "Mindfulness y relajación" elegida (mockup 6).</p>
+    <h3>Filtrar, Ordenar por y Tus respuestas, a pantalla completa</h3>
+    <p>El filtro, la primera vez (mockup 5); el orden, desde "Para complementar tu proceso" con "Mindfulness y relajación" elegida (mockup 6), y "Tus respuestas" (mockup 5).</p>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-filtro-telefono">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
 
-- **En el teléfono, sin la fila de pills** de "Lo que nos contaste": no entraban todas y ocupaban lugar. Al lado del filtro va el botón "**Tus respuestas**" (con un lápiz), que abre el resumen y permite cambiarlas. Debajo, "Ordenar por" y la cantidad de terapeutas.
+- **"Tus respuestas" a pantalla completa (teléfono).** Muestra lo mismo que el panel "Lo que nos contaste" del escritorio: la misma tarjeta blanca sobre fondo crema, con las respuestas agrupadas, el enlace "Cambiar mis respuestas" y la aclaración sobre la compatibilidad y el precio. No se edita ahí: es para ver, y el enlace lleva al cuestionario. Se cierra con la cruz y no tiene botón abajo. Por eso el botón "Tus respuestas" lleva un ícono de portapapeles con renglones (ver) en lugar del lápiz (editar).
+
+- **En el teléfono, sin la fila de pills** de "Lo que nos contaste": no entraban todas y ocupaban lugar. Al lado del filtro va el botón "**Tus respuestas**" (con un ícono de portapapeles), que abre el resumen, con el enlace para cambiarlas. Debajo, "Ordenar por" y la cantidad de terapeutas.
 
 ## 7 · Contratación: elegí tu paquete
 

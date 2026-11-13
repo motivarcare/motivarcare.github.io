@@ -844,6 +844,10 @@ ul.lista-simple { padding: 0; }
 .limpiar.off { color: var(--tinta-tenue); opacity: .55; }
 .limpiar.solo-ico { width: 34px; height: 34px; justify-content: center; border-radius: 50%; border: 1px solid var(--linea); background: var(--superficie); flex: none; }
 .filtro-wrap { position: relative; display: inline-flex; }
+.pp-cuerpo.pp-respuestas { background: var(--crema); padding: 18px 18px 0; }
+.pp-respuestas .el-contaste { gap: 16px; padding: 22px; }
+.pp-respuestas .el-tags span { font-size: 13.5px; padding: 6px 12px; }
+.pp-respuestas .enlace { font-size: 15px !important; }
 .panel-pleno { position: absolute; inset: 0; z-index: 10; background: var(--superficie); display: flex; flex-direction: column; }
 .pp-cab { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px 14px; border-bottom: 1px solid var(--linea); color: var(--bosque); font-size: 18px; flex: none; }
 .pp-cerrar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--crema); color: var(--bosque); }
@@ -905,7 +909,7 @@ ul.lista-simple { padding: 0; }
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-atras" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
   <symbol id="i-limpiar" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/></symbol>
-  <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-4-4L4 16z"/><path d="M14 6l4 4"/></symbol>
+  <symbol id="i-respuestas" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16" rx="2.5"/><path d="M9 3.5h6v3H9z"/><path d="M8.5 11h7M8.5 14.5h7M8.5 18h4"/></symbol>
   <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-clip" viewBox="0 0 24 24"><path d="M19 11.5 12 18.5a4.5 4.5 0 0 1-6.4-6.4l7.4-7.4a3 3 0 0 1 4.2 4.2l-7.4 7.4a1.5 1.5 0 0 1-2.1-2.1l6.7-6.7"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></symbol>
@@ -1765,7 +1769,7 @@ ul.lista-simple { padding: 0; }
 </section>
 
 <section class="lamina">
-<h2>5 · Elegí a tu profesional en el teléfono · la primera vez, y el filtro abierto a pantalla completa</h2>
+<h2>5 · Elegí a tu profesional en el teléfono · la primera vez, el filtro y "Tus respuestas" a pantalla completa</h2>
 <div class="fila-tel">
 <div>
 <div class="marco tel" id="r2-5-telefono">
@@ -1779,7 +1783,7 @@ ul.lista-simple { padding: 0; }
   <div class="cuerpo-tel" style="gap:10px">
     <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
     
-    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-editar"/></svg>Tus respuestas</a></div>
+    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-respuestas"/></svg>Tus respuestas</a></div>
     <div class="fila-ctl"><span class="et-orden">Ordenar por</span><span class="el-orden"><span class="on">Compatibilidad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
     <p class="cuenta-lista">6 terapeutas para vos</p><div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -1825,6 +1829,19 @@ ul.lista-simple { padding: 0; }
 <div>
 <div class="marco tel" id="r2-5-filtro-telefono">
   <div class="panel-pleno"><div class="estado-tel"><span>10:27</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div><div class="pp-cab"><b>Filtrar por tipo y enfoque</b><span class="pp-cerrar"><svg class="ico"><use href="#i-cerrar"/></svg></span></div><div class="pp-cuerpo"><span class="op-esp elegida-sutil"><i class="radio"></i><span><b>Según tus preferencias</b><small>Tiene en cuenta el tipo y enfoque que elegiste</small></span></span><span class="sep-esp">Sumá una terapia complementaria</span><span class="op-esp"><i class="radio"></i>Terapia de pareja</span><span class="sep-esp">¿Querés probar otro enfoque?</span><span class="op-esp"><i class="radio"></i>Psicodinámico o psicoanalítico</span><span class="op-esp"><i class="radio"></i>Humanista</span><span class="op-esp"><i class="radio"></i>Sistémico o familiar</span><span class="op-esp"><i class="radio"></i>Gestáltico</span><span class="op-esp"><i class="radio"></i>Integrativo</span><span class="op-esp"><i class="radio"></i>Terapia de aceptación y compromiso</span><span class="op-esp"><i class="radio"></i>Terapia dialéctico-conductual</span><span class="op-esp"><i class="radio"></i>EMDR</span><span class="nota-esp">Se elige una sola opción, y es la que muestra el control. Los terapeutas que no coinciden no se muestran. Para dar prioridad a una especialidad, usá "Ordenar por".</span></div><span class="pp-scroll"><i></i></span><div class="pp-pie"><a class="boton bosque ancho">Ver terapeutas</a></div></div>
+</div>
+<div>
+<div class="marco tel" id="r2-5-respuestas-telefono">
+  <div class="panel-pleno"><div class="estado-tel"><span>10:27</span><span class="senal"><i style="height:5px"></i><i style="height:8px"></i><i style="height:11px"></i><i style="height:14px"></i></span></div><div class="pp-cab"><b>Lo que nos contaste</b><span class="pp-cerrar"><svg class="ico"><use href="#i-cerrar"/></svg></span></div><div class="pp-cuerpo pp-respuestas"><div class="tarjeta el-contaste">
+          <div class="grupo"><small>Querés trabajar</small><div class="el-tags"><span>Ansiedad</span><span>Estrés laboral</span></div></div>
+          <div class="grupo"><small>Tipo y enfoque</small><div class="el-tags"><span>Terapia individual</span><span>Cognitivo-conductual</span></div></div>
+          <div class="grupo"><small>Tu experiencia</small><div class="el-tags"><span>Primera vez en terapia</span></div></div>
+          <div class="grupo"><small>Preferís</small><div class="el-tags"><span>Por videollamada</span><span>De tarde</span></div></div>
+          <div class="grupo"><small>Tu presupuesto</small><div class="el-tags"><span>Hasta $50.000 por sesión</span></div></div>
+          <a class="enlace" style="font-size:13.5px">Cambiar mis respuestas</a>
+          <p class="tenue" style="font-size:12.5px;border-top:1px solid var(--linea);padding-top:12px">La compatibilidad compara tus respuestas con la experiencia y el enfoque de cada terapeuta. El precio es el de un encuentro inicial (una sesión); los paquetes se eligen después, con el terapeuta que elijas.</p>
+        </div></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -1946,7 +1963,7 @@ ul.lista-simple { padding: 0; }
   <div class="cuerpo-tel" style="gap:10px">
     <div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Paso 1 de 4</span><h1 class="t1" style="font-size:28px">Elegí a tu <em>profesional</em></h1></div>
     
-    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-editar"/></svg>Tus respuestas</a></div>
+    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-respuestas"/></svg>Tus respuestas</a></div>
     <div class="fila-ctl"><span class="et-orden">Ordenar por</span><span class="el-orden"><span class="on">Ansiedad<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
     <p class="cuenta-lista">6 terapeutas para vos</p><div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><img class="avatar-pro" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="60" height="60">
   <div class="info">
@@ -2165,7 +2182,7 @@ ul.lista-simple { padding: 0; }
   <div class="cuerpo-tel" style="gap:10px">
     <a class="volver-tel"><svg class="ico chico"><use href="#i-atras"/></svg>Volver al inicio</a><div class="saludo" style="margin:0;gap:4px"><span class="t-fecha">Para complementar tu proceso</span><h1 class="t1" style="font-size:28px">Sumá un <em>terapeuta</em></h1></div>
     
-    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-editar"/></svg>Tus respuestas</a></div>
+    <div class="fila-ctl"><span class="filtro"><svg viewBox="0 0 24 24" class="ico chico"><path d="M4 5h16l-6 7.5V19l-4-2v-4.5z"/></svg><b>Según tus preferencias</b><svg class="ico chico"><use href="#i-abajo"/></svg></span><a class="mis-resp"><svg class="ico chico"><use href="#i-respuestas"/></svg>Tus respuestas</a></div>
     <div class="fila-ctl"><span class="et-orden">Ordenar por</span><span class="el-orden"><span class="on">Mindfulness y relajación<svg class="ico chico"><use href="#i-abajo"/></svg></span><span>Precio</span></span></div>
     <p class="cuenta-lista">5 terapeutas · sin contar a Valeria</p><div class="el-lista-tel"><article class="tarjeta-pro mejor"><span class="mejor-et">La que más encaja</span><span class="avatar-pro ini" style="font-size:17px">PR</span>
   <div class="info">
