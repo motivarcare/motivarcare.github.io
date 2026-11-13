@@ -271,6 +271,7 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
   - "Lo que nos contaste" suma el grupo "Tipo y enfoque" (Terapia individual, Cognitivo-conductual).
   - A diferencia del orden, el filtro sí saca de la lista a quienes no coinciden; la nota del menú lo aclara y remite a "Ordenar por" para dar prioridad a una especialidad.
 - **Desde el cross-selling:** "Terapia de pareja" abre el buscador con ese tipo en "Filtrar"; una especialidad, con ella en "Ordenar por"; "Ver otros enfoques", con el menú de "Filtrar" abierto en el enfoque.
+- **Antetítulo genérico en el mockup 6:** "Paso 1 de 4 · Tu primera sesión" pasa a ser "**Profesionales**", porque esta pantalla se abre desde distintos lugares (a veces con los criterios ya cargados) y no siempre es el primer paso de la primera sesión.
 - **Desde el cross-selling** se llega al mismo Buscador de profesionales, con el mismo título y el mismo panel "Lo que nos contaste": solo cambian los criterios que vienen cargados.
 - **Mockup 5:** con el menú de "Filtrar" abierto, para mostrar sus opciones.
 - **Sin el filtro por rubro.** Se saca "Mostrar: Terapeutas": por ahora no va a haber muchos profesionales de otros rubros y ocupaba un lugar innecesario. Así, "Filtrar" y "Ordenar por" entran en una sola fila en el escritorio.
