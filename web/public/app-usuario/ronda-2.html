@@ -366,6 +366,70 @@ ul.lista-simple { padding: 0; }
 .marco.tel.largo .cuerpo-tel { padding-bottom: 164px; }
 .marco.tel.largo .nav-tel { position: absolute; left: 0; right: 0; bottom: 0; }
 .marco.tel.largo .maca { position: absolute; }
+.eq-semana { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.eq-cal { margin-top: 18px; }
+.eq-cal-cab { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.eq-cal-cab .eq-titulo { font-size: 17px; }
+.eq-cal-cab .rango { font-size: 13.5px; color: var(--tinta-suave); }
+.eq-cal-cab .flechas { display: none; gap: 6px; }
+.eq-cal-cab .flechas span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--linea); background: var(--superficie); display: grid; place-items: center; color: var(--bosque); font-weight: 800; }
+.eq-expandir { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 99px; border: 1.5px solid var(--linea); background: var(--superficie); font: 700 13.5px/1 var(--sans); color: var(--bosque); cursor: pointer; }
+.eq-expandir svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; transition: transform .2s; }
+.eq-cal .solo-mes { display: none; }
+.eq-cal.abierto .solo-semana { display: none; }
+.eq-cal.abierto .solo-mes { display: initial; }
+.eq-cal.abierto .eq-cal-cab .flechas { display: inline-flex; }
+.eq-cal.abierto .eq-expandir svg { transform: rotate(180deg); }
+.eq-mes { display: none; }
+.eq-cal.abierto .eq-semana { display: none; }
+.eq-cal.abierto .eq-mes { display: block; }
+.eq-mes .dias { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-bottom: 6px; font: 700 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); padding-left: 8px; }
+.eq-mes .grilla { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.eq-mes .c { min-height: 74px; border-radius: 12px; background: rgba(255,255,255,.6); border: 1px solid var(--linea); padding: 6px 6px 7px; display: flex; flex-direction: column; gap: 3px; }
+.eq-mes .c .n { font: 600 14px/1 var(--serif); color: var(--bosque); margin: 1px 0 2px 2px; }
+.eq-mes .c.fuera { background: transparent; border-style: dashed; opacity: .55; }
+.eq-mes .c.pasado { background: rgba(255,255,255,.35); }
+.eq-mes .c.hoy { background: var(--superficie); border: 2px solid var(--bosque); }
+.eq-mes .c.semana { box-shadow: inset 0 0 0 1px var(--salvia-fuerte); }
+.eq-mes .e { display: flex; align-items: center; gap: 4px; padding: 2px 5px 2px 2px; border-radius: 7px; font-size: 11px; font-weight: 800; color: var(--bosque); line-height: 1.2; white-space: nowrap; overflow: hidden; }
+.eq-mes .e img { width: 16px; height: 16px; border-radius: 50%; object-fit: cover; flex: none; }
+.eq-mes .e.v { background: var(--salvia); } .eq-mes .e.a { background: var(--lima); } .eq-mes .e.t { background: var(--amarillo-suave); }
+.eq-mes .e.otro { background: var(--menta); font-weight: 700; padding-left: 6px; }
+.eq-mes .e.libre { background: transparent; border: 1.5px dashed var(--salvia-fuerte); font-weight: 700; color: var(--verde-medio); padding-left: 6px; }
+.eq-mes .ley { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px; color: var(--tinta-suave); }
+.eq-mes .ley b { color: var(--bosque); }
+.eq-dia { border-radius: 14px; background: rgba(255,255,255,.6); border: 1px solid var(--linea); padding: 9px 8px 10px; min-height: 104px; display: flex; flex-direction: column; gap: 5px; }
+.eq-dia .d { font: 700 11px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-tenue); }
+.eq-dia .n { font: 600 18px/1 var(--serif); color: var(--bosque); }
+.eq-dia.hoy { background: var(--superficie); border: 2px solid var(--bosque); }
+.eq-ev { display: flex; align-items: center; gap: 5px; padding: 4px 6px 4px 4px; border-radius: 9px; font-size: 11.5px; font-weight: 800; color: var(--bosque); line-height: 1.2; }
+.eq-ev img, .eq-ev .ini { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex: none; }
+.eq-ev.v { background: var(--salvia); } .eq-ev.a { background: var(--lima); } .eq-ev.t { background: var(--amarillo-suave); }
+.eq-ev.otro { background: var(--menta); font-weight: 700; }
+.eq-titulo { font: 600 19px/1.2 var(--serif); font-variation-settings: 'SOFT' 60; color: var(--bosque); }
+.columna-izq .eq-cal { margin-top: 20px; }
+.columna-izq .eq-dia { min-height: 92px; }
+.eq-semana { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.columna-izq .eq-ev { font-size: 11px; padding: 4px 5px; }
+.columna-izq .eq-ev img { width: 18px; height: 18px; }
+.esc .sesion { min-height: 0; }
+.esc .entre.r2 { margin-top: 20px; }
+.pro2 .nota { font-size: 14px; }
+.cal-tel .eq-cal-cab { margin-bottom: 8px; }
+.cal-tel .eq-titulo { font-size: 17px; }
+.cal-tel .rango { font-size: 13px; color: var(--tinta-suave); }
+.cal-tel .eq-expandir { padding: 6px 12px; font-size: 12.5px; }
+.sem-tel { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.sem-tel .dt { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0 9px; border-radius: 12px; background: rgba(255,255,255,.6); border: 1px solid var(--linea); min-height: 74px; }
+.sem-tel .dt.hoy { background: var(--superficie); border: 2px solid var(--bosque); }
+.sem-tel .d { font: 700 10px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-tenue); }
+.sem-tel .n { font: 600 16px/1 var(--serif); color: var(--bosque); }
+.sem-tel .m { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+.sem-tel .m.p, .ley-tel i.p { width: 10px; height: 10px; border-radius: 50%; background: var(--salvia-fuerte); display: inline-block; margin-top: 5px; }
+.ley-tel { display: flex; gap: 14px; margin-top: 8px; font-size: 12px; color: var(--tinta-suave); }
+.ley-tel span { display: inline-flex; align-items: center; gap: 6px; }
+.ley-tel img { width: 16px; height: 16px; border-radius: 50%; object-fit: cover; }
+.ley-tel i.p { margin-top: 0; }
 </style>
 </head>
 <body>
@@ -444,10 +508,11 @@ ul.lista-simple { padding: 0; }
           </div>
           <div class="acciones">
             <a class="boton primario grande"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
-            <a class="boton contorno">Ver detalle</a>
-            <a class="boton texto">Probar cámara y micrófono</a>
+            <a class="boton contorno">Reprogramar</a>
+            <a class="boton texto">Probar cámara</a>
           </div>
         </article>
+          <div class="eq-cal"><div class="eq-cal-cab"><h2 class="eq-titulo"><span class="solo-semana">Esta semana</span><span class="solo-mes">Noviembre 2026</span></h2><span class="rango solo-semana">2 al 8 de noviembre</span><span class="flechas"><span>‹</span><span>›</span></span><button class="eq-expandir" type="button" onclick="this.closest('.eq-cal').classList.toggle('abierto')"><span class="solo-semana">Ver el mes</span><span class="solo-mes">Ver solo la semana</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="eq-semana"><div class="eq-dia"><span class="d">Lun</span><span class="n">2</span><span class="eq-ev otro">Respiración ✓</span></div><div class="eq-dia"><span class="d">Mar</span><span class="n">3</span><span class="eq-ev otro">Diario ✓</span></div><div class="eq-dia hoy"><span class="d">Hoy</span><span class="n">4</span><span class="eq-ev v"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Valeria 18:00</span></div><div class="eq-dia"><span class="d">Jue</span><span class="n">5</span><span class="eq-ev otro">Ejercicio</span></div><div class="eq-dia"><span class="d">Vie</span><span class="n">6</span></div><div class="eq-dia"><span class="d">Sáb</span><span class="n">7</span><span class="eq-ev otro">Respiración</span></div><div class="eq-dia"><span class="d">Dom</span><span class="n">8</span></div></div><div class="eq-mes"><div class="dias"><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span></div><div class="grilla"><div class="c fuera"><span class="n">26</span></div><div class="c fuera"><span class="n">27</span></div><div class="c fuera"><span class="n">28</span></div><div class="c fuera"><span class="n">29</span><span class="e v"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00 ✓</span></div><div class="c fuera"><span class="n">30</span></div><div class="c fuera"><span class="n">31</span></div><div class="c pasado"><span class="n">1</span></div><div class="c pasado semana"><span class="n">2</span><span class="e otro">Respiración ✓</span></div><div class="c pasado semana"><span class="n">3</span><span class="e otro">Diario ✓</span></div><div class="c hoy"><span class="n">4</span><span class="e v"><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">18:00</span></div><div class="c semana"><span class="n">5</span><span class="e otro">Ejercicio</span></div><div class="c semana"><span class="n">6</span></div><div class="c semana"><span class="n">7</span><span class="e otro">Respiración</span></div><div class="c semana"><span class="n">8</span></div><div class="c"><span class="n">9</span></div><div class="c"><span class="n">10</span></div><div class="c"><span class="n">11</span><span class="e libre">+ Reservar</span></div><div class="c"><span class="n">12</span><span class="e otro">Ejercicio</span></div><div class="c"><span class="n">13</span></div><div class="c"><span class="n">14</span><span class="e otro">Respiración</span></div><div class="c"><span class="n">15</span></div><div class="c"><span class="n">16</span></div><div class="c"><span class="n">17</span></div><div class="c"><span class="n">18</span></div><div class="c"><span class="n">19</span><span class="e otro">Ejercicio</span></div><div class="c"><span class="n">20</span></div><div class="c"><span class="n">21</span><span class="e otro">Respiración</span></div><div class="c"><span class="n">22</span></div><div class="c"><span class="n">23</span></div><div class="c"><span class="n">24</span></div><div class="c"><span class="n">25</span></div><div class="c"><span class="n">26</span><span class="e otro">Ejercicio</span></div><div class="c"><span class="n">27</span></div><div class="c"><span class="n">28</span><span class="e otro">Respiración</span></div><div class="c"><span class="n">29</span></div><div class="c"><span class="n">30</span></div><div class="c fuera"><span class="n">1</span></div><div class="c fuera"><span class="n">2</span></div><div class="c fuera"><span class="n">3</span></div><div class="c fuera"><span class="n">4</span></div><div class="c fuera"><span class="n">5</span></div><div class="c fuera"><span class="n">6</span></div></div><div class="ley"><span><b>1</b> sesión con Valeria este mes</span><span><b>2</b> sesiones disponibles para reservar</span><span><b>8</b> ejercicios y prácticas</span></div></div></div>
           <section class="entre r2">
             <div class="cabeza"><h2 class="t3">Entre sesiones</h2><a class="enlace">Ir al diario<svg class="ico"><use href="#i-flecha"/></svg></a></div>
             <div class="grilla-entre r2">
@@ -477,16 +542,13 @@ ul.lista-simple { padding: 0; }
           </div>
           <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
           <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga (UBA) · Matrícula verificada · 9 años de experiencia</p>
-          <div class="no-leido">
-            <div class="fila"><span class="chip amarillo">Mensaje nuevo</span><span class="tenue">Hoy, 11:02</span></div>
-            <p>“Leí tu registro de ayer. Si te parece, lo charlamos en la sesión de hoy.”</p>
-          </div>
+          <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
           <div class="sesiones3">
             <div><span class="et">Última</span><b>Jue 29/10</b><span class="tenue">18:00</span></div>
             <div class="destacada"><span class="et">Próxima</span><b>Hoy</b><span class="tenue">18:00</span></div>
             <div><span class="et">Disponibles</span><b>3 de 4</b><span class="puntos"><span class="usada"></span><span></span><span class="libre"></span><span class="libre"></span></span></div>
           </div>
-          <div class="botones"><a class="boton bosque"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+          <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
         </article>
       </div>
 
@@ -518,8 +580,9 @@ ul.lista-simple { padding: 0; }
       <div class="cabeza"><span class="chip" style="background:var(--superficie)"><span class="late"></span>Empieza en 8 minutos</span></div>
       <div class="cuando">Hoy, 18:00<small>Con Valeria · 50 min · hora de Argentina</small></div>
       <a class="boton primario grande ancho" style="position:relative"><svg class="ico"><use href="#i-video"/></svg>Entrar a la sesión</a>
-      <div style="display:flex;justify-content:space-between;position:relative"><a class="boton texto" style="height:28px">Ver detalle</a><a class="boton texto" style="height:28px">Probar cámara</a></div>
+      <div style="display:flex;justify-content:space-between;position:relative"><a class="boton texto" style="height:28px">Reprogramar</a><a class="boton texto" style="height:28px">Probar cámara</a></div>
     </article>
+    <div class="cal-tel"><div class="eq-cal-cab"><h2 class="eq-titulo">Esta semana</h2><span class="rango">2 al 8 nov</span><button class="eq-expandir" type="button">Ver el mes<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button></div><div class="sem-tel"><div class="dt"><span class="d">L</span><span class="n">2</span><span class="m p"></span></div><div class="dt"><span class="d">M</span><span class="n">3</span><span class="m p"></span></div><div class="dt hoy"><span class="d">Hoy</span><span class="n">4</span><img class="m" src="../landing/img/profesionales/valeria-quiroga.jpg" alt=""></div><div class="dt"><span class="d">J</span><span class="n">5</span><span class="m p"></span></div><div class="dt"><span class="d">V</span><span class="n">6</span></div><div class="dt"><span class="d">S</span><span class="n">7</span><span class="m p"></span></div><div class="dt"><span class="d">D</span><span class="n">8</span></div></div><div class="ley-tel"><span><img src="../landing/img/profesionales/valeria-quiroga.jpg" alt="">Sesión con Valeria</span><span><i class="p"></i>Ejercicios y diario</span></div></div>
     <article class="tarjeta pro2 tel-pro">
       <div class="pro2-cab">
         <img class="avatar" src="../landing/img/profesionales/valeria-quiroga.jpg" alt="" width="52" height="52">
@@ -531,16 +594,13 @@ ul.lista-simple { padding: 0; }
       </div>
       <div class="pills"><span class="chip">Ansiedad</span><span class="chip">Estrés laboral</span><span class="chip">Terapia cognitivo-conductual</span></div>
       <p class="credenciales"><svg class="ico"><use href="#i-escudo"/></svg>Psicóloga (UBA) · Matrícula verificada · 9 años de experiencia</p>
-      <div class="no-leido">
-        <div class="fila"><span class="chip amarillo">Mensaje nuevo</span><span class="tenue">Hoy, 11:02</span></div>
-        <p>“Leí tu registro de ayer. Si te parece, lo charlamos en la sesión de hoy.”</p>
-      </div>
+          <div class="nota"><i>i</i><span>Te escribió ayer: <b style="color:var(--tinta)">“Te dejo el ejercicio que vimos para esta semana.”</b></span></div>
       <div class="sesiones3">
         <div><span class="et">Última</span><b>Jue 29/10</b></div>
         <div class="destacada"><span class="et">Próxima</span><b>Hoy, 18:00</b></div>
         <div><span class="et">Disponibles</span><b>3 de 4</b></div>
       </div>
-      <div class="botones"><a class="boton bosque"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil<svg class="ico chico"><use href="#i-flecha"/></svg></a></div>
+      <div class="botones"><a class="boton contorno"><svg class="ico chico"><use href="#i-chat"/></svg>Escribile</a><a class="boton texto">Ver perfil</a></div>
     </article>
     <article class="tarjeta menta animo" style="gap:12px">
       <div><b style="color:var(--bosque);font-size:16px">¿Cómo estás hoy?</b></div>
