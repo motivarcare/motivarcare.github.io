@@ -295,7 +295,7 @@ El Buscador de profesionales puede abrirse desde el Cross-selling de profesional
 - **En el teléfono, los menús a pantalla completa.** Los menús de "Filtrar" y "Ordenar por" pueden tener muchas opciones que no se pueden anticipar (especialidades, enfoques), así que en el teléfono no flotan: ocupan todo el viewport y se recorren con scroll. Arriba, el título y la cruz para cerrar; abajo, un botón fijo en verde bosque ("Ver terapeutas" en el filtro, "Listo" en el orden). En el escritorio siguen siendo menús desplegables. Para mostrarlo, las listas suman más enfoques (gestáltico, integrativo, de aceptación y compromiso, dialéctico-conductual, EMDR) y, en el teléfono, más especialidades.
 
 <div class="hechas">
-<article class="hecha">
+<article class="hecha tels3">
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-filtro-pantalla-completa-telefono.jpg" alt="Menú Filtrar por tipo y enfoque a pantalla completa en el teléfono" loading="lazy"><figcaption>Filtrar · 390 × 844</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/06-elegir-desde-complementar-telefono.jpg" alt="Menú Ordenar por compatibilidad a pantalla completa en el teléfono" loading="lazy"><figcaption>Ordenar por · 390 × 844</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-tus-respuestas-telefono.jpg" alt="Lo que nos contaste a pantalla completa en el teléfono" loading="lazy"><figcaption>Tus respuestas · 390 × 844</figcaption></figure>
