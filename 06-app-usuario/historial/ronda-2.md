@@ -22,7 +22,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 5 | Elegí a tu profesional · la primera vez, sin cambiar el orden ni el filtro | Primera versión (escritorio y teléfono) |
 | 6 | Elegí a tu profesional · compatibilidad con prioridad a una especialidad | Segunda versión (escritorio y teléfono) |
 | 7 | Contratación · elegí tu paquete | Primera versión (escritorio y teléfono) |
-| 8 | Reserva · elegí día y horario (antes o después del pago) | Primera versión (escritorio y teléfono) |
+| 8 | Reserva · elegí día y horario (antes o después del pago) | Segunda versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -138,9 +138,9 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
   <figure><img src="/img/app-usuario/ronda-2/08-reservar-horario-escritorio.jpg" alt="Reserva de día y horario en escritorio, después del pago" loading="lazy"><figcaption>Escritorio · después del pago</figcaption></figure>
   <figure class="tel"><img src="/img/app-usuario/ronda-2/08-reservar-horario-telefono.jpg" alt="Reserva de día y horario en el teléfono, antes del pago" loading="lazy"><figcaption>Teléfono · antes del pago</figcaption></figure>
   <div class="texto">
-    <span class="chip-estado">Mockup 8 · primera versión</span>
+    <span class="chip-estado">Mockup 8 · segunda versión</span>
     <h3>Reserva · elegí día y horario</h3>
-    <p>La pantalla de "Ver más horarios". Se usa antes o después de pagar, y solo cambia el botón amarillo:</p>
+    <p>La pantalla de "Ver más horarios", con la estructura del mockup 2 expandida: los días se recorren con scroll y cada uno muestra sus horarios libres debajo. Se reserva una sesión por vez. Se usa antes o después de pagar, y cambia el botón amarillo:</p>
     <ul>
       <li><strong>Después del pago</strong> (escritorio): "Reservar sesión", con "Usás 1 de tus 2 sesiones disponibles con Valeria".</li>
       <li><strong>Antes del pago</strong> (teléfono): "Reservar y proceder al pago", con el horario y el precio.</li>
@@ -267,15 +267,15 @@ Se llega desde "Ver paquetes" en la elección de profesional (mockups 5 y 6). Pa
 
 ## 8 · Reserva: elegí día y horario
 
-Es la pantalla que se abre con "Ver más horarios" o "Reservar sesión" en el Inicio (mockup 2), y también antes o después de contratar (mockup 7). Sigue la estructura del mockup 7: sin navegación lateral, con "Volver" arriba y la **ficha del terapeuta siempre a la vista**, para que no haya dudas de con quién se reserva.
+Es la pantalla que se abre con "Ver más horarios" o "Reservar sesión" en el Inicio (mockup 2), y también antes o después de contratar (mockup 7). **Mantiene la estructura del mockup 2**, con la navegación, expandida para mostrar más días y horarios:
 
-- **Días:** una fila con los próximos días ("Hoy", jueves 5, viernes 6…) y cuántos horarios libres tiene cada uno, con una flecha para ver más. El día elegido va en verde bosque.
-- **Horarios:** los del día elegido, agrupados por franja (mañana, tarde y noche) y en tu hora. Los libres van con borde punteado; el elegido, en verde bosque.
-- **Frecuencia** (escritorio): "Solo esta vez" o "Todas las semanas". Con "Todas las semanas" se reserva el mismo horario con las sesiones disponibles.
-- **Ficha del terapeuta:** "Reservás con", la foto, el nombre, "★ 4,9 · Argentina", las especialidades y las credenciales. Debajo, "Tu sesión" con el día y la hora elegidos, y las aclaraciones del servicio (el enlace de la videollamada y la reprogramación sin costo hasta 24 h antes).
+- **"Volver al inicio"** arriba y el título "Reservá tu próxima sesión", con la aclaración de que los horarios están en tu hora.
+- **La tarjeta verde se expande en una lista que se recorre con scroll.** Cada día es un encabezado de sección ("Hoy, miércoles 4", "Jueves 5"…, con la cantidad de horarios) y debajo van sus horarios libres, con borde punteado. No hace falta tocar cada día para ver sus horarios. El horario elegido va en verde bosque.
+- **Una sesión por vez:** por ahora se reserva un solo horario (sin reservas semanales ni múltiples).
+- **Columna derecha:** la tarjeta del terapeuta (con sus especialidades, credenciales y sesiones disponibles), para que no haya dudas de con quién se reserva, y debajo **"Tu sesión"** con el día y la hora elegidos y el botón amarillo, siempre a la vista mientras se recorren los días.
 - **El botón amarillo cambia según el momento:**
   - **Después del pago:** "**Reservar sesión**", con "Usás 1 de tus 2 sesiones disponibles con Valeria" (se ve en el escritorio).
-  - **Antes del pago:** "**Reservar y proceder al pago**", y la barra muestra el horario elegido y el precio del encuentro inicial (se ve en el teléfono). Después de reservar, sigue la contratación (mockup 7).
+  - **Antes del pago:** "**Reservar y proceder al pago**", con el horario elegido y el precio del encuentro inicial en una barra fija sobre la navegación (se ve en el teléfono). La tarjeta dice "Reservás con", porque todavía no es su terapeuta. Después de reservar, sigue la contratación (mockup 7).
 
 ## Decisiones de la ronda
 
@@ -303,3 +303,4 @@ En la primera versión del mockup 5, "Especialidad" era un tercer criterio de or
 - Se suma el **mockup 5**, el mismo listado como se ve la primera vez (sin orden ni filtro cambiados). El de la prioridad a una especialidad pasa a ser el **mockup 6**.
 - **Sin accesos directos.** Se sacan las pills "Dar prioridad a:" de los mockups 5 y 6: duplicaban el menú, y "Otra…" solo volvía a abrirlo. El menú de "Compatibilidad" es el único lugar para dar prioridad a una especialidad. Con una especialidad elegida, el control dice su nombre ("Ansiedad"); al volver a "Según todas tus respuestas", vuelve a decir "Compatibilidad".
 - En las tarjetas de los terapeutas, el botón "Elegir" pasa a ser **"Ver paquetes"**, junto al enlace "Ver perfil y horarios", para alentar a contratar y pagar lo antes posible.
+- **Mockup 8, segunda versión:** en lugar de elegir un día por vez, la reserva mantiene la estructura del mockup 2 y los días se recorren con scroll, cada uno con sus horarios debajo. Se reserva una sesión por vez (se saca "Todas las semanas").
