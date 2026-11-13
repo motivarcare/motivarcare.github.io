@@ -88,3 +88,4 @@ Otros cambios respecto del B3:
 - Disponibles queda como "2 del paquete de 4 con Valeria". Antes decía "3 de 4" y contaba como disponible la sesión de hoy, que ya está reservada.
 - Los botones pasan a ser **"Escribile"** y **"Comprar más sesiones"**. La compra queda atada al profesional de la tarjeta, como piden las reglas de producto.
 - **"Ver perfil"** sube a un botón chico en la esquina superior derecha de la tarjeta.
+- Más orden y aire: una línea divisoria antes del mensaje ("Te escribió ayer…") y otra antes de las sesiones disponibles, y más separación vertical antes del mensaje, antes de las sesiones y, un poco más, antes de los botones.
