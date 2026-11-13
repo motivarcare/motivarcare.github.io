@@ -103,7 +103,7 @@ Toma como base el Inicio B3 de la [Ronda #1](/06-app-usuario/historial/ronda-1/)
 Otros cambios respecto del B3:
 
 - En la tarjeta de la sesión, **"Reprogramar"** reemplaza a "Ver detalle", y "Probar cámara" queda como enlace.
-- Debajo de la sesión vuelve **la agenda de la semana** de la familia 3 (Ronda #1), con un solo profesional: la sesión de hoy con su foto, los ejercicios y el diario de cada día, y **"Ver sesiones"**, que lleva a la página de Sesiones. En el teléfono es una versión compacta: cada día lleva la foto de Valeria si hay sesión o un punto si hay ejercicios.
+- Debajo de la sesión vuelve **la agenda de la semana** de la familia 3 (Ronda #1), con un solo profesional: la sesión de hoy con el nombre y el horario, los ejercicios y el diario de cada día, y **"Ver sesiones"**, que lleva a la página de Sesiones. En el teléfono es una versión compacta: cada día lleva la foto de Valeria si hay sesión o un punto si hay ejercicios.
 
 - La tarjeta de sesiones disponibles, que iba aparte, ahora es parte de la tarjeta del profesional: las sesiones siempre se muestran junto a su nombre.
 - "Entre sesiones" pasa a la columna de la izquierda, debajo de la sesión, con el registro del ánimo y el ejercicio sugerido. El gráfico "Tu semana" queda en el Diario, para que la pantalla no crezca de más y Maca tenga libre su esquina.
@@ -169,7 +169,7 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 
 - **Saludo:** "Esta semana tenés 3 sesiones con 3 terapeutas. La próxima, con Valeria, empieza en unos minutos."
 - **Tarjeta verde:** la sesión más próxima, sea con quien sea. Es igual a la del mockup 1, con el nombre del profesional de esa sesión.
-- **Agenda de la semana:** reúne las sesiones con todos los profesionales, cada uno con su foto y un color propio (salvia para Valeria, lima para Andrés y amarillo suave para Tomás, los colores categóricos del design system). En el teléfono, cada día lleva la foto del profesional con quien hay sesión.
+- **Agenda de la semana:** reúne las sesiones con todos los profesionales, cada uno con su nombre, su horario y un color propio (salvia para Valeria, lima para Andrés y amarillo suave para Tomás, los colores categóricos del design system). En el teléfono, cada día lleva la foto del profesional con quien hay sesión.
 - **Tarjeta del terapeuta con selector:** arriba, "Tus terapeutas · 3" y una pastilla con la foto y el nombre de cada uno. **El terapeuta principal va siempre primero** y es el que se abre por defecto; después van los demás. Se ve uno por vez, con los mismos datos y el mismo orden que en el mockup 1. Cada pastilla avisa con dos indicadores simples: el ícono de sesión con la cantidad de sesiones futuras reservadas (en menta) y el ícono del chat con la cantidad de mensajes sin leer (en amarillo). En el ejemplo, Valeria tiene 1 sesión (la de hoy) y 1 mensaje, Andrés 1 sesión y Tomás 1 mensaje. Sobre el nombre del principal dice "Tu terapeuta". Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
 - **Entre sesiones:** igual que en el mockup 1.
 
@@ -190,3 +190,4 @@ En los mockups:
 - El usuario puede **contratar sesiones (o paquetes) con otros terapeutas o profesionales**. Debajo de la tarjeta del terapeuta hay un espacio punteado con la pregunta "¿Buscás un terapeuta de otra especialidad u otro tipo de profesional?" y la acción **"Sumar profesional"** (porque puede sumar un terapeuta de otra especialidad o, más adelante, otro tipo de profesional, como un nutricionista). Debajo, la aclaración "Cada profesional tiene sus propias sesiones, su precio y su paquete". Está en los mockups 1, 2 y 4.
 - Con más de un terapeuta, **el principal va siempre primero**. Cada pastilla avisa con el ícono de sesión y la cantidad de sesiones futuras reservadas, y con el ícono del chat y la cantidad de mensajes sin leer.
 - **En esta fase solo hay psicólogos.** "Profesionales" queda como término general para las categorías que se sumen más adelante (por ejemplo, nutricionistas). En el mockup 3, los textos pasan a "Encontrá a tu terapeuta", "Elegí a tu terapeuta" y "Ver terapeutas".
+- En la agenda de la semana de escritorio, cada sesión muestra solo el nombre y el horario, sin la foto, que dejaba el día muy apretado. En el teléfono, donde hay menos espacio, cada día lleva solo la foto del terapeuta.
