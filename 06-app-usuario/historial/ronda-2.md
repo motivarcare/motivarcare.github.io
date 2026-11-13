@@ -19,6 +19,7 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
 | 2 | Inicio · profesional asignado, sin turnos reservados | Primera versión (escritorio y teléfono) |
 | 3 | Inicio · sin profesional asignado | Segunda versión (escritorio y teléfono) |
 | 4 | Inicio · con más de un profesional asignado | Primera versión (escritorio y teléfono) |
+| 5 | Elegí a tu terapeuta · orden por especialidad y filtro de profesionales | Primera versión (escritorio y teléfono) |
 
 ## Mockups
 
@@ -85,6 +86,20 @@ Cada mockup se hace en escritorio (1440 × 1024) y en teléfono (390 de ancho). 
       <li>Debajo, "Sumar profesional".</li>
     </ul>
     <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-4-escritorio">Ver en tamaño real →</a>
+  </div>
+</article>
+<article class="hecha">
+  <figure><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-escritorio.jpg" alt="Elegí a tu terapeuta en escritorio, ordenado por la especialidad Ansiedad, con el menú abierto" loading="lazy"><figcaption>Escritorio · 1440 × 1024</figcaption></figure>
+  <figure class="tel"><img src="/img/app-usuario/ronda-2/05-elegir-terapeuta-telefono.jpg" alt="Elegí a tu terapeuta en el teléfono, en el orden por defecto" loading="lazy"><figcaption>Teléfono · 390 × 844</figcaption></figure>
+  <div class="texto">
+    <span class="chip-estado">Mockup 5 · primera versión</span>
+    <h3>Elegí a tu terapeuta</h3>
+    <p>Parte de la elección de la familia 2 y mantiene el panel "Lo que nos contaste", con "Cambiar mis respuestas". Suma:</p>
+    <ul>
+      <li>El orden por <strong>especialidad</strong>, junto a compatibilidad y precio: por defecto, según todas tus respuestas; si elegís una, sus terapeutas van primero. No es un filtro.</li>
+      <li>El filtro <strong>"Mostrar"</strong>, hoy solo con terapeutas, preparado para otros profesionales.</li>
+    </ul>
+    <a class="boton-ver" href="/app-usuario/ronda-2.html#r2-5-escritorio">Ver en tamaño real →</a>
   </div>
 </article>
 </div>
@@ -172,6 +187,22 @@ Combina la familia 2 (la agenda y la sesión mandan) con la posibilidad de traba
 - **Agenda de la semana:** reúne las sesiones con todos los profesionales, cada uno con su nombre, su horario y un color propio (salvia para Valeria, lima para Andrés y amarillo suave para Tomás, los colores categóricos del design system). En el teléfono, cada día lleva la foto del profesional con quien hay sesión.
 - **Tarjeta del terapeuta con selector:** arriba, "Tus terapeutas · 3" y una pastilla con la foto y el nombre de cada uno. **El terapeuta principal va siempre primero** y es el que se abre por defecto; después van los demás. Se ve uno por vez, con los mismos datos y el mismo orden que en el mockup 1. Cada pastilla avisa con dos indicadores simples: el ícono de sesión con la cantidad de sesiones futuras reservadas (en menta) y el ícono del chat con la cantidad de mensajes sin leer (en amarillo). En el ejemplo, Valeria tiene 1 sesión (la de hoy) y 1 mensaje, Andrés 1 sesión y Tomás 1 mensaje. Sobre el nombre del principal dice "Tu terapeuta". Las sesiones disponibles, "Escribile" y "Comprar más sesiones" son siempre del profesional elegido, como pide la regla de que nada se paga sin un profesional definido.
 - **Entre sesiones:** igual que en el mockup 1.
+
+## 5 · Elegí a tu terapeuta
+
+Toma como punto de partida la elección de profesional de la familia 2 ([Ronda #1](/06-app-usuario/historial/ronda-1/)), con la navegación de esta ronda. Es el paso 1 de la primera sesión, al que se llega desde "Ver terapeutas" en el Inicio sin profesional (mockup 3).
+
+- **"Lo que nos contaste"** se mantiene a la derecha: las respuestas del cuestionario agrupadas (qué querés trabajar, tu experiencia, tus preferencias y tu presupuesto) y "Cambiar mis respuestas". En el teléfono, las respuestas van arriba como pills, con "Cambiar".
+- **Ordenar por:** Compatibilidad, Precio y **Especialidad**, en un mismo control.
+  - **Por defecto, la especialidad es libre:** ordena según todas las respuestas del cuestionario ("Todas, según tus respuestas").
+  - **Si la persona elige una especialidad**, los terapeutas que la trabajan aparecen primero, ordenados por compatibilidad, y debajo, con el separador "Otros terapeutas para vos", los demás. **No es un filtro**: nadie desaparece de la lista; es una compatibilidad manual. El menú lo aclara al pie.
+  - El menú de especialidades muestra primero las de tus respuestas y después las demás.
+  - En el escritorio se ve el orden por "Especialidad: Ansiedad" con el menú abierto; en el teléfono, el orden por defecto.
+- **Filtro "Mostrar":** a la izquierda, "Mostrar: Terapeutas". En esta etapa es la única opción, pero queda preparado para sumar otras categorías de profesionales (por ejemplo, nutricionistas).
+- **Tarjetas de los terapeutas,** con las reglas de esta ronda:
+  - La profesión en su propia línea ("Psicóloga clínica") y las especialidades en pills, en una sola línea. Las que coinciden con tus respuestas llevan "✓" y fondo salvia; la especialidad elegida para ordenar se resalta en amarillo suave con borde.
+  - El precio es el del **encuentro inicial** ("Encuentro inicial · $42.000"), y el panel aclara que los paquetes se eligen después, con el terapeuta elegido.
+  - "La que más encaja" marca a la primera, que lleva el único botón amarillo ("Elegir").
 
 ## Decisiones de la ronda
 
